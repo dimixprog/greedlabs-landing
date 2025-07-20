@@ -1,7 +1,6 @@
-<!-- pages/index.vue -->
+<!-- pages/development.vue -->
 <template>
   <div>
-
     <Hero class="flex justify-between items-center">
       <div>
         <h2 class="colorized-text">РАЗРАБОТКА</h2>
@@ -11,21 +10,17 @@
           Dapps, решения для CEX и DEX, и многое другое.<br>
           Мы вас ждём!
         </p>
-        <button class="bg-[#1586F4] cursor-pointer
-         transition-colors transition-border duration-200 ease-in-out
-         shadow-[0_0_10px_rgb(21,134,244)]
-         hover:shadow-[0_0_7px_rgb(21,134,244),0_0_13px_rgb(21,134,244),0_0_18px_rgb(21,134,244),0_0_50px_rgb(21,134,244)]
-         px-6 py-3 text-lg rounded-2xl text-white font-semibold">Бесплатная консультация</button>
+        <ConsultButton />
       </div>
 
       <Cubes3D />
     </Hero>
 
     <div class="services-container">
-      <h2 class="text-4xl">НАШ СПЕКТР УСЛУГ</h2>
+      <h2 class="text-services">НАШ СПЕКТР УСЛУГ</h2>
 
       <!-- Первая строка: 2 карточки -->
-      <div class="grid grid-cols-2 gap-4 w-full mb-4">
+      <div class="grid grid-cols-2 gap-8 w-full mb-8">
         <FlipCard front-title="ДИЗАЙН" front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
           back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
         <FlipCard front-title="РАЗРАБОТКА" front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
@@ -33,7 +28,7 @@
       </div>
 
       <!-- Остальные: 3 карточки в строку -->
-      <div class="grid grid-cols-3 gap-4 w-full">
+      <div class="grid grid-cols-3 gap-8 w-full">
         <FlipCard front-title="WEB3 - УТИЛИТЫ"
           front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
           back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
@@ -45,28 +40,28 @@
     </div>
 
 
-    <h2 class="colorized-text text-4xl">Жизненный цикл проекта</h2>
+    <h2 class="colorized-text mt-24 mb-24">Жизненный цикл проекта</h2>
     <hr />
 
     <div class="flex justify-between items-center">
       <ScrollSpinning />
-      <div>
-        <h3 class="colorized-text text-4xl pt-32">Анализ</h3>
-        <p class="pb-32 text-2xl">
+      <div class="life-cycle">
+        <h3 class="pt-32">Анализ</h3>
+        <p>
           Проработка бизнес-логики проекта,
           описание его деталей и системы техническим языком.<br>
           Первая и важнейшая стадия, которая определяет весь дальнейший ход проекта.
         </p>
 
-        <h3 class="colorized-text text-4xl">Разработка</h3>
-        <p class="pb-32 text-2xl">
+        <h3>Разработка</h3>
+        <p>
           На этой стадии ваша идея воплощается в жизнь и вы можете наблюдать это в еженедельных отчетах.<br>
           Мы не только пишем код, но и готовим сервера, базы данных и всю систему в целом к использованию "в бою".
         </p>
 
 
-        <h3 class="colorized-text text-4xl">Тестирование</h3>
-        <p class="pb-32 text-2xl">
+        <h3>Тестирование</h3>
+        <p>
           Последняя, но не по значению, стадия, на которой мы проверяем насколько ваш проект готов в выпуску в свет.<br>
           Мы проводим целый ряд тестов для подтверждения качества и надежности.
         </p>
@@ -76,41 +71,42 @@
 
 
     <div class="tech-stack">
-      <h2 class="colorized-text text-4xl">ТЕХНОЛОГИЧЕСКИЙ СТЕК</h2>
+      <h2 class="colorized-text">ТЕХНОЛОГИЧЕСКИЙ СТЕК</h2>
       <p>
         У нашей команды обширный стек и опыт работы.
         Мы не ограничены в языках и фреймворках, что позволяет нам использовать на каждом проекте наиболее оптимальный
         набор инструментов.
       </p>
       <div class="flex flex-row">
-        <div class="colorized-text languages card w-full">
-          <img class="self-center" src="/code_symbol.png" alt="code symbil" width="128" height="64">
-          <p>Языки и фреймворки</p>
-          <div class="grid grid-cols-3 gap-4">
+        <div class="languages card w-full">
+          <img class="colorized-text self-center" src="/code_symbol.png" alt="code symbil" width="256">
+          <p class="colorized-text ">Языки и фреймворки</p>
+          <div class="grid grid-cols-3 gap-8 items-center place-items-center">
             <img src="/logos/python.svg" alt="python logo" width="64" height="64">
-            <img src="/logos/go.svg" alt="go logo" width="64" height="64">
-            <img src="/logos/react.svg" alt="react logo" width="64" height="64">
-            <img src="/logos/vue_js.svg" alt="vue js logo" width="64" height="64">
-            <img src="/logos/js.svg" alt="JavaScript logo" width="64" height="64">
-            <img src="/logos/node_js.svg" alt="Node.js logo" width="64" height="64">
+            <img src="/logos/go.svg" alt="go logo" width="179" height="64">
+            <img src="/logos/react.svg" alt="react logo" width="74" height="64">
+            <img src="/logos/vue_js.svg" alt="vue js logo" width="74" height="64">
+            <img src="/logos/js.svg" alt="JavaScript logo" width="74" height="64">
+            <img src="/logos/node_js.svg" alt="Node.js logo" width="74" height="64">
           </div>
         </div>
-        <div class="colorized-text languages card w-full">
-          <p>Блокчейны</p>
-          <div class="grid grid-cols-3 gap-4">
-            <img src="/logos/etherium.svg" alt="etherium logo" width="64" height="64">
-            <img src="/logos/blockchain2.svg" alt="go logo" width="64" height="64">
-            <img src="/logos/blockchain3.svg" alt="react logo" width="64" height="64">
+        <div class="languages card w-full">
+          <img class="colorized-text self-center" src="/bridge_symbol.png" alt="code symbil" width="128">
+          <p class="colorized-text ">Блокчейны</p>
+          <div class="grid grid-cols-3 gap-8 items-center place-items-center">
+            <img src="/logos/etherium.svg" alt="etherium logo" width="44" height="64">
+            <img src="/logos/solana.svg" alt="solana logo" width="84" height="64">
+            <img src="/logos/binance.svg" alt="binance logo" width="64" height="64">
             <img src="/logos/blockchain4.svg" alt="vue js logo" width="64" height="64">
-            <img src="/logos/blockchain5.svg" alt="JavaScript logo" width="64" height="64">
-            <img src="/logos/blockchain6.svg" alt="Node.js logo" width="64" height="64">
+            <img src="/logos/toncoin.svg" alt="toncoin logo" width="84" height="64">
+            <img src="/logos/tron.svg" alt="tron logo" width="84" height="64">
           </div>
         </div>
       </div>
     </div>
 
     <div class="why-we py-12">
-      <h2 class="colorized-text text-4xl">Почему мы?</h2>
+      <h2 class="colorized-text mt-24 mb-24">Почему мы?</h2>
       <hr>
 
       <div class="flex flex-row">
@@ -209,6 +205,58 @@
 </template>
 
 <style scoped>
+h2 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.life-cycle h3{
+  color: #fff;
+  font-weight: 700;
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.life-cycle p{
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 500;
+  padding-bottom: 12rem;
+}
+
+.tech-stack h2{
+  color: #fff;
+  font-weight: 700;
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tech-stack p{
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 500;
+  padding-bottom: 3rem;
+  text-align: center;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.languages{
+  padding-bottom: 3rem;
+}
+
+.languages .self-center{
+  margin: 0 auto;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.languages p{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 .project {
   display: flex;
   flex-direction: column;
@@ -230,6 +278,23 @@
   object-fit: cover;
   user-select: none;
   pointer-events: none;
+}
+
+.text-services{
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 300%;
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.1;
+  font-weight: 700;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+  color: #ffffff;
+  text-align: center;
+  z-index: 3;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 </style>
 

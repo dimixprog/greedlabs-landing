@@ -26,7 +26,7 @@ import Footer from '~/components/Footer.vue'
 .card {
   border: 1px solid rgba(255, 255, 255, 0.1);
   /* color: white; */
-  background-color: #1d1d1d;
+  background-color: #222222;
   border-radius: 12px;
   padding: 12px;
   margin: 12px;

@@ -1,102 +1,864 @@
-<script setup>
-import { useWindowSize } from '@vueuse/core'
-const { t } = useI18n()
-const { width } = useWindowSize()
-const breakpoint = 768
-</script>
-
 <template>
-  <header>
-    <img src="~/public/greed_logo.svg" width="190" height="70" alt="greed_logo">
-
-    <Dropout>
-      <a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">УСЛУГИ DEX</a>
-      <a href="/market-making/1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 pl-8">Anti-snipe protection</a>
-      <a href="/market-making/2" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 pl-8">Управление объемом</a>
-      <a href="/market-making/2" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 pl-8">Контроль цен</a>
-      <a href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Запуск токена</a>
-      <a href="/contact" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Услуги CEX</a>
-      <a href="/market-making/1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 pl-8">Управление ликвидностью</a>
-      <a href="/market-making/2" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 pl-8">Листинг на CEXs</a>
-      <a href="/market-making/2" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 pl-8">Оптимизация ордеров</a>
-    </Dropout>
-
-    <nav>
-      <!-- <a>Market making</a> -->
-      <a href="development">Разработка</a>
-      <a href="consulting">Консалтинг</a>
-      <a href="about">О нас</a>
-      <a href="soon">Скоро</a>
-    </nav>
-    <div class="lang-switcher">
-      en ru
+  <!-- Десктопная версия -->
+  <header class="header desktop-header" @mouseenter="closeAllMenus">
+    <div class="header-background"></div>
+    
+    <!-- Логотип -->
+    <div class="header-logo">
+      <a href="/">
+        <img src="/greed_logo.svg" alt="GREED Labs" />
+      </a>
     </div>
-    <div class="contact us">Свяжитесь с нами</div>
-    <!-- <p v-if="width < breakpoint">Mobile component</p>
-        <p v-else >Desktop component</p> -->
+
+    <!-- Навигация -->
+    <nav class="header-nav">
+      <div class="nav-item market-making" 
+           @mouseenter="openMarketMenu" 
+           @mouseleave="keepMenuOpen">
+        <a href="market-making" class="nav-link">
+          Market making
+          <svg  class="dropdown-arrow" :class="{ 'rotated': isMarketMenuOpen }" xmlns="http://www.w3.org/2000/svg" viewBox="5786.73681640625 4997 11.5263671875 8.75"> 
+            <path fill="#ffffff" fill-opacity="1" stroke="" stroke-opacity="0" stroke-width="1" id="tSvg47a8afa93b" 
+              d="M 5792.5 4998L 5797.263139720814 5004.75L 5787.736860279186 5004.75Z" title="Polygon 1">
+            </path>
+          </svg>
+        </a>
+        
+        <!-- Выпадающее меню Market Making -->
+        <div v-if="isMarketMenuOpen" class="dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="keepMenuOpen">
+          <div class="dropdown-background"></div>
+          <div class="dropdown-content">
+            <div class="dropdown-section">
+              <a href="market-making#dex-services" class="dropdown-link main">Услуги DEX</a>
+              <a href="market-making#anti-snipe" class="dropdown-link sub">Anti-snipe protection</a>
+              <a href="market-making#volume-management" class="dropdown-link sub">Управление объемом</a>
+              <a href="market-making#price-control" class="dropdown-link sub">Контроль цен</a>
+            </div>
+            <div class="dropdown-section">
+              <a href="market-making#token-launch" class="dropdown-link main">Запуск токена</a>
+            </div>
+            <div class="dropdown-section">
+              <a href="market-making#cex-services" class="dropdown-link main">Услуги CEX</a>
+              <a href="market-making#liquidity-management" class="dropdown-link sub">Управление ликвидностью</a>
+              <a href="market-making#cex-listing" class="dropdown-link sub">Листинг на CEXs</a>
+              <a href="market-making#order-optimization" class="dropdown-link sub">Оптимизация ордеров</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="development" class="nav-link">Разработка</a>
+      <a href="consulting" class="nav-link">Консалтинг</a>
+    </nav>
+
+    <!-- Переключатель языков -->
+    <div class="language-switcher">
+      <div class="lang-background"></div>
+      <div class="lang-indicator" :class="{ 'eng': currentLang === 'eng' }"></div>
+      <a href="#" class="lang-link first-lang" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
+      <a href="#" class="lang-link second-lang" :class="{ 'active': currentLang === 'eng' }" @click.prevent="switchLanguage('eng')">ENG</a>
+    </div>
+
+    <!-- Кнопка связи с выпадающим меню -->
+    <div class="contact-dropdown" 
+         @mouseenter="openContactMenu" 
+         @mouseleave="keepMenuOpen">
+      <a href="#contact" class="contact-button">
+        Свяжитесь с нами
+      </a>
+      
+      <!-- Выпадающее меню контактов -->
+      <div v-if="isContactMenuOpen" class="contact-dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="keepMenuOpen">
+        <div class="dropdown-background"></div>
+        <div class="dropdown-content">
+          <div class="contact-section">
+            <a href="mailto:hello@greedlabs.org" class="contact-link">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path fill="white" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              hello@greedlabs.org
+            </a>
+            
+            <a href="https://t.me/greedlabs" class="contact-link" target="_blank">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path fill="white" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+              Telegram
+            </a>
+            
+            <a href="https://linkedin.com/company/greedlabs" class="contact-link" target="_blank">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path fill="white" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            
+            <a href="https://x.com/greedlabs" class="contact-link" target="_blank">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path fill="white" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
+              X.com
+            </a>
+          </div>
+          
+          <div class="contact-section">
+            <button class="consultation-btn" @click="scrollToConsultation">
+              Бесплатная консультация
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
+
+  <!-- Мобильная версия -->
+  <header class="mobile-header">
+    <div class="mobile-header-container">
+      <div class="mobile-header-background"></div>
+      
+      <!-- Логотип -->
+      <div class="mobile-logo">
+        <a href="/">
+          <img src="/greed_logo.svg" alt="GREED Labs" />
+        </a>
+      </div>
+
+      <!-- Гамбургер меню -->
+      <div class="hamburger-container" @click="toggleMobileMenu">
+        <div class="hamburger-background"></div>
+        <div class="hamburger-lines">
+          <span class="hamburger-line" :class="{ 'active': isMobileMenuOpen }"></span>
+          <span class="hamburger-line" :class="{ 'active': isMobileMenuOpen }"></span>
+          <span class="hamburger-line" :class="{ 'active': isMobileMenuOpen }"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Полноэкранное мобильное меню -->
+  <div v-if="isMobileMenuOpen" class="mobile-menu-overlay">
+    <div class="mobile-menu-background"></div>
+    <div class="mobile-menu-container">
+      <!-- Хедер мобильного меню -->
+      <div class="mobile-menu-header">
+               
+        <!-- Мобильный переключатель языков -->
+        <div class="mobile-language-switcher">
+          <div class="mobile-lang-background"></div>
+          <div class="mobile-lang-indicator" :class="{ 'eng': currentLang === 'eng' }"></div>
+          <a href="#" class="mobile-lang-link" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
+          <a href="#" class="mobile-lang-link" :class="{ 'active': currentLang === 'eng' }" @click.prevent="switchLanguage('eng')">ENG</a>
+        </div>
+      </div>
+
+      <!-- Мобильная навигация -->
+      <nav class="mobile-nav">
+        <div class="mobile-nav-section">
+          <a href="market-making" class="mobile-nav-link main" @click="closeMobileMenu">Market Making</a>
+        </div>
+        
+        <div class="mobile-nav-section">
+          <a href="market-making#dex-services" class="mobile-nav-link main" @click="closeMobileMenu">Услуги DEX</a>
+          <a href="market-making#anti-snipe" class="mobile-nav-link sub" @click="closeMobileMenu">Anti-Snipe Protection</a>
+          <a href="market-making#volume-management" class="mobile-nav-link sub" @click="closeMobileMenu">Управление объемом</a>
+          <a href="market-making#price-control" class="mobile-nav-link sub" @click="closeMobileMenu">Контроль цен</a>
+        </div>
+        
+        <div class="mobile-nav-section">
+          <a href="market-making#token-launch" class="mobile-nav-link main" @click="closeMobileMenu">Запуск токена</a>
+        </div>
+        
+        <div class="mobile-nav-section">
+          <a href="market-making#cex-services" class="mobile-nav-link main" @click="closeMobileMenu">Услуги CEX</a>
+          <a href="market-making#liquidity-management" class="mobile-nav-link sub" @click="closeMobileMenu">Управление ликвидностью</a>
+          <a href="market-making#cex-listing" class="mobile-nav-link sub" @click="closeMobileMenu">Листинг на CEXs</a>
+        </div>
+        
+        <div class="mobile-nav-section">
+          <a href="development" class="mobile-nav-link main" @click="closeMobileMenu">Разработка</a>
+        </div>
+        
+        <div class="mobile-nav-section">
+          <a href="consulting" class="mobile-nav-link main" @click="closeMobileMenu">Консалтинг</a>
+        </div>
+      </nav>
+
+      <!-- Контакты -->
+      <div class="mobile-contacts">
+        <a href="mailto:hello@greedlabs.org" class="mobile-contact-link">
+          @ hello@greedlabs.org
+        </a>
+        <a href="https://t.me/greedlabs" class="mobile-contact-link">
+          <img src="~/public/logos/telegram.svg" alt="linkedin logo"> Telegram
+        </a>
+        <a href="https://linkedin.com/company/greedlabs" class="mobile-contact-link">
+          <img src="~/public/logos/linkedin.svg" alt="linkedin logo"> LinkedIn
+        </a>
+        <a href="https://x.com/greedlabs" class="mobile-contact-link">
+          <img src="~/public/logos/x.svg" alt="linkedin logo"> X.com
+        </a>
+      </div>
+
+      <!-- Кнопка консультации -->
+      <button class="mobile-consultation-btn" @click="scrollToConsultation">
+        Бесплатная консультация
+      </button>
+    </div>
+  </div>
 </template>
 
-<style scoped>
-header {
+<script setup>
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 
+const isMobileMenuOpen = ref(false)
+const isMarketMenuOpen = ref(false)
+const isContactMenuOpen = ref(false)
+const currentLang = ref('ru')
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false
+}
+
+const openMarketMenu = () => {
+  isMarketMenuOpen.value = true
+  isContactMenuOpen.value = false
+}
+
+const openContactMenu = () => {
+  isContactMenuOpen.value = true
+  isMarketMenuOpen.value = false
+}
+
+const keepMenuOpen = () => {
+  // Функция для предотвращения закрытия меню при наведении
+}
+
+const closeAllMenus = () => {
+  isMarketMenuOpen.value = false
+  isContactMenuOpen.value = false
+}
+
+const switchLanguage = (lang) => {
+  currentLang.value = lang
+}
+
+const scrollToConsultation = () => {
+  const element = document.querySelector('#contact')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+  closeMobileMenu()
+  closeAllMenus()
+}
+
+// Закрытие меню при прокрутке страницы
+const handleScroll = () => {
+  closeAllMenus()
+}
+
+// Блокировка скролла при открытом мобильном меню
+watch(isMobileMenuOpen, (newValue) => {
+  if (process.client) {
+    if (newValue) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }
+})
+
+onMounted(() => {
+  if (process.client) {
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1023) {
+        isMobileMenuOpen.value = false
+      }
+    })
+  }
+})
+
+onUnmounted(() => {
+  if (process.client) {
+    window.removeEventListener('scroll', handleScroll)
+  }
+})
+</script>
+
+<style scoped>
+/* Базовые стили для десктопа */
+.header {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  max-width: 2560px;
+  width: 88vw;
+  min-width: 340px;
+  margin: 0 auto;
+  height: 120px;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5vw;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+
+.header-background {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 30px;
+  z-index: -1;
+}
+
+/* Логотип */
+.header-logo img {
+  width: 10vw;
+  height: auto;
+  display: block;
+  padding-top: 0.5rem;
+}
+
+/* Навигация */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+  margin-left: 4.5vw;
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1vw;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #1586f4;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+  width: 1vw;
+  transform: rotate(-180deg);
+}
+
+.dropdown-arrow.rotated {
+  transform: rotate(-270deg);
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: clamp(-10px, -2vw, -20px);
+  width: clamp(180px, 27vw, 280px);
+  margin-top: clamp(10px, 2vw, 20px);
+  z-index: 999998;
+}
+
+.dropdown-background {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+}
+
+.dropdown-content {
+  position: relative;
+  padding: clamp(10px, 2vw, 20px);
+  z-index: 1;
+}
+
+.dropdown-section {
+  margin-bottom: clamp(8px, 1.5vw, 15px);
+}
+
+.dropdown-section:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-link {
+  display: block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.1vw;
+  color: white;
+  text-decoration: none;
+  padding: clamp(3px, 0.6vw, 6px) 0;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.dropdown-link.main {
+  font-weight: 600;
+  margin-bottom: clamp(3px, 0.5vw, 5px);
+}
+
+.dropdown-link.sub {
+  font-weight: 500;
+  color: #d2d2d2;
+  padding-left: clamp(5px, 1vw, 10px);
+}
+
+.dropdown-link:hover {
+  color: #1586f4;
+}
+
+/* Переключатель языков */
+.language-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 4vw;
+}
+
+.lang-background {
+  position: absolute;
+  width: 3vw;
+  height: 1.5vw;
+  background-color: #151515;
+  border-radius: 100px;
+}
+
+.lang-indicator {
+  position: absolute;
+  left: 0.3vw;
+  top: 0.25vw;
+  width: 1vw;
+  height: 1vw;
+  background-color: #1586f4;
+  border-radius: 100px;
+  transition: transform 0.3s ease;
+}
+
+.lang-indicator.eng {
+  transform: translateX(clamp(15px, 2vw, 19px));
+}
+
+.lang-link {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1vw;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  padding: 0 clamp(5px, 0.8vw, 8px);
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+
+.lang-link.active {
+  color: #1586f4;
+}
+
+.lang-link:hover {
+  color: #1586f4;
+}
+
+/* Кнопка связи и выпадающее меню */
+.contact-dropdown {
+  position: relative;
+}
+
+.contact-button {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1vw;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  padding: 1.2vw 1.2vw;
+  border: 1px solid white;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 12vw;
+  height: 12vh;
+}
+
+.contact-button:hover {
+  background-color: #1586f4;
+  border-color: white;
+}
+
+.contact-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 17vw;
+  margin-top: 1vw;
+  z-index: 999998;
+}
+
+.contact-section {
+  margin-bottom: clamp(8px, 1.5vw, 15px);
+}
+
+.contact-section:last-child {
+  margin-bottom: 0;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.1vw;
+  color: white;
+  text-decoration: none;
+  padding: 0.3vw 0;
+  transition: color 0.2s ease;
+  font-weight: 600;
+}
+
+.contact-link:hover {
+  color: #1586f4;
+}
+
+.contact-icon {
+  flex-shrink: 0;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.consultation-btn {
+  width: 100%;
+  background: linear-gradient(45deg, #1586f4, #0066cc);
+  color: white;
+  border: none;
+  padding: 1vw 0;
+  border-radius: 1.5rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.9vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1vw;
+}
+
+.consultation-btn:hover {
+  background: linear-gradient(45deg, #0066cc, #004499);
+}
+
+/* Мобильная версия */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 13px;
+  left: 20px;
+  right: 20px;
+  height: 59px;
+  z-index: 999999;
+}
+
+.mobile-header-container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 100%;
-  max-width: 1623px;
-
-  z-index: 1000;
-  /* чтобы был выше других элементов */
-
-  border-radius: 20px;
-
-
-  max-height: 114px;
-  /* background-color: rgba(255, 255, 255, 0.01);; */
-  /* background-image: url("header_background.png"); */
-  backdrop-filter: blur(50px)
+  height: 100%;
+  padding: 0 20px;
 }
 
-header::before {
-  content: "";
+.mobile-header-background {
   position: absolute;
   inset: 0;
-
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  /* прозрачная рамка */
-
   background-color: rgba(255, 255, 255, 0.03);
-  /* прозрачный фон */
-
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
   z-index: -1;
-  /* за содержимым */
 }
 
-nav {
-  width: 60%;
+.mobile-logo img {
+  display: block;
+  width: clamp(60px, 25vw, 99px);
+  height: auto;
+}
+
+.hamburger-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(30px, 10vw, 39px);
+  height: clamp(30px, 10vw, 39px);
+  cursor: pointer;
+}
+
+.hamburger-background {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1;
+}
+
+.hamburger-line {
+  width: clamp(20px, 8vw, 30px);
+  height: 4px;
+  background-color: white;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line.active:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-line.active:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.active:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Полноэкранное мобильное меню */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999998;
+  overflow-y: auto;
+}
+
+.mobile-menu-background {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(43, 43, 43, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
+.mobile-menu-container {
+  padding: clamp(40px, 15vh, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-menu-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(20px, 8vh, 40px);
 }
 
-a {
-  /* padding: 0.5rem 1rem; */
+.mobile-menu-logo img {
+  display: block;
+  width: clamp(60px, 25vw, 99px);
+  height: auto;
+}
+
+.mobile-language-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 2vw, 10px);
+}
+
+.mobile-lang-background {
+  position: absolute;
+  width: clamp(40px, 15vw, 60px);
+  height: clamp(15px, 6vw, 25px);
+  background-color: #151515;
+  border-radius: 100px;
+}
+
+.mobile-lang-indicator {
+  position: absolute;
+  left: clamp(3px, 1vw, 5px);
+  top: clamp(3px, 1vw, 5px);
+  width: clamp(10px, 4vw, 15px);
+  height: clamp(10px, 4vw, 15px);
+  background-color: #1586f4;
+  border-radius: 100px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-lang-indicator.eng {
+  transform: translateX(clamp(20px, 8vw, 30px));
+}
+
+.mobile-lang-link {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(11px, 4vw, 14px);
+  font-weight: 400;
+  color: white;
   text-decoration: none;
-  color: white;
+  padding: clamp(3px, 1vw, 5px) clamp(8px, 3vw, 15px);
+  z-index: 1;
 }
 
-a:visited {
-  color: white;
+.mobile-lang-link.active {
+  color: #1586f4;
 }
 
-a:hover {
-  color: #1686f4;
+.mobile-menu-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(20px, 8vh, 40px);
+}
+
+.mobile-menu-icon svg {
+  width: clamp(40px, 15vw, 60px);
+  height: clamp(40px, 15vw, 60px);
+}
+
+.mobile-nav {
+  flex: 1;
+  margin-bottom: clamp(15px, 6vh, 30px);
+}
+
+.mobile-nav-section {
+  margin-bottom: clamp(10px, 4vh, 20px);
+}
+
+.mobile-nav-link {
+  display: block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: white;
+  text-decoration: none;
+  padding: clamp(4px, 1.5vw, 8px) 0;
+  transition: color 0.2s ease;
+  line-height: 1.55;
+}
+
+.mobile-nav-link.main {
+  font-size: clamp(14px, 5vw, 18px);
+  font-weight: 600;
+  margin-bottom: clamp(5px, 2vw, 10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: clamp(5px, 2vw, 10px);
+}
+
+.mobile-nav-link.sub {
+  font-size: clamp(12px, 4.5vw, 16px);
+  font-weight: 400;
+  color: #d2d2d2;
+  padding-left: clamp(10px, 4vw, 20px);
+  margin-bottom: clamp(3px, 1vw, 5px);
+}
+
+.mobile-nav-link:hover {
+  color: #1586f4;
+}
+
+.mobile-contacts {
+  margin-bottom: clamp(15px, 6vh, 30px);
+}
+
+.mobile-contact-link {
+  display: block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(12px, 4.5vw, 16px);
+  color: white;
+  text-decoration: none;
+  padding: clamp(5px, 2vw, 10px) 0;
+  transition: color 0.2s ease;
+}
+
+.mobile-contact-link:hover {
+  color: #1586f4;
+}
+
+.mobile-consultation-btn {
+  width: 100%;
+  background: linear-gradient(45deg, #1586f4, #0066cc);
+  color: white;
+  border: none;
+  padding: clamp(10px, 4vw, 20px) clamp(12px, 4.5vw, 24px);
+  border-radius: 15px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  font-size: clamp(14px, 5vw, 18px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: clamp(10px, 4vh, 20px);
+}
+
+.mobile-consultation-btn:hover {
+  background: linear-gradient(45deg, #0066cc, #004499);
+}
+
+/* Адаптивные медиазапросы */
+@media (max-width: 1500px) {
+  .header {
+    max-width: 100vw;
+    height: 73px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    height: 64px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-header {
+    display: none;
+  }
+  
+  .mobile-header {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-header {
+    left: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-header {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-header {
+    left: 5px;
+    right: 5px;
+  }
 }
 </style>

@@ -91,8 +91,8 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .gear-container {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   display: block;
 }
 </style>

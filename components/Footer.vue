@@ -1,8 +1,8 @@
 <template>
     <footer>
       <div class="footer-container">
-        <div class="flex flex-row justify-between items-center">
-          <img src="~/public/greed_logo.svg" width="190" height="70" alt="greed_logo">
+        <div id="logo-and-social" class="flex flex-row justify-between items-center">
+          <img class="logo" src="~/public/greed_logo.svg" width="190" height="70" alt="greed_logo">
           <div class="footer-social flex flex-row gap-4">
             <a href="https://www.linkedin.com/company/greedlabs">
               <img src="~/public/logos/linkedin.svg" alt="linkedin logo">
@@ -15,11 +15,11 @@
             </a>
           </div>
         </div>
-        <a href="mailto:hello@greedlabs.org">
+        <a id="email" href="mailto:hello@greedlabs.org">
           hello@greedlabs.org
         </a>
-        <p>
-          © 2017-2025 GREED LABS. All rights reserved.
+        <p id="copyright">
+          {{ $t("copyright") }}
         </p>
       </div>
     </footer>
@@ -32,38 +32,70 @@ const { t } = useI18n()
 <style scoped>
 footer {
   position: relative;
-
-  /* background-color: rgb(51, 250, 255); */
   background: linear-gradient(135deg, #33fcff, #1488f4);
-
-  border-radius: 50px;
-
+  border-radius: 75px;
   overflow: visible;
-
-  height: 200px;
+  height: 435px;
   width: 100%;
   padding: 0px;
   padding-top: 10px;
-  
-    
-    /* background-color: #c0c0c046; */
 }
 .footer-container {
-
   position: absolute;
-  top: 4px; /* или больше, если нужно сильнее перекрыть */
+  top: 5px;
   left: 0px;
   right: 0;
-  margin: auto;
-
-  /* position: absolute; */
   background-color: #1b1b1b;
-
-  height: 200px;
-  border-radius: 50px;
-  /* width: 100%; */
-
+  height: 435px;
+  border-radius: 75px;
   margin: auto;
   padding: 30px;
+}
+#logo-and-social{
+  padding: 1.5rem 5rem;
+}
+
+#logo-and-social .logo{
+  padding-top: 1.5rem;
+}
+
+.footer-social{
+  margin-right: 2rem;
+}
+
+.footer-social img{
+  width: 3rem;
+  margin: 1rem;
+}
+
+#email{
+  padding-left: 5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+#copyright{
+  padding-left: 5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-top: 2rem;
+}
+
+/* Mobile devices (max-width: 560px) */
+@media (max-width: 560px) {
+  #logo-and-social{
+    padding: 1.5rem 0;
+    justify-content: center;
+  }
+  .footer-social[data-v-3506faf6] {
+    margin-right: 0;
+  }
+  #email{
+    padding-left: 0;
+  }
+
+  #copyright{
+    padding-left: 0;
+  }
 }
 </style>

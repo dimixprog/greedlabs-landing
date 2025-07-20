@@ -4,6 +4,7 @@
     <p>
       Получите бесплатную консультацию по нашим продуктам и услугам!
     </p>
+    <div class="left_img"></div>
     <form>
       <input type="text" placeholder="Имя"><br>
       <input type="text" placeholder="Связь (Telegram, E-mail, Телефон)"><br>
@@ -13,7 +14,7 @@
 </template>
 
 <style scoped>
-  .consult_form {
+  .consult_form form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,12 +27,46 @@
     padding: 30px;
     padding-bottom: 100px;
 
-    background-image: url(https://optim.tildacdn.com/tild3666-3163-4639-b132-623461366264/-/format/webp/9e3a6181-04f5-40b9-9.png.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
+    
 
     width: fit-content;
     height: fit-content;
+  }
+
+  .left_img{
+        -webkit-font-smoothing: antialiased;
+    --zoom: 1.587;
+    visibility: visible;
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    border-radius: 25px 25px 25px 25px;
+    opacity: 0.4;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-color: transparent;
+    border-style: solid;
+    transform: none;
+    transform-origin: center center;
+    background-image: url("https://optim.tildacdn.com/tild6336-6336-4931-a133-653337376538/-/cover/339x411/center/center/-/format/webp/abce99a6-f01f-4ab1-b.png.webp");
+  }
+
+  .consult_form form{
+    background-image: url(https://optim.tildacdn.com/tild3666-3163-4639-b132-623461366264/-/format/webp/9e3a6181-04f5-40b9-9.png.webp);
+    border-radius: 20px 20px 20px 20px;
+    opacity: 0.4;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-color: transparent;
+    border-style: solid;
+    z-index: 3;
   }
   /* form {
     align-items: center;

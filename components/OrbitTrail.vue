@@ -4,8 +4,6 @@
 
 <style>
 .orbitTrail {
-  z-index: -1;
-  max-width: 400px;
-  max-height: 400px;
+  width: 650px;
 }
 </style>
