@@ -59,8 +59,10 @@
       <p>
         {{ $t("index.about_us_desc") }}
       </p>
-      <img class="gif" src="~/public/MConvertereu_retrof.gif" alt="MConvertereu">
-      <img class="inside_image" src="~/public/logo_opacity.webp" alt="MConvertereu">
+      <div class="flex items-center justify-center">
+        <img class="gif" src="~/public/MConvertereu_retrof.gif" alt="MConvertereu">
+        <img class="inside_image" src="~/public/logo_opacity.webp" alt="MConvertereu">
+      </div>
     </div>
 
     <div id="team">
@@ -174,6 +176,10 @@
   transition: background-color 0s ease-in-out, color 0s ease-in-out, border-color 0s ease-in-out;
 }
 
+#development div.hero-media-container {
+  overflow: hidden;
+}
+
 #market-making .hero-media-container img {
   width: 400px; /* Fixed max */
   height: auto;
@@ -219,9 +225,8 @@
 
 #about_us .inside_image {
   position: absolute;
-  width: 230px; /* Fixed max */
-  top: 403px; /* Fixed max */
-  left: 748px; /* Fixed max */
+  width: auto;
+  height: auto;
 }
 
 #team h2 {
@@ -347,6 +352,9 @@
   #start_way div:first-child, #market_making div:first-child, #consulting div:first-child { order: 1; }
   #start_way div:last-child, #market_making div:last-child, #consulting div:last-child { order: -1; } 
 
+  #market_making div.hero-text-container {
+    padding-top: 15rem;
+  }
 
   #market-making .hero-media-container img {
     max-width: 200px;
@@ -355,11 +363,7 @@
   }
 
   #about_us .inside_image {
-    position: static;
-    width: 30vw;
-    margin: 2rem auto 0 auto;
-    top: auto;
-    left: auto;
+    width: 15vw;
   }
 
   #about_us p {
@@ -410,7 +414,7 @@
 /* Mobile devices (max-width: 640px) */
 @media (max-width: 640px) {
   #about_us .inside_image {
-    display: none;
+    
   }
 
   #about_us p {

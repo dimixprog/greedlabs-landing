@@ -1,8 +1,20 @@
 {
   "welcome": "Welcome!",
   "nav": {
-    "home": "Home",
-    "about": "About"
+    "marketMaking": "Market making",
+  "dexServices": "DEX Services",
+  "antiSnipe": "Anti-snipe protection",
+  "volumeManagement": "Volume Management",
+  "priceControl": "Price Control",
+  "tokenLaunch": "Token Launch",
+  "cexServices": "CEX Services",
+  "liquidityManagement": "Liquidity Management",
+  "cexListing": "CEX Listing",
+  "orderOptimization": "Order Optimization",
+  "development": "Development",
+  "consulting": "Consulting",
+  "contactUs": "Contact Us",
+  "freeConsultation": "Free Consultation"
   },
   "footer": {
     "copyright": "© 2025 My Nuxt App"

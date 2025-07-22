@@ -2,8 +2,20 @@
   "free_consult": "Бесплатная консультация",
   "copyright": "©2025 GREED LABS. Все права защищены.",
   "nav": {
-    "market_making": "Market making",
-    "about": "О нас"
+    "marketMaking": "Market making",
+    "dexServices": "Услуги DEX",
+    "antiSnipe": "Anti-snipe protection",
+    "volumeManagement": "Управление объемом",
+    "priceControl": "Контроль цен",
+    "tokenLaunch": "Запуск токена",
+    "cexServices": "Услуги CEX",
+    "liquidityManagement": "Управление ликвидностью",
+    "cexListing": "Листинг на CEXs",
+    "orderOptimization": "Оптимизация ордеров",
+    "development": "Разработка",
+    "consulting": "Консалтинг",
+    "contactUs": "Свяжитесь с нами",
+    "freeConsultation": "Бесплатная консультация"
   },
   "index": {
     "start_way": "Начните свой путь вместе с \n профессионалами рынка.",

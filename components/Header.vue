@@ -1,74 +1,63 @@
 <template>
-  <!-- Десктопная версия -->
   <header class="header desktop-header" @mouseenter="closeAllMenus">
     <div class="header-background"></div>
-    
-    <!-- Логотип -->
     <div class="header-logo">
       <a href="/">
         <img src="/greed_logo.svg" alt="GREED Labs" />
       </a>
     </div>
-
-    <!-- Навигация -->
     <nav class="header-nav">
       <div class="nav-item market-making" 
            @mouseenter="openMarketMenu" 
-           @mouseleave="keepMenuOpen">
-        <a href="market-making" class="nav-link">
-          Market making
-          <svg  class="dropdown-arrow" :class="{ 'rotated': isMarketMenuOpen }" xmlns="http://www.w3.org/2000/svg" viewBox="5786.73681640625 4997 11.5263671875 8.75"> 
+           @mouseleave="closeMarketMenu"
+           @click="toggleMarketMenu">
+        <a :href="localePath('market-making')" class="nav-link" @click="handleLinkClick">
+          {{ $t('nav.marketMaking') }}
+          <svg class="dropdown-arrow" :class="{ 'rotated': isMarketMenuOpen }" xmlns="http://www.w3.org/2000/svg" viewBox="5786.73681640625 4997 11.5263671875 8.75"> 
             <path fill="#ffffff" fill-opacity="1" stroke="" stroke-opacity="0" stroke-width="1" id="tSvg47a8afa93b" 
               d="M 5792.5 4998L 5797.263139720814 5004.75L 5787.736860279186 5004.75Z" title="Polygon 1">
             </path>
           </svg>
         </a>
-        
-        <!-- Выпадающее меню Market Making -->
-        <div v-if="isMarketMenuOpen" class="dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="keepMenuOpen">
+        <div v-if="isMarketMenuOpen" class="dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="closeMarketMenu">
           <div class="dropdown-background"></div>
           <div class="dropdown-content">
             <div class="dropdown-section">
-              <a href="market-making#dex-services" class="dropdown-link main">Услуги DEX</a>
-              <a href="market-making#anti-snipe" class="dropdown-link sub">Anti-snipe protection</a>
-              <a href="market-making#volume-management" class="dropdown-link sub">Управление объемом</a>
-              <a href="market-making#price-control" class="dropdown-link sub">Контроль цен</a>
+              <a :href="localePath('market-making#dex-services')" class="dropdown-link main">{{ $t('nav.dexServices') }}</a>
+              <a :href="localePath('market-making#anti-snipe')" class="dropdown-link sub">{{ $t('nav.antiSnipe') }}</a>
+              <a :href="localePath('market-making#volume-management')" class="dropdown-link sub">{{ $t('nav.volumeManagement') }}</a>
+              <a :href="localePath('market-making#price-control')" class="dropdown-link sub">{{ $t('nav.priceControl') }}</a>
             </div>
             <div class="dropdown-section">
-              <a href="market-making#token-launch" class="dropdown-link main">Запуск токена</a>
+              <a :href="localePath('market-making#token-launch')" class="dropdown-link main">{{ $t('nav.tokenLaunch') }}</a>
             </div>
             <div class="dropdown-section">
-              <a href="market-making#cex-services" class="dropdown-link main">Услуги CEX</a>
-              <a href="market-making#liquidity-management" class="dropdown-link sub">Управление ликвидностью</a>
-              <a href="market-making#cex-listing" class="dropdown-link sub">Листинг на CEXs</a>
-              <a href="market-making#order-optimization" class="dropdown-link sub">Оптимизация ордеров</a>
+              <a :href="localePath('market-making#cex-services')" class="dropdown-link main">{{ $t('nav.cexServices') }}</a>
+              <a :href="localePath('market-making#liquidity-management')" class="dropdown-link sub">{{ $t('nav.liquidityManagement') }}</a>
+              <a :href="localePath('market-making#cex-listing')" class="dropdown-link sub">{{ $t('nav.cexListing') }}</a>
+              <a :href="localePath('market-making#order-optimization')" class="dropdown-link sub">{{ $t('nav.orderOptimization') }}</a>
             </div>
           </div>
         </div>
       </div>
-
-      <a href="development" class="nav-link">Разработка</a>
-      <a href="consulting" class="nav-link">Консалтинг</a>
+      <a :href="localePath('development')" class="nav-link">{{ $t('nav.development') }}</a>
+      <a :href="localePath('consulting')" class="nav-link">{{ $t('nav.consulting') }}</a>
     </nav>
-
-    <!-- Переключатель языков -->
     <div class="language-switcher">
-      <div class="lang-background"></div>
-      <div class="lang-indicator" :class="{ 'eng': currentLang === 'eng' }"></div>
-      <a href="#" class="lang-link first-lang" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
-      <a href="#" class="lang-link second-lang" :class="{ 'active': currentLang === 'eng' }" @click.prevent="switchLanguage('eng')">ENG</a>
+      <a href="#" id="ru-link" class="lang-link first-lang" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
+      <div class="lang-background" @click.prevent="changeLanguage(currentLang)">
+        <div class="lang-indicator" :class="{ 'eng': currentLang === 'en' }" @click.prevent="changeLanguage(currentLang)"></div>
+      </div>
+      <a href="#" id="eng-link" class="lang-link second-lang" :class="{ 'active': currentLang === 'en' }" @click.prevent="switchLanguage('en')">EN</a>
     </div>
-
-    <!-- Кнопка связи с выпадающим меню -->
     <div class="contact-dropdown" 
          @mouseenter="openContactMenu" 
-         @mouseleave="keepMenuOpen">
+         @mouseleave="closeContactMenu"
+         @click="toggleContactMenu">
       <a href="#contact" class="contact-button">
-        Свяжитесь с нами
+        {{ $t('nav.contactUs') }}
       </a>
-      
-      <!-- Выпадающее меню контактов -->
-      <div v-if="isContactMenuOpen" class="contact-dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="keepMenuOpen">
+      <div v-if="isContactMenuOpen" class="contact-dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="closeContactMenu">
         <div class="dropdown-background"></div>
         <div class="dropdown-content">
           <div class="contact-section">
@@ -78,21 +67,18 @@
               </svg>
               hello@greedlabs.org
             </a>
-            
             <a href="https://t.me/greedlabs" class="contact-link" target="_blank">
               <svg class="contact-icon" viewBox="0 0 24 24">
                 <path fill="white" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
               </svg>
               Telegram
             </a>
-            
             <a href="https://linkedin.com/company/greedlabs" class="contact-link" target="_blank">
               <svg class="contact-icon" viewBox="0 0 24 24">
                 <path fill="white" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
               LinkedIn
             </a>
-            
             <a href="https://x.com/greedlabs" class="contact-link" target="_blank">
               <svg class="contact-icon" viewBox="0 0 24 24">
                 <path fill="white" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
@@ -100,30 +86,23 @@
               X.com
             </a>
           </div>
-          
           <div class="contact-section">
             <button class="consultation-btn" @click="scrollToConsultation">
-              Бесплатная консультация
+              {{ $t('nav.freeConsultation') }}
             </button>
           </div>
         </div>
       </div>
     </div>
   </header>
-
-  <!-- Мобильная версия -->
   <header class="mobile-header">
     <div class="mobile-header-container">
       <div class="mobile-header-background"></div>
-      
-      <!-- Логотип -->
       <div class="mobile-logo">
         <a href="/">
           <img src="/greed_logo.svg" alt="GREED Labs" />
         </a>
       </div>
-
-      <!-- Гамбургер меню -->
       <div class="hamburger-container" @click="toggleMobileMenu">
         <div class="hamburger-background"></div>
         <div class="hamburger-lines">
@@ -134,74 +113,59 @@
       </div>
     </div>
   </header>
-
-  <!-- Полноэкранное мобильное меню -->
   <div v-if="isMobileMenuOpen" class="mobile-menu-overlay">
     <div class="mobile-menu-background"></div>
     <div class="mobile-menu-container">
-      <!-- Хедер мобильного меню -->
       <div class="mobile-menu-header">
-               
-        <!-- Мобильный переключатель языков -->
-        <div class="mobile-language-switcher">
-          <div class="mobile-lang-background"></div>
-          <div class="mobile-lang-indicator" :class="{ 'eng': currentLang === 'eng' }"></div>
-          <a href="#" class="mobile-lang-link" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
-          <a href="#" class="mobile-lang-link" :class="{ 'active': currentLang === 'eng' }" @click.prevent="switchLanguage('eng')">ENG</a>
+        <div class="language-switcher">
+          <a href="#" id="ru-link" class="lang-link first-lang" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
+          <div class="lang-background" @click.prevent="changeLanguage(currentLang)">
+            <div class="lang-indicator" :class="{ 'eng': currentLang === 'en' }" @click.prevent="changeLanguage(currentLang)"></div>
+          </div>
+          <a href="#" id="eng-link" class="lang-link second-lang" :class="{ 'active': currentLang === 'en' }" @click.prevent="switchLanguage('en')">EN</a>
         </div>
       </div>
-
-      <!-- Мобильная навигация -->
       <nav class="mobile-nav">
         <div class="mobile-nav-section">
-          <a href="market-making" class="mobile-nav-link main" @click="closeMobileMenu">Market Making</a>
+          <a :href="localePath('market-making')" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.marketMaking') }}</a>
         </div>
-        
         <div class="mobile-nav-section">
-          <a href="market-making#dex-services" class="mobile-nav-link main" @click="closeMobileMenu">Услуги DEX</a>
-          <a href="market-making#anti-snipe" class="mobile-nav-link sub" @click="closeMobileMenu">Anti-Snipe Protection</a>
-          <a href="market-making#volume-management" class="mobile-nav-link sub" @click="closeMobileMenu">Управление объемом</a>
-          <a href="market-making#price-control" class="mobile-nav-link sub" @click="closeMobileMenu">Контроль цен</a>
+          <a :href="localePath('market-making#dex-services')" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.dexServices') }}</a>
+          <a :href="localePath('market-making#anti-snipe')" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.antiSnipe') }}</a>
+          <a :href="localePath('market-making#volume-management')" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.volumeManagement') }}</a>
+          <a :href="localePath('market-making#price-control')" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.priceControl') }}</a>
         </div>
-        
         <div class="mobile-nav-section">
-          <a href="market-making#token-launch" class="mobile-nav-link main" @click="closeMobileMenu">Запуск токена</a>
+          <a :href="localePath('market-making#token-launch')" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.tokenLaunch') }}</a>
         </div>
-        
         <div class="mobile-nav-section">
-          <a href="market-making#cex-services" class="mobile-nav-link main" @click="closeMobileMenu">Услуги CEX</a>
-          <a href="market-making#liquidity-management" class="mobile-nav-link sub" @click="closeMobileMenu">Управление ликвидностью</a>
-          <a href="market-making#cex-listing" class="mobile-nav-link sub" @click="closeMobileMenu">Листинг на CEXs</a>
+          <a :href="localePath('market-making#cex-services')" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.cexServices') }}</a>
+          <a :href="localePath('market-making#liquidity-management')" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.liquidityManagement') }}</a>
+          <a :href="localePath('market-making#cex-listing')" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.cexListing') }}</a>
         </div>
-        
         <div class="mobile-nav-section">
-          <a href="development" class="mobile-nav-link main" @click="closeMobileMenu">Разработка</a>
+          <a :href="localePath('development')" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.development') }}</a>
         </div>
-        
         <div class="mobile-nav-section">
-          <a href="consulting" class="mobile-nav-link main" @click="closeMobileMenu">Консалтинг</a>
+          <a :href="localePath('consulting')" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.consulting') }}</a>
         </div>
       </nav>
-
-      <!-- Контакты -->
       <div class="mobile-contacts">
         <a href="mailto:hello@greedlabs.org" class="mobile-contact-link">
           @ hello@greedlabs.org
         </a>
         <a href="https://t.me/greedlabs" class="mobile-contact-link">
-          <img src="~/public/logos/telegram.svg" alt="linkedin logo"> Telegram
+          <img src="~/public/logos/telegram.svg" alt="telegram logo"> Telegram
         </a>
         <a href="https://linkedin.com/company/greedlabs" class="mobile-contact-link">
           <img src="~/public/logos/linkedin.svg" alt="linkedin logo"> LinkedIn
         </a>
         <a href="https://x.com/greedlabs" class="mobile-contact-link">
-          <img src="~/public/logos/x.svg" alt="linkedin logo"> X.com
+          <img src="~/public/logos/x.svg" alt="x logo"> X.com
         </a>
       </div>
-
-      <!-- Кнопка консультации -->
       <button class="mobile-consultation-btn" @click="scrollToConsultation">
-        Бесплатная консультация
+        {{ $t('nav.freeConsultation') }}
       </button>
     </div>
   </div>
@@ -210,10 +174,14 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 
+const i18n = useI18n()
+const localePath = useLocalePath()
+
 const isMobileMenuOpen = ref(false)
 const isMarketMenuOpen = ref(false)
 const isContactMenuOpen = ref(false)
-const currentLang = ref('ru')
+const currentLang = ref(i18n.locale.value || 'ru')
+const isTouch = ref(false)
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -224,26 +192,69 @@ const closeMobileMenu = () => {
 }
 
 const openMarketMenu = () => {
-  isMarketMenuOpen.value = true
-  isContactMenuOpen.value = false
+  if (!isTouch.value) {
+    isMarketMenuOpen.value = true
+    isContactMenuOpen.value = false
+  }
+}
+
+const closeMarketMenu = () => {
+  if (!isTouch.value) {
+    isMarketMenuOpen.value = false
+  }
+}
+
+const handleLinkClick = (event) => {
+  if (isTouch.value && !isMarketMenuOpen.value) {
+    toggleMarketMenu(event)
+    event.preventDefault()
+  }
+}
+
+const toggleMarketMenu = (event) => {
+  if (isTouch.value) {
+    event.stopPropagation()
+    isMarketMenuOpen.value = !isMarketMenuOpen.value
+    isContactMenuOpen.value = false
+  }
 }
 
 const openContactMenu = () => {
-  isContactMenuOpen.value = true
-  isMarketMenuOpen.value = false
+  if (!isTouch.value) {
+    isContactMenuOpen.value = true
+    isMarketMenuOpen.value = false
+  }
 }
 
-const keepMenuOpen = () => {
-  // Функция для предотвращения закрытия меню при наведении
+const closeContactMenu = () => {
+  if (!isTouch.value) {
+    isContactMenuOpen.value = false
+  }
 }
+
+const toggleContactMenu = (event) => {
+  if (isTouch.value) {
+    event.stopPropagation()
+    isContactMenuOpen.value = !isContactMenuOpen.value
+    isMarketMenuOpen.value = false
+  }
+}
+
+const keepMenuOpen = () => {}
 
 const closeAllMenus = () => {
   isMarketMenuOpen.value = false
   isContactMenuOpen.value = false
 }
 
-const switchLanguage = (lang) => {
+const switchLanguage = async (lang) => {
+  await i18n.setLocale(lang)
   currentLang.value = lang
+}
+
+const changeLanguage = (current) => {
+  const newLang = current === 'ru' ? 'en' : 'ru'
+  switchLanguage(newLang)
 }
 
 const scrollToConsultation = () => {
@@ -255,12 +266,16 @@ const scrollToConsultation = () => {
   closeAllMenus()
 }
 
-// Закрытие меню при прокрутке страницы
-const handleScroll = () => {
-  closeAllMenus()
+const handleClickOutside = (event) => {
+  if (isTouch.value && !event.target.closest('.nav-item, .contact-dropdown, .dropdown-menu, .contact-dropdown-menu')) {
+    closeAllMenus()
+  }
 }
 
-// Блокировка скролла при открытом мобильном меню
+watch(() => i18n.locale.value, (newLang) => {
+  currentLang.value = newLang
+})
+
 watch(isMobileMenuOpen, (newValue) => {
   if (process.client) {
     if (newValue) {
@@ -271,26 +286,37 @@ watch(isMobileMenuOpen, (newValue) => {
   }
 })
 
+const handleScroll = () => {
+  closeAllMenus()
+}
+
 onMounted(() => {
   if (process.client) {
+    isTouch.value = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     window.addEventListener('scroll', handleScroll)
     window.addEventListener('resize', () => {
       if (window.innerWidth > 1023) {
         isMobileMenuOpen.value = false
       }
     })
+    currentLang.value = i18n.locale.value
+    if (isTouch.value) {
+      document.addEventListener('click', handleClickOutside)
+    }
   }
 })
 
 onUnmounted(() => {
   if (process.client) {
     window.removeEventListener('scroll', handleScroll)
+    if (isTouch.value) {
+      document.removeEventListener('click', handleClickOutside)
+    }
   }
 })
 </script>
 
 <style scoped>
-/* Базовые стили для десктопа */
 .header {
   position: fixed;
   top: 20px;
@@ -319,7 +345,6 @@ onUnmounted(() => {
   z-index: -1;
 }
 
-/* Логотип */
 .header-logo img {
   width: 10vw;
   height: auto;
@@ -327,12 +352,11 @@ onUnmounted(() => {
   padding-top: 0.5rem;
 }
 
-/* Навигация */
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 4vw;
-  margin-left: 4.5vw;
+  gap: 4rem;
+  margin-left: 3rem;
   flex: 1;
   min-width: 0;
 }
@@ -341,9 +365,13 @@ onUnmounted(() => {
   position: relative;
 }
 
+.nav-item, .contact-dropdown {
+  cursor: pointer;
+}
+
 .nav-link {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1vw;
+  font-size: 1.2rem;
   font-weight: 400;
   color: white;
   text-decoration: none;
@@ -368,7 +396,6 @@ onUnmounted(() => {
   transform: rotate(-270deg);
 }
 
-/* Выпадающее меню */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -427,7 +454,6 @@ onUnmounted(() => {
   color: #1586f4;
 }
 
-/* Переключатель языков */
 .language-switcher {
   position: relative;
   display: flex;
@@ -437,35 +463,35 @@ onUnmounted(() => {
 }
 
 .lang-background {
-  position: absolute;
-  width: 3vw;
-  height: 1.5vw;
+  width: 3.5rem;
+  height: 1.7rem;
   background-color: #151515;
   border-radius: 100px;
+  margin-right: 1rem;
+  cursor: pointer;
 }
 
 .lang-indicator {
-  position: absolute;
-  left: 0.3vw;
-  top: 0.25vw;
-  width: 1vw;
-  height: 1vw;
+  margin-left: 0.3rem;
+  margin-top: 0.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
   background-color: #1586f4;
   border-radius: 100px;
   transition: transform 0.3s ease;
 }
 
 .lang-indicator.eng {
-  transform: translateX(clamp(15px, 2vw, 19px));
+  transform: translateX(1.6rem);
 }
 
 .lang-link {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1vw;
+  font-size: 1.2rem;
   font-weight: 400;
   color: white;
   text-decoration: none;
-  padding: 0 clamp(5px, 0.8vw, 8px);
+  padding: 0;
   z-index: 1;
   transition: color 0.2s ease;
 }
@@ -478,27 +504,27 @@ onUnmounted(() => {
   color: #1586f4;
 }
 
-/* Кнопка связи и выпадающее меню */
+#ru-link{
+  padding-right: 1rem;
+}
+
 .contact-dropdown {
   position: relative;
 }
 
 .contact-button {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1vw;
+  font-size: 1.2rem;
   font-weight: 500;
   color: white;
   text-decoration: none;
-  padding: 1.2vw 1.2vw;
+  padding: 1.8rem 1.3rem;
   border: 1px solid white;
   border-radius: 25px;
   transition: all 0.2s ease;
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 12vw;
-  height: 12vh;
 }
 
 .contact-button:hover {
@@ -565,7 +591,6 @@ onUnmounted(() => {
   background: linear-gradient(45deg, #0066cc, #004499);
 }
 
-/* Мобильная версия */
 .mobile-header {
   display: none;
   position: fixed;
@@ -645,15 +670,14 @@ onUnmounted(() => {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Полноэкранное мобильное меню */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 999998;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .mobile-menu-background {
@@ -662,6 +686,7 @@ onUnmounted(() => {
   background-color: rgba(43, 43, 43, 0.95);
   backdrop-filter: blur(20px);
   z-index: -1;
+  height: 150%;
 }
 
 .mobile-menu-container {
@@ -784,6 +809,16 @@ onUnmounted(() => {
   margin-bottom: clamp(15px, 6vh, 30px);
 }
 
+.mobile-contacts a{
+  display: flex;
+  align-items: center;
+}
+
+.mobile-contacts img {
+  float: left;
+  margin-right: 1rem;
+}
+
 .mobile-contact-link {
   display: block;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -817,11 +852,32 @@ onUnmounted(() => {
   background: linear-gradient(45deg, #0066cc, #004499);
 }
 
-/* Адаптивные медиазапросы */
 @media (max-width: 1500px) {
   .header {
-    max-width: 100vw;
-    height: 73px;
+  }
+}
+
+@media (max-width: 1388px) {
+  .nav-link {
+    font-size: 1rem;
+  }
+  .lang-link{
+    font-size: 1rem;
+  }
+  .contact-button{
+    font-size: 1rem;
+  }
+  .lang-background {
+    width: 2.4rem;
+    height: 1.2rem;
+    margin-right: 1rem;
+  }
+  .lang-indicator {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .lang-indicator.eng {
+    transform: translateX(1rem);
   }
 }
 
@@ -829,13 +885,19 @@ onUnmounted(() => {
   .header {
     height: 64px;
   }
+  .header-nav {
+    gap: 1rem;
+  }
+  .contact-button{
+    padding: 0.6rem 0.6rem;
+    border-radius: 15px;
+  }
 }
 
 @media (max-width: 1023px) {
   .desktop-header {
     display: none;
   }
-  
   .mobile-header {
     display: block;
   }

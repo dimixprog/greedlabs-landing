@@ -36,7 +36,7 @@ html {
   margin: 0px;
 }
 body {
-    background-color: #1d1d1d;
+    background-color: #1b1b1b;
     color: white;
     font-family: 'Montserrat',Arial,sans-serif;
     padding: 0px;
@@ -59,11 +59,11 @@ header {
 }
 main {
   padding: 6%;
-  /* padding-top: 6%; */
+  padding-bottom: 0;
   margin: 0px;
 
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;*/
 }
 </style>
