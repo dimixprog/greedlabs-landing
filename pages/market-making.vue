@@ -50,39 +50,25 @@
       />
     </div>
     <div class="anchor"><span id="token-launch"></span></div>
-    <Hero class="flex justify-between items-center">
-      <div>
-        <h2 class="colorized-text">Запуск токенов</h2>
-        <p>Полноценный и качественный запуск токена — это сложная задача, требующая детальной проработки.</p>
+    <Hero id="start_tokens" class="grid grid-cols-7 justify-between items-center">
+      <div class="col-span-4">
+        <h2 class="colorized-text">{{ $t("market_making.start_tokens") }}</h2>
+        <p>{{ $t("market_making.start_tokens_desc") }}</p>
         <button class="bg-[#1586F4] cursor-pointer transition-colors transition-border duration-200 ease-in-out shadow-[0_0_10px_rgb(21,134,244)] hover:shadow-[0_0_7px_rgb(21,134,244),0_0_13px_rgb(21,134,244),0_0_18px_rgb(21,134,244),0_0_50px_rgb(21,134,244)] px-6 py-3 text-lg rounded-2xl text-white font-semibold">Бесплатная консультация</button>
       </div>
-      <video style="object-fit: cover; width: 50%; height: 50%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
-        <source src="https://dl.dropboxusercontent.com/scl/fi/oslgex5k4x3u2if34l5uc/Plant.mp4?rlkey=d5o1jerjn26j0dsjbieisyjk6&amp;st=bk7tr4n6&amp;dl=0" type="video/mp4">
-      </video>
+      <div class="col-span-3 m-auto">
+        <video style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
+          <source src="https://dl.dropboxusercontent.com/scl/fi/oslgex5k4x3u2if34l5uc/Plant.mp4?rlkey=d5o1jerjn26j0dsjbieisyjk6&amp;st=bk7tr4n6&amp;dl=0" type="video/mp4">
+        </video>
+      </div>
     </Hero>
     <div  id="prof-support" class="mb-8">
-      <h2>Почему профессиональная поддержка так важна при запуске?</h2>
+      <h2>{{ $t("market_making.prof_support") }}</h2>
       <div class="flex justify-between items-center">
         <div>
-          <div class="grid grid-cols-4 gap-8 mt-12">
-            <div>
-              <h3 class="life-cyclic-h3">01.</h3>
-              <p class="life-cyclic-p">Максимизируйте видимость вашего токена<br>С нашей помощью ваш токен окажется на всех ключевых биржах!</p>
-            </div>
-            <div>
-              <h3 class="life-cyclic-h3">02.</h3>
-              <p class="life-cyclic-p">Подумайте заранее о ликвидности и волатильности токена в первые минуты и часы на рынке.<br>C нашей помощью ваш токен быстрее окажется на ключевых биржах!</p>
-            </div>
-            <div>
-              <h3 class="life-cyclic-h3">03.</h3>
-              <p class="life-cyclic-p">Хороший план – это большая часть дела.<br>Наша опытная команда обеспечит эффективную стратегию листинга для вашего актива.</p>
-            </div>
-            <div>
-              <h3 class="life-cyclic-h3">04.</h3>
-              <p class="life-cyclic-p">Не оставляйте успех на удачу<br>Воспользуйтесь поддержкой нашей опытной команды для уверенного и прогнозируемого старта на рынке.</p>
-            </div>
-          </div>
-          <div class="work-with-text">РАБОТАЕМ С</div>
+          <LifeCyclic />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1" fill="none"> <line y1="0.5" x2="1160" y2="0.5" stroke="url(#paint0_linear_868_2555)"></line> <defs> <linearGradient id="paint0_linear_868_2555" x1="0" y1="6" x2="4640" y2="6" gradientUnits="userSpaceOnUse"> <stop stop-color="#34FBFF"></stop> <stop offset="1" stop-color="#1586F4"></stop> </linearGradient> </defs> </svg>
+          <div class="work-with-text">{{ $t("market_making.work_with") }}</div>
           <div class="marquee-container">
             <div class="marquee-strip">
               <!-- repeat icons to make continuous effect -->
@@ -100,26 +86,39 @@
     </div>
     <div class="services-container">
       <div class="anchor"><span id="cex-services"></span></div>
-      <h2 class="text-services">УСЛУГИ CEX</h2>
+      <h2 class="text-services">{{ $t("market_making.cex") }}</h2>
+      <Hero id="cex-services" class="grid grid-cols-7 justify-between items-center">
+        <div class="col-span-4">
+          <h2 class="colorized-text">{{ $t("market_making.cex") }}</h2>
+          <p>{{ $t("market_making.cex_desc") }}</p>
+          <ConsultButton />
+        </div>
+        <div class="col-span-3 m-auto">
+          <img src="/public/logo3DCube.webp" alt="logo">
+        </div>
+      </Hero>
       <!-- Три карточки в одну строку -->
-       <div class="anchor"><span id="liquidity-management"></span></div>
+      <div class="anchor"><span id="liquidity-management"></span></div>
       <div class="anchor"><span id="cex-listing"></span></div>
       <div class="anchor"><span id="order-optimization"></span></div>
-      <div class="grid grid-cols-2 gap-8 w-full">
+      <div class="grid grid-cols-2  grid-rows-2 gap-8 w-full">
         <Card 
           :title="$t('market_making.cex_listing')"
           :text="$t('market_making.cex_listing_desc')"
-          class="" 
+          :text_bottom=true
+          class="col-span-1" 
         />
         <Card 
           :title="$t('market_making.optimization_orders')"
           :text="$t('market_making.optimization_orders_desc')"
-          class="" 
+          :text_bottom=true
+          class="col-span-1 row-span-2" 
         />
         <Card 
           :title="$t('market_making.liquidity_manage')"
-          :text="$t('market_making.liquidity_manage_desc')" 
-          class=""
+          :text="$t('market_making.liquidity_manage_desc')"
+          :text_bottom=true 
+          class="col-span-1"
         />
       </div>
     </div>
@@ -128,11 +127,17 @@
 
 <style scoped>
 h2 { font-size: 50px; font-weight: 700; }
+
+#market_making::before{
+  height: 60rem;
+  border-width: 5px;
+}
+
 .life-cyclic-h3 { color: #fff; font-weight: 700; font-size: 3rem; padding-bottom: 1.5rem; }
 .life-cyclic-p { font-size: 2rem; line-height: 1; font-weight: 500; padding-bottom: 12rem; }
 .text-services { vertical-align: middle; color: #ffffff; font-size: 300%; font-family: 'Montserrat', Arial, sans-serif; line-height: 1.1; font-weight: 700; background-position: center center; border-color: transparent; border-style: solid; color: #ffffff; text-align: center; z-index: 3; padding-top: 3%; padding-bottom: 3%; }
 /* Дополнительные стили для соответствия отступам из образца */
-.services-container p { font-size: 1.5rem; line-height: 1; font-weight: 500; padding-bottom: 3rem; text-align: center; max-width: 60%; margin: 0 auto; }
+/*.services-container p { font-size: 1.5rem; line-height: 1; font-weight: 500; padding-bottom: 3rem; text-align: center; max-width: 60%; margin: 0 auto; }*/
 
 #dex div:first-child{
   padding-top: 10rem;
@@ -202,35 +207,33 @@ h2 { font-size: 50px; font-weight: 700; }
   width: 100%;
   position: relative;
   background: transparent;
-  /* Optional: set height depending on icon size */
-  /*height: 70px;*/ /* adjust based on icons size */
 }
 
 .marquee-strip {
   display: flex;
-  width: max-content;
-  animation: marquee 15s infinite linear;
-  /*animation: marquee 20s linear infinite;*/
-  /* gap between icons */
-  gap: 14%;
+  width: calc(200% + 14%); /* Двойная ширина для seamless loop */
+  animation: marquee 15s linear infinite;
 }
 
 .marquee-strip img {
-  height: 109px;  /* uniform icon height */
-  width: 109px;   /* uniform icon width */
+  height: 109px; 
+  width: 109px;  
   flex-shrink: 0;
-  margin: 0 auto;
+  margin: 0 7%; /* Половина от gap 14% для равномерности */
 }
 
-/*@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}*/
+/* Дублируем иконки внутри для loop */
+.marquee-strip::before,
+.marquee-strip::after {
+  content: '';
+  display: flex;
+  width: 100%;
+  gap: 14%;
+}
 
 @keyframes marquee {
-  0% {
-      transform: translateX(0px); 
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Styling for the "РАБОТАЕМ С" text */
@@ -242,7 +245,340 @@ h2 { font-size: 50px; font-weight: 700; }
   user-select: none;
   font-weight: 700;
 }
+
+@media (min-width: 2241px) {
+  #market_making::before {
+    height: 70rem;
+  }
+}
+
+@media (min-width: 1472px) and (max-width: 2240px) {
+  #market_making::before {
+    height: 60rem;
+  }
+}
+
+@media (min-width: 1212px) and (max-width: 1471px) {
+  #market_making::before {
+    height: 50rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1211px) {
+  #market_making::before {
+    height: 50rem;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .hero-media-container video {
+    max-width: 100%;
+    width: 100%;
+  }
+  .hero{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero div{
+    grid-column: span 2 / span 2;
+  }
+
+  #start_tokens div:first-child, #market_making div:first-child, #dex div:first-child { order: 1; }
+  #start_tokens div:last-child, #market_making div:last-child, #dex div:last-child { order: -1; } 
+
+  #market_making div.hero-text-container {
+    padding-top: 15rem;
+  }
+
+  #market-making .hero-media-container img {
+    max-width: 200px;
+    padding-top: 5rem;
+    margin-left: 0;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .big-card {
+    padding: 20px;
+  }
+
+  .big-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .big-card p {
+    font-size: 1.1rem;
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .marquee-strip {
+    width: calc(200% + 10%); /* Адаптируем для 4 элементов */
+    animation-duration: 12s; /* Ускоряем для меньшего экрана */
+  }
+
+  .marquee-strip img {
+    height: 80px;
+    width: 80px;
+    margin: 0 5%; /* Половина от gap 10% */
+  }
+
+  .work-with-text {
+    font-size: 1rem;
+  }
+
+  .text-services {
+    font-size: 250%;
+  }
+
+  .services-container p {
+    max-width: 80%;
+    font-size: 1.3rem;
+  }
+
+  .flip-card .image-block {
+    padding-top: 3rem;
+  }
+
+  #prof-support {
+    padding: 20px;
+    border-radius: 3rem;
+  }
+
+  .life-cyclic-h3 {
+    font-size: 2.5rem;
+  }
+
+  .life-cyclic-p {
+    font-size: 1.5rem;
+    padding-bottom: 8rem;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Планшеты (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #market_making::before {
+    height: 60rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 32px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  #market_making div.hero-text-container {
+    padding-top: 10rem;
+  }
+
+  #market-making .hero-media-container img {
+    max-width: 150px;
+    padding-top: 3rem;
+  }
+
+  .big-card {
+    padding: 15px;
+  }
+
+  .big-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .big-card p {
+    font-size: 1rem;
+  }
+
+  .marquee-strip {
+    width: calc(200% + 8%); /* Адаптируем для 3 элементов */
+    animation-duration: 10s;
+  }
+
+  .marquee-strip img {
+    height: 60px;
+    width: 60px;
+    margin: 0 4%; /* Половина от gap 8% */
+  }
+
+  .work-with-text {
+    font-size: 0.9rem;
+  }
+
+  .text-services {
+    font-size: 200%;
+  }
+
+  .services-container p {
+    max-width: 90%;
+    font-size: 1.1rem;
+  }
+
+  .life-cyclic-h3 {
+    font-size: 2rem;
+  }
+
+  .life-cyclic-p {
+    font-size: 1.2rem;
+    padding-bottom: 6rem;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  #market_making::before{
+    height: 62rem;
+  }
+
+  .hero-media-container video {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #market-making .hero-media-container img {
+    max-width: 150px;
+    padding-top: 2rem;
+    margin-left: 0;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 20px;
+  }
+
+  .big-card {
+    padding: 10px;
+  }
+
+  .big-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .big-card p {
+    font-size: 0.9rem;
+  }
+
+  .marquee-strip {
+    animation-duration: 10s;
+    gap: 8%;
+  }
+
+  .marquee-strip img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .work-with-text {
+    font-size: 0.8rem;
+  }
+
+  .text-services {
+    font-size: 180%;
+  }
+
+  .services-container p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .flip-card .image-block {
+    padding-top: 2rem;
+  }
+
+  #prof-support {
+    padding: 15px;
+    border-radius: 2rem;
+  }
+
+  .life-cyclic-h3 {
+    font-size: 1.8rem;
+  }
+
+  .life-cyclic-p {
+    font-size: 1rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
+  .hero {
+    padding: 10px;
+  }
+
+  #market_making div.hero-text-container {
+    padding-top: 5rem;
+  }
+
+  #market-making .hero-media-container img {
+    max-width: 120px;
+    padding-top: 1rem;
+  }
+
+  .big-card {
+    padding: 8px;
+  }
+
+  .big-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .big-card p {
+    font-size: 0.8rem;
+  }
+
+  .marquee-strip img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .work-with-text {
+    font-size: 0.7rem;
+  }
+
+  .text-services {
+    font-size: 150%;
+  }
+
+  .services-container p {
+    font-size: 0.9rem;
+  }
+
+  .life-cyclic-h3 {
+    font-size: 1.5rem;
+  }
+
+  .life-cyclic-p {
+    font-size: 0.9rem;
+    padding-bottom: 2rem;
+  }
+}
 </style>
+
+
 
 <script setup>
 // Импорт необходимых модулей и компонентов (аналогично образцу)

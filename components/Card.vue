@@ -2,7 +2,7 @@
   <div class="card-wrapper" @click="flipped = !flipped">
     <div class="flip-card" :class="{ flipped }">
       <div class="card-face">
-        <div>
+        <div :class="{ 'text-bottom': text_bottom }">
           <h3 class="colorized-text" :style="{ wordSpacing: title_wrap ? '100vw' : 'normal' }">{{ title }}</h3>
           <p :style="{ wordSpacing: text_wrap ? '100vw' : 'normal' }">{{ text }}</p>
         </div>
@@ -21,6 +21,7 @@ defineProps({
   text: String,
   title_wrap: Boolean,
   text_wrap: Boolean,
+  text_bottom: Boolean,
 })
 </script>
 
@@ -80,5 +81,11 @@ defineProps({
 /* Передняя сторона — серый фон */
 .card-front {
   background-color: #222222;
+}
+
+.text-bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>

@@ -59,13 +59,15 @@
       <p>
         {{ $t("index.about_us_desc") }}
       </p>
-      <img class="gif" src="~/public/MConvertereu_retrof.gif" alt="MConvertereu">
-      <img class="inside_image" src="~/public/logo_opacity.webp" alt="MConvertereu">
+      <div class="flex items-center justify-center">
+        <img class="gif" src="~/public/MConvertereu_retrof.gif" alt="MConvertereu">
+        <img class="inside_image" src="~/public/logo_opacity.webp" alt="MConvertereu">
+      </div>
     </div>
 
     <div id="team">
       <h2>{{ $t("index.team") }}</h2>
-      <div class="grid grid-cols-2 gap-16 mx-8 flex-row justify-between mb-[120px]">
+      <div class="grid grid-cols-2 gap-16 mx-8 flex-row justify-between mb-[120px] max-w-screen-xl mx-auto">
         <div class="photo_card pl-4" id="Dmitry-Vasilev-card">
           <h3 class="mt-[50%]">{{ $t("index.dmitry") }}</h3>
           <p class="role">{{ $t("index.dmitry_role") }}</p>
@@ -124,34 +126,76 @@
       </div>
     </div>
 
-    <div id="clients" class="stat_container border border-gray-300 p-4 rounded-[80px] min-h-[540px] flex flex-col p-[60px] gap-4">
-      <div class="self-center text-2xl mb-[60px]">
+    <div id="clients" class="stat_container border border-gray-300 p-4 rounded-[4rem] flex flex-col pt-[60px] gap-4 fadeup_block">
+      <div class="self-center">
         <h2>{{ $t("index.clients") }}</h2>
       </div>
+        <div id="statBlock" ref="statBlock" class="flex flex-row justify-around">
+          <div class="flex flex-col items-center">
+            <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='+'/></b>
+            <p class="stat-item">{{ $t("index.clients_dex_title") }}</p>
+          </div>
 
-      <div class="flex flex-row justify-around">
-        <div class="flex flex-col items-center">
-          <b>{{ $t("index.clients_dex_count") }}</b>
-          <p>{{ $t("index.clients_dex_title") }}</p>
-        </div>
+          <div class="flex flex-col items-center">
+            <b><CounterCard :startAmount='0' :endAmount='60' :duration='1' suffix='+'/></b>
+            <p class="stat-item">{{ $t("index.clients_project_title") }}</p>
+          </div>
 
-        <div class="flex flex-col items-center">
-          <b>{{ $t("index.clients_project_count") }}</b>
-          <p>{{ $t("index.clients_project_title") }}</p>
+          <div class="flex flex-col items-center">
+            <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='М+'/></b>
+            <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
+          </div>
         </div>
-
-        <div class="flex flex-col items-center">
-          <b>{{ $t("index.clients_users_count") }}</b>
-          <p>{{ $t("index.clients_users_title") }}</p>
-        </div>
-      </div>
     </div>
-
-
   </div>
 </template>
 
+<script setup>
+import { ref, onMounted, nextTick } from 'vue'
+
+const statBlock = ref(null)
+
+onMounted(() => {
+  nextTick(() => {
+    // Находим все <p> внутри statBlock с классом stat-item — только они будут анимироваться
+    const animatedPs = statBlock.value.querySelectorAll('.stat-item')
+
+    // Скрываем их изначально
+    animatedPs.forEach(el => {
+      el.classList.remove('fadeInUp')
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(70px)'
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            //показываем
+            animatedPs.forEach((el, idx) => {
+              setTimeout(() => {
+                el.classList.add('fadeInUp')
+              }, idx)
+            })
+            observer.unobserve(statBlock.value)
+          }
+        })
+      },
+      { threshold: 0.8 }
+    )
+
+    if (statBlock.value)
+      observer.observe(statBlock.value)
+  })
+})
+</script>
+
 <style scoped>
+#start_way::before{
+  height: 60rem;
+  border-width: 5px;
+}
+
 .hero-media-container {
   position: relative;
 }
@@ -172,6 +216,10 @@
   border-color: transparent;
   border-style: solid;
   transition: background-color 0s ease-in-out, color 0s ease-in-out, border-color 0s ease-in-out;
+}
+
+#development div.hero-media-container {
+  overflow: hidden;
 }
 
 #market-making .hero-media-container img {
@@ -219,9 +267,8 @@
 
 #about_us .inside_image {
   position: absolute;
-  width: 230px; /* Fixed max */
-  top: 403px; /* Fixed max */
-  left: 748px; /* Fixed max */
+  width: auto;
+  height: auto;
 }
 
 #team h2 {
@@ -311,13 +358,26 @@
   border-style: solid;
 }
 
+.stat-item {
+  opacity: 0;
+  transform: translateY(70px);
+  transition: opacity 1s cubic-bezier(0.4,0,0.2,1), transform 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.fadeInUp {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1),
+              transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
 .photo_card {
-  background-position: center -100px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 20px 40px;
   width: 100%;
-  height: 600px; /* Fixed max */
+  /*height: 600px; Fixed max */
   border-radius: 30px;
 }
 
@@ -329,7 +389,46 @@
   background-image: url("/georgy.png");
 }
 
-/* Media Queries for Basic Adjustments (without clamp) */
+@media (min-width: 2241px) {
+  #start_way::before {
+    height: 70rem;
+  }
+}
+
+@media (min-width: 1472px) and (max-width: 2240px) {
+  #start_way::before {
+    height: 60rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1471px) {
+  #team h3 {
+    font-size: 18px;
+  }
+
+  #team .role {
+    font-size: 15px;
+  }
+
+  #team .experience {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1212px) and (max-width: 1471px) {
+  #start_way::before {
+    height: 50rem;
+  }
+  .photo_card {
+      height: 30rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1211px) {
+  #start_way::before {
+    height: 40rem;
+  }
+}
 
 /* Tablets and smaller desktops (max-width: 1024px) */
 @media (max-width: 1024px) {
@@ -347,6 +446,9 @@
   #start_way div:first-child, #market_making div:first-child, #consulting div:first-child { order: 1; }
   #start_way div:last-child, #market_making div:last-child, #consulting div:last-child { order: -1; } 
 
+  #market_making div.hero-text-container {
+    padding-top: 15rem;
+  }
 
   #market-making .hero-media-container img {
     max-width: 200px;
@@ -354,12 +456,12 @@
     margin-left: 0;
   }
 
+  #development .hero-text-container{
+    padding-left: unset;
+  }
+
   #about_us .inside_image {
-    position: static;
-    width: 30vw;
-    margin: 2rem auto 0 auto;
-    top: auto;
-    left: auto;
+    width: 15vw;
   }
 
   #about_us p {
@@ -369,6 +471,10 @@
   .photo_card {
     height: auto;
     padding: 15px 20px;
+  }
+
+  #team .grid-cols-2 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   #clients {
@@ -393,24 +499,31 @@
     font-size: 32px;
     margin-bottom: 1.5rem;
   }
+}
 
-  #team h3 {
-    font-size: 24px;
-  }
-
-  #team .role {
-    font-size: 20px;
-  }
-
-  #team .experience {
-    font-size: 16px;
+/* Планшеты (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #start_way::before {
+    height: 56rem;
   }
 }
 
+
 /* Mobile devices (max-width: 640px) */
 @media (max-width: 640px) {
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 20px;
+  }
+
+  #start_way::before{
+    height: 45rem;
+  }
+
   #about_us .inside_image {
-    display: none;
+    
   }
 
   #about_us p {
@@ -429,8 +542,19 @@
   }
 
   .photo_card {
-    max-height: 400px;
     padding: 10px 15px;
+  }
+
+  #team h3 {
+    font-size: 18px;
+  }
+
+  #team .role {
+    font-size: 15px;
+  }
+
+  #team .experience {
+    font-size: 12px;
   }
 
   #clients b {
@@ -460,6 +584,21 @@
 
   #team .experience {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  #statBlock{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
   }
 }
 </style>

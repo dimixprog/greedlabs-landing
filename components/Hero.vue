@@ -53,7 +53,6 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 60rem;
   background-image: url("/hero_background.webp");
 
   background-color: rgba(17, 17, 17, 1.0);
@@ -62,7 +61,6 @@
   background-position: center;
   z-index: -1;
   border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
-    border-width: 6px;
     border-style: solid;
     border-top: 0px;
     border-left: 0px;
@@ -93,9 +91,6 @@
     height: 60px;
     padding: 0 30px;
   }
-  .hero::before {
-    height: 120%; /* Уменьшаем высоту для мобильных */
-  }
 }
 
 /* Планшеты (769px to 1024px) */
@@ -111,27 +106,6 @@
     height: 70px;
     padding: 0 40px;
   }
-  .hero::before {
-    height: 56rem;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1211px) {
-  .hero::before {
-    height: 40rem;
-  }
-}
-
-@media (min-width: 1212px) and (max-width: 1471px) {
-  .hero::before {
-    height: 50rem;
-  }
-}
-
-@media (min-width: 1472px) and (max-width: 2240px) {
-  .hero::before {
-    height: 60rem;
-  }
 }
 
 /* Десктопы (min-width: 1025px) */
@@ -139,12 +113,6 @@
   .hero {
     flex-direction: row;
     justify-content: space-between;
-  }
-}
-
-@media (min-width: 2241px) {
-  .hero::before {
-    height: 70rem;
   }
 }
 </style>

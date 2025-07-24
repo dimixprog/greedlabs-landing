@@ -99,7 +99,7 @@ defineProps({
 .card-face p{
   vertical-align: middle;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 1.7rem;
     font-family: 'Montserrat', Arial, sans-serif;
     line-height: 1.1;
     font-weight: 500;

@@ -2,7 +2,7 @@
 <template>
   <div>
 
-    <Hero class="grid grid-cols-7 justify-between items-center">
+    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("consulting.consulting") }}</h2>
         <p>{{ $t("consulting.consulting_desc") }}</p>
@@ -45,8 +45,9 @@
           команды, архитектуры, безопасности и поступательного развития инфраструктуры вашего проекта.</p>
       </div>
 
-      <img src="/consulting_circle.svg" width="150" height="150">
-      <div class="advantages">
+      <img class="col-span-2 floating_bars" src="/consulting_circle.svg">
+      <FloatingBars />
+      <div class="advantages col-span-5"">
         <h3>Стратегическое планирование</h3>
         <p>Мы предоставляем ценные советы по ключевым элементам цепочки, которые играют важную роль в создании успешной
           дорожной карты вашего бизнеса. Давайте вместе выстроим стратегию, которая выведет ваш проект на новый уровень!
@@ -58,11 +59,17 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 h2 { font-size: 50px; font-weight: 700; }
 .hero {
     margin-bottom: 8%;
 }
+
+#consulting::before{
+  height: 60rem;
+  border-width: 5px;
+}
+
 .text-services{
   vertical-align: middle;
   color: #ffffff;
@@ -100,5 +107,70 @@ h2 { font-size: 50px; font-weight: 700; }
   line-height: 1;
   font-weight: 500;
   padding-bottom: 12rem;
+}
+
+@media (min-width: 2341px) {
+  #consulting::before {
+    height: 70rem;
+  }
+}
+
+@media (min-width: 1648px) and (max-width: 2340px) {
+  #consulting::before {
+    height: 60rem;
+  }
+}
+
+@media (min-width: 1388px) and (max-width: 1647px) {
+  #consulting::before {
+    height: 50rem;
+  }
+}
+
+@media (min-width: 1212px) and (max-width: 1387px) {
+  #consulting::before {
+    height: 40rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1211px) {
+  #consulting::before {
+    height: 40rem;
+  }
+}
+
+/* Планшеты (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #consulting::before {
+    height: 40rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  #consulting::before {
+    height: 65rem;
+  }
+}
+
+/* Mobile devices (max-width: 640px) */
+@media (max-width: 640px) {
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 20px;
+  }
+  #consulting::before{
+    height: 60rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
 }
 </style>

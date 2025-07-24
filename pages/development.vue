@@ -1,8 +1,8 @@
 <!-- pages/development.vue -->
 <template>
   <div>
-    <Hero class="flex justify-between items-center">
-      <div>
+    <Hero id="development" class="grid grid-cols-7 justify-between items-center">
+      <div class="col-span-4">
         <h2 class="colorized-text">РАЗРАБОТКА</h2>
         <p>
           Мы поможем воплотить идеи в реальность,<br>
@@ -13,7 +13,7 @@
         <ConsultButton />
       </div>
 
-      <Cubes3D />
+      <Cubes3D  class="col-span-3 m-auto"/>
     </Hero>
 
     <div class="services-container">
@@ -43,7 +43,7 @@
     <h2 class="colorized-text mt-24 mb-24">Жизненный цикл проекта</h2>
     <hr />
 
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center life-cycle-cards">
       <ScrollSpinning />
       <div class="life-cycle">
         <h3 class="pt-32">Анализ</h3>
@@ -77,7 +77,7 @@
         Мы не ограничены в языках и фреймворках, что позволяет нам использовать на каждом проекте наиболее оптимальный
         набор инструментов.
       </p>
-      <div class="flex flex-row">
+      <div class="flex flex-row tech-stack-cards">
         <div class="languages card w-full">
           <img class="colorized-text self-center" src="/code_symbol.png" alt="code symbil" width="256">
           <p class="colorized-text ">Языки и фреймворки</p>
@@ -106,10 +106,10 @@
     </div>
 
     <div class="why-we py-12">
-      <h2 class="colorized-text mt-24 mb-24">Почему мы?</h2>
+      <h2 class="colorized-text mt-24 mb-16">Почему мы?</h2>
       <hr>
 
-      <div class="flex flex-row">
+      <div class="why-we-cards grid grid-cols-3 gap-8 pt-16">
         <div>
           <h3 class="colorized-text">Высокое качество</h3>
           <p>Каждый день мы боремся за качество в вашем
@@ -144,59 +144,78 @@
     </div>
 
 
-    <div class="stat_container">
-      <h3>НАШИ ДОСТИЖЕНИЯ</h3>
-    </div>
+    
+      <div id="stat" ref="statBlock" class="stat_container border border-gray-300 p-4 rounded-[4rem] flex flex-col pt-[60px] gap-4">
+        <div class="flex flex-row justify-around">
+          <div class="flex flex-col items-center">
+            <b><CounterCard :startAmount='0' :endAmount='10' :duration='1' suffix='K+'/></b>
+            <p>{{ $t("index.clients_dex_title") }}</p>
+          </div>
 
+          <div class="flex flex-col items-center">
+            <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='+'/></b>
+            <p>{{ $t("index.clients_project_title") }}</p>
+          </div>
 
-    <h2 class="colorized-text">НАШИ КЕЙСЫ</h2>
-    <p>
-      Проекты которые прошли через GREED Labs
-    </p>
-
-
-    <div class="grid grid-cols-2 gap-5 justify-items-center">
-      <div class="project">
-        <h3 class="colorized-text">Рынок NFT</h3>
-        <p>NFT – проекты в разных сетях и на разных мараетплейсах.</p>
-        <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
-          <SwiperSlide v-for="(img, idx) in images1" :key="idx">
-            <img :src="img" class="slide-img" alt="slide" />
-          </SwiperSlide>
-        </Swiper>
+          <div class="flex flex-col items-center">
+            <b><CounterCard :startAmount='0' :endAmount='400' :duration='1' suffix='K+'/></b>
+            <p>{{ $t("index.clients_users_title") }}</p>
+          </div>
+        </div>
+        <div class="self-center">
+          <h2>НАШИ ДОСТИЖЕНИЯ</h2>
+        </div>
       </div>
 
-      <div class="project">
-        <h3 class="colorized-text">GameFi</h3>
-        <p>Игровые проекты, работающие на базе рандомизатра и на реферальной системе.</p>
-        <div class="slider"></div>
-        <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
-          <SwiperSlide v-for="(img, idx) in images2" :key="idx">
-            <img :src="img" class="slide-img" alt="slide" />
-          </SwiperSlide>
-        </Swiper>
-      </div>
+    <div id="cases">
+      <h2 class="colorized-text cases-title">НАШИ КЕЙСЫ</h2>
+      <p class="cases-desc">
+        Проекты которые прошли через GREED Labs
+      </p>
+    
+      <div class="cases-block-cards grid grid-cols-2 gap-5 justify-items-center">
+        <div class="project">
+          <h3 class="colorized-text">Рынок NFT</h3>
+          <p>{{ $t("dev.cases_nft_desc") }}</p>
+          <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
+            <SwiperSlide v-for="(img, idx) in images1" :key="idx">
+              <img :src="img" class="slide-img" alt="slide" />
+            </SwiperSlide>
+          </Swiper>
+        </div>
 
-      <div class="project">
-        <h3 class="colorized-text">Запуск токенов</h3>
-        <p>Запуск токенов, организация пресейлов и разработка лаунчпадов и дэшбордов.</p>
-        <div class="slider"></div>
-        <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
-          <SwiperSlide v-for="(img, idx) in images3" :key="idx">
-            <img :src="img" class="slide-img" alt="slide" />
-          </SwiperSlide>
-        </Swiper>
-      </div>
+        <div class="project">
+          <h3 class="colorized-text">GameFi</h3>
+          <p>Игровые проекты, работающие на базе рандомизатра и на реферальной системе.</p>
+          <div class="slider"></div>
+          <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
+            <SwiperSlide v-for="(img, idx) in images2" :key="idx">
+              <img :src="img" class="slide-img" alt="slide" />
+            </SwiperSlide>
+          </Swiper>
+        </div>
 
-      <div class="project">
-        <h3 class="colorized-text">Сложные Web3-решения</h3>
-        <p>Разработка аналитических инструментов, а также систем для бизнеса на базе блокчейн.</p>
-        <div class="slider"></div>
-        <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
-          <SwiperSlide v-for="(img, idx) in images4" :key="idx">
-            <img :src="img" class="slide-img" alt="slide" />
-          </SwiperSlide>
-        </Swiper>
+        <div class="project">
+          <h3 class="colorized-text">Запуск токенов</h3>
+          <p>Запуск токенов, организация пресейлов и разработка лаунчпадов и дэшбордов.</p>
+          <div class="slider"></div>
+          <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
+            <SwiperSlide v-for="(img, idx) in images3" :key="idx">
+              <img :src="img" class="slide-img" alt="slide" />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+
+        <div class="project">
+          <h3 class="colorized-text">Сложные Web3-решения</h3>
+          <p>Разработка аналитических инструментов, а также систем для бизнеса на базе блокчейн.</p>
+          <div class="slider"></div>
+          <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
+            <SwiperSlide v-for="(img, idx) in images4" :key="idx">
+              <img :src="img" class="slide-img" alt="slide" />
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
     </div>
 
@@ -208,6 +227,11 @@
 h2 {
     font-size: 50px;
     font-weight: 700;
+}
+
+#development::before{
+  height: 60rem;
+  border-width: 5px;
 }
 
 .life-cycle h3{
@@ -257,6 +281,71 @@ h2 {
   font-weight: 700;
 }
 
+.why-we h3{
+  font-size: 2rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
+
+.why-we p{
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+#stat h2 {
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 3rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+  line-height: 1.1;
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+#stat p {
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 2rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+  text-align: center;
+}
+
+#stat b {
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 128px; /* Fixed max */
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+}
+
+#cases{
+  margin-top: 5rem;
+}
+
+#cases .cases-title{
+  text-align: center;
+}
+
+#cases .cases-desc{
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 5rem;
+}
+
 .project {
   display: flex;
   flex-direction: column;
@@ -264,12 +353,45 @@ h2 {
   width: fit-content;
 }
 
+.project h3{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.project p{
+  font-size: 1.3rem;
+  color: #787878;
+  font-weight: 500;
+  text-align: center;
+}
+
 .my-swiper {
   width: 100%;
-  max-width: 600px;
-  height: 300px;
+  max-width: 800px;
+  height: 500px;
   /* Фиксированная высота — обязательно */
   margin: 20px auto;
+}
+
+.my-swiper .swiper-slide{
+      padding: 1rem;
+    background-color: #292929;
+    border-radius: 2rem;
+}
+.my-swiper .swiper-slide img{
+    border-radius: 2rem;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    background-color: #787878;
+}
+
+.my-swiper .swiper-button-prev{
+
+}
+
+.my-swiper .swiper-button-next{
+
 }
 
 .slide-img {
@@ -296,6 +418,119 @@ h2 {
   padding-top: 3%;
   padding-bottom: 3%;
 }
+
+@media (min-width: 2241px) {
+  #development::before {
+    height: 70rem;
+  }
+}
+
+@media (max-width: 1905px) {
+.cases-block-cards{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1648px) and (max-width: 2240px) {
+  #development::before {
+    height: 60rem;
+  }
+}
+
+@media (min-width: 1388px) and (max-width: 1647px) {
+  #development::before {
+    height: 50rem;
+  }
+}
+
+@media (max-width: 1387px) {
+  .services-container div:last-child{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .life-cycle-cards{
+    flex-direction: column;
+  }
+  .why-we-cards{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1212px) and (max-width: 1387px) {
+  #development::before {
+    height: 40rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1211px) {
+  #development::before {
+    height: 40rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-media-container video {
+    max-width: 100%;
+    width: 100%;
+  }
+  .hero{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero div{
+    grid-column: span 2 / span 2;
+  }
+  #development .hero-text-container{
+    padding-left: unset;
+  }
+  #development div:first-child { order: 1; }
+  #development div:last-child { order: -1; } 
+}
+
+@media (max-width: 968px) {
+  .services-container div{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .services-container div:last-child{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .tech-stack-cards, .why-we-cards, .cases-block-cards{
+    flex-direction: column;
+  }
+}
+
+/* Планшеты (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #development::before {
+    height: 40rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  #development::before {
+    height: 65rem;
+  }
+}
+
+/* Mobile devices (max-width: 640px) */
+@media (max-width: 640px) {
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 20px;
+  }
+  #development::before{
+    height: 60rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
 </style>
 
 
@@ -303,9 +538,48 @@ h2 {
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
-import { Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules'
 import 'swiper/css/navigation'
+//import Vue3Autocounter from 'vue3-autocounter'
 
+import { ref, onMounted } from 'vue'
+
+const statBlock = ref(null)
+const hoursCounter = ref(null)
+const projectsCounter = ref(null)
+const linesCodeCounter = ref(null)
+
+// Запуск анимации блока и автосчётчика при попадании блока в зону видимости
+onMounted(() => {
+  const animatedEls = statBlock.value.querySelectorAll('.stat-item, .fadeup_block')
+  animatedEls.forEach(el => {
+    el.classList.remove('fadeInUp')
+    el.style.opacity = 0
+    el.style.transform = 'translateY(70px)'
+  })
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animatedEls.forEach((el, idx) => {
+            setTimeout(() => {
+              el.classList.add('fadeInUp')
+            }, idx * 150)
+          })
+          if (hoursCounter.value) hoursCounter.value.start()
+          observer.unobserve(statBlock.value)
+          if (projectsCounter.value) projectsCounter.value.start()
+          observer.unobserve(statBlock.value)
+          if (linesCodeCounter.value) linesCodeCounter.value.start()
+          observer.unobserve(statBlock.value)
+        }
+      })
+    },
+    { threshold: 0.4 }
+  )
+  observer.observe(statBlock.value)
+})
 
 // Список изображений
 const images1 = [
