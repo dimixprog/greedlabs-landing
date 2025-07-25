@@ -142,7 +142,7 @@
           </div>
 
           <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='М+'/></b>
+            <b><CounterCard :startAmount='0' :endAmount='1' :duration='1' suffix='М+'/></b>
             <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
           </div>
         </div>
@@ -261,7 +261,7 @@ onMounted(() => {
 
 #about_us .gif {
   border-radius: 20px;
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
 
@@ -269,6 +269,8 @@ onMounted(() => {
   position: absolute;
   width: auto;
   height: auto;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
 }
 
 #team h2 {

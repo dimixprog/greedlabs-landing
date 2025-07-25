@@ -14,44 +14,38 @@
     </Hero>
 
     <h2 class="text-services">{{ $t("consulting.our_services") }}</h2>
-    <div class="grid grid-cols-5 gap-8 w-full mb-8">
+    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8">
       <Card class="col-span-3" :title="$t('consulting.tech_consulting')" title_wrap/>
       <Card class="col-span-2" :title="$t('consulting.support')" />
     </div>
-    <div class="grid grid-cols-5 gap-8 w-full mb-8">
+    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8">
       <Card class="col-span-2" :title="$t('consulting.vc_support')" title_wrap/>
       <Card class="col-span-3" :title="$t('consulting.tokenomics_development')" title_wrap/>
     </div>
-    <div class="grid grid-cols-1 gap-8 w-full">
+    <div id="our-services" class="grid grid-cols-1 gap-8 w-full">
       <Card :title="$t('consulting.tech_audit')" title_wrap/>
     </div>
 
     <h2 class="colorized-text">{{ $t("consulting.advantages_of_consalting") }}</h2>
     <hr class="border-t-2 border-blue-400 my-4">
 
-    <div class="grid grid-cols-7 gap-4">
+    <div id="advantages-group" class="grid grid-cols-7 gap-4">
       <LoadingCircular class="col-span-2"/>
       <div class="advantages col-span-5">
-        <h3>Глубокий анализ рынка</h3>
-        <p>Наша команда из аналитиков, разработчиков и специалистов по web3-бизнесу, активно взаимодействует с ведущими
-          игроками отрасли и находится в контексте всех новшеств. Мы создаем уникальные решения, которые помогут вашему
-          проекту выделиться и достичь успеха на конкурентном рынке.</p>
+        <h3>{{ $t("consulting.deep_analysis") }}</h3>
+        <p>{{ $t("consulting.deep_analysis_desc") }}</p>
       </div>
       <SpinningGear class="col-span-2"/>
 
       <div class="advantages col-span-5">
-        <h3>Технические навыки</h3>
-        <p>Техническая инфраструктура определяет половину успеха проекта. Мы предоставим ценные советы по вопросам сбора
-          команды, архитектуры, безопасности и поступательного развития инфраструктуры вашего проекта.</p>
+        <h3>{{ $t("consulting.tech_skills") }}</h3>
+        <p>{{ $t("consulting.tech_skills_desc") }}</p>
       </div>
 
-      <img class="col-span-2 floating_bars" src="/consulting_circle.svg">
-      <FloatingBars />
-      <div class="advantages col-span-5"">
-        <h3>Стратегическое планирование</h3>
-        <p>Мы предоставляем ценные советы по ключевым элементам цепочки, которые играют важную роль в создании успешной
-          дорожной карты вашего бизнеса. Давайте вместе выстроим стратегию, которая выведет ваш проект на новый уровень!
-        </p>
+      <FloatingBars  class="col-span-2"/>
+      <div class="advantages col-span-5">
+        <h3>{{ $t("consulting.strategic_planning") }}</h3>
+        <p>{{ $t("consulting.strategic_planning_desc") }}</p>
       </div>
 
     </div>
@@ -121,6 +115,27 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 }
 
+@media (min-width: 1425px) and (max-width: 1680px){
+  .advantages[data-v-d5f28c20] {
+    padding-left: 3rem;
+    padding-top: 5rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1424px) {
+  .advantages[data-v-d5f28c20] {
+    padding-left: 3rem;
+    padding-top: 3rem;
+  }
+  .advantages h3 {
+    font-size: 2rem;
+  }
+  .advantages p {
+    font-size: 1.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
 @media (min-width: 1388px) and (max-width: 1647px) {
   #consulting::before {
     height: 50rem;
@@ -136,6 +151,53 @@ h2 { font-size: 50px; font-weight: 700; }
 @media (min-width: 1025px) and (max-width: 1211px) {
   #consulting::before {
     height: 40rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-media-container video {
+    max-width: 100%;
+    width: 100%;
+  }
+  .hero, #advantages-group{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero div{
+    grid-column: span 2 / span 2;
+  }
+
+  #consulting div:first-child { order: 1; }
+  #consulting div:last-child { order: -1; } 
+
+  .advantages {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .loader-wrapper, .gear-container, .floating-bars-wrapper {
+    width: 50%;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  #our-services {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0;
+    margin-bottom: 0;
+  }
+  #our-services .card-wrapper{
+    margin-bottom: 2rem;
+  }
+  .advantages h3 {
+    font-size: 2rem;
+  }
+  .advantages p {
+    font-size: 1.5rem;
+    padding-bottom: 5rem;
   }
 }
 

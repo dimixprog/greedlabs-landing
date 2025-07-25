@@ -1,218 +1,90 @@
 <template>
-<div class="tn-atom__sbs-anim-wrapper" id="sbs-818779056-1730388069322" style="display: table; width: inherit; height: inherit;"><div class="tn-atom" style="transform-origin: center center;"> </div></div>
-<div class="tn-atom__sbs-anim-wrapper" id="sbs-818779056-1730388069318" style="display: table; width: inherit; height: inherit;"><div class="tn-atom" style="transform-origin: center center;"> </div></div>
-<div class="tn-atom__sbs-anim-wrapper" id="sbs-818779056-1730388069314" style="display: table; width: inherit; height: inherit;"><div class="tn-atom" style="transform-origin: center center;"> </div></div>
-<div class="tn-atom__sbs-anim-wrapper" id="sbs-818779056-1730388069307" style="display: table; width: inherit; height: inherit;"><div class="tn-atom" style="transform-origin: center center;"> </div></div>
+<div class="floating-bars-wrapper">
+  <img src="/consulting_circle.svg" class="circle-bg" alt="Кольцо" />
+  <div class="black-cube"></div>
+  <div class="floating-bar bar1"></div>
+  <div class="floating-bar bar2"></div>
+  <div class="floating-bar bar3"></div>
+</div>
 </template>
 <style scoped>
-.tn-atom{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    -webkit-text-size-adjust: 100%;
-    border-radius: 25px 25px 25px 25px;
-    background-color: #d9d9d9;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-    transform-origin: center center;
+.floating-bars-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
- #sbs-818779056-1730388069322{
-    -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    -webkit-text-size-adjust: 100%;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    animation: sbs-818779056-1730388069322 6.5s infinite linear;
-    backface-visibility: hidden;
-    display: table;
-    width: inherit;
-    height: inherit;
-    transform: translateY(-8.2143px);
- }
- #sbs-818779056-1730388069322 div{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    -webkit-text-size-adjust: 100%;
-    border-radius: 25px 25px 25px 25px;
-    background-color: #d9d9d9;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-    transform-origin: center center;
- }
- #sbs-818779056-1730388069318{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    -webkit-text-size-adjust: 100%;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    animation: sbs-818779056-1730388069318 6.5s infinite linear;
-    backface-visibility: hidden;
-    display: table;
-    width: inherit;
-    height: inherit;
-    transform: translateY(-16.5179px);
- }
- #sbs-818779056-1730388069318 div{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    -webkit-text-size-adjust: 100%;
-    border-radius: 25px 25px 25px 25px;
-    background-color: #d9d9d9;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-    transform-origin: center center;
- }
- #sbs-818779056-1730388069314{
-    -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    -webkit-text-size-adjust: 100%;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    animation: sbs-818779056-1730388069314 9s infinite linear;
-    backface-visibility: hidden;
-    display: table;
-    width: inherit;
-    height: inherit;
-    transform: translateY(3.57275px);
- }
- #sbs-818779056-1730388069314 div{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    -webkit-text-size-adjust: 100%;
-    border-radius: 25px 25px 25px 25px;
-    background-color: #d9d9d9;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-    transform-origin: center center;
- }
- #sbs-818779056-1730388069307{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    -webkit-text-size-adjust: 100%;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: table;
-    width: inherit;
-    height: inherit;
- }
- #sbs-818779056-1730388069307 div{
-        -webkit-font-smoothing: antialiased;
-    --zoom: 1.587;
-    visibility: visible;
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    -webkit-text-size-adjust: 100%;
-    border-radius: 14px 14px 14px 14px;
-    background-color: #1b1b1b;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
-    transform-origin: center center;
- }
- @keyframes sbs-818779056-1730388069322 {
-    0% {
-        transform: translateY(0px);
-        animation-timing-function: 0;
-    }
-    38.46% {
-        transform: translateY(-20px);
-        animation-timing-function: 0;
-    }
-    76.92% {
-        transform: translateY(10px);
-        animation-timing-function: 0;
-    }
-    100% {
-        transform: translateY(0px);
-    }
- }
- @keyframes sbs-818779056-1730388069318 {
-    0% {
-        transform: translateY(0px);
-        animation-timing-function: 0;
-    }
-    38.46% {
-        transform: translateY(-10px);
-        animation-timing-function: 0;
-    }
-    76.92% {
-        transform: translateY(-30px);
-        animation-timing-function: 0;
-    }
-    100% {
-        transform: translateY(0px);
-    }
- }
- @keyframes sbs-818779056-1730388069314 {
-    0% {
-        transform: translateY(0px);
-        animation-timing-function: 0;
-    }
-    27.78% {
-        transform: translateY(-30px);
-        animation-timing-function: 0;
-    }
-    55.56% {
-        transform: translateY(-10px);
-        animation-timing-function: 0;
-    }
-    83.34% {
-        transform: translateY(10px);
-        animation-timing-function: 0;
-    }
- }
+.circle-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 3;
+}
 
+.black-cube{
+  background-color: #1b1b1b;
+    background-position: center center;
+    bottom: 0;
+    z-index: 2;
+    width: 50%;
+    height: 40%;
+    position: absolute;
+}
+
+.floating-bar {
+  position: absolute;
+    width: 10%;
+    height: 30%;
+    background-color: #d9d9d9;
+    border-radius: 2rem;
+    box-shadow: 0 0 3px 1px #a3a3a3;
+    z-index: 1;
+    transform: translate(-50%, 100%);
+}
+
+.bar1 {
+  left: 35%;
+}
+
+.bar2 {
+  left: 50%;
+}
+
+.bar3 {
+  left: 65%;
+}
+
+/* Анимация для всех баров — выезжают только на 80% высоты! */
+.bar1 { animation: vertBarAnim 10s cubic-bezier(.33,.5,.66,1) infinite; animation-delay: 0s; }
+.bar2 { animation: vertBarAnim 10s cubic-bezier(.33,.5,.66,1) infinite; animation-delay: 4s; }
+.bar3 { animation: vertBarAnim 10s cubic-bezier(.33,.5,.66,1) infinite; animation-delay: 2s; }
+
+/* Вариант: если хотите разброс по радиусу, задайте .bar1/.bar2/.bar3 разные left + top значения */
+
+@keyframes vertBarAnim {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 100%);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, 60%);
+  }
+  40%,
+  60% {
+    opacity: 1;
+    transform: translate(-50%, 20%); /* максимум – бар виден на 80% своей длины */
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, 60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 100%);
+  }
+}
 </style>

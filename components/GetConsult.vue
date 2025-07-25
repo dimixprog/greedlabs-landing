@@ -78,7 +78,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  min-height: 500px;
 }
 
 .card-img {
@@ -120,7 +119,7 @@
 }
 
 .consult-section h2 {
-  font-size: 36px;
+  font-size: 3rem;
   font-weight: 700;
   color: #fff;
   margin: 0 0 24px;
@@ -129,10 +128,12 @@
 }
 
 .consult-section p {
-  font-size: 20px;
-  color: #d4d9ec;
+  font-size: 1.8rem;
+  color: #ffffff;
   margin: 0 0 48px;
   line-height: 1.5;
+  font-weight: 600;
+  text-align: center;
 }
 
 .consult-form-box form {
@@ -263,7 +264,7 @@
     min-height: 480px;
   }
   .consult-bg-svg {
-    bottom: -60px;
+    bottom: -200px;
     width: 200vw;
   }
   .card-img {
@@ -287,7 +288,7 @@
   .consult-form-box input,
   .submit-btn {
     height: 55px;
-    font-size: 15px;
+    font-size: 0.8rem;
   }
 }
 </style>

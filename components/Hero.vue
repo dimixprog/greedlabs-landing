@@ -69,6 +69,13 @@
 
 /* Адаптивные стили */
 
+/* Mobile devices (max-width: 640px) */
+@media (max-width: 640px) {
+  .hero {
+    overflow: hidden;
+  }
+}
+
 /* Мобильные устройства (max-width: 768px) */
 @media (max-width: 768px) {
   .hero {

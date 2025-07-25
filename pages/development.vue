@@ -3,13 +3,8 @@
   <div>
     <Hero id="development" class="grid grid-cols-7 justify-between items-center">
       <div class="col-span-4">
-        <h2 class="colorized-text">РАЗРАБОТКА</h2>
-        <p>
-          Мы поможем воплотить идеи в реальность,<br>
-          доработать MVP, улучшить метрики. Разрабатываем Web3-утилиты,<br>
-          Dapps, решения для CEX и DEX, и многое другое.<br>
-          Мы вас ждём!
-        </p>
+        <h2 class="colorized-text">{{ $t("dev.dev") }}</h2>
+        <p>{{ $t("dev.dev_desc") }}</p>
         <ConsultButton />
       </div>
 
@@ -17,70 +12,70 @@
     </Hero>
 
     <div class="services-container">
-      <h2 class="text-services">НАШ СПЕКТР УСЛУГ</h2>
+      <h2 class="text-services">{{ $t("dev.our_services") }}</h2>
 
       <!-- Первая строка: 2 карточки -->
       <div class="grid grid-cols-2 gap-8 w-full mb-8">
-        <FlipCard front-title="ДИЗАЙН" front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
-          back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
-        <FlipCard front-title="РАЗРАБОТКА" front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
-          back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
+        <FlipCard 
+          :front-title="$t('dev.design')"
+          :front-text="$t('dev.design_front')"
+          :back-text="$t('dev.design_back')"
+        />
+        <FlipCard 
+          :front-title="$t('dev.development')"
+          :front-text="$t('dev.development_front')"
+          :back-text="$t('dev.development_back')"
+        />
       </div>
 
       <!-- Остальные: 3 карточки в строку -->
       <div class="grid grid-cols-3 gap-8 w-full">
-        <FlipCard front-title="WEB3 - УТИЛИТЫ"
-          front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
-          back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
-        <FlipCard front-title="DAPP" front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
-          back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
-        <FlipCard front-title="WEBAPPS" front-text="Разработка дизайна и графики: сайты, приложения, иконки и тд."
-          back-text="Графика и дизайн – это лицо любого проекта. Он придает проекту уникальный стиль и помогает продавать." />
+        <FlipCard 
+          :front-title="$t('dev.web3')"
+          :front-text="$t('dev.web3_front')"
+          :back-text="$t('dev.web3_back')"
+        />
+        <FlipCard 
+          :front-title="$t('dev.dapp')"
+          :front-text="$t('dev.dapp_front')"
+          :back-text="$t('dev.dapp_back')"
+        />
+        <FlipCard 
+          :front-title="$t('dev.web_apps')"
+          :front-text="$t('dev.web_apps_front')"
+          :back-text="$t('dev.web_apps_back')"
+        />
       </div>
     </div>
 
 
-    <h2 class="colorized-text mt-24 mb-24">Жизненный цикл проекта</h2>
+    <h2 class="colorized-text mt-24 mb-24">{{ $t("dev.life_cycle") }}</h2>
     <hr />
 
     <div class="flex justify-between items-center life-cycle-cards">
       <ScrollSpinning />
       <div class="life-cycle">
-        <h3 class="pt-32">Анализ</h3>
-        <p>
-          Проработка бизнес-логики проекта,
-          описание его деталей и системы техническим языком.<br>
-          Первая и важнейшая стадия, которая определяет весь дальнейший ход проекта.
-        </p>
+        <h3 class="pt-32">{{ $t("dev.analysis") }}</h3>
+        <p>{{ $t("dev.analysis_desc") }}</p>
 
-        <h3>Разработка</h3>
-        <p>
-          На этой стадии ваша идея воплощается в жизнь и вы можете наблюдать это в еженедельных отчетах.<br>
-          Мы не только пишем код, но и готовим сервера, базы данных и всю систему в целом к использованию "в бою".
-        </p>
+        <h3>{{ $t("dev.development_cycle") }}</h3>
+        <p>{{ $t("dev.development_cycle_desc") }}</p>
 
 
-        <h3>Тестирование</h3>
-        <p>
-          Последняя, но не по значению, стадия, на которой мы проверяем насколько ваш проект готов в выпуску в свет.<br>
-          Мы проводим целый ряд тестов для подтверждения качества и надежности.
-        </p>
+        <h3>{{ $t("dev.testing") }}</h3>
+        <p>{{ $t("dev.testing_desc") }}</p>
       </div>
     </div>
 
 
 
     <div class="tech-stack">
-      <h2 class="colorized-text">ТЕХНОЛОГИЧЕСКИЙ СТЕК</h2>
-      <p>
-        У нашей команды обширный стек и опыт работы.
-        Мы не ограничены в языках и фреймворках, что позволяет нам использовать на каждом проекте наиболее оптимальный
-        набор инструментов.
-      </p>
+      <h2 class="colorized-text">{{ $t("dev.tech_stack") }}</h2>
+      <p>{{ $t("dev.tech_stack_desc") }}</p>
       <div class="flex flex-row tech-stack-cards">
         <div class="languages card w-full">
           <img class="colorized-text self-center" src="/code_symbol.png" alt="code symbil" width="256">
-          <p class="colorized-text ">Языки и фреймворки</p>
+          <p class="colorized-text ">{{ $t("dev.lang_and_frameworks") }}</p>
           <div class="grid grid-cols-3 gap-8 items-center place-items-center">
             <img src="/logos/python.svg" alt="python logo" width="64" height="64">
             <img src="/logos/go.svg" alt="go logo" width="179" height="64">
@@ -92,7 +87,7 @@
         </div>
         <div class="languages card w-full">
           <img class="colorized-text self-center" src="/bridge_symbol.png" alt="code symbil" width="128">
-          <p class="colorized-text ">Блокчейны</p>
+          <p class="colorized-text ">{{ $t("dev.blockhain") }}</p>
           <div class="grid grid-cols-3 gap-8 items-center place-items-center">
             <img src="/logos/etherium.svg" alt="etherium logo" width="44" height="64">
             <img src="/logos/solana.svg" alt="solana logo" width="84" height="64">
@@ -106,76 +101,60 @@
     </div>
 
     <div class="why-we py-12">
-      <h2 class="colorized-text mt-24 mb-16">Почему мы?</h2>
+      <h2 class="colorized-text mt-24 mb-16">{{ $t("dev.who_we") }}</h2>
       <hr>
 
       <div class="why-we-cards grid grid-cols-3 gap-8 pt-16">
         <div>
-          <h3 class="colorized-text">Высокое качество</h3>
-          <p>Каждый день мы боремся за качество в вашем
-            проекте: подбираем наиболее подходящие
-            инструменты, проводим несколько этапов
-            тестирования и применяем только лучшие практики.
-          </p>
+          <h3 class="colorized-text">{{ $t("dev.hight_quality") }}</h3>
+          <p>{{ $t("dev.hight_quality_desc") }}</p>
         </div>
 
         <div>
-          <h3 class="colorized-text">Прозрачность</h3>
-          <p>
-            В процессе работы вы имеете возможность
-            отслеживать задачи в реальном времени,
-            а также получаете регулярные отчеты о работе и
-            прогнозы по срокам.
-          </p>
+          <h3 class="colorized-text">{{ $t("dev.transparency") }}</h3>
+          <p>{{ $t("dev.transparency_desc") }}</p>
         </div>
 
         <div>
-          <h3 class="colorized-text">Соответствие ожиданиям</h3>
-          <p>
-            Вся наша работа направлена на
-            воплощение ваших идей в точности и в
-            срок. На этапе анализа мы тщательно
-            разбираем и согласовываем ваше видение
-            проекта, а на этапе разработки мы
-            согласовываем уже результаты и сроки.
-          </p>
+          <h3 class="colorized-text">{{ $t("dev.expectations") }}</h3>
+          <p>{{ $t("dev.expectations_desc") }}</p>
         </div>
       </div>
     </div>
 
 
     
-      <div id="stat" ref="statBlock" class="stat_container border border-gray-300 p-4 rounded-[4rem] flex flex-col pt-[60px] gap-4">
-        <div class="flex flex-row justify-around">
+      <div id="stat" class="stat_container border border-gray-300 p-4 rounded-[4rem] flex flex-col pt-[60px] gap-4">
+        <div id="statBlock" ref="statBlock" class="flex flex-row justify-around">
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='10' :duration='1' suffix='K+'/></b>
-            <p>{{ $t("index.clients_dex_title") }}</p>
+            <p class="stat-item">{{ $t("dev.clients_dex_title") }}</p>
           </div>
 
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='+'/></b>
-            <p>{{ $t("index.clients_project_title") }}</p>
+            <p class="stat-item">{{ $t("dev.clients_project_title") }}</p>
           </div>
 
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='400' :duration='1' suffix='K+'/></b>
-            <p>{{ $t("index.clients_users_title") }}</p>
+            <p class="stat-item">{{ $t("dev.clients_users_title") }}</p>
           </div>
         </div>
         <div class="self-center">
-          <h2>НАШИ ДОСТИЖЕНИЯ</h2>
+          <h2>{{ $t("dev.achievements") }}</h2>
         </div>
       </div>
 
     <div id="cases">
-      <h2 class="colorized-text cases-title">НАШИ КЕЙСЫ</h2>
+      <h2 class="colorized-text cases-title">{{ $t("dev.cases") }}</h2>
       <p class="cases-desc">
-        Проекты которые прошли через GREED Labs
+        {{ $t("dev.cases_desc") }}
       </p>
     
       <div class="cases-block-cards grid grid-cols-2 gap-5 justify-items-center">
         <div class="project">
-          <h3 class="colorized-text">Рынок NFT</h3>
+          <h3 class="colorized-text">{{ $t("dev.cases_nft") }}</h3>
           <p>{{ $t("dev.cases_nft_desc") }}</p>
           <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
             <SwiperSlide v-for="(img, idx) in images1" :key="idx">
@@ -185,8 +164,8 @@
         </div>
 
         <div class="project">
-          <h3 class="colorized-text">GameFi</h3>
-          <p>Игровые проекты, работающие на базе рандомизатра и на реферальной системе.</p>
+          <h3 class="colorized-text">{{ $t("dev.cases_gamefi") }}</h3>
+          <p>{{ $t("dev.cases_gamefi_desc") }}</p>
           <div class="slider"></div>
           <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
             <SwiperSlide v-for="(img, idx) in images2" :key="idx">
@@ -196,8 +175,8 @@
         </div>
 
         <div class="project">
-          <h3 class="colorized-text">Запуск токенов</h3>
-          <p>Запуск токенов, организация пресейлов и разработка лаунчпадов и дэшбордов.</p>
+          <h3 class="colorized-text">{{ $t("dev.cases_starts_tokens") }}</h3>
+          <p>{{ $t("dev.cases_starts_tokens_desc") }}</p>
           <div class="slider"></div>
           <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
             <SwiperSlide v-for="(img, idx) in images3" :key="idx">
@@ -207,8 +186,8 @@
         </div>
 
         <div class="project">
-          <h3 class="colorized-text">Сложные Web3-решения</h3>
-          <p>Разработка аналитических инструментов, а также систем для бизнеса на базе блокчейн.</p>
+          <h3 class="colorized-text">{{ $t("dev.cases_web3") }}</h3>
+          <p>{{ $t("dev.cases_web3_desc") }}</p>
           <div class="slider"></div>
           <Swiper :modules="[Navigation]" navigation loop slides-per-view="1" class="my-swiper">
             <SwiperSlide v-for="(img, idx) in images4" :key="idx">
@@ -222,6 +201,88 @@
 
   </div>
 </template>
+
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css/navigation'
+//import Vue3Autocounter from 'vue3-autocounter'
+
+import { ref, onMounted, nextTick } from 'vue'
+
+const statBlock = ref(null)
+
+onMounted(() => {
+  nextTick(() => {
+    // Находим все <p> внутри statBlock с классом stat-item — только они будут анимироваться
+    const animatedPs = statBlock.value.querySelectorAll('.stat-item')
+
+    // Скрываем их изначально
+    animatedPs.forEach(el => {
+      el.classList.remove('fadeInUp')
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(70px)'
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            //показываем
+            animatedPs.forEach((el, idx) => {
+              setTimeout(() => {
+                el.classList.add('fadeInUp')
+              }, idx)
+            })
+            observer.unobserve(statBlock.value)
+          }
+        })
+      },
+      { threshold: 0.8 }
+    )
+
+    if (statBlock.value)
+      observer.observe(statBlock.value)
+  })
+})
+
+// Список изображений
+const images1 = [
+  '/dev_slider_1/1.png',
+  '/dev_slider_1/2.png',
+  '/dev_slider_1/3.png',
+]
+
+const images2 = [
+  '/dev_slider_2/1.png',
+  '/dev_slider_2/2.png',
+]
+
+const images3 = [
+  '/dev_slider_3/1.png',
+  '/dev_slider_3/2.png',
+  '/dev_slider_3/3.png',
+  '/dev_slider_3/4.png',
+  '/dev_slider_3/5.png',
+  '/dev_slider_3/6.png',
+]
+
+const images4 = [
+  '/dev_slider_4/1.png',
+  '/dev_slider_4/2.webp',
+  '/dev_slider_4/3.webp',
+  '/dev_slider_4/4.png',
+  '/dev_slider_4/5.webp',
+  '/dev_slider_4/6.webp',
+  '/dev_slider_4/7.png',
+  '/dev_slider_4/8.png',
+  '/dev_slider_4/9.png',
+  '/dev_slider_4/10.png',
+  '/dev_slider_4/11.png',
+  '/dev_slider_4/12.png',
+]
+</script>
 
 <style scoped>
 h2 {
@@ -331,6 +392,19 @@ h2 {
   border-style: solid;
 }
 
+.stat-item {
+  opacity: 0;
+  transform: translateY(70px);
+  transition: opacity 1s cubic-bezier(0.4,0,0.2,1), transform 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.fadeInUp {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1),
+              transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
 #cases{
   margin-top: 5rem;
 }
@@ -374,9 +448,9 @@ h2 {
 }
 
 .my-swiper .swiper-slide{
-      padding: 1rem;
-    background-color: #292929;
-    border-radius: 2rem;
+  padding: 1rem;
+  background-color: #292929;
+  border-radius: 2rem;
 }
 .my-swiper .swiper-slide img{
     border-radius: 2rem;
@@ -465,6 +539,9 @@ h2 {
   #development::before {
     height: 40rem;
   }
+  #statBlock b {
+        font-size: 80px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -483,6 +560,9 @@ h2 {
   }
   #development div:first-child { order: 1; }
   #development div:last-child { order: -1; } 
+  #statBlock b {
+        font-size: 80px;
+    }
 }
 
 @media (max-width: 968px) {
@@ -502,12 +582,36 @@ h2 {
   #development::before {
     height: 40rem;
   }
+  #statBlock b {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 860px){
+  .my-swiper {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+}
+.tech-stack h2[data-v-5205731b] {
+    font-size: 2rem;
+}
 }
 
 @media (min-width: 641px) and (max-width: 768px) {
   #development::before {
     height: 65rem;
   }
+  #statBlock b {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 660px){
+  .my-swiper {
+    max-width: 400px;
+    height: 250px;
+}
 }
 
 /* Mobile devices (max-width: 640px) */
@@ -521,6 +625,12 @@ h2 {
   #development::before{
     height: 60rem;
   }
+  #statBlock{
+    flex-direction: column;
+  }
+  #statBlock b {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -532,88 +642,3 @@ h2 {
   }
 }
 </style>
-
-
-
-<script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import { Navigation } from 'swiper/modules'
-import 'swiper/css/navigation'
-//import Vue3Autocounter from 'vue3-autocounter'
-
-import { ref, onMounted } from 'vue'
-
-const statBlock = ref(null)
-const hoursCounter = ref(null)
-const projectsCounter = ref(null)
-const linesCodeCounter = ref(null)
-
-// Запуск анимации блока и автосчётчика при попадании блока в зону видимости
-onMounted(() => {
-  const animatedEls = statBlock.value.querySelectorAll('.stat-item, .fadeup_block')
-  animatedEls.forEach(el => {
-    el.classList.remove('fadeInUp')
-    el.style.opacity = 0
-    el.style.transform = 'translateY(70px)'
-  })
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animatedEls.forEach((el, idx) => {
-            setTimeout(() => {
-              el.classList.add('fadeInUp')
-            }, idx * 150)
-          })
-          if (hoursCounter.value) hoursCounter.value.start()
-          observer.unobserve(statBlock.value)
-          if (projectsCounter.value) projectsCounter.value.start()
-          observer.unobserve(statBlock.value)
-          if (linesCodeCounter.value) linesCodeCounter.value.start()
-          observer.unobserve(statBlock.value)
-        }
-      })
-    },
-    { threshold: 0.4 }
-  )
-  observer.observe(statBlock.value)
-})
-
-// Список изображений
-const images1 = [
-  '/dev_slider_1/1.png',
-  '/dev_slider_1/2.png',
-  '/dev_slider_1/3.png',
-]
-
-const images2 = [
-  '/dev_slider_2/1.png',
-  '/dev_slider_2/2.png',
-]
-
-const images3 = [
-  '/dev_slider_3/1.png',
-  '/dev_slider_3/2.png',
-  '/dev_slider_3/3.png',
-  '/dev_slider_3/4.png',
-  '/dev_slider_3/5.png',
-  '/dev_slider_3/6.png',
-]
-
-const images4 = [
-  '/dev_slider_4/1.png',
-  '/dev_slider_4/2.webp',
-  '/dev_slider_4/3.webp',
-  '/dev_slider_4/4.png',
-  '/dev_slider_4/5.webp',
-  '/dev_slider_4/6.webp',
-  '/dev_slider_4/7.png',
-  '/dev_slider_4/8.png',
-  '/dev_slider_4/9.png',
-  '/dev_slider_4/10.png',
-  '/dev_slider_4/11.png',
-  '/dev_slider_4/12.png',
-]
-</script>

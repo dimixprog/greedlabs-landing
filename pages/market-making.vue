@@ -54,7 +54,7 @@
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.start_tokens") }}</h2>
         <p>{{ $t("market_making.start_tokens_desc") }}</p>
-        <button class="bg-[#1586F4] cursor-pointer transition-colors transition-border duration-200 ease-in-out shadow-[0_0_10px_rgb(21,134,244)] hover:shadow-[0_0_7px_rgb(21,134,244),0_0_13px_rgb(21,134,244),0_0_18px_rgb(21,134,244),0_0_50px_rgb(21,134,244)] px-6 py-3 text-lg rounded-2xl text-white font-semibold">Бесплатная консультация</button>
+        <ConsultButton />
       </div>
       <div class="col-span-3 m-auto">
         <video style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
@@ -65,13 +65,11 @@
     <div  id="prof-support" class="mb-8">
       <h2>{{ $t("market_making.prof_support") }}</h2>
       <div class="flex justify-between items-center">
-        <div>
+        <div class="w-full">
           <LifeCyclic />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1" fill="none"> <line y1="0.5" x2="1160" y2="0.5" stroke="url(#paint0_linear_868_2555)"></line> <defs> <linearGradient id="paint0_linear_868_2555" x1="0" y1="6" x2="4640" y2="6" gradientUnits="userSpaceOnUse"> <stop stop-color="#34FBFF"></stop> <stop offset="1" stop-color="#1586F4"></stop> </linearGradient> </defs> </svg>
           <div class="work-with-text">{{ $t("market_making.work_with") }}</div>
-          <div class="marquee-container">
-            <div class="marquee-strip">
-              <!-- repeat icons to make continuous effect -->
+          <Vue3Marquee class="marquee" :clone="true" :duration="7">
               <img src="/logos/orca.svg" alt="orca logo"/>
               <img src="/logos/jupiter.svg" alt="jupiter logo" />
               <img src="/logos/pancake.svg" alt="pancake logo" />
@@ -79,8 +77,7 @@
               <img src="/logos/ray.svg" alt="ray logo" />
               <img src="/logos/stone.svg" alt="stone logo" />
               <img src="/logos/med.svg" alt="med logo" />
-            </div>
-          </div>
+          </Vue3Marquee>
         </div>
       </div>
     </div>
@@ -129,7 +126,7 @@
 h2 { font-size: 50px; font-weight: 700; }
 
 #market_making::before{
-  height: 60rem;
+  height: 75rem;
   border-width: 5px;
 }
 
@@ -201,34 +198,13 @@ h2 { font-size: 50px; font-weight: 700; }
   display: flex; 
   flex-direction: column;
 }
-
-.marquee-container {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  background: transparent;
+.marquee{
+  max-width: inherit;
 }
 
-.marquee-strip {
-  display: flex;
-  width: calc(200% + 14%); /* Двойная ширина для seamless loop */
-  animation: marquee 15s linear infinite;
-}
-
-.marquee-strip img {
-  height: 109px; 
-  width: 109px;  
-  flex-shrink: 0;
-  margin: 0 7%; /* Половина от gap 14% для равномерности */
-}
-
-/* Дублируем иконки внутри для loop */
-.marquee-strip::before,
-.marquee-strip::after {
-  content: '';
-  display: flex;
-  width: 100%;
-  gap: 14%;
+.marquee img {
+  width: 125px;
+  margin-right: 10rem;
 }
 
 @keyframes marquee {
@@ -244,6 +220,7 @@ h2 { font-size: 50px; font-weight: 700; }
   margin-bottom: 0.5rem;
   user-select: none;
   font-weight: 700;
+  margin-top: 2rem;
 }
 
 @media (min-width: 2241px) {
@@ -286,6 +263,11 @@ h2 { font-size: 50px; font-weight: 700; }
   #start_tokens div:first-child, #market_making div:first-child, #dex div:first-child { order: 1; }
   #start_tokens div:last-child, #market_making div:last-child, #dex div:last-child { order: -1; } 
 
+  #market_making div:first-child, #dex div:first-child {
+    order: 1;
+    margin-top: 15rem;
+}
+
   #market_making div.hero-text-container {
     padding-top: 15rem;
   }
@@ -315,17 +297,6 @@ h2 { font-size: 50px; font-weight: 700; }
   .grid-cols-2 {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .marquee-strip {
-    width: calc(200% + 10%); /* Адаптируем для 4 элементов */
-    animation-duration: 12s; /* Ускоряем для меньшего экрана */
-  }
-
-  .marquee-strip img {
-    height: 80px;
-    width: 80px;
-    margin: 0 5%; /* Половина от gap 10% */
   }
 
   .work-with-text {
@@ -368,7 +339,7 @@ h2 { font-size: 50px; font-weight: 700; }
 /* Планшеты (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   #market_making::before {
-    height: 60rem;
+    height: 75rem;
   }
 }
 
@@ -402,17 +373,6 @@ h2 { font-size: 50px; font-weight: 700; }
     font-size: 1rem;
   }
 
-  .marquee-strip {
-    width: calc(200% + 8%); /* Адаптируем для 3 элементов */
-    animation-duration: 10s;
-  }
-
-  .marquee-strip img {
-    height: 60px;
-    width: 60px;
-    margin: 0 4%; /* Половина от gap 8% */
-  }
-
   .work-with-text {
     font-size: 0.9rem;
   }
@@ -443,7 +403,11 @@ h2 { font-size: 50px; font-weight: 700; }
 
 @media (max-width: 640px) {
   #market_making::before{
-    height: 62rem;
+    height: 65rem;
+  }
+
+  #market_making div:first-child, #dex div:first-child {
+      margin-top: 10rem;
   }
 
   .hero-media-container video {
@@ -474,16 +438,6 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .big-card p {
     font-size: 0.9rem;
-  }
-
-  .marquee-strip {
-    animation-duration: 10s;
-    gap: 8%;
-  }
-
-  .marquee-strip img {
-    height: 50px;
-    width: 50px;
   }
 
   .work-with-text {
@@ -548,6 +502,14 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .big-card p {
     font-size: 0.8rem;
+  }
+
+  .marquee-container {
+    --logo-size: 40px;
+    --gap: 8px;
+  }
+  .marquee-strip {
+    animation-duration: 7s;
   }
 
   .marquee-strip img {

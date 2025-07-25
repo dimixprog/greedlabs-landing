@@ -19,7 +19,7 @@
           hello@greedlabs.org
         </a>
         <p id="copyright">
-          {{ $t("copyright") }}
+          {{ $t("footer.copyright") }}
         </p>
       </div>
     </footer>
