@@ -399,9 +399,9 @@ onUnmounted(() => {
   position: absolute;
   top: 100%;
   left: clamp(-10px, -2vw, -20px);
-  width: clamp(180px, 27vw, 280px);
-  margin-top: clamp(10px, 2vw, 20px);
-  z-index: 999998;
+  width: 40rem;
+  margin-top: 2rem;
+  z-index: -2;
 }
 
 .dropdown-background {
@@ -850,9 +850,27 @@ onUnmounted(() => {
 .mobile-consultation-btn:hover {
   background: linear-gradient(45deg, #0066cc, #004499);
 }
+@media (max-width: 2600px) {
+  .dropdown-menu {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 2000px) {
+  .dropdown-menu {
+    width: 25rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .header a, .header p {
+    font-size: 1.8rem;
+  }
+}
 
 @media (max-width: 1500px) {
-  .header {
+  .dropdown-menu {
+    width: 20rem;
   }
 }
 

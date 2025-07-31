@@ -113,4 +113,11 @@
     left: 6rem;
 }
 }
+@media (min-width: 1471px) and (max-width: 5000px) {
+  .cube_with_logo {
+      top: 30rem;
+      left: 6rem;
+      width: 28rem;
+  }
+}
 </style>

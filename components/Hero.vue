@@ -102,13 +102,13 @@
 
 /* Планшеты (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .hero h2 {
+  .hero div h2 {
     font-size: 40px;
   }
-  .hero p {
+  .hero div p {
     font-size: 24px;
   }
-  .hero button {
+  .hero div button {
     font-size: 16px;
     height: 70px;
     padding: 0 40px;
@@ -120,6 +120,19 @@
   .hero {
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+@media (min-width: 1471px) {
+  .hero .colorized-text {
+    font-size: 40rem;
+  }
+  .hero p {
+    font-size: 24rem;
+  }
+  .hero button {
+    font-size: 16rem;
+    height: 70px;
+    padding: 0 4rem;
   }
 }
 </style>

@@ -18,8 +18,8 @@ function onScroll() {
   const scrollTop = window.scrollY;
   const effectiveScroll = Math.max(0, scrollTop - startScrollY); // Локальный скролл относительно входа в viewport
 
-  const angle = effectiveScroll * 0.3; // Вращение начинается с 0
-  const scaleFactor = 0.001; // Коэффициент увеличения (настройте)
+  const angle = effectiveScroll * 0.04; // Вращение начинается с 0
+  const scaleFactor = 0.0005; // Коэффициент увеличения (настройте)
   let scale = 1 + (effectiveScroll * scaleFactor); // Масштаб начинается с 1
   // scale = Math.min(scale, 2); // Опционально: лимит (верните, если нужно)
 
@@ -65,7 +65,6 @@ onBeforeUnmount(() => {
 .scroll-rotate-container {
   position: relative;
   padding: 100px 20px;
-  overflow: hidden;
   min-height: 400px;
   min-width: 600px;
 }
@@ -74,10 +73,10 @@ onBeforeUnmount(() => {
 .scroll-rotate-container::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  width: 600px; /* Начальный размер */
-  height: 600px;
+  width: 50vw; /* Начальный размер */
+  height: 50vh;
   transform: translate(-50%, -50%) rotate(var(--bg-rotate, 0deg)) scale(var(--bg-scale, 1));
   background-image: url('/thing.png');
   background-size: cover;

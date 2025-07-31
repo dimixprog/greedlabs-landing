@@ -126,11 +126,11 @@
       </div>
     </div>
 
-    <div id="clients" class="stat_container border border-gray-300 p-4 rounded-[4rem] flex flex-col pt-[60px] gap-4 fadeup_block">
+    <div id="clients" class="stat_container p-4 flex flex-col gap-4 fadeup_block">
       <div class="self-center">
         <h2>{{ $t("index.clients") }}</h2>
       </div>
-        <div id="statBlock" ref="statBlock" class="flex flex-row justify-around">
+        <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='+'/></b>
             <p class="stat-item">{{ $t("index.clients_dex_title") }}</p>
@@ -324,10 +324,14 @@ onMounted(() => {
   padding-right: 1rem;
 }
 
+#clients{
+  padding-top: 8rem;
+}
+
 #clients h2 {
   vertical-align: middle;
   color: #ffffff;
-  font-size: 2.2rem;
+  font-size: 3.3rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
   background-position: center center;
@@ -340,7 +344,7 @@ onMounted(() => {
 #clients p {
   vertical-align: middle;
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
   background-position: center center;
@@ -352,12 +356,23 @@ onMounted(() => {
 #clients b {
   vertical-align: middle;
   color: #ffffff;
-  font-size: 128px; /* Fixed max */
+  font-size: 12rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
   background-position: center center;
   border-color: transparent;
   border-style: solid;
+}
+
+#statBlock{
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.stat_container{
+  border: 1px solid #ffffff;
+  padding: 2rem;
+  border-radius: 7rem;
 }
 
 .stat-item {
@@ -424,11 +439,25 @@ onMounted(() => {
   .photo_card {
       height: 30rem;
   }
+  #clients b {
+    font-size: 80px;
+  }
+
+  #clients p {
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1211px) {
   #start_way::before {
     height: 40rem;
+  }
+  #clients b {
+    font-size: 80px;
+  }
+
+  #clients p {
+    font-size: 24px;
   }
 }
 
@@ -557,6 +586,12 @@ onMounted(() => {
 
   #team .experience {
     font-size: 12px;
+  }
+
+  #statBlock{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   #clients b {
