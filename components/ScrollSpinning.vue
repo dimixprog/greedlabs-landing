@@ -20,9 +20,12 @@ function onScroll() {
 
   const angle = effectiveScroll * 0.04; // Вращение начинается с 0
   const scaleFactor = 0.0005; // Коэффициент увеличения (настройте)
+  const translateFactor = 0.005; // Коэффициент перемещения (настройте)
   let scale = 1 + (effectiveScroll * scaleFactor); // Масштаб начинается с 1
+  let translate = 100 - (effectiveScroll * translateFactor); // Смещение начинается с 1
   // scale = Math.min(scale, 2); // Опционально: лимит (верните, если нужно)
 
+  document.documentElement.style.setProperty('--bg-translate', `-${translate}%`);
   document.documentElement.style.setProperty('--bg-rotate', `${angle}deg`);
   document.documentElement.style.setProperty('--bg-scale', scale);
 
@@ -77,7 +80,7 @@ onBeforeUnmount(() => {
   left: 50%;
   width: 50vw; /* Начальный размер */
   height: 50vh;
-  transform: translate(-50%, -50%) rotate(var(--bg-rotate, 0deg)) scale(var(--bg-scale, 1));
+  transform: translate(-50%, var(--bg-translate, -100%)) rotate(var(--bg-rotate, 0deg)) scale(var(--bg-scale, 1));
   background-image: url('/thing.png');
   background-size: cover;
   background-position: center;
