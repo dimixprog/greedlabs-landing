@@ -64,6 +64,8 @@ main {
   padding: 6%;
   padding-bottom: 0;
   margin: 0px;
+  max-width: 3000px;
+  margin: 0 auto;
 
   /*display: flex;
   flex-direction: column;

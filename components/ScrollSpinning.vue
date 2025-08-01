@@ -18,12 +18,13 @@ function onScroll() {
   const scrollTop = window.scrollY;
   const effectiveScroll = Math.max(0, scrollTop - startScrollY); // Локальный скролл относительно входа в viewport
 
-  const angle = effectiveScroll * 0.04; // Вращение начинается с 0
-  const scaleFactor = 0.0005; // Коэффициент увеличения (настройте)
-  const translateFactor = 0.005; // Коэффициент перемещения (настройте)
+  let angle = effectiveScroll * 0.04; // Вращение начинается с 0
+  const scaleFactor = 0.00025; // Коэффициент увеличения (настройте)
+  const translateFactor = 0.05; // Коэффициент перемещения (настройте)
   let scale = 1 + (effectiveScroll * scaleFactor); // Масштаб начинается с 1
   let translate = 100 - (effectiveScroll * translateFactor); // Смещение начинается с 1
-  // scale = Math.min(scale, 2); // Опционально: лимит (верните, если нужно)
+  scale = Math.min(scale, 1.3); // Опционально: лимит (верните, если нужно)]
+  angle = Math.min(angle, 60); // Опционально: лимит (верните, если нужно)
 
   document.documentElement.style.setProperty('--bg-translate', `-${translate}%`);
   document.documentElement.style.setProperty('--bg-rotate', `${angle}deg`);
@@ -47,7 +48,7 @@ onMounted(() => {
       // Опционально: если вышел из viewport, можно сбросить isVisible = false;
     });
   }, {
-    threshold: 0.1 // Активировать, когда 10% элемента видно (настройте от 0 до 1)
+    threshold: 1 // Активировать, когда 10% элемента видно (настройте от 0 до 1)
   });
 
   if (container.value) {
@@ -68,21 +69,23 @@ onBeforeUnmount(() => {
 .scroll-rotate-container {
   position: relative;
   padding: 100px 20px;
-  min-height: 400px;
-  min-width: 600px;
+  min-height: 40vh;
+  /*min-width: 600px;*/
 }
 
 /* Вращающийся и масштабируемый фон через before */
 .scroll-rotate-container::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 200%;
   left: 50%;
   width: 50vw; /* Начальный размер */
-  height: 50vh;
+  max-width: 1200px;
+  height: 50vw;
+  max-height: 1200px;
   transform: translate(-50%, var(--bg-translate, -100%)) rotate(var(--bg-rotate, 0deg)) scale(var(--bg-scale, 1));
   background-image: url('/thing.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   /* opacity: 0.2; */ /* Если нужно */
   z-index: 0;
@@ -94,5 +97,23 @@ onBeforeUnmount(() => {
 .text-content {
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .scroll-rotate-container::before {
+    width: 70vw;
+    height: 70vw;
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .scroll-rotate-container::before {
+    width: 40vw;
+    height: 40vw;
+    max-width: 400px;
+    max-height: 400px;
+  }
 }
 </style>

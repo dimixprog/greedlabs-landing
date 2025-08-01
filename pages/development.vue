@@ -52,7 +52,7 @@
     <h2 class="colorized-text mt-24 mb-24">{{ $t("dev.life_cycle") }}</h2>
     <hr />
 
-    <div class="grid grid-cols-7 justify-between items-center life-cycle-cards">
+    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards">
       <ScrollSpinning class="col-span-3"/>
       <div class="life-cycle col-span-4">
         <h3 class="pt-32">{{ $t("dev.analysis") }}</h3>
