@@ -337,7 +337,7 @@ onUnmounted(() => {
 }
 
 .header-logo img {
-  width: 10vw;
+  width: 12rem;
   height: auto;
   display: block;
   padding-top: 0.5rem;

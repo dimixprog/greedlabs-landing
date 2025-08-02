@@ -67,7 +67,7 @@
       </div>
     </div>
 
-
+    <hr class="full-width-line">
 
     <div class="tech-stack">
       <h2 class="colorized-text">{{ $t("dev.tech_stack") }}</h2>
@@ -100,11 +100,14 @@
       </div>
     </div>
 
-    <div class="why-we py-12">
-      <h2 class="colorized-text mt-24 mb-16">{{ $t("dev.who_we") }}</h2>
-      <hr>
+<hr class="full-width-line">
 
-      <div class="why-we-cards grid grid-cols-3 gap-8 pt-16">
+    <div class="why-we pb-12">
+      <h2 class="colorized-text mt-24 mb-16">{{ $t("dev.who_we") }}</h2>
+
+      <hr class="border-t-2 border-blue-400 my-4">
+
+      <div class="why-we-cards grid grid-cols-3 gap-32 pt-16">
         <div>
           <h3 class="colorized-text">{{ $t("dev.hight_quality") }}</h3>
           <p>{{ $t("dev.hight_quality_desc") }}</p>
@@ -122,10 +125,10 @@
       </div>
     </div>
 
-
+<hr class="full-width-line">
     
-      <div id="stat" class="stat_container border border-gray-300 p-4 rounded-[4rem] flex flex-col pt-[60px] gap-4">
-        <div id="statBlock" ref="statBlock" class="flex flex-row justify-around">
+      <div id="stat" class="stat_container p-4 flex flex-col gap-4">
+        <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='10' :duration='1' suffix='K+'/></b>
             <p class="stat-item">{{ $t("dev.clients_dex_title") }}</p>
@@ -245,6 +248,21 @@ onMounted(() => {
     if (statBlock.value)
       observer.observe(statBlock.value)
   })
+
+  const buttons = document.querySelectorAll('.swiper-button-prev, .swiper-button-next');
+  let lastActiveButton = null;
+
+  console.log(buttons);
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (lastActiveButton) {
+        lastActiveButton.classList.remove('swiper-button-active');
+      }
+      button.classList.add('swiper-button-active');
+      lastActiveButton = button;
+      console.log("1")
+    });
+  });
 })
 
 // Список изображений
@@ -286,7 +304,7 @@ const images4 = [
 
 <style scoped>
 h2 {
-    font-size: 50px;
+    font-size: 4rem;
     font-weight: 700;
 }
 
@@ -342,22 +360,32 @@ h2 {
   font-weight: 700;
 }
 
+.full-width-line{
+  width: 100%;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
 .why-we h3{
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-weight: 700;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .why-we p{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
+}
+
+#stat{
+  /*padding-top: 8rem;*/
 }
 
 #stat h2 {
   vertical-align: middle;
   color: #ffffff;
-  font-size: 3rem;
+  font-size: 3.3rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
   background-position: center center;
@@ -372,7 +400,7 @@ h2 {
 #stat p {
   vertical-align: middle;
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
   background-position: center center;
@@ -384,12 +412,24 @@ h2 {
 #stat b {
   vertical-align: middle;
   color: #ffffff;
-  font-size: 128px; /* Fixed max */
+  font-size: 12rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
   background-position: center center;
   border-color: transparent;
   border-style: solid;
+}
+
+
+#statBlock{
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.stat_container{
+  border: 1px solid #ffffff;
+  padding: 2rem;
+  border-radius: 7rem;
 }
 
 .stat-item {
@@ -441,8 +481,8 @@ h2 {
 
 .my-swiper {
   width: 100%;
-  max-width: 800px;
-  height: 500px;
+  max-width: 1150px;
+  height: 700px;
   /* Фиксированная высота — обязательно */
   margin: 20px auto;
 }
@@ -454,18 +494,6 @@ h2 {
 }
 .my-swiper .swiper-slide img{
     border-radius: 2rem;
-}
-
-.swiper-button-prev, .swiper-button-next{
-    background-color: #787878;
-}
-
-.my-swiper .swiper-button-prev{
-
-}
-
-.my-swiper .swiper-button-next{
-
 }
 
 .slide-img {
@@ -499,6 +527,47 @@ h2 {
   }
 }
 
+@media (max-width: 2680px) {
+  .my-swiper {
+    max-width: 1000px;
+    height: 600px;
+  }
+}
+
+
+@media (max-width: 2330px) {
+  .my-swiper {
+    max-width: 900px;
+    height: 550px;
+  }
+}
+
+@media (max-width: 2000px) {
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+  }
+  .tech-stack h2{
+    font-size: 4rem;
+  }
+
+  .tech-stack p{
+    font-size: 2rem;
+  }
+  .why-we h3{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .why-we p{
+    font-size: 1.2rem;
+  }
+  .my-swiper {
+    max-width: 800px;
+    height: 500px;
+  }
+}
+
 @media (max-width: 1905px) {
 .cases-block-cards{
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -508,6 +577,16 @@ h2 {
 @media (min-width: 1648px) and (max-width: 2240px) {
   #development::before {
     height: 60rem;
+  }
+}
+
+@media (min-width: 1387px) and (max-width: 2400px) {
+  #stat b {
+    font-size: 120px;
+  }
+
+  #stat p {
+    font-size: 32px;
   }
 }
 
@@ -533,6 +612,13 @@ h2 {
   #development::before {
     height: 40rem;
   }
+  #stat b {
+    font-size: 80px;
+  }
+
+  #stat p {
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1211px) {
@@ -542,6 +628,10 @@ h2 {
   #statBlock b {
         font-size: 80px;
     }
+    
+  #stat p {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -561,8 +651,8 @@ h2 {
   #development div:first-child { order: 1; }
   #development div:last-child { order: -1; } 
   #statBlock b {
-        font-size: 80px;
-    }
+      font-size: 80px;
+  }
 }
 
 @media (max-width: 968px) {
@@ -583,7 +673,10 @@ h2 {
     height: 40rem;
   }
   #statBlock b {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+  #statBlock p {
+    font-size: 2rem;
   }
 }
 
@@ -602,7 +695,15 @@ h2 {
   #development::before {
     height: 65rem;
   }
+  #statBlock{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   #statBlock b {
+    font-size: 8rem;
+  }
+  #statBlock p {
     font-size: 3rem;
   }
 }
@@ -625,11 +726,19 @@ h2 {
   #development::before{
     height: 60rem;
   }
+  
   #statBlock{
-    flex-direction: column;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding-top: 0;
+    padding-bottom: 0;
   }
+
   #statBlock b {
-    font-size: 3rem;
+    font-size: 5rem;
+  }
+
+  #stat p {
+    font-size: 2rem;
   }
 }
 
@@ -641,4 +750,31 @@ h2 {
     font-size: 18px;
   }
 }
+</style>
+<style>
+  .swiper-button-prev, .swiper-button-next{
+    background-color: #363636;
+    padding: 4%;
+    border-radius: 50%;
+  }
+
+  .swiper-button-active{
+    background-color: #20b1f8;
+  }
+
+  .my-swiper .swiper-button-prev{
+    margin-left: 2%;
+  }
+
+  .my-swiper .swiper-button-prev::after{
+    color: #2e677e;
+  }
+
+  .my-swiper .swiper-button-next{
+    margin-right: 2%;
+  }
+
+  .my-swiper .swiper-button-next::after{
+    color: #2e677e;
+  }
 </style>

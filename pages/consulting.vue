@@ -26,6 +26,8 @@
       <Card :title="$t('consulting.tech_audit')" title_wrap/>
     </div>
 
+    <hr class="full-width-line">
+
     <h2 class="colorized-text">{{ $t("consulting.advantages_of_consalting") }}</h2>
     <hr class="border-t-2 border-blue-400 my-4">
 
@@ -82,6 +84,12 @@ h2 { font-size: 50px; font-weight: 700; }
 }
 .card-wrapper[data-v-29c414df] {
     height: 450px;
+}
+
+.full-width-line{
+  width: 100%;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
 }
 
 .advantages{
@@ -235,4 +243,18 @@ h2 { font-size: 50px; font-weight: 700; }
     font-size: 18px;
   }
 }
+</style>
+<style>
+@media (min-width:2000px) {
+  main{
+    zoom:1.5;
+  }
+}
+
+@media (min-width:3000px) {
+  main{
+    zoom:2.5;
+  }
+}
+ 
 </style>
