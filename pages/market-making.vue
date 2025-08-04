@@ -1,7 +1,8 @@
 <!-- pages/market-maker.vue -->
 <template>
   <div>
-    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center">
+    <div class="hero-wrapper">
+    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.market_making") }}</h2>
         <p>{{ $t("market_making.market_making_desc") }}</p>
@@ -9,8 +10,9 @@
       </div>
       <CandlesCube class="col-span-3 m-auto"/>
     </Hero>
+    </div>
     <div class="anchor"><span id="dex-services"></span></div>
-    <Hero id="dex" class="grid grid-cols-7 justify-between items-center">
+    <Hero id="dex" class="grid grid-cols-7 justify-between items-center container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.dex") }}</h2>
         <p>{{ $t("market_making.dex_desc") }}</p>
@@ -19,7 +21,7 @@
       <Fly3Cubes class="col-span-3 m-auto"/>
     </Hero>
     <div class="anchor"><span id="volume-management"></span></div>
-    <div  id="volume" class="big-card w-full mb-8">
+    <div  id="volume" class="big-card w-full mb-8 container">
       <h3 class="colorized-text">{{ $t("market_making.volume_control") }}</h3>
       <p>{{ $t("market_making.volume_control_desc") }}</p>
       <div class="grid grid-cols-2 gap-8 w-full">
@@ -37,7 +39,7 @@
     </div>
     <div class="anchor"><span id="price-control"></span></div>
     <div class="anchor"><span id="anti-snipe"></span></div>
-    <div class="grid grid-cols-2 gap-8 w-full mb-8">
+    <div class="grid grid-cols-2 gap-8 w-full mb-8 container">
       <FlipCard
         :front-title="$t('market_making.anti_snape')"
         :back-text="$t('market_making.anti_snape_desc')"
@@ -50,7 +52,7 @@
       />
     </div>
     <div class="anchor"><span id="token-launch"></span></div>
-    <Hero id="start_tokens" class="grid grid-cols-7 justify-between items-center">
+    <Hero id="start_tokens" class="grid grid-cols-7 justify-between items-center container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.start_tokens") }}</h2>
         <p>{{ $t("market_making.start_tokens_desc") }}</p>
@@ -62,16 +64,16 @@
         </video>
       </div>
     </Hero>
-    <div  id="prof-support" class="mb-8">
-      <h2>{{ $t("market_making.prof_support") }}</h2>
+    <div  id="prof-support" class="mb-8 container">
+      <h2 class="colorized-text">{{ $t("market_making.prof_support") }}</h2>
       <div class="flex justify-between items-center">
         <div class="w-full">
           <LifeCyclic />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1" fill="none"> <line y1="0.5" x2="1160" y2="0.5" stroke="url(#paint0_linear_868_2555)"></line> <defs> <linearGradient id="paint0_linear_868_2555" x1="0" y1="6" x2="4640" y2="6" gradientUnits="userSpaceOnUse"> <stop stop-color="#34FBFF"></stop> <stop offset="1" stop-color="#1586F4"></stop> </linearGradient> </defs> </svg>
           <div class="work-with-text">{{ $t("market_making.work_with") }}</div>
-          <Vue3Marquee class="marquee" :clone="true" :duration="7">
+          <Vue3Marquee class="marquee" :clone="true" :duration="15" :gradient="true" :gradient-color="[34, 34, 34]" gradientLength="1%">
               <img src="/logos/orca.svg" alt="orca logo"/>
-              <img src="/logos/jupiter.svg" alt="jupiter logo" />
+              <img src="/logos/jupiter.svg" class="jupiter" alt="jupiter logo" />
               <img src="/logos/pancake.svg" alt="pancake logo" />
               <img src="/logos/uniswap.svg" alt="uniswap logo" />
               <img src="/logos/ray.svg" alt="ray logo" />
@@ -81,9 +83,8 @@
         </div>
       </div>
     </div>
-    <div class="services-container">
+    <div class="services-container container">
       <div class="anchor"><span id="cex-services"></span></div>
-      <h2 class="text-services">{{ $t("market_making.cex") }}</h2>
       <Hero id="cex-services" class="grid grid-cols-7 justify-between items-center">
         <div class="col-span-4">
           <h2 class="colorized-text">{{ $t("market_making.cex") }}</h2>
@@ -125,6 +126,26 @@
 <style scoped>
 h2 { font-size: 50px; font-weight: 700; }
 
+.hero-wrapper {
+  padding-top: 6%;
+  background-image: url("/hero_background.webp");
+
+  background-color: rgba(17, 17, 17, 1.0);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-width: 5px;
+}
+.hero-wrapper .hero{
+  padding-top: 0;
+}
+
 #market_making::before{
   height: 75rem;
   border-width: 5px;
@@ -135,6 +156,10 @@ h2 { font-size: 50px; font-weight: 700; }
 .text-services { vertical-align: middle; color: #ffffff; font-size: 300%; font-family: 'Montserrat', Arial, sans-serif; line-height: 1.1; font-weight: 700; background-position: center center; border-color: transparent; border-style: solid; color: #ffffff; text-align: center; z-index: 3; padding-top: 3%; padding-bottom: 3%; }
 /* Дополнительные стили для соответствия отступам из образца */
 /*.services-container p { font-size: 1.5rem; line-height: 1; font-weight: 500; padding-bottom: 3rem; text-align: center; max-width: 60%; margin: 0 auto; }*/
+
+#dex{
+  overflow: hidden;
+}
 
 #dex div:first-child{
   padding-top: 10rem;
@@ -203,8 +228,12 @@ h2 { font-size: 50px; font-weight: 700; }
 }
 
 .marquee img {
-  width: 125px;
+  width: 7rem;
   margin-right: 10rem;
+}
+
+.marquee img.jupiter{
+  width: 12rem;
 }
 
 @keyframes marquee {

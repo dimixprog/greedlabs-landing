@@ -1,37 +1,38 @@
 <!-- pages/index.vue -->
 <template>
   <div>
+    <div class="hero-wrapper">
+      <Hero id="consulting" class="grid grid-cols-7 justify-between items-center container">
+        <div class="col-span-4">
+          <h2 class="colorized-text">{{ $t("consulting.consulting") }}</h2>
+          <p>{{ $t("consulting.consulting_desc") }}</p>
+          <ConsultButton />
+        </div>
+        <ClientOnly>
+          <OrbitTrail class="col-span-3"/>
+        </ClientOnly>
+      </Hero>
+    </div>
 
-    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center">
-      <div class="col-span-4">
-        <h2 class="colorized-text">{{ $t("consulting.consulting") }}</h2>
-        <p>{{ $t("consulting.consulting_desc") }}</p>
-        <ConsultButton />
-      </div>
-      <ClientOnly>
-        <OrbitTrail class="col-span-3"/>
-      </ClientOnly>
-    </Hero>
-
-    <h2 class="text-services">{{ $t("consulting.our_services") }}</h2>
-    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8">
+    <h2 class="text-services  container">{{ $t("consulting.our_services") }}</h2>
+    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8 container">
       <Card class="col-span-3" :title="$t('consulting.tech_consulting')" title_wrap/>
       <Card class="col-span-2" :title="$t('consulting.support')" />
     </div>
-    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8">
+    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8 container">
       <Card class="col-span-2" :title="$t('consulting.vc_support')" title_wrap/>
       <Card class="col-span-3" :title="$t('consulting.tokenomics_development')" title_wrap/>
     </div>
-    <div id="our-services" class="grid grid-cols-1 gap-8 w-full">
+    <div id="our-services" class="grid grid-cols-1 gap-8 w-full container">
       <Card :title="$t('consulting.tech_audit')" title_wrap/>
     </div>
 
     <hr class="full-width-line">
 
-    <h2 class="colorized-text">{{ $t("consulting.advantages_of_consalting") }}</h2>
+    <h2 class="colorized-text container">{{ $t("consulting.advantages_of_consalting") }}</h2>
     <hr class="border-t-2 border-blue-400 my-4">
 
-    <div id="advantages-group" class="grid grid-cols-7 gap-4">
+    <div id="advantages-group" class="grid grid-cols-7 gap-4 container">
       <LoadingCircular class="col-span-2"/>
       <div class="advantages col-span-5">
         <h3>{{ $t("consulting.deep_analysis") }}</h3>
@@ -59,6 +60,27 @@
 h2 { font-size: 50px; font-weight: 700; }
 .hero {
     margin-bottom: 8%;
+}
+
+
+.hero-wrapper {
+  padding-top: 6%;
+  background-image: url("/hero_background.webp");
+
+  background-color: rgba(17, 17, 17, 1.0);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-width: 5px;
+}
+.hero-wrapper .hero{
+  padding-top: 0;
 }
 
 #consulting::before{
@@ -243,18 +265,4 @@ h2 { font-size: 50px; font-weight: 700; }
     font-size: 18px;
   }
 }
-</style>
-<style>
-@media (min-width:2000px) {
-  main{
-    zoom:1.5;
-  }
-}
-
-@media (min-width:3000px) {
-  main{
-    zoom:2.5;
-  }
-}
- 
 </style>

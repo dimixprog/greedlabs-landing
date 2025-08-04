@@ -51,6 +51,22 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.container {
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+@media (min-width:2000px) {
+  main{
+    zoom:1.5;
+  }
+}
+
+@media (min-width:3000px) {
+  main{
+    zoom:2.5;
+  }
+}
 </style>
 
 <style scoped>
@@ -61,7 +77,6 @@ header {
   padding: 1rem;
 }
 main {
-  padding: 6%;
   padding-bottom: 0;
   margin: 0px;
   max-width: 3000px;

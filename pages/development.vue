@@ -1,7 +1,8 @@
 <!-- pages/development.vue -->
 <template>
   <div>
-    <Hero id="development" class="grid grid-cols-7 justify-between items-center">
+    <div class="hero-wrapper">
+    <Hero id="development" class="grid grid-cols-7 justify-between items-center container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("dev.dev") }}</h2>
         <p>{{ $t("dev.dev_desc") }}</p>
@@ -10,8 +11,9 @@
 
       <Cubes3D  class="col-span-3 m-auto"/>
     </Hero>
+    </div>
 
-    <div class="services-container">
+    <div class="services-container container">
       <h2 class="text-services">{{ $t("dev.our_services") }}</h2>
 
       <!-- Первая строка: 2 карточки -->
@@ -49,10 +51,10 @@
     </div>
 
 
-    <h2 class="colorized-text mt-24 mb-24">{{ $t("dev.life_cycle") }}</h2>
+    <h2 class="colorized-text mt-24 mb-24 container">{{ $t("dev.life_cycle") }}</h2>
     <hr />
 
-    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards">
+    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards container">
       <ScrollSpinning class="col-span-3"/>
       <div class="life-cycle col-span-4">
         <h3 class="pt-32">{{ $t("dev.analysis") }}</h3>
@@ -69,7 +71,7 @@
 
     <hr class="full-width-line">
 
-    <div class="tech-stack">
+    <div class="tech-stack container">
       <h2 class="colorized-text">{{ $t("dev.tech_stack") }}</h2>
       <p>{{ $t("dev.tech_stack_desc") }}</p>
       <div class="flex flex-row tech-stack-cards">
@@ -102,7 +104,7 @@
 
 <hr class="full-width-line">
 
-    <div class="why-we pb-12">
+    <div class="why-we pb-12 container">
       <h2 class="colorized-text mt-24 mb-16">{{ $t("dev.who_we") }}</h2>
 
       <hr class="border-t-2 border-blue-400 my-4">
@@ -127,7 +129,7 @@
 
 <hr class="full-width-line">
     
-      <div id="stat" class="stat_container p-4 flex flex-col gap-4">
+      <div id="stat" class="stat_container p-4 flex flex-col gap-4 container">
         <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='10' :duration='1' suffix='K+'/></b>
@@ -149,7 +151,7 @@
         </div>
       </div>
 
-    <div id="cases">
+    <div id="cases" class="container">
       <h2 class="colorized-text cases-title">{{ $t("dev.cases") }}</h2>
       <p class="cases-desc">
         {{ $t("dev.cases_desc") }}
@@ -306,6 +308,26 @@ const images4 = [
 h2 {
     font-size: 4rem;
     font-weight: 700;
+}
+
+.hero-wrapper {
+  padding-top: 6%;
+  background-image: url("/hero_background.webp");
+
+  background-color: rgba(17, 17, 17, 1.0);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-width: 5px;
+}
+.hero-wrapper .hero{
+  padding-top: 0;
 }
 
 #development::before{

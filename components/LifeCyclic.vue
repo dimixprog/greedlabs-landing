@@ -1,5 +1,5 @@
 <template>
-  <section class="relative bg-[#181818] text-white py-2 overflow-hidden">
+  <section class="relative text-white py-2 overflow-hidden">
     <!-- SVG Кривая с градиентом и тенью -->
     <svg
       ref="svgRef"
@@ -53,8 +53,11 @@
         class="col-life"
         :style="{ marginTop: i === 0 ? '0px' : `${offsets[i]}px` }"
       >
-        <h3>0{{ i + 1 }}.</h3>
-        <b>{{ item.title }}</b>
+        
+        <div class="flex flex-row">
+          <b>{{ item.title }}</b>
+          <h3>0{{ i + 1 }}.</h3>
+        </div>
         <p>{{ item.desc }}</p>
       </div>
     </div>
