@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="hero-wrapper">
-      <Hero id="consulting" class="grid grid-cols-7 justify-between items-center container">
+      <Hero id="consulting" class="grid grid-cols-7 justify-between items-center margin-container">
         <div class="col-span-4">
           <h2 class="colorized-text">{{ $t("consulting.consulting") }}</h2>
           <p>{{ $t("consulting.consulting_desc") }}</p>
@@ -14,25 +14,25 @@
       </Hero>
     </div>
 
-    <h2 class="text-services  container">{{ $t("consulting.our_services") }}</h2>
-    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8 container">
+    <h2 class="text-services  margin-container">{{ $t("consulting.our_services") }}</h2>
+    <div id="our-services" class="grid grid-cols-5 gap-8 mb-8 margin-container">
       <Card class="col-span-3" :title="$t('consulting.tech_consulting')" title_wrap/>
       <Card class="col-span-2" :title="$t('consulting.support')" />
     </div>
-    <div id="our-services" class="grid grid-cols-5 gap-8 w-full mb-8 container">
+    <div id="our-services" class="grid grid-cols-5 gap-8 mb-8 margin-container">
       <Card class="col-span-2" :title="$t('consulting.vc_support')" title_wrap/>
       <Card class="col-span-3" :title="$t('consulting.tokenomics_development')" title_wrap/>
     </div>
-    <div id="our-services" class="grid grid-cols-1 gap-8 w-full container">
+    <div id="our-services" class="grid grid-cols-1 gap-8 margin-container">
       <Card :title="$t('consulting.tech_audit')" title_wrap/>
     </div>
 
     <hr class="full-width-line">
 
-    <h2 class="colorized-text container">{{ $t("consulting.advantages_of_consalting") }}</h2>
+    <h2 class="colorized-text margin-container">{{ $t("consulting.advantages_of_consalting") }}</h2>
     <hr class="border-t-2 border-blue-400 my-4">
 
-    <div id="advantages-group" class="grid grid-cols-7 gap-4 container">
+    <div id="advantages-group" class="grid grid-cols-7 gap-4 margin-container">
       <LoadingCircular class="col-span-2"/>
       <div class="advantages col-span-5">
         <h3>{{ $t("consulting.deep_analysis") }}</h3>

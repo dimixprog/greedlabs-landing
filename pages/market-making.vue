@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="hero-wrapper">
-    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center container">
+    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.market_making") }}</h2>
         <p>{{ $t("market_making.market_making_desc") }}</p>
@@ -12,7 +12,7 @@
     </Hero>
     </div>
     <div class="anchor"><span id="dex-services"></span></div>
-    <Hero id="dex" class="grid grid-cols-7 justify-between items-center container">
+    <Hero id="dex" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.dex") }}</h2>
         <p>{{ $t("market_making.dex_desc") }}</p>
@@ -21,7 +21,7 @@
       <Fly3Cubes class="col-span-3 m-auto"/>
     </Hero>
     <div class="anchor"><span id="volume-management"></span></div>
-    <div  id="volume" class="big-card w-full mb-8 container">
+    <div  id="volume" class="big-card mb-8 margin-container">
       <h3 class="colorized-text">{{ $t("market_making.volume_control") }}</h3>
       <p>{{ $t("market_making.volume_control_desc") }}</p>
       <div class="grid grid-cols-2 gap-8 w-full">
@@ -39,7 +39,7 @@
     </div>
     <div class="anchor"><span id="price-control"></span></div>
     <div class="anchor"><span id="anti-snipe"></span></div>
-    <div class="grid grid-cols-2 gap-8 w-full mb-8 container">
+    <div class="grid grid-cols-2 gap-8 mb-8 margin-container">
       <FlipCard
         :front-title="$t('market_making.anti_snape')"
         :back-text="$t('market_making.anti_snape_desc')"
@@ -52,7 +52,7 @@
       />
     </div>
     <div class="anchor"><span id="token-launch"></span></div>
-    <Hero id="start_tokens" class="grid grid-cols-7 justify-between items-center container">
+    <Hero id="start_tokens" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("market_making.start_tokens") }}</h2>
         <p>{{ $t("market_making.start_tokens_desc") }}</p>
@@ -64,7 +64,7 @@
         </video>
       </div>
     </Hero>
-    <div  id="prof-support" class="mb-8 container">
+    <div  id="prof-support" class="mb-8 margin-container">
       <h2 class="colorized-text">{{ $t("market_making.prof_support") }}</h2>
       <div class="flex justify-between items-center">
         <div class="w-full">
@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div class="services-container container">
+    <div class="services-container margin-container">
       <div class="anchor"><span id="cex-services"></span></div>
       <Hero id="cex-services" class="grid grid-cols-7 justify-between items-center">
         <div class="col-span-4">

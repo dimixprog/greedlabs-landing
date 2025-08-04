@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="hero-wrapper">
-    <Hero id="development" class="grid grid-cols-7 justify-between items-center container">
+    <Hero id="development" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("dev.dev") }}</h2>
         <p>{{ $t("dev.dev_desc") }}</p>
@@ -13,7 +13,7 @@
     </Hero>
     </div>
 
-    <div class="services-container container">
+    <div class="services-container margin-container">
       <h2 class="text-services">{{ $t("dev.our_services") }}</h2>
 
       <!-- Первая строка: 2 карточки -->
@@ -51,10 +51,10 @@
     </div>
 
 
-    <h2 class="colorized-text mt-24 mb-24 container">{{ $t("dev.life_cycle") }}</h2>
+    <h2 class="colorized-text mt-24 mb-24 margin-container">{{ $t("dev.life_cycle") }}</h2>
     <hr />
 
-    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards container">
+    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards margin-container">
       <ScrollSpinning class="col-span-3"/>
       <div class="life-cycle col-span-4">
         <h3 class="pt-32">{{ $t("dev.analysis") }}</h3>
@@ -71,7 +71,7 @@
 
     <hr class="full-width-line">
 
-    <div class="tech-stack container">
+    <div class="tech-stack margin-container">
       <h2 class="colorized-text">{{ $t("dev.tech_stack") }}</h2>
       <p>{{ $t("dev.tech_stack_desc") }}</p>
       <div class="flex flex-row tech-stack-cards">
@@ -104,7 +104,7 @@
 
 <hr class="full-width-line">
 
-    <div class="why-we pb-12 container">
+    <div class="why-we pb-12 margin-container">
       <h2 class="colorized-text mt-24 mb-16">{{ $t("dev.who_we") }}</h2>
 
       <hr class="border-t-2 border-blue-400 my-4">
@@ -129,7 +129,7 @@
 
 <hr class="full-width-line">
     
-      <div id="stat" class="stat_container p-4 flex flex-col gap-4 container">
+      <div id="stat" class="stat_container p-4 flex flex-col gap-4 margin-container">
         <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='10' :duration='1' suffix='K+'/></b>
@@ -151,7 +151,7 @@
         </div>
       </div>
 
-    <div id="cases" class="container">
+    <div id="cases" class="margin-container">
       <h2 class="colorized-text cases-title">{{ $t("dev.cases") }}</h2>
       <p class="cases-desc">
         {{ $t("dev.cases_desc") }}
@@ -250,21 +250,6 @@ onMounted(() => {
     if (statBlock.value)
       observer.observe(statBlock.value)
   })
-
-  const buttons = document.querySelectorAll('.swiper-button-prev, .swiper-button-next');
-  let lastActiveButton = null;
-
-  console.log(buttons);
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (lastActiveButton) {
-        lastActiveButton.classList.remove('swiper-button-active');
-      }
-      button.classList.add('swiper-button-active');
-      lastActiveButton = button;
-      console.log("1")
-    });
-  });
 })
 
 // Список изображений
@@ -551,16 +536,16 @@ h2 {
 
 @media (max-width: 2680px) {
   .my-swiper {
-    max-width: 1000px;
-    height: 600px;
+    max-width: 750px;
+    height: 450px;
   }
 }
 
 
 @media (max-width: 2330px) {
   .my-swiper {
-    max-width: 900px;
-    height: 550px;
+    max-width: 750px;
+    height: 450px;
   }
 }
 
@@ -585,8 +570,8 @@ h2 {
     font-size: 1.2rem;
   }
   .my-swiper {
-    max-width: 800px;
-    height: 500px;
+    max-width: 750px;
+    height: 450px;
   }
 }
 

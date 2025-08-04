@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="hero-wrapper">
-      <Hero id="start_way" class="grid grid-cols-7 justify-between items-center container">
+      <Hero id="start_way" class="grid grid-cols-7 justify-between items-center margin-container">
         <div class="col-span-4">
           <h2 class="colorized-text">
             {{ $t("index.start_way") }}
@@ -19,7 +19,7 @@
       </Hero>
     </div>
 
-    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center pt-[120px] container">
+    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center pt-[120px] margin-container">
       <div class="hero-text-container col-span-4">
         <h2 class="colorized-text">{{ $t("index.market_making") }}</h2>
         <p>
@@ -42,7 +42,7 @@
       </ClientOnly>
     </Hero>
 
-    <Hero id="development" class="grid grid-cols-7 justify-between items-center container">
+    <Hero id="development" class="grid grid-cols-7 justify-between items-center margin-container">
       <Cubes3D class="col-span-3 m-auto"/>
       <div class="hero-text-container col-span-4">
         <h2 class="colorized-text">{{ $t("index.development") }}</h2>
@@ -65,7 +65,7 @@
 
     <hr>
 
-    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center container">
+    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-3">
         <h2 class="colorized-text">{{ $t("index.consulting") }}</h2>
         <p>{{ $t("index.consulting_desc") }}</p>
@@ -88,7 +88,7 @@
     </Hero>
 
 
-    <div id="about_us" class="flex flex-col items-center mb-[120px] container">
+    <div id="about_us" class="flex flex-col items-center mb-[120px] margin-container">
       <h2 class="colorized-text">{{ $t("index.about_us") }}</h2>
       <p>
         {{ $t("index.about_us_desc") }}
@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <div id="team" class="container">
+    <div id="team" class="margin-container">
       <h2>{{ $t("index.team") }}</h2>
       <div class="grid grid-cols-2 gap-16 mx-8 flex-row justify-between mb-[120px] mx-auto">
         <div class="photo_card pl-4" id="Dmitry-Vasilev-card">
@@ -160,7 +160,7 @@
       </div>
     </div>
 
-    <div id="clients" class="stat_container p-4 flex flex-col gap-4 fadeup_block container">
+    <div id="clients" class="stat_container p-4 flex flex-col gap-4 fadeup_block margin-container">
       <div class="self-center">
         <h2>{{ $t("index.clients") }}</h2>
       </div>

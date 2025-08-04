@@ -1,5 +1,5 @@
 <template>
-  <header class="header desktop-header" @mouseenter="closeAllMenus">
+  <header class="header desktop-header" @mouseenter="closeAllMenus"  @mouseleave="closeAllMenus">
     <div class="header-background"></div>
     <div class="header-logo">
       <a href="/">
@@ -54,7 +54,7 @@
          @mouseenter="openContactMenu" 
          @mouseleave="keepMenuOpen"
          @click="toggleContactMenu">
-      <a href="#contact" class="contact-button">
+      <a class="contact-button">
         {{ $t('nav.contactUs') }}
       </a>
       <div v-if="isContactMenuOpen" class="contact-dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="closeContactMenu">
@@ -211,10 +211,10 @@ const toggleMarketMenu = (event) => {
 }
 
 const openContactMenu = () => {
-  /*if (!isTouch.value) {*/
+  if (!isTouch.value) {
     isContactMenuOpen.value = true
     isMarketMenuOpen.value = false
-  /*}*/
+  }
 }
 
 const closeContactMenu = () => {
@@ -282,6 +282,7 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
   if (process.client) {
     isTouch.value = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     window.addEventListener('scroll', handleScroll)
@@ -313,7 +314,7 @@ onUnmounted(() => {
   top: 20px;
   left: 0;
   right: 0;
-  max-width: 2560px;
+  max-width: 3000px;
   width: 88vw;
   min-width: 340px;
   margin: 0 auto;
@@ -350,10 +351,15 @@ onUnmounted(() => {
   margin-left: 3rem;
   flex: 1;
   min-width: 0;
+  position: relative;
+  height: 100%;
 }
 
 .nav-item {
   position: relative;
+  height: 100%;
+  align-items: center;
+  display: flex;
 }
 
 .nav-item, .contact-dropdown {
@@ -392,7 +398,6 @@ onUnmounted(() => {
   top: 100%;
   left: clamp(-10px, -2vw, -20px);
   width: 40rem;
-  margin-top: 2rem;
   z-index: -2;
 }
 
@@ -501,6 +506,9 @@ onUnmounted(() => {
 
 .contact-dropdown {
   position: relative;
+  height: 100%;
+  align-items: center;
+  display: flex;
 }
 
 .contact-button {
