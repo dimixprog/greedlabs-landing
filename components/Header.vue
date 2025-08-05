@@ -314,7 +314,7 @@ onUnmounted(() => {
   top: 20px;
   left: 0;
   right: 0;
-  max-width: 3000px;
+  max-width: calc(3000px - 5.7%);
   width: 88vw;
   min-width: 340px;
   margin: 0 auto;

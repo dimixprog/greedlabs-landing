@@ -488,8 +488,8 @@ h2 {
 
 .my-swiper {
   width: 100%;
-  max-width: 1150px;
-  height: 700px;
+  max-width: 250px;
+  height: 150px;
   /* Фиксированная высота — обязательно */
   margin: 20px auto;
 }
@@ -528,24 +528,85 @@ h2 {
   padding-bottom: 3%;
 }
 
+@media (min-width: 780px) {
+  .my-swiper {
+    max-width: 650px;
+    height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .my-swiper {
+    max-width: 350px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .my-swiper {
+    max-width: 450px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .my-swiper {
+    max-width: 550px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .my-swiper {
+    max-width: 650px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1750px) {
+  .my-swiper {
+    max-width: 750px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .my-swiper {
+    max-width: 550px;
+    height: 350px;
+  }
+}
+
 @media (min-width: 2241px) {
   #development::before {
     height: 70rem;
   }
 }
 
-@media (max-width: 2680px) {
+@media (min-width: 2250px) {
+  .my-swiper {
+    max-width: 650px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 2580px) {
   .my-swiper {
     max-width: 750px;
     height: 450px;
   }
 }
 
-
-@media (max-width: 2330px) {
+@media (min-width: 2950px) {
   .my-swiper {
-    max-width: 750px;
-    height: 450px;
+    max-width: 850px;
+    height: 500px;
+  }
+}
+
+@media (min-width: 1648px) and (max-width: 2240px) {
+  #development::before {
+    height: 60rem;
   }
 }
 
@@ -568,22 +629,6 @@ h2 {
 
   .why-we p{
     font-size: 1.2rem;
-  }
-  .my-swiper {
-    max-width: 750px;
-    height: 450px;
-  }
-}
-
-@media (max-width: 1905px) {
-.cases-block-cards{
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1648px) and (max-width: 2240px) {
-  #development::before {
-    height: 60rem;
   }
 }
 
@@ -659,6 +704,9 @@ h2 {
   #development div:last-child { order: -1; } 
   #statBlock b {
       font-size: 80px;
+  }
+  .cases-block-cards{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
