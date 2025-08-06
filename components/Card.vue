@@ -29,8 +29,12 @@ defineProps({
 .card-wrapper {
   perspective: 1000px;
   width: 100%;
-  height: 350px;
+  height: 100%;
   cursor: pointer;
+}
+
+.flip-card{
+  height: 350px;
 }
 
 .card {
@@ -53,7 +57,7 @@ defineProps({
   flex-direction: row;
   justify-content: space-between;
   background-color: #222222;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* прозрачная рамка */
+  border: 2px solid rgb(70 70 70 / 10%);
   color: white;
 
   backface-visibility: hidden;

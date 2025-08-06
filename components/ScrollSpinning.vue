@@ -18,13 +18,14 @@ function onScroll() {
   const scrollTop = window.scrollY;
   const effectiveScroll = Math.max(0, scrollTop - startScrollY); // Локальный скролл относительно входа в viewport
 
-  let angle = effectiveScroll * 0.04; // Вращение начинается с 0
+  let angle = effectiveScroll * 0.02; // Вращение начинается с 0
   const scaleFactor = 0.00025; // Коэффициент увеличения (настройте)
   const translateFactor = 0.05; // Коэффициент перемещения (настройте)
   let scale = 1 + (effectiveScroll * scaleFactor); // Масштаб начинается с 1
   let translate = 100 - (effectiveScroll * translateFactor); // Смещение начинается с 1
   scale = Math.min(scale, 1.3); // Опционально: лимит (верните, если нужно)]
-  angle = Math.min(angle, 60); // Опционально: лимит (верните, если нужно)
+  angle = Math.min(angle, 30); // Опционально: лимит (верните, если нужно)
+  translate = Math.min(translate, 70); // Опционально: лимит (верните, если нужно)
 
   document.documentElement.style.setProperty('--bg-translate', `-${translate}%`);
   document.documentElement.style.setProperty('--bg-rotate', `${angle}deg`);
@@ -112,8 +113,14 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    max-width: 400px;
-    max-height: 400px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .scroll-rotate-container::before {
+    width: 40vw;
+    height: 40vw;
+    top: 100%;
   }
 }
 </style>

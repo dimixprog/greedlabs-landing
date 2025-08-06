@@ -148,12 +148,22 @@ const svgHeight = ref(400)
 let resizeTimeout = null
 
 const column2Offset = ref(0) // Новый offset для второго столбца (мобильного)
+const mobileSvgHeight = ref(0)
+
+const isMobile = ref(false)
+
+const updateMobileFlag = () => {
+    if (typeof window !== 'undefined') {
+      isMobile.value = window.innerWidth <= 1024
+    }
+  }
 
 const calculateOffsets = async () => {
   await nextTick()
 
   offsets.value = [0, 0, 0, 0]
   column2Offset.value = 0
+  mobileSvgHeight.value = 0
 
   const width = window.innerWidth
   const isMobile = width <= 1024
@@ -163,8 +173,11 @@ const calculateOffsets = async () => {
     // Mobile: высота блока 0 и 1 -> margin-top для колонки 2
     const col0 = cardRefs.value[0]
     const col1 = cardRefs.value[1]
+    const col2 = cardRefs.value[2]
+    const col3 = cardRefs.value[3]
 
     let totalHeight = 0
+    let totalHeight2 = 0
 
     if (col0) {
       const children = col0.querySelectorAll('div, p')
@@ -174,8 +187,18 @@ const calculateOffsets = async () => {
       const children = col1.querySelectorAll('div, p')
       children.forEach(child => totalHeight += child.offsetHeight)
     }
+    if (col2) {
+      const children = col2.querySelectorAll('div, p')
+      children.forEach(child => totalHeight2 += child.offsetHeight)
+    }
+    if (col3) {
+      const children = col3.querySelectorAll('div, p')
+      children.forEach(child => totalHeight2 += child.offsetHeight)
+    }
+
 
     column2Offset.value = totalHeight + 24 // 24px — отступ между колонками
+    mobileSvgHeight.value = totalHeight + totalHeight2
   } else if (isTablet) {
     offsets.value = [0, 0, 0, 0]
   } else {
@@ -195,20 +218,20 @@ const calculateOffsets = async () => {
   }
 
   const lastColHeight = cardRefs.value[3]?.offsetHeight || 0
-  svgHeight.value = Math.max((offsets.value[3] || column2Offset.value) + lastColHeight, 400)
+  if (isMobile) {
+    svgHeight.value = Math.max(mobileSvgHeight.value, 400)
+  }else{
+    svgHeight.value = Math.max((offsets.value[3] || column2Offset.value) + lastColHeight, 400)
+  }
 }
 
-onMounted(() => {
+onMounted(async () => {
   const isMobile = ref(false)
 
-  const updateMobileFlag = () => {
-    if (typeof window !== 'undefined') {
-      isMobile.value = window.innerWidth <= 1024
-    }
-  }
+  calculateOffsets(window)
+  updateMobileFlag(window)
 
-  calculateOffsets()
-  updateMobileFlag()
+  await nextTick()
 
   // Анимация появления колонок
   cardRefs.value.forEach((el, idx) => {
@@ -340,14 +363,8 @@ onBeforeUnmount(() => {
 
 /* Responsive styles for life-cyclic container and columns */
 @media (max-width: 1024px) {
-  .life-cyclic {
-    /*flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;*/
-  }
-  .life-cyclic > .col-life {
-    /*width: calc(50% - 10px);*/
-    /*margin-top: 0 !important;*/ /* remove margin-top for clean stacking */
+  .svg-path[data-v-3094d0e0] {
+    padding-bottom: unset;
   }
 }
 @media (max-width: 640px) {

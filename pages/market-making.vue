@@ -99,7 +99,7 @@
       <div class="anchor"><span id="liquidity-management"></span></div>
       <div class="anchor"><span id="cex-listing"></span></div>
       <div class="anchor"><span id="order-optimization"></span></div>
-      <div class="grid grid-cols-2  grid-rows-2 gap-8 w-full">
+      <div class="grid grid-cols-2 grid-rows-2 gap-8 w-full">
         <Card 
           :title="$t('market_making.cex_listing')"
           :text="$t('market_making.cex_listing_desc')"
