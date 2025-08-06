@@ -47,25 +47,6 @@
 </style>
 
 <style scoped>
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  background-image: url("/hero_background.webp");
-
-  background-color: rgba(17, 17, 17, 1.0);
-  background-size:cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: -1;
-  border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
-    border-style: solid;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-}
 
 /* Адаптивные стили */
 

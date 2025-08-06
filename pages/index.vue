@@ -1,51 +1,85 @@
 <!-- pages/index.vue -->
 <template>
   <div>
-    <Hero id="start_way" class="grid grid-cols-7 justify-between items-center">
-      <div class="col-span-4">
-        <h2 class="colorized-text">
-          {{ $t("index.start_way") }}
-        </h2>
-        <p>
-          {{ $t("index.start_way_desc") }}
-        </p>
-        <ConsultButton />
-      </div>
+    <div class="hero-wrapper">
+      <Hero id="start_way" class="grid grid-cols-7 justify-between items-center margin-container">
+        <div class="col-span-4">
+          <h2 class="colorized-text">
+            {{ $t("index.start_way") }}
+          </h2>
+          <p>
+            {{ $t("index.start_way_desc") }}
+          </p>
+          <ConsultButton />
+        </div>
 
-      <div class="hero-media-container col-span-3 m-auto">
-        <video src="~/public/index_hero_1.webm" autoplay muted loop playsinline preload="auto"></video>
-      </div>
-    </Hero>
+        <div class="hero-media-container col-span-3 m-auto">
+          <video src="~/public/index_hero_1.webm" autoplay muted loop playsinline preload="auto"></video>
+        </div>
+      </Hero>
+    </div>
 
-    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center pt-[120px]">
+    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center pt-[120px] margin-container">
       <div class="hero-text-container col-span-4">
         <h2 class="colorized-text">{{ $t("index.market_making") }}</h2>
         <p>
           {{ $t("index.market_making_desc") }}
         </p>
-        <a href="/market-maker">{{ $t("index.more") }}</a>
+        <a href="/market-making" class="text-jump-link">
+          <span class="text">{{
+            $t("index.more")
+          }}
+          </span>
+          <span class="svg-arrow-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="6120 5099 24 24" class="arrow-svg">
+              <path fill="#1586f4" d="M 6133.4697 5104.4697 C 6133.7626 5104.1768 6134.2374 5104.1768 6134.5303 5104.4697C 6136.5303 5106.4697 6138.5303 5108.4697 6140.5303 5110.4697C 6140.8232 5110.7626 6140.8232 5111.2374 6140.5303 5111.5303C 6138.5303 5113.5303 6136.5303 5115.5303 6134.5303 5117.5303C 6134.2374 5117.8232 6133.7626 5117.8232 6133.4697 5117.5303C 6133.1768 5117.2374 6133.1768 5116.7626 6133.4697 5116.4697C 6135.0429 5114.8965 6136.6161 5113.3232 6138.1893 5111.75C 6133.4595 5111.75 6128.7297 5111.75 6124 5111.75C 6123.5858 5111.75 6123.25 5111.4142 6123.25 5111C 6123.25 5110.5858 6123.5858 5110.25 6124 5110.25C 6128.7297 5110.25 6133.4595 5110.25 6138.1893 5110.25C 6136.6161 5108.6768 6135.0429 5107.1035 6133.4697 5105.5303"></path>
+            </svg>
+          </span>
+        </a>
       </div>
       <ClientOnly>
         <CandlesCube class="col-span-3 m-auto"/>
       </ClientOnly>
     </Hero>
 
-    <Hero id="development" class="grid grid-cols-7 justify-between items-center">
+    <Hero id="development" class="grid grid-cols-7 justify-between items-center margin-container">
       <Cubes3D class="col-span-3 m-auto"/>
       <div class="hero-text-container col-span-4">
         <h2 class="colorized-text">{{ $t("index.development") }}</h2>
         <p>
           {{ $t("index.development_desc") }}
         </p>
-        <a href="/development">{{ $t("index.more") }}</a>
+        <a href="/development" class="text-jump-link">
+          <span class="text">{{
+            $t("index.more")
+          }}
+          </span>
+          <span class="svg-arrow-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="6120 5099 24 24" class="arrow-svg">
+              <path fill="#1586f4" d="M 6133.4697 5104.4697 C 6133.7626 5104.1768 6134.2374 5104.1768 6134.5303 5104.4697C 6136.5303 5106.4697 6138.5303 5108.4697 6140.5303 5110.4697C 6140.8232 5110.7626 6140.8232 5111.2374 6140.5303 5111.5303C 6138.5303 5113.5303 6136.5303 5115.5303 6134.5303 5117.5303C 6134.2374 5117.8232 6133.7626 5117.8232 6133.4697 5117.5303C 6133.1768 5117.2374 6133.1768 5116.7626 6133.4697 5116.4697C 6135.0429 5114.8965 6136.6161 5113.3232 6138.1893 5111.75C 6133.4595 5111.75 6128.7297 5111.75 6124 5111.75C 6123.5858 5111.75 6123.25 5111.4142 6123.25 5111C 6123.25 5110.5858 6123.5858 5110.25 6124 5110.25C 6128.7297 5110.25 6133.4595 5110.25 6138.1893 5110.25C 6136.6161 5108.6768 6135.0429 5107.1035 6133.4697 5105.5303"></path>
+            </svg>
+          </span>
+        </a>
       </div>
     </Hero>
 
-    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center">
+    <hr>
+
+    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-3">
         <h2 class="colorized-text">{{ $t("index.consulting") }}</h2>
         <p>{{ $t("index.consulting_desc") }}</p>
-        <a href="/consulting">{{ $t("index.more") }}</a>
+        <a href="/consulting" class="text-jump-link">
+          <span class="text">{{
+            $t("index.more")
+          }}
+          </span>
+          <span class="svg-arrow-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="6120 5099 24 24" class="arrow-svg">
+              <path fill="#1586f4" d="M 6133.4697 5104.4697 C 6133.7626 5104.1768 6134.2374 5104.1768 6134.5303 5104.4697C 6136.5303 5106.4697 6138.5303 5108.4697 6140.5303 5110.4697C 6140.8232 5110.7626 6140.8232 5111.2374 6140.5303 5111.5303C 6138.5303 5113.5303 6136.5303 5115.5303 6134.5303 5117.5303C 6134.2374 5117.8232 6133.7626 5117.8232 6133.4697 5117.5303C 6133.1768 5117.2374 6133.1768 5116.7626 6133.4697 5116.4697C 6135.0429 5114.8965 6136.6161 5113.3232 6138.1893 5111.75C 6133.4595 5111.75 6128.7297 5111.75 6124 5111.75C 6123.5858 5111.75 6123.25 5111.4142 6123.25 5111C 6123.25 5110.5858 6123.5858 5110.25 6124 5110.25C 6128.7297 5110.25 6133.4595 5110.25 6138.1893 5110.25C 6136.6161 5108.6768 6135.0429 5107.1035 6133.4697 5105.5303"></path>
+            </svg>
+          </span>
+        </a>
       </div>
       <div class="col-span-1"></div>
       <ClientOnly>
@@ -54,7 +88,7 @@
     </Hero>
 
 
-    <div id="about_us" class="flex flex-col items-center mb-[120px]">
+    <div id="about_us" class="flex flex-col items-center mb-[120px] margin-container">
       <h2 class="colorized-text">{{ $t("index.about_us") }}</h2>
       <p>
         {{ $t("index.about_us_desc") }}
@@ -65,9 +99,9 @@
       </div>
     </div>
 
-    <div id="team">
+    <div id="team" class="margin-container">
       <h2>{{ $t("index.team") }}</h2>
-      <div class="grid grid-cols-2 gap-16 mx-8 flex-row justify-between mb-[120px] max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-2 gap-16 mx-8 flex-row justify-between mb-[120px] mx-auto">
         <div class="photo_card pl-4" id="Dmitry-Vasilev-card">
           <h3 class="mt-[50%]">{{ $t("index.dmitry") }}</h3>
           <p class="role">{{ $t("index.dmitry_role") }}</p>
@@ -126,7 +160,7 @@
       </div>
     </div>
 
-    <div id="clients" class="stat_container p-4 flex flex-col gap-4 fadeup_block">
+    <div id="clients" class="stat_container p-4 flex flex-col gap-4 fadeup_block margin-container">
       <div class="self-center">
         <h2>{{ $t("index.clients") }}</h2>
       </div>
@@ -191,6 +225,25 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.hero-wrapper {
+  padding-top: 6%;
+  background-image: url("/hero_background.webp");
+
+  background-color: rgba(17, 17, 17, 1.0);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-width: 5px;
+}
+.hero-wrapper .hero{
+  padding-top: 0;
+}
 #start_way::before{
   height: 60rem;
   border-width: 5px;
@@ -216,6 +269,36 @@ onMounted(() => {
   border-color: transparent;
   border-style: solid;
   transition: background-color 0s ease-in-out, color 0s ease-in-out, border-color 0s ease-in-out;
+}
+
+.text-jump-link {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.svg-arrow-wrapper {
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-svg {
+  transition: none;
+  width: 40px;
+  height: 40px;
+}
+
+.text-jump-link:hover .arrow-svg,
+.text-jump-link:focus .arrow-svg {
+  animation: jumpRightSVG 1.2s linear infinite;
+}
+
+@keyframes jumpRightSVG {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(12px); }
+  50%  { transform: translateX(12px); }
+  100% { transform: translateX(0); }
 }
 
 #development div.hero-media-container {

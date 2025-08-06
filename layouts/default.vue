@@ -35,6 +35,10 @@ html {
   padding: 0px;
   margin: 0px;
 }
+#root{
+  max-width: 3000px;
+  margin: 0 auto;
+}
 body {
     background-color: #1b1b1b;
     color: white;
@@ -51,6 +55,39 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.margin-container {
+  margin-left: 6%;
+  margin-right: 6%;
+  max-width: 3000px;
+}
+
+@media (min-width:2000px) {
+  main{
+    zoom:1.5;
+  }
+}
+
+@media (max-width:1999px) {
+  .margin-container {
+    padding-left: unset;
+    padding-right: unset;
+  }
+}
+
+@media (min-width:2650px) {
+  .margin-container {
+    /*padding-left: unset;
+    padding-right: unset;
+    margin-left: auto;
+    margin-right: auto;*/
+  }
+}
+
+@media (min-width:3000px) {
+  main{
+    zoom:1.5;
+  }
+}
 </style>
 
 <style scoped>
@@ -61,7 +98,6 @@ header {
   padding: 1rem;
 }
 main {
-  padding: 6%;
   padding-bottom: 0;
   margin: 0px;
   max-width: 3000px;

@@ -1,7 +1,8 @@
 <!-- pages/development.vue -->
 <template>
   <div>
-    <Hero id="development" class="grid grid-cols-7 justify-between items-center">
+    <div class="hero-wrapper">
+    <Hero id="development" class="grid grid-cols-7 justify-between items-center margin-container">
       <div class="col-span-4">
         <h2 class="colorized-text">{{ $t("dev.dev") }}</h2>
         <p>{{ $t("dev.dev_desc") }}</p>
@@ -10,8 +11,9 @@
 
       <Cubes3D  class="col-span-3 m-auto"/>
     </Hero>
+    </div>
 
-    <div class="services-container">
+    <div class="services-container margin-container">
       <h2 class="text-services">{{ $t("dev.our_services") }}</h2>
 
       <!-- Первая строка: 2 карточки -->
@@ -49,10 +51,10 @@
     </div>
 
 
-    <h2 class="colorized-text mt-24 mb-24">{{ $t("dev.life_cycle") }}</h2>
+    <h2 class="colorized-text mt-24 mb-24 margin-container">{{ $t("dev.life_cycle") }}</h2>
     <hr />
 
-    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards">
+    <div class="grid grid-cols-7 justify-between items-start life-cycle-cards margin-container">
       <ScrollSpinning class="col-span-3"/>
       <div class="life-cycle col-span-4">
         <h3 class="pt-32">{{ $t("dev.analysis") }}</h3>
@@ -69,7 +71,7 @@
 
     <hr class="full-width-line">
 
-    <div class="tech-stack">
+    <div class="tech-stack margin-container">
       <h2 class="colorized-text">{{ $t("dev.tech_stack") }}</h2>
       <p>{{ $t("dev.tech_stack_desc") }}</p>
       <div class="flex flex-row tech-stack-cards">
@@ -102,7 +104,7 @@
 
 <hr class="full-width-line">
 
-    <div class="why-we pb-12">
+    <div class="why-we pb-12 margin-container">
       <h2 class="colorized-text mt-24 mb-16">{{ $t("dev.who_we") }}</h2>
 
       <hr class="border-t-2 border-blue-400 my-4">
@@ -127,7 +129,7 @@
 
 <hr class="full-width-line">
     
-      <div id="stat" class="stat_container p-4 flex flex-col gap-4">
+      <div id="stat" class="stat_container p-4 flex flex-col gap-4 margin-container">
         <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
           <div class="flex flex-col items-center">
             <b><CounterCard :startAmount='0' :endAmount='10' :duration='1' suffix='K+'/></b>
@@ -149,7 +151,7 @@
         </div>
       </div>
 
-    <div id="cases">
+    <div id="cases" class="margin-container">
       <h2 class="colorized-text cases-title">{{ $t("dev.cases") }}</h2>
       <p class="cases-desc">
         {{ $t("dev.cases_desc") }}
@@ -248,21 +250,6 @@ onMounted(() => {
     if (statBlock.value)
       observer.observe(statBlock.value)
   })
-
-  const buttons = document.querySelectorAll('.swiper-button-prev, .swiper-button-next');
-  let lastActiveButton = null;
-
-  console.log(buttons);
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (lastActiveButton) {
-        lastActiveButton.classList.remove('swiper-button-active');
-      }
-      button.classList.add('swiper-button-active');
-      lastActiveButton = button;
-      console.log("1")
-    });
-  });
 })
 
 // Список изображений
@@ -306,6 +293,26 @@ const images4 = [
 h2 {
     font-size: 4rem;
     font-weight: 700;
+}
+
+.hero-wrapper {
+  padding-top: 6%;
+  background-image: url("/hero_background.webp");
+
+  background-color: rgba(17, 17, 17, 1.0);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-width: 5px;
+}
+.hero-wrapper .hero{
+  padding-top: 0;
 }
 
 #development::before{
@@ -481,8 +488,8 @@ h2 {
 
 .my-swiper {
   width: 100%;
-  max-width: 1150px;
-  height: 700px;
+  max-width: 250px;
+  height: 150px;
   /* Фиксированная высота — обязательно */
   margin: 20px auto;
 }
@@ -521,24 +528,85 @@ h2 {
   padding-bottom: 3%;
 }
 
+@media (min-width: 780px) {
+  .my-swiper {
+    max-width: 650px;
+    height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .my-swiper {
+    max-width: 350px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .my-swiper {
+    max-width: 450px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .my-swiper {
+    max-width: 550px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .my-swiper {
+    max-width: 650px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1750px) {
+  .my-swiper {
+    max-width: 750px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .my-swiper {
+    max-width: 550px;
+    height: 350px;
+  }
+}
+
 @media (min-width: 2241px) {
   #development::before {
     height: 70rem;
   }
 }
 
-@media (max-width: 2680px) {
+@media (min-width: 2250px) {
   .my-swiper {
-    max-width: 1000px;
-    height: 600px;
+    max-width: 650px;
+    height: 400px;
   }
 }
 
-
-@media (max-width: 2330px) {
+@media (min-width: 2580px) {
   .my-swiper {
-    max-width: 900px;
-    height: 550px;
+    max-width: 750px;
+    height: 450px;
+  }
+}
+
+@media (min-width: 2950px) {
+  .my-swiper {
+    max-width: 850px;
+    height: 500px;
+  }
+}
+
+@media (min-width: 1648px) and (max-width: 2240px) {
+  #development::before {
+    height: 60rem;
   }
 }
 
@@ -561,22 +629,6 @@ h2 {
 
   .why-we p{
     font-size: 1.2rem;
-  }
-  .my-swiper {
-    max-width: 800px;
-    height: 500px;
-  }
-}
-
-@media (max-width: 1905px) {
-.cases-block-cards{
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1648px) and (max-width: 2240px) {
-  #development::before {
-    height: 60rem;
   }
 }
 
@@ -652,6 +704,9 @@ h2 {
   #development div:last-child { order: -1; } 
   #statBlock b {
       font-size: 80px;
+  }
+  .cases-block-cards{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
