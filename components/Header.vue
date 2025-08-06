@@ -144,16 +144,16 @@
       </nav>
       <div class="mobile-contacts">
         <a href="mailto:hello@greedlabs.org" class="mobile-contact-link">
-          <img src="~/public/logos/mail.svg" alt="mail logo"> hello@greedlabs.org
+          <img class="contact-icon" src="~/public/logos/mail.svg" alt="mail logo"> hello@greedlabs.org
         </a>
         <a href="https://t.me/greedlabs" class="mobile-contact-link">
-          <img src="~/public/logos/telegram.svg" alt="telegram logo"> Telegram
+          <img class="contact-icon" src="~/public/logos/telegram.svg" alt="telegram logo"> Telegram
         </a>
         <a href="https://linkedin.com/company/greedlabs" class="mobile-contact-link">
-          <img src="~/public/logos/linkedin.svg" alt="linkedin logo"> LinkedIn
+          <img class="contact-icon" src="~/public/logos/linkedin.svg" alt="linkedin logo"> LinkedIn
         </a>
         <a href="https://x.com/greedlabs" class="mobile-contact-link">
-          <img src="~/public/logos/x.svg" alt="x logo"> X.com
+          <img class="contact-icon" src="~/public/logos/x.svg" alt="x logo"> X.com
         </a>
       </div>
       <button class="mobile-consultation-btn" @click="scrollToConsultation">

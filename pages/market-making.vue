@@ -64,8 +64,8 @@
         </video>
       </div>
     </Hero>
-    <div  id="prof-support" class="mb-8 margin-container">
-      <h2 class="colorized-text">{{ $t("market_making.prof_support") }}</h2>
+    <div  id="prof-support" class="mb-8">
+      <h2>{{ $t("market_making.prof_support") }}</h2>
       <div class="flex justify-between items-center">
         <div class="w-full">
           <LifeCyclic />
@@ -219,10 +219,18 @@ h2 { font-size: 50px; font-weight: 700; }
   background-color: #222222;
   border: 0;
   border-radius: 5rem;
-  padding: 30px; 
+  padding-right: 6%; 
+  padding-left: 6%;
   display: flex; 
   flex-direction: column;
 }
+
+#prof-support h2{
+  line-height: 1.1;
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+}
+
 .marquee{
   max-width: inherit;
 }
