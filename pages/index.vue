@@ -76,9 +76,9 @@
             <a href="https://x.com/VasDm_GreedLabs" target="_blank" rel="noopener">
               <svg class="t-persons-social-links__svg" role="presentation" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 48 48">
                 <g clip-path="url(#clip0_3697_102)">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 
-                  37.2548 10.7452 48 24 48ZM33.3482 14L25.9027 22.4686H25.9023L34 34H28.0445L22.5915 26.2348L15.7644 34H14L21.8082 25.1193L14 14H19.9555L25.119 
-                  21.3532L31.5838 14H33.3482ZM22.695 24.1101L23.4861 25.2173V25.2177L28.8746 32.7594H31.5847L24.9813 23.5172L24.1902 22.4099L19.1103 
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0
+                  37.2548 10.7452 48 24 48ZM33.3482 14L25.9027 22.4686H25.9023L34 34H28.0445L22.5915 26.2348L15.7644 34H14L21.8082 25.1193L14 14H19.9555L25.119
+                  21.3532L31.5838 14H33.3482ZM22.695 24.1101L23.4861 25.2173V25.2177L28.8746 32.7594H31.5847L24.9813 23.5172L24.1902 22.4099L19.1103
                   15.2997H16.4002L22.695 24.1101Z" fill="#1586f4"></path>
                 </g>
                 <defs>
@@ -97,11 +97,11 @@
           <p class="experience">{{ $t("index.georgy_experience") }}</p>
           <div class="social">
             <a href="https://x.com/realweb3dev" target="_blank" rel="noopener">
-              <svg class="t-persons-social-links__svg" role="presentation" xmlns="http://www.w3.org/2000/svg" width="35" height="35" 
+              <svg class="t-persons-social-links__svg" role="presentation" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
               viewBox="0 0 48 48"><g clip-path="url(#clip0_3697_102)">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452
-                 0 24C0 37.2548 10.7452 48 24 48ZM33.3482 14L25.9027 22.4686H25.9023L34 34H28.0445L22.5915 26.2348L15.7644 34H14L21.8082 25.1193L14 
-                 14H19.9555L25.119 21.3532L31.5838 14H33.3482ZM22.695 24.1101L23.4861 25.2173V25.2177L28.8746 32.7594H31.5847L24.9813 23.5172L24.1902 
+                 0 24C0 37.2548 10.7452 48 24 48ZM33.3482 14L25.9027 22.4686H25.9023L34 34H28.0445L22.5915 26.2348L15.7644 34H14L21.8082 25.1193L14
+                 14H19.9555L25.119 21.3532L31.5838 14H33.3482ZM22.695 24.1101L23.4861 25.2173V25.2177L28.8746 32.7594H31.5847L24.9813 23.5172L24.1902
                  22.4099L19.1103 15.2997H16.4002L22.695 24.1101Z" fill="#1586f4"></path>
                 </g>
                 <defs>
@@ -113,11 +113,11 @@
             </a>
             <a href="https://linkedin.com/in/gkozyrev" target="_blank" rel="noopener">
               <svg role="presentation" class="t-persons-social-links__svg" width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.6142 0 50-22.3858 50-50S77.6142 0 50 0 0 22.3858 0 50s22.3858 
-                50 50 50Zm23-31.0002V52.363c0-8.9114-4.7586-13.0586-11.1079-13.0586-5.1234 0-7.4123 2.8199-8.6942 4.7942v-4.1124h-9.6468c.1297 
-                2.7235 0 29.0136 0 29.0136h9.6484v-16.203c0-.8675.0657-1.731.3203-2.3513.6981-1.7351 2.284-3.5286 4.9491-3.5286 3.4905 0 4.8859 
-                2.6611 4.8859 6.5602v15.5227H73ZM53.1979 44.0986v.094h-.0632c.0069-.0111.0148-.0228.0229-.0346.0137-.0198.0281-.0401.0403-.0594ZM28 
-                31.0123C28 28.1648 30.1583 26 33.4591 26c3.3016 0 5.3302 2.1648 5.3934 5.0123 0 2.7851-2.0918 5.0156-5.4567 5.0156h-.064c-3.2351 
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.6142 0 50-22.3858 50-50S77.6142 0 50 0 0 22.3858 0 50s22.3858
+                50 50 50Zm23-31.0002V52.363c0-8.9114-4.7586-13.0586-11.1079-13.0586-5.1234 0-7.4123 2.8199-8.6942 4.7942v-4.1124h-9.6468c.1297
+                2.7235 0 29.0136 0 29.0136h9.6484v-16.203c0-.8675.0657-1.731.3203-2.3513.6981-1.7351 2.284-3.5286 4.9491-3.5286 3.4905 0 4.8859
+                2.6611 4.8859 6.5602v15.5227H73ZM53.1979 44.0986v.094h-.0632c.0069-.0111.0148-.0228.0229-.0346.0137-.0198.0281-.0401.0403-.0594ZM28
+                31.0123C28 28.1648 30.1583 26 33.4591 26c3.3016 0 5.3302 2.1648 5.3934 5.0123 0 2.7851-2.0918 5.0156-5.4567 5.0156h-.064c-3.2351
                 0-5.3318-2.2305-5.3318-5.0156Zm10.2177 37.9875h-9.6445V39.9862h9.6445v29.0136Z" fill="#1586f4"></path>
               </svg>
             </a>
@@ -142,7 +142,7 @@
           </div>
 
           <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='1' :duration='1' suffix='М+'/></b>
+            <b><CounterCard :startAmount='0' :endAmount='1' :duration='100' suffix='+'/></b>
             <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
           </div>
         </div>
@@ -475,7 +475,7 @@ onMounted(() => {
   }
 
   #start_way div:first-child, #market_making div:first-child, #consulting div:first-child { order: 1; }
-  #start_way div:last-child, #market_making div:last-child, #consulting div:last-child { order: -1; } 
+  #start_way div:last-child, #market_making div:last-child, #consulting div:last-child { order: -1; }
 
   #market_making div.hero-text-container {
     padding-top: 15rem;
@@ -554,7 +554,7 @@ onMounted(() => {
   }
 
   #about_us .inside_image {
-    
+
   }
 
   #about_us p {
