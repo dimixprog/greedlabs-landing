@@ -328,10 +328,10 @@ h2 {
 }
 
 .life-cycle p{
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 1.8rem;
+  line-height: 1.3;
   font-weight: 500;
-  padding-bottom: 12rem;
+  padding-bottom: 15rem;
 }
 
 .tech-stack h2{

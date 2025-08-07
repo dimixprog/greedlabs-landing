@@ -12,30 +12,51 @@ let observer = null;
 let startScrollY = 0; // Стартовая позиция скролла, когда элемент вошёл в viewport
 let isVisible = false; // Флаг видимости
 
+function updateTopMargin() {
+  const maxWidth = 3000;
+  const minWidth = 300;
+
+  const minNegativePercent = 20; // самый маленький отступ (на маленьком экране): -20%
+  const maxNegativePercent = 100; // самый большой отступ (на большом экране): -70%
+
+  const width = Math.max(minWidth, Math.min(maxWidth, window.innerWidth));
+
+  const ratio = (width - minWidth) / (maxWidth - minWidth);
+
+  const percent = minNegativePercent + (maxNegativePercent - minNegativePercent) * ratio;
+
+  document.documentElement.style.setProperty('--top-margin', `${percent}%`);
+}
+
 function onScroll() {
   if (!isVisible) return; // Не применяем эффекты, если элемент ещё не видим
 
   const scrollTop = window.scrollY;
   const effectiveScroll = Math.max(0, scrollTop - startScrollY); // Локальный скролл относительно входа в viewport
 
-  let angle = effectiveScroll * 0.02; // Вращение начинается с 0
+  let angle = -60 + effectiveScroll * 0.03; // Вращение начинается с 0
   const scaleFactor = 0.00025; // Коэффициент увеличения (настройте)
   const translateFactor = 0.05; // Коэффициент перемещения (настройте)
   let scale = 1 + (effectiveScroll * scaleFactor); // Масштаб начинается с 1
-  let translate = 100 - (effectiveScroll * translateFactor); // Смещение начинается с 1
-  scale = Math.min(scale, 1.3); // Опционально: лимит (верните, если нужно)]
+  let translate = 70 - (effectiveScroll * translateFactor); // Смещение начинается с 1
+  scale = Math.min(scale, 1.3); // Опционально: лимит (верните, если нужно)
   angle = Math.min(angle, 30); // Опционально: лимит (верните, если нужно)
-  translate = Math.min(translate, 70); // Опционально: лимит (верните, если нужно)
+  translate = Math.max(translate, 10); // Опционально: лимит (верните, если нужно)
 
   document.documentElement.style.setProperty('--bg-translate', `-${translate}%`);
   document.documentElement.style.setProperty('--bg-rotate', `${angle}deg`);
   document.documentElement.style.setProperty('--bg-scale', scale);
+
+  
 
   // Для отладки: выводим в консоль
   console.log('Effective scroll:', effectiveScroll, 'Scale:', scale);
 }
 
 onMounted(() => {
+  updateTopMargin();
+  window.addEventListener('resize', updateTopMargin);
+
   // Настраиваем Intersection Observer
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -78,13 +99,13 @@ onBeforeUnmount(() => {
 .scroll-rotate-container::before {
   content: "";
   position: absolute;
-  top: 200%;
+  top: var(--top-margin, 100%);
   left: 50%;
   width: 50vw; /* Начальный размер */
   max-width: 1200px;
   height: 50vw;
   max-height: 1200px;
-  transform: translate(-50%, var(--bg-translate, -100%)) rotate(var(--bg-rotate, 0deg)) scale(var(--bg-scale, 1));
+  transform: translate(-50%, var(--bg-translate, -70%)) rotate(var(--bg-rotate, -60deg)) scale(var(--bg-scale, 1));
   background-image: url('/thing.png');
   background-size: contain;
   background-position: center;
@@ -120,7 +141,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 100%;
+    /*top: 100%;*/
   }
 }
 </style>
