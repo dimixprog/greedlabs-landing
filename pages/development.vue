@@ -323,15 +323,15 @@ h2 {
 .life-cycle h3{
   color: #fff;
   font-weight: 700;
-  font-size: 3rem;
-  padding-bottom: 1.5rem;
+  /*font-size: 3rem;*/
+  /*padding-bottom: 1.5rem;*/
 }
 
 .life-cycle p{
-  font-size: 1.8rem;
+  /*font-size: 1.8rem;*/
   line-height: 1.3;
   font-weight: 500;
-  padding-bottom: 15rem;
+  /*padding-bottom: 15rem;*/
 }
 
 .tech-stack h2{

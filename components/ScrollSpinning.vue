@@ -16,16 +16,62 @@ function updateTopMargin() {
   const maxWidth = 3000;
   const minWidth = 300;
 
-  const minNegativePercent = 20; // самый маленький отступ (на маленьком экране): -20%
-  const maxNegativePercent = 100; // самый большой отступ (на большом экране): -70%
+  const maxHeight = 2000;
+  const minHeight = 400;
+
+  const minNegativePercent = 0; // минимальный отступ (%)
+  const maxNegativePercent = 100; // максимальный отступ (%)
 
   const width = Math.max(minWidth, Math.min(maxWidth, window.innerWidth));
+  const height = Math.max(minHeight, Math.min(maxHeight, window.innerHeight));
 
+  const widthRatio = (width - minWidth) / (maxWidth - minWidth);
+  const heightRatio = (height - minHeight) / (maxHeight - minHeight);
+
+  // Итоговое значение: среднее между влиянием ширины и высоты
+  const combinedRatio = (widthRatio + heightRatio) / 2;
+
+  const percent = minNegativePercent + (maxNegativePercent - minNegativePercent) * combinedRatio;
+
+  return percent;
+  //document.documentElement.style.setProperty('--top-margin', `${percent}%`);
+}
+
+function updateFontAndPadding() {
+  const maxWidth = 3000;
+  const minWidth = 300;
+
+  // Значения для H3
+  const minFontH3 = 1.5; // rem
+  const maxFontH3 = 3;   // rem
+
+  const minPbH3 = 0.5;   // rem
+  const maxPbH3 = 1.5;   // rem
+
+  // Значения для P
+  const minFontP = 1.2;  // rem
+  const maxFontP = 1.8;  // rem
+
+  const minPbP = 3;      // rem
+  const maxPbP = 15;     // rem
+
+  const width = Math.max(minWidth, Math.min(maxWidth, window.innerWidth));
   const ratio = (width - minWidth) / (maxWidth - minWidth);
 
-  const percent = minNegativePercent + (maxNegativePercent - minNegativePercent) * ratio;
+  // Интерполяция значений
+  const fontH3 = minFontH3 + (maxFontH3 - minFontH3) * ratio;
+  const pbH3 = minPbH3 + (maxPbH3 - minPbH3) * ratio;
 
-  document.documentElement.style.setProperty('--top-margin', `${percent}%`);
+  const fontP = minFontP + (maxFontP - minFontP) * ratio;
+  const pbP = minPbP + (maxPbP - minPbP) * ratio;
+
+  const root = document.documentElement;
+
+  root.style.setProperty('--fontH3', `${fontH3}rem`);
+  root.style.setProperty('--pbH3', `${pbH3}rem`);
+
+  root.style.setProperty('--fontP', `${fontP}rem`);
+  root.style.setProperty('--pbP', `${pbP}rem`);
 }
 
 function onScroll() {
@@ -55,7 +101,11 @@ function onScroll() {
 
 onMounted(() => {
   updateTopMargin();
-  window.addEventListener('resize', updateTopMargin);
+  updateFontAndPadding();
+  window.addEventListener('resize', () => {
+    updateTopMargin();
+    updateFontAndPadding();
+  });
 
   // Настраиваем Intersection Observer
   observer = new IntersectionObserver((entries) => {
@@ -99,7 +149,7 @@ onBeforeUnmount(() => {
 .scroll-rotate-container::before {
   content: "";
   position: absolute;
-  top: var(--top-margin, 100%);
+  top: 100%;/*var(--top-margin, 100%);*/ 
   left: 50%;
   width: 50vw; /* Начальный размер */
   max-width: 1200px;
@@ -143,5 +193,16 @@ onBeforeUnmount(() => {
     height: 40vw;
     /*top: 100%;*/
   }
+}
+</style>
+
+<style>
+.life-cycle h3{
+  font-size: var(--fontH3, 3rem);
+  padding-bottom: var(--pbH3, 1.5rem);
+}
+.life-cycle p{
+  font-size: var(--fontP, 1.8rem);
+  padding-bottom: var(--pbP, 15rem);
 }
 </style>
