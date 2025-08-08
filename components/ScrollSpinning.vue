@@ -12,6 +12,41 @@ let observer = null;
 let startScrollY = 0; // Стартовая позиция скролла, когда элемент вошёл в viewport
 let isVisible = false; // Флаг видимости
 
+function adjustTopByHeight() {
+  const containerEl = document.querySelector('.scroll-rotate-container');
+  if (!containerEl) return;
+
+  const pseudoStyle = getComputedStyle(containerEl, '::before');
+
+  // top в пикселях
+  let topPx = parseFloat(pseudoStyle.getPropertyValue('top'));
+
+  // Получаем высоту контейнера (относительно которой считался % в CSS)
+  const containerHeight = containerEl.offsetHeight;
+
+  // Переводим пиксели в проценты
+  let topPercent = (topPx / containerHeight) * 100;
+
+  // Прибавка в зависимости от высоты окна
+  const h = window.innerHeight;
+  let extra = 0;
+
+  if (h < 500) {
+    extra = 120;
+  } else if (h < 700) {
+    extra = 80;
+  } else if (h < 900) {
+    extra = 50;
+  } else if (h < 1100) {
+    extra = 30;
+  } else {
+    extra = 0;
+  }
+
+  // Устанавливаем новый top через CSS-переменную
+  document.documentElement.style.setProperty('--top-adjusted', `${topPercent + extra}%`);
+}
+
 /*function updateTopMargin() {
   const maxWidth = 3000;
   const minWidth = 300;
@@ -67,11 +102,29 @@ function updateFontAndPadding() {
 
   const root = document.documentElement;
 
-  root.style.setProperty('--fontH3', `${fontH3}rem`);
-  root.style.setProperty('--pbH3', `${pbH3}rem`);
+  if(fontH3 > minFontH3){
+    root.style.setProperty('--fontH3', `${fontH3}rem`);
+  }else{
+    root.style.setProperty('--fontH3', `${minFontH3}rem`);
+  }
+  
+  if(pbH3 > minPbH3){
+    root.style.setProperty('--pbH3', `${pbH3}rem`);
+  }else{
+    root.style.setProperty('--pbH3', `${minPbH3}rem`);
+  }
 
-  root.style.setProperty('--fontP', `${fontP}rem`);
-  root.style.setProperty('--pbP', `${pbP}rem`);
+  if(fontP > minFontP){
+    root.style.setProperty('--fontP', `${fontP}rem`);
+  }else{
+    root.style.setProperty('--fontP', `${minFontP}rem`);
+  }
+
+  if(pbP > minPbP){
+    root.style.setProperty('--pbP', `${pbP}rem`);
+  }else{
+    root.style.setProperty('--pbP', `${minPbP}rem`);
+  }
 }
 
 function onScroll() {
@@ -93,79 +146,86 @@ function onScroll() {
 
   let maxAngle = 30;
   let maxScale = 1.3;
-  let maxTranslate = 100; // 👈 максимум, насколько можем опустить вниз
-  const initialTranslate = -70; // 👈 фиксированное начальное значение
+  let maxTranslate = 100; 
+  const initialTranslate = -70; // фиксированное начальное значение
 
   // Адаптация под ширину экрана
   if (width < 400) {
-    angleFactor = 0.01;
-    scaleFactor = 0.00015;
+    angleFactor = 0.08;
+    scaleFactor = 0.0008;
     translateFactor = 0.08;
-    maxAngle = 10;
-    maxScale = 1.1;
-    maxTranslate = 180;
+    maxAngle = 50;
+    maxScale = 4;
+    maxTranslate = 300;
   } else if (width < 600) {
-    angleFactor = 0.015;
-    scaleFactor = 0.00018;
-    translateFactor = 0.075;
-    maxAngle = 15;
-    maxScale = 1.15;
-    maxTranslate = 160;
+    angleFactor = 0.08;
+    scaleFactor = 0.0008;
+    translateFactor = 0.02;
+    maxAngle = 50;
+    maxScale = 5;
+    maxTranslate = 250;
   } else if (width < 800) {
-    angleFactor = 0.02;
-    scaleFactor = 0.0002;
-    translateFactor = 0.07;
-    maxAngle = 20;
-    maxScale = 1.2;
-    maxTranslate = 150;
-  } else if (width < 1100) {
-    angleFactor = 0.05;
-    scaleFactor = 0.0002;
+    angleFactor = 0.06;
+    scaleFactor = 0.0008;
     translateFactor = 0.2;
     maxAngle = 40;
-    maxScale = 2;
-    maxTranslate = 290;
+    maxScale = 5;
+    maxTranslate = 200;
+  } else if (width < 1000) {
+    angleFactor = 0.05;
+    scaleFactor = 0.0006;
+    translateFactor = 0.2;
+    maxAngle = 40;
+    maxScale = 8;
+    maxTranslate = 120;
   } else if (width < 1100) {
-    angleFactor = 0.02;
-    scaleFactor = 0.0002;
+    angleFactor = 0.05;
+    scaleFactor = 0.0004;
+    translateFactor = 0.2;
+    maxAngle = 40;
+    maxScale = 3;
+    maxTranslate = 70;
+  } /*else if (width < 1100) {
+    angleFactor = 0.03;
+    scaleFactor = 0.0003;
     translateFactor = 0.16;
     maxAngle = 20;
-    maxScale = 1.2;
+    maxScale = 3.5;
     maxTranslate = 250;
-  } else if (width < 1200) {
-    angleFactor = 0.025;
-    scaleFactor = 0.00022;
+  }*/ else if (width < 1200) {
+    angleFactor = 0.03;
+    scaleFactor = 0.0004;
     translateFactor = 0.13;
-    maxAngle = 25;
-    maxScale = 1.25;
-    maxTranslate = 170;
+    maxAngle = 30;
+    maxScale = 3;
+    maxTranslate = 55;
   } else if (width < 1500) {
     angleFactor = 0.03;
-    scaleFactor = 0.00025;
+    scaleFactor = 0.0004;
     translateFactor = 0.1;
     maxAngle = 30;
-    maxScale = 1.3;
-    maxTranslate = 130;
+    maxScale = 2.3;
+    maxTranslate = 25;
   } else if (width < 1600) {
     angleFactor = 0.032;
-    scaleFactor = 0.00027;
+    scaleFactor = 0.0003;
     translateFactor = 0.075;
     maxAngle = 35;
-    maxScale = 1.35;
-    maxTranslate = 130;
+    maxScale = 1.9;
+    maxTranslate = 25;
   } else if (width < 1800) {
     angleFactor = 0.032;
-    scaleFactor = 0.00027;
-    translateFactor = 0.065;
+    scaleFactor = 0.0003;
+    translateFactor = 0.08;
     maxAngle = 35;
-    maxScale = 1.35;
-    maxTranslate = 90;
+    maxScale = 1.7;
+    maxTranslate = 30;
   } else if (width < 2000) {
     angleFactor = 0.032;
-    scaleFactor = 0.00027;
+    scaleFactor = 0.0003;
     translateFactor = 0.055;
     maxAngle = 35;
-    maxScale = 1.35;
+    maxScale = 1.6;
     maxTranslate = 40;
   } else if (width < 2200) {
     angleFactor = 0.032;
@@ -207,12 +267,12 @@ function onScroll() {
   // Вычисления
   let angle = angleBase + effectiveScroll * angleFactor;
   let scale = 1 + (effectiveScroll * scaleFactor);
-  let translate = initialTranslate + (effectiveScroll * translateFactor); // 👈 теперь вниз
+  let translate = initialTranslate + (effectiveScroll * translateFactor);
 
   // Ограничения
   scale = Math.min(scale, maxScale);
   angle = Math.min(angle, maxAngle);
-  translate = Math.min(translate, maxTranslate); // 👈 ограничение вниз
+  translate = Math.min(translate, maxTranslate); 
 
   // Применение в CSS
   document.documentElement.style.setProperty('--bg-translate', `${translate}%`);
@@ -226,8 +286,11 @@ function onScroll() {
 
 onMounted(() => {
   //updateTopMargin();
+  adjustTopByHeight();
+  updateFontAndPadding();
   window.addEventListener('resize', () => {
     //updateTopMargin();
+    adjustTopByHeight();
     updateFontAndPadding();
   });
 
@@ -308,7 +371,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 30%;
+    top: var(--top-adjusted, 30%);
   }
 }
 
@@ -316,7 +379,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 35%;
+    top: var(--top-adjusted, 35%);
   }
 }
 
@@ -324,7 +387,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 40%;
+    top: var(--top-adjusted, 40%);
   }
 }
 
@@ -332,7 +395,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 45%;
+    top: var(--top-adjusted, 45%);
   }
 }
 
@@ -340,7 +403,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 50%;
+    top: var(--top-adjusted, 50%);
   }
 }
 
@@ -348,7 +411,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 55%;
+    top: var(--top-adjusted, 55%);
   }
 }
 
@@ -356,7 +419,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 65%;
+    top: var(--top-adjusted, 65%);
   }
 }
 
@@ -364,7 +427,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 70%;
+    top: var(--top-adjusted, 70%);
   }
 }
 
@@ -372,7 +435,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 75%;
+    top: var(--top-adjusted, 75%);
   }
 }
 
@@ -380,7 +443,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 80%;
+    top: var(--top-adjusted, 80%);
   }
 }
 
@@ -388,7 +451,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 85%;
+    top: var(--top-adjusted, 85%);
   }
 }
 
@@ -396,7 +459,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 90%;
+    top: var(--top-adjusted, 90%);
   }
 }
 
@@ -404,7 +467,7 @@ onBeforeUnmount(() => {
   .scroll-rotate-container::before {
     width: 40vw;
     height: 40vw;
-    top: 100%;
+    top: var(--top-adjusted, 100%);
   }
 }
 </style>
