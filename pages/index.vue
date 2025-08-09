@@ -291,14 +291,12 @@ onMounted(() => {
 
 .text-jump-link:hover .arrow-svg,
 .text-jump-link:focus .arrow-svg {
-  animation: jumpRightSVG 1.2s linear infinite;
+  animation: jumpRightSVG 0.6s ease-out forwards;
 }
 
 @keyframes jumpRightSVG {
-  0%   { transform: translateX(0); }
-  30%  { transform: translateX(12px); }
-  50%  { transform: translateX(12px); }
-  100% { transform: translateX(0); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(12px); }
 }
 
 #development div.hero-media-container {

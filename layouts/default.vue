@@ -63,7 +63,7 @@ body {
 
 @media (min-width:2000px) {
   main{
-    zoom:1.5;
+    zoom:1.2;
   }
 }
 
@@ -85,7 +85,7 @@ body {
 
 @media (min-width:3000px) {
   main{
-    zoom:1.5;
+    zoom:1.2;
   }
 }
 </style>
