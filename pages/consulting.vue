@@ -27,30 +27,31 @@
       <Card :title="$t('consulting.tech_audit')" title_wrap/>
     </div>
 
-    <hr class="full-width-line">
+    <h2 id="advantages-block-title" class="colorized-text margin-container">{{ $t("consulting.advantages_of_consalting") }}</h2>
+    <svg class="margin-container" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1" fill="none"> <line y1="0.5" x2="1160" y2="0.5" stroke="url(#paint0_linear_868_2555)"></line> <defs> <linearGradient id="paint0_linear_868_2555" x1="0" y1="6" x2="4640" y2="6" gradientUnits="userSpaceOnUse"> <stop stop-color="#34FBFF"></stop> <stop offset="1" stop-color="#1586F4"></stop> </linearGradient> </defs> </svg>
 
-    <h2 class="colorized-text margin-container">{{ $t("consulting.advantages_of_consalting") }}</h2>
-    <hr class="border-t-2 border-blue-400 my-4">
-
-    <div id="advantages-group" class="grid grid-cols-7 gap-4 margin-container">
-      <LoadingCircular class="col-span-2"/>
-      <div class="advantages col-span-5">
-        <h3>{{ $t("consulting.deep_analysis") }}</h3>
-        <p>{{ $t("consulting.deep_analysis_desc") }}</p>
+    <div id="advantages-group" class="flex margin-container">
+      <div class="grid grid-cols-7 gap-4 margin-container">
+        <LoadingCircular class="col-span-2"/>
+        <div class="advantages col-span-5">
+          <h3>{{ $t("consulting.deep_analysis") }}</h3>
+          <p>{{ $t("consulting.deep_analysis_desc") }}</p>
+        </div>
       </div>
-      <SpinningGear class="col-span-2"/>
-
-      <div class="advantages col-span-5">
-        <h3>{{ $t("consulting.tech_skills") }}</h3>
-        <p>{{ $t("consulting.tech_skills_desc") }}</p>
+      <div class="grid grid-cols-7 gap-4 margin-container">
+        <SpinningGear class="col-span-2"/>
+        <div class="advantages col-span-5">
+          <h3>{{ $t("consulting.tech_skills") }}</h3>
+          <p>{{ $t("consulting.tech_skills_desc") }}</p>
+        </div>
       </div>
-
-      <FloatingBars  class="col-span-2"/>
-      <div class="advantages col-span-5">
-        <h3>{{ $t("consulting.strategic_planning") }}</h3>
-        <p>{{ $t("consulting.strategic_planning_desc") }}</p>
+      <div class="grid grid-cols-7 gap-4 margin-container">
+        <FloatingBars  class="col-span-2"/>
+        <div class="advantages col-span-5">
+          <h3>{{ $t("consulting.strategic_planning") }}</h3>
+          <p>{{ $t("consulting.strategic_planning_desc") }}</p>
+        </div>
       </div>
-
     </div>
 
   </div>
@@ -112,6 +113,12 @@ h2 { font-size: 50px; font-weight: 700; }
   width: 100%;
   margin-top: 8rem;
   margin-bottom: 8rem;
+}
+
+#advantages-block-title{
+  margin-top: 8rem;
+  margin-bottom: 5rem;
+  line-height: 1;
 }
 
 .advantages{

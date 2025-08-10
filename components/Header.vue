@@ -567,8 +567,8 @@ onUnmounted(() => {
 
 .contact-icon {
   flex-shrink: 0;
-  width: 1.5vw;
-  height: 1.5vw;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .consultation-btn {
