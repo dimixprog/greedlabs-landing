@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  greedlabs-web:
+    restart: always
+    container_name: greedlabs-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3004:3000'
+    networks:
+      - https
+
+networks:
+  https:
+    external: true
