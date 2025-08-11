@@ -59,7 +59,7 @@
           >
             <div class="flex flex-row">
               <b>{{ translatedItems[i].title }}</b>
-              <h3>0{{ i + 1 }}.</h3>
+<!--              <h3>0{{ i + 1 }}.</h3>-->
             </div>
             <p>{{ translatedItems[i].desc }}</p>
           </div>
@@ -94,7 +94,7 @@
         >
           <div class="flex flex-row">
             <b>{{ item.title }}</b>
-            <h3>0{{ i + 1 }}.</h3>
+<!--            <h3>0{{ i + 1 }}.</h3>-->
           </div>
           <p>{{ item.desc }}</p>
         </div>

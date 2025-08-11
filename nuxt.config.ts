@@ -35,9 +35,17 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
       { code: 'ru', name: 'Русский', file: 'ru.json' }
     ],
-    defaultLocale: 'ru',
+    defaultLocale: 'en',
     lazy: true,
     langDir: 'locales/',
     strategy: 'no_prefix', // или 'prefix_except_default' для /ru/ и /
-  }
+  },
+  yandexMetrika: {
+    id: 'YOUR_YANDEX_METRICA_ID', // Replace with your Yandex Metrica ID (e.g., '12345678')
+    webvisor: true, // Optional: Enable session replay
+    clickmap: true, // Optional: Enable click map
+    trackLinks: true, // Optional: Track outbound links
+    accurateTrackBounce: true, // Optional: Accurate bounce tracking
+    // debug: process.env.NODE_ENV !== 'production', // Enable debug in non-production
+  },
 })
