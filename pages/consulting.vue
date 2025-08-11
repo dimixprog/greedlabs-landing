@@ -30,24 +30,24 @@
     <h2 id="advantages-block-title" class="colorized-text margin-container">{{ $t("consulting.advantages_of_consalting") }}</h2>
     <svg class="margin-container" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 1" fill="none"> <line y1="0.5" x2="1160" y2="0.5" stroke="url(#paint0_linear_868_2555)"></line> <defs> <linearGradient id="paint0_linear_868_2555" x1="0" y1="6" x2="4640" y2="6" gradientUnits="userSpaceOnUse"> <stop stop-color="#34FBFF"></stop> <stop offset="1" stop-color="#1586F4"></stop> </linearGradient> </defs> </svg>
 
-    <div id="advantages-group" class="flex margin-container">
+    <div id="advantages-group" class="flex flex-col margin-container">
       <div class="grid grid-cols-7 gap-4 margin-container">
         <LoadingCircular class="col-span-2"/>
-        <div class="advantages col-span-5">
+        <div class="advantages col-span-5 flex flex-col justify-center">
           <h3>{{ $t("consulting.deep_analysis") }}</h3>
           <p>{{ $t("consulting.deep_analysis_desc") }}</p>
         </div>
       </div>
       <div class="grid grid-cols-7 gap-4 margin-container">
         <SpinningGear class="col-span-2"/>
-        <div class="advantages col-span-5">
+        <div class="advantages col-span-5 flex flex-col justify-center">
           <h3>{{ $t("consulting.tech_skills") }}</h3>
           <p>{{ $t("consulting.tech_skills_desc") }}</p>
         </div>
       </div>
       <div class="grid grid-cols-7 gap-4 margin-container">
         <FloatingBars  class="col-span-2"/>
-        <div class="advantages col-span-5">
+        <div class="advantages col-span-5 flex flex-col justify-center">
           <h3>{{ $t("consulting.strategic_planning") }}</h3>
           <p>{{ $t("consulting.strategic_planning_desc") }}</p>
         </div>
@@ -121,9 +121,15 @@ h2 { font-size: 50px; font-weight: 700; }
   line-height: 1;
 }
 
+#advantages-group div{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .advantages{
-  padding-left: 13rem;
-  padding-top: 8rem;
+  /*padding-left: 13rem;
+  padding-top: 8rem;*/
+  margin-left: 10rem;
 }
 
 .advantages h3{
@@ -137,7 +143,6 @@ h2 { font-size: 50px; font-weight: 700; }
   font-size: 2rem;
   line-height: 1;
   font-weight: 500;
-  padding-bottom: 12rem;
 }
 
 @media (min-width: 2341px) {
@@ -154,22 +159,21 @@ h2 { font-size: 50px; font-weight: 700; }
 
 @media (min-width: 1425px) and (max-width: 1680px){
   .advantages[data-v-d5f28c20] {
-    padding-left: 3rem;
-    padding-top: 5rem;
+    /*padding-left: 3rem;
+    padding-top: 5rem;*/
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1424px) {
   .advantages[data-v-d5f28c20] {
-    padding-left: 3rem;
-    padding-top: 3rem;
+    /*padding-left: 3rem;
+    padding-top: 3rem;*/
   }
   .advantages h3 {
     font-size: 2rem;
   }
   .advantages p {
     font-size: 1.5rem;
-    padding-bottom: 5rem;
   }
 }
 
@@ -207,8 +211,8 @@ h2 { font-size: 50px; font-weight: 700; }
   #consulting div:last-child { order: -1; } 
 
   .advantages {
-    padding-left: 0;
-    padding-top: 0;
+    /*padding-left: 0;
+    padding-top: 0;*/
   }
 
   .loader-wrapper, .gear-container, .floating-bars-wrapper {
@@ -234,7 +238,6 @@ h2 { font-size: 50px; font-weight: 700; }
   }
   .advantages p {
     font-size: 1.5rem;
-    padding-bottom: 5rem;
   }
 }
 

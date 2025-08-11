@@ -85,8 +85,8 @@
       </ClientOnly>
     </Hero>
 
-    <div class="w-full flex itams-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1060" height="2" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
+    <div class="flex itams-center margin-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
     </div>
 
     <div id="about_us" class="flex flex-col items-center mb-[120px] margin-container">
@@ -720,4 +720,14 @@ onMounted(() => {
     font-size: 18px;
   }
 }
+</style>
+
+<style>
+  #consulting{
+    margin-bottom: 2%;
+  }
+
+  #about_us{
+    margin-top: 10%;
+  }
 </style>

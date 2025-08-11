@@ -69,8 +69,8 @@ onMounted(() => {
 .loader {
     background-color: transparent;
     overflow: visible;
-    width: 100%;
-    height: 100%;
+    /*width: 100%;
+    height: 100%;*/
     transform: rotate(-90deg);
 }
 
