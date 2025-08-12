@@ -51,7 +51,7 @@
     </div>
 
 
-    <h2 class="colorized-text mt-24 mb-24 margin-container">{{ $t("dev.life_cycle") }}</h2>
+    <h2 class="life-cycle-title colorized-text margin-container">{{ $t("dev.life_cycle") }}</h2>
     <hr />
 
     <div class="grid grid-cols-7 justify-between items-start life-cycle-cards margin-container">
@@ -528,6 +528,11 @@ h2 {
   padding-bottom: 3%;
 }
 
+.life-cycle-title{
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
 @media (min-width: 780px) {
   .my-swiper {
     max-width: 650px;
@@ -741,7 +746,7 @@ h2 {
     max-width: 600px;
     height: 400px;
 }
-.tech-stack h2[data-v-5205731b] {
+.tech-stack h2 {
     font-size: 2rem;
 }
 }
@@ -781,7 +786,37 @@ h2 {
   #development::before{
     height: 60rem;
   }
+
+  .text-services {
+    font-size: 1.5rem;
+  }
+
+  .life-cycle-title{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 3%;
+  }
+
+  .life-cycle h3:first-child{
+    padding-top: 5rem;
+  }
+
+  .life-cycle h3{
+    font-size: 2rem;
+  }
   
+ .life-cycle p {
+  font-size: 1rem;
+ }
+
+  .tech-stack h2 {
+    font-size: 1rem;
+  }
+
+  .tech-stack p {
+    font-size: 0.8em;
+  }
+
   #statBlock{
     grid-template-columns: repeat(1, minmax(0, 1fr));
     padding-top: 0;
@@ -799,10 +834,13 @@ h2 {
 
 @media (max-width: 480px) {
   h2 {
-    font-size: 24px;
+    font-size: 20px;
+  }
+  h3{
+    font-size: 18px;
   }
   p {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 </style>

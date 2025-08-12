@@ -44,48 +44,7 @@
     height: 80px;
     padding: 0 50px;
 }
-</style>
-
-<style scoped>
-
 /* Адаптивные стили */
-
-/* Mobile devices (max-width: 640px) */
-@media (max-width: 640px) {
-  .hero {
-    overflow: hidden;
-  }
-  .hero button {
-    font-size: 12px;
-    border-radius: 20px 20px 20px 20px;
-    height: 50px;
-    padding: 0 20px;
-  }
-}
-
-/* Мобильные устройства (max-width: 768px) */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10%;
-    padding: 0 10px;
-  }
-  .hero h2 {
-    font-size: 32px;
-    text-align: center;
-  }
-  .hero p {
-    font-size: 18px;
-    text-align: center;
-    padding-bottom: 3%;
-  }
-  .hero button {
-    font-size: 16px;
-    height: 60px;
-    padding: 0 30px;
-  }
-}
 
 /* Планшеты (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -120,6 +79,45 @@
     font-size: 16rem;
     height: 70px;
     padding: 0 4rem;
+  }
+}
+
+/* Мобильные устройства (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    /*align-items: center;*/
+    margin-bottom: 10%;
+    padding: 0 10px;
+  }
+  .hero h2 {
+    font-size: 32px;
+    /*text-align: center;*/
+  }
+  .hero p {
+    font-size: 18px;
+    /*text-align: center;*/
+    padding-bottom: 3%;
+  }
+  .hero button {
+    font-size: 16px;
+    height: 60px;
+    padding: 0 30px;
+  }
+}
+
+/* Mobile devices (max-width: 640px) */
+@media (max-width: 640px) {
+  .hero {
+    overflow: hidden;
+    margin-left: 3% !important;
+    margin-right: 3% !important;
+  }
+  .hero button {
+    font-size: 12px;
+    border-radius: 20px 20px 20px 20px;
+    height: 50px;
+    padding: 0 20px;
   }
 }
 </style>

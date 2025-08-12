@@ -153,17 +153,17 @@ function onScroll() {
   if (width < 400) {
     angleFactor = 0.08;
     scaleFactor = 0.0008;
-    translateFactor = 0.08;
+    translateFactor = 0.5;
     maxAngle = 50;
     maxScale = 4;
     maxTranslate = 300;
   } else if (width < 600) {
     angleFactor = 0.08;
     scaleFactor = 0.0008;
-    translateFactor = 0.02;
+    translateFactor = 0.5;
     maxAngle = 50;
     maxScale = 5;
-    maxTranslate = 250;
+    maxTranslate = 350;
   } else if (width < 800) {
     angleFactor = 0.06;
     scaleFactor = 0.0008;

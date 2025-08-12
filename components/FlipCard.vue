@@ -57,10 +57,10 @@ defineProps({
 .card-wrapper {
   perspective: 1000px;
   width: 100%;
-  height: 350px;
+  height: 250px;
   cursor: pointer;
   position: relative; /* Для позиционирования overlay */
-  min-height: 350px;
+  min-height: 250px;
 }
 
 .flip-card {
@@ -94,7 +94,7 @@ defineProps({
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   backface-visibility: hidden;
-  min-height: 350px;
+  min-height: 250px;
 }
 
 .card-face h3 {
@@ -161,6 +161,37 @@ defineProps({
   .icon-overlay svg{
     width: 80px;
     height: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .card-wrapper {
+    margin-left: 6%;
+    margin-right: 6%;
+    width: auto;
+    height: 250px;
+    min-height: 250px;
+  }
+  .card-face {
+    min-height: 250px;
+  }
+
+  .card-face h3 {
+    font-size: 1.5rem;
+  }
+
+  .card-face p {
+    font-size: 1.2rem;;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-face h3 {
+    font-size: 1.3rem;
+  }
+
+  .card-face p {
+    font-size: 1rem;;
   }
 }
 </style>
