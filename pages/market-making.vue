@@ -511,13 +511,17 @@ h2 { font-size: 50px; font-weight: 700; }
 
 @media (max-width: 480px) {
   h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
   p {
-    font-size: 18px;
+    font-size: 14px;
   }
   .hero {
     padding: 10px;
+  }
+
+  #market_making div:first-child, #dex div:first-child {
+    margin-top: 3rem;
   }
 
   #market_making div.hero-text-container {

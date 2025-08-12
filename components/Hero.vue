@@ -55,6 +55,12 @@
   .hero {
     overflow: hidden;
   }
+  .hero button {
+    font-size: 12px;
+    border-radius: 20px 20px 20px 20px;
+    height: 50px;
+    padding: 0 20px;
+  }
 }
 
 /* Мобильные устройства (max-width: 768px) */

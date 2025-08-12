@@ -87,7 +87,7 @@ footer {
     padding: 1.5rem 0;
     justify-content: center;
   }
-  .footer-social[data-v-3506faf6] {
+  .footer-social {
     margin-right: 0;
   }
   #email{
@@ -96,6 +96,37 @@ footer {
 
   #copyright{
     padding-left: 0;
+  }
+}
+@media (max-width: 480px) {
+  footer{
+    border-radius: 0;
+    height: auto;
+  }
+  .footer-container {
+    top: 3px;
+    border-radius: 0;
+    padding: 0.5rem;
+    height: auto;
+  }
+  #logo-and-social {
+    padding: 0;
+    justify-content: space-between;
+  }
+  #logo-and-social .logo{
+    width: 40%;
+    height: 100%;
+  }
+  .footer-social img {
+    width: 1.5rem;
+    margin: 0.5rem;
+  }
+  #email {
+    font-size: 1rem;
+  }
+  #copyright {
+    font-size: 0.5rem;
+    padding-top: 0.5rem;
   }
 }
 </style>
