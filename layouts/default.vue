@@ -61,6 +61,13 @@ body {
   max-width: 3000px;
 }
 
+@media (max-width: 640px) {
+  .margin-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (min-width:2000px) {
   main{
     zoom:1.2;

@@ -18,23 +18,6 @@
     left: 8rem;
     width: 25rem;
 }
-@media (max-width:570px) {
-  .cube_with_logo {
-    position: absolute;
-    top: 25rem;
-    left: 2rem;
-    width: 25rem;
-  }
-}
-
-@media (min-width: 571px) and(max-width:640px) {
-  .cube_with_logo {
-    position: absolute;
-    top: 30rem;
-    left: 4rem;
-    width: 25rem;
-  }
-}
 
     /* Мобильные устройства (max-width: 768px) */
 @media (max-width: 768px) {
@@ -63,6 +46,31 @@
   }
   .hero::before {
     height: 120%; /* Уменьшаем высоту для мобильных */
+  }
+}
+
+@media (max-width:570px) {
+  .cube_with_logo {
+    position: absolute;
+    top: 25rem;
+    left: 2rem;
+    width: 25rem;
+  }
+}
+@media (max-width:480px) {
+  .cube_with_logo {
+    top: 24rem;
+    left: 3.5rem;
+    width: 15rem;
+  }
+}
+
+@media (min-width: 571px) and(max-width:640px) {
+  .cube_with_logo {
+    position: absolute;
+    top: 30rem;
+    left: 4rem;
+    width: 25rem;
   }
 }
 

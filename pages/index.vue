@@ -89,7 +89,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
     </div>
 
-    <div id="about_us" class="flex flex-col items-center mb-[120px] margin-container">
+    <div id="about_us" class="flex flex-col items-center margin-container">
       <h2 class="colorized-text">{{ $t("index.about_us") }}</h2>
       <p>
         {{ $t("index.about_us_desc") }}
@@ -625,10 +625,10 @@ onMounted(() => {
 /* Mobile devices (max-width: 640px) */
 @media (max-width: 640px) {
   h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
   p {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   #start_way::before{
@@ -639,13 +639,35 @@ onMounted(() => {
 
   }
 
+  #about_us {
+    margin-bottom: 3rem;
+  }
+
+  #about_us h2 {
+    font-size: 1.3rem;
+  }
+
   #about_us p {
     font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
   .hero-media-container video {
     max-width: 100%;
     width: 100%;
+  }
+
+  .hero a {
+    font-size: 0.8rem;
+  }
+
+  .arrow-svg[data-v-02281a80] {
+    width: 20px;
+    height: 20px;
+  }
+
+  #market_making div.hero-text-container[data-v-02281a80] {
+    padding-top: 6rem;
   }
 
   #market-making .hero-media-container img {
@@ -654,20 +676,34 @@ onMounted(() => {
     margin-left: 0;
   }
 
+  #development div.hero-text-container[data-v-02281a80] {
+    padding-top: 2rem;
+  }
+
   .photo_card {
     padding: 10px 15px;
   }
 
+  #team{
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+
+  #team h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
   #team h3 {
-    font-size: 18px;
+    font-size: 1.5rem;
   }
 
   #team .role {
-    font-size: 15px;
+    font-size: 1.125rem;
   }
 
   #team .experience {
-    font-size: 12px;
+    font-size: 1rem;
   }
 
   #statBlock{
@@ -687,23 +723,6 @@ onMounted(() => {
   #clients h2 {
     font-size: 2rem;
   }
-
-  #team h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  #team h3 {
-    font-size: 1.5rem;
-  }
-
-  #team .role {
-    font-size: 1.125rem;
-  }
-
-  #team .experience {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 520px) {
@@ -714,11 +733,37 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
   p {
-    font-size: 18px;
+    font-size: 14px;
   }
+  .photo_card[data-v-02281a80] {
+    padding: 20px 25px;
+    border-radius: 15px;
+  }
+  #team h3 {
+    font-size: 1rem;
+  }
+
+  #team .role {
+    font-size: 0.5rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #team .experience {
+    font-size: 0.6rem;
+  }
+
+  #team .social a svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  #clients h2[data-v-02281a80] {
+    font-size: 1rem;
+  }
+
 }
 </style>
 
@@ -729,5 +774,6 @@ onMounted(() => {
 
   #about_us{
     margin-top: 10%;
+    margin-bottom: 120px;
   }
 </style>

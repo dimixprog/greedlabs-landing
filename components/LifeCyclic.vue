@@ -48,6 +48,27 @@
     <!-- Каскадные колонки -->
     <div ref="blocksWrap" class="relative z-20 mx-auto px-1" :style="{ minHeight: `${svgHeight}px` }">
       <div v-if="isMobile" class="flex flex-row justify-between life-cyclic-mobile gap-3">
+        <!-- Mobile -->
+        <!-- Колонка 1: item 0 и 1 -->
+        <div class="flex flex-col w-1/2 col-life-wrapper">
+          <div
+            v-for="i in [0, 1, 2, 3]"
+            :ref="el => cardRefs[i] = el"
+            :key="i"
+            class="col-life"
+            :style="{ paddingTop: i === 0 ? '0px' : `${offsets[i]}px` }"
+          >
+            <div class="flex flex-row">
+              <b>{{ translatedItems[i].title }}</b>
+              <!--<h3>0{{ i + 1 }}.</h3>-->
+            </div>
+            <p>{{ translatedItems[i].desc }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="isTablet" class="flex flex-row justify-between life-cyclic-mobile gap-3">
+        <!-- Tablet -->
         <!-- Колонка 1: item 0 и 1 -->
         <div class="flex flex-col w-1/2 col-life-wrapper">
           <div
@@ -59,7 +80,7 @@
           >
             <div class="flex flex-row">
               <b>{{ translatedItems[i].title }}</b>
-<!--              <h3>0{{ i + 1 }}.</h3>-->
+              <!--<h3>0{{ i + 1 }}.</h3>-->
             </div>
             <p>{{ translatedItems[i].desc }}</p>
           </div>
@@ -76,15 +97,15 @@
           >
             <div class="flex flex-row">
               <b>{{ translatedItems[i].title }}</b>
-              <h3>0{{ i + 1 }}.</h3>
+<!--              <h3>0{{ i + 1 }}.</h3>-->
             </div>
             <p>{{ translatedItems[i].desc }}</p>
           </div>
         </div>
       </div>
 
-      <!-- Desktop/Tablet -->
       <div v-else class="flex flex-row life-cyclic justify-between">
+        <!-- Desktop -->
         <div
           v-for="(item, i) in translatedItems"
           :ref="el => cardRefs[i] = el"
@@ -151,10 +172,12 @@ const column2Offset = ref(0) // Новый offset для второго стол
 const mobileSvgHeight = ref(0)
 
 const isMobile = ref(false)
+const isTablet = ref(false)
 
 const updateMobileFlag = () => {
     if (typeof window !== 'undefined') {
-      isMobile.value = window.innerWidth <= 1024
+      isTablet.value = window.innerWidth <= 1024 && window.innerWidth > 641
+      isMobile.value = window.innerWidth <= 640
     }
   }
 
@@ -166,10 +189,12 @@ const calculateOffsets = async () => {
   mobileSvgHeight.value = 0
 
   const width = window.innerWidth
-  const isMobile = width <= 1024
-  const isTablet = width <= 1024 && width > 1024
+  const isMobile = width <= 640
+  const isTablet = width <= 1024 && width > 641
 
   if (isMobile) {
+    offsets.value = [0, 0, 0, 0]
+  } else if (isTablet) {
     // Mobile: высота блока 0 и 1 -> margin-top для колонки 2
     const col0 = cardRefs.value[0]
     const col1 = cardRefs.value[1]
@@ -199,8 +224,6 @@ const calculateOffsets = async () => {
 
     column2Offset.value = totalHeight + 24 // 24px — отступ между колонками
     mobileSvgHeight.value = totalHeight + totalHeight2
-  } else if (isTablet) {
-    offsets.value = [0, 0, 0, 0]
   } else {
     let acc = 0
     offsets.value = translatedItems.value.map((_, i) => {
