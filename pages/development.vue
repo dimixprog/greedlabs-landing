@@ -18,12 +18,12 @@
 
       <!-- Первая строка: 2 карточки -->
       <div class="grid grid-cols-2 gap-8 w-full mb-8">
-        <FlipCard 
+        <FlipCard
           :front-title="$t('dev.design')"
           :front-text="$t('dev.design_front')"
           :back-text="$t('dev.design_back')"
         />
-        <FlipCard 
+        <FlipCard
           :front-title="$t('dev.development')"
           :front-text="$t('dev.development_front')"
           :back-text="$t('dev.development_back')"
@@ -32,17 +32,17 @@
 
       <!-- Остальные: 3 карточки в строку -->
       <div class="grid grid-cols-3 gap-8 w-full">
-        <FlipCard 
+        <FlipCard
           :front-title="$t('dev.web3')"
           :front-text="$t('dev.web3_front')"
           :back-text="$t('dev.web3_back')"
         />
-        <FlipCard 
+        <FlipCard
           :front-title="$t('dev.dapp')"
           :front-text="$t('dev.dapp_front')"
           :back-text="$t('dev.dapp_back')"
         />
-        <FlipCard 
+        <FlipCard
           :front-title="$t('dev.web_apps')"
           :front-text="$t('dev.web_apps_front')"
           :back-text="$t('dev.web_apps_back')"
@@ -128,7 +128,7 @@
     </div>
 
 <hr class="full-width-line">
-    
+
       <div id="stat" class="stat_container p-4 flex flex-col gap-4 margin-container">
         <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
           <div class="flex flex-col items-center">
@@ -142,7 +142,7 @@
           </div>
 
           <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='400' :duration='1' suffix='K+'/></b>
+            <b><CounterCard :startAmount='0' :endAmount='800' :duration='1' suffix='K+'/></b>
             <p class="stat-item">{{ $t("dev.clients_users_title") }}</p>
           </div>
         </div>
@@ -156,7 +156,7 @@
       <p class="cases-desc">
         {{ $t("dev.cases_desc") }}
       </p>
-    
+
       <div class="cases-block-cards grid grid-cols-2 gap-5 justify-items-center">
         <div class="project">
           <h3 class="colorized-text">{{ $t("dev.cases_nft") }}</h3>
@@ -680,7 +680,7 @@ h2 {
   #statBlock b {
         font-size: 80px;
     }
-    
+
   #stat p {
     font-size: 2rem;
   }
@@ -701,7 +701,7 @@ h2 {
     padding-left: unset;
   }
   #development div:first-child { order: 1; }
-  #development div:last-child { order: -1; } 
+  #development div:last-child { order: -1; }
   #statBlock b {
       font-size: 80px;
   }
@@ -781,7 +781,7 @@ h2 {
   #development::before{
     height: 60rem;
   }
-  
+
   #statBlock{
     grid-template-columns: repeat(1, minmax(0, 1fr));
     padding-top: 0;

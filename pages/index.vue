@@ -177,7 +177,7 @@
           </div>
 
           <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='1' :duration='100' suffix='+'/></b>
+            <b><CounterCard :startAmount='0' :endAmount='100' :duration='1' suffix='+'/></b>
             <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
           </div>
         </div>
