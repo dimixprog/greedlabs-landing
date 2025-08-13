@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@nuxtjs/google-analytics', '@nuxtjs/yandex-metrika'],
+  modules: ['@nuxt/eslint', '@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts'],
 
   googleFonts: {
     families: {
@@ -40,15 +40,15 @@ export default defineNuxtConfig({
     langDir: 'locales/',
     strategy: 'no_prefix', // или 'prefix_except_default' для /ru/ и /
   },
-  yandexMetrika: {
-    id: process.env.YANDEX_METRICA_ID, // Loads '98956194'
-    webvisor: true,
-    clickmap: true,
-    trackLinks: true,
-    accurateTrackBounce: true,
-    debug: process.env.NODE_ENV !== 'production',
-  },
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // Use your GA ID
-  },
+  // yandexMetrika: {
+  //   id: process.env.YANDEX_METRICA_ID, // Loads '98956194'
+  //   webvisor: true,
+  //   clickmap: true,
+  //   trackLinks: true,
+  //   accurateTrackBounce: true,
+  //   debug: process.env.NODE_ENV !== 'production',
+  // },
+  // googleAnalytics: {
+  //   id: process.env.GOOGLE_ANALYTICS_ID, // Use your GA ID
+  // },
 })
