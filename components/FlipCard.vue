@@ -57,10 +57,10 @@ defineProps({
 .card-wrapper {
   perspective: 1000px;
   width: 100%;
-  height: 250px;
+  height: 350px;
   cursor: pointer;
   position: relative; /* Для позиционирования overlay */
-  min-height: 250px;
+  min-height: 350px;
 }
 
 .flip-card {
@@ -94,7 +94,7 @@ defineProps({
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   backface-visibility: hidden;
-  min-height: 250px;
+  min-height: 350px;
 }
 
 .card-face h3 {
@@ -187,11 +187,11 @@ defineProps({
 
 @media (max-width: 480px) {
   .card-face h3 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .card-face p {
-    font-size: 1rem;;
+    font-size: 0.8rem;
   }
 }
 </style>

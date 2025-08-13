@@ -44,43 +44,6 @@
     height: 80px;
     padding: 0 50px;
 }
-/* Адаптивные стили */
-
-/* Планшеты (769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero div h2 {
-    font-size: 40px;
-  }
-  .hero div p {
-    font-size: 24px;
-  }
-  .hero div button {
-    font-size: 16px;
-    height: 70px;
-    padding: 0 40px;
-  }
-}
-
-/* Десктопы (min-width: 1025px) */
-@media (min-width: 1025px) {
-  .hero {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-@media (min-width: 1471px) {
-  .hero .colorized-text {
-    font-size: 40rem;
-  }
-  .hero p {
-    font-size: 24rem;
-  }
-  .hero button {
-    font-size: 16rem;
-    height: 70px;
-    padding: 0 4rem;
-  }
-}
 
 /* Мобильные устройства (max-width: 768px) */
 @media (max-width: 768px) {
@@ -118,6 +81,47 @@
     border-radius: 20px 20px 20px 20px;
     height: 50px;
     padding: 0 20px;
+  }
+}
+</style>
+
+<style scoped>
+/* Адаптивные стили */
+
+
+/* Планшеты (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero div h2 {
+    font-size: 40px;
+  }
+  .hero div p {
+    font-size: 24px;
+  }
+  .hero div button {
+    font-size: 16px;
+    height: 70px;
+    padding: 0 40px;
+  }
+}
+
+/* Десктопы (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1471px) {
+  .hero .colorized-text {
+    font-size: 40rem;
+  }
+  .hero p {
+    font-size: 24rem;
+  }
+  .hero button {
+    font-size: 16rem;
+    height: 70px;
+    padding: 0 4rem;
   }
 }
 </style>

@@ -459,10 +459,10 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
   p {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .big-card {
