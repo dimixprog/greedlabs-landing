@@ -92,4 +92,42 @@ defineProps({
   flex-direction: column;
   justify-content: space-between;
 }
+
+@media (max-width: 640px) {
+  .card-wrapper {
+    margin-left: 6%;
+    margin-right: 6%;
+    width: auto;
+    height: 250px;
+    min-height: 250px;
+    grid-row: unset;
+  }
+
+  .flip-card{
+    height: 250px;
+  }
+
+  .card-face {
+    min-height: 250px;
+    padding: 15px;
+  }
+
+  .card-face h3 {
+    font-size: 1.5rem;
+  }
+
+  .card-face p {
+    font-size: 1.2rem;;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-face h3 {
+    font-size: 1rem;
+  }
+
+  .card-face p {
+    font-size: 0.8rem;
+  }
+}
 </style>

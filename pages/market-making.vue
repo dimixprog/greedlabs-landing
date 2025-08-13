@@ -297,13 +297,13 @@ h2 { font-size: 50px; font-weight: 700; }
     grid-column: span 2 / span 2;
   }
 
-  #start_tokens div:first-child, #market_making div:first-child, #dex div:first-child { order: 1; }
-  #start_tokens div:last-child, #market_making div:last-child, #dex div:last-child { order: -1; } 
+  #start_tokens div:first-child, #market_making div:first-child, #dex div:first-child, #cex-services div:first-child { order: 1; }
+  #start_tokens div:last-child, #market_making div:last-child, #dex div:last-child, #cex-services div:last-child { order: -1; } 
 
   #market_making div:first-child, #dex div:first-child {
     order: 1;
     margin-top: 15rem;
-}
+  }
 
   #market_making div.hero-text-container {
     padding-top: 15rem;
@@ -507,6 +507,19 @@ h2 { font-size: 50px; font-weight: 700; }
     font-size: 1rem;
     padding-bottom: 4rem;
   }
+
+  .marquee img {
+    width: 4rem;
+    margin-right: 6rem;
+  }
+
+  .marquee img.jupiter{
+    width: 7rem;
+  }
+
+  #cex-services img{
+    padding: 6%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -535,6 +548,8 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .big-card {
     padding: 8px;
+    margin-left: 6%;
+    margin-right: 6%;
   }
 
   .big-card h3 {
@@ -551,6 +566,15 @@ h2 { font-size: 50px; font-weight: 700; }
   }
   .marquee-strip {
     animation-duration: 7s;
+  }
+
+  .marquee img {
+    width: 3rem;
+    margin-right: 5rem;
+  }
+
+  .marquee img.jupiter{
+    width: 6rem;
   }
 
   .marquee-strip img {

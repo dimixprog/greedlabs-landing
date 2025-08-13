@@ -7,6 +7,7 @@
       :style="{ height: `${svgHeight}px` }"
       viewBox="0 0 1180 508"
       preserveAspectRatio="none"
+      v-show="!isMobile"
     >
       <!-- Glow тень (основной путь с фильтром) -->
       <path
@@ -50,7 +51,7 @@
       <div v-if="isMobile" class="flex flex-row justify-between life-cyclic-mobile gap-3">
         <!-- Mobile -->
         <!-- Колонка 1: item 0 и 1 -->
-        <div class="flex flex-col w-1/2 col-life-wrapper">
+        <div class="flex flex-col col-life-wrapper">
           <div
             v-for="i in [0, 1, 2, 3]"
             :ref="el => cardRefs[i] = el"
@@ -67,7 +68,7 @@
         </div>
       </div>
 
-      <div v-if="isTablet" class="flex flex-row justify-between life-cyclic-mobile gap-3">
+      <div v-else-if="isTablet" class="flex flex-row justify-between life-cyclic-mobile gap-3">
         <!-- Tablet -->
         <!-- Колонка 1: item 0 и 1 -->
         <div class="flex flex-col w-1/2 col-life-wrapper">
@@ -189,8 +190,11 @@ const calculateOffsets = async () => {
   mobileSvgHeight.value = 0
 
   const width = window.innerWidth
-  const isMobile = width <= 640
   const isTablet = width <= 1024 && width > 641
+  const isMobile = width <= 640
+
+  console.log(isMobile.value)
+  console.log(isTablet.value)
 
   if (isMobile) {
     offsets.value = [0, 0, 0, 0]
@@ -249,8 +253,6 @@ const calculateOffsets = async () => {
 }
 
 onMounted(async () => {
-  const isMobile = ref(false)
-
   calculateOffsets(window)
   updateMobileFlag(window)
 
@@ -316,7 +318,18 @@ onBeforeUnmount(() => {
 .life-cyclic-mobile > .col-life-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 3rem;
+}
+
+.life-cyclic-mobile .col-life b{
+ margin-bottom: 0;
+ font-size: 1.3rem;
+ line-height: 1;
+}
+
+.life-cyclic-mobile .col-life p{
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .col-life h3 {
