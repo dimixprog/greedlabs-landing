@@ -172,7 +172,7 @@
           </div>
 
           <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='60' :duration='1' suffix='+'/></b>
+            <b><CounterCard :startAmount='0' :endAmount='170' :duration='1' suffix='+'/></b>
             <p class="stat-item">{{ $t("index.clients_project_title") }}</p>
           </div>
 
