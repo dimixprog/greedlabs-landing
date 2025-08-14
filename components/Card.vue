@@ -4,7 +4,7 @@
       <div class="card-face">
         <div :class="{ 'text-bottom': text_bottom }">
           <h3 class="colorized-text" :style="{ wordSpacing: title_wrap ? '100vw' : 'normal' }">{{ title }}</h3>
-          <p :style="{ wordSpacing: text_wrap ? '100vw' : 'normal' }">{{ text }}</p>
+          <p v-if="text" :style="{ wordSpacing: text_wrap ? '100vw' : 'normal' }">{{ text }}</p>
         </div>
       </div>
     </div>

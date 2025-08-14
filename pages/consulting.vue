@@ -105,7 +105,7 @@ h2 { font-size: 50px; font-weight: 700; }
   padding-top: 3%;
   padding-bottom: 3%;
 }
-.card-wrapper[data-v-29c414df] {
+.card-wrapper {
     height: 450px;
 }
 
@@ -155,17 +155,25 @@ h2 { font-size: 50px; font-weight: 700; }
   #consulting::before {
     height: 60rem;
   }
+  #advantages-group div {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 1425px) and (max-width: 1680px){
-  .advantages[data-v-d5f28c20] {
+  .advantages {
     /*padding-left: 3rem;
     padding-top: 5rem;*/
+  }
+  #advantages-group div {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1424px) {
-  .advantages[data-v-d5f28c20] {
+  .advantages {
     /*padding-left: 3rem;
     padding-top: 3rem;*/
   }
@@ -174,6 +182,10 @@ h2 { font-size: 50px; font-weight: 700; }
   }
   .advantages p {
     font-size: 1.5rem;
+  }
+  #advantages-group div {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -264,6 +276,27 @@ h2 { font-size: 50px; font-weight: 700; }
   }
   #consulting::before{
     height: 60rem;
+  }
+  .card-wrapper {
+    height: unset;
+  }
+  #advantages-block-title{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 3%;
+  }
+  #advantages-group div {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .advantages h3 {
+    font-size: 2rem;
+    padding-top: 5rem;
+    line-height: 1;
+  }
+  .advantages p {
+    font-size: 1rem;
   }
 }
 
