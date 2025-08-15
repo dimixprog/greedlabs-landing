@@ -173,19 +173,18 @@ h2 { font-size: 50px; font-weight: 700; }
 }
 
 @media (min-width: 1025px) and (max-width: 1424px) {
+  #advantages-group div {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
   .advantages {
-    /*padding-left: 3rem;
-    padding-top: 3rem;*/
+    margin-left: 3rem;
   }
   .advantages h3 {
     font-size: 2rem;
   }
   .advantages p {
     font-size: 1.5rem;
-  }
-  #advantages-group div {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
   }
 }
 
@@ -205,6 +204,9 @@ h2 { font-size: 50px; font-weight: 700; }
   #consulting::before {
     height: 40rem;
   }
+  .advantages-group {
+    margin-left: 5rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -222,13 +224,25 @@ h2 { font-size: 50px; font-weight: 700; }
   #consulting div:first-child { order: 1; }
   #consulting div:last-child { order: -1; } 
 
-  .advantages {
-    /*padding-left: 0;
-    padding-top: 0;*/
+  .advantages h3 {
+    font-size: 2rem;
+  }
+  .advantages p {
+    font-size: 1.5rem;
   }
 
+  #advantages-group div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .advantages {
+    margin-left: 2rem;
+  }
+
+
   .loader-wrapper, .gear-container, .floating-bars-wrapper {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
   }
   h2 {
@@ -246,10 +260,10 @@ h2 { font-size: 50px; font-weight: 700; }
     margin-bottom: 2rem;
   }
   .advantages h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .advantages p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -286,13 +300,16 @@ h2 { font-size: 50px; font-weight: 700; }
     margin-left: 3%;
   }
   #advantages-group div {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .advantages{
+    margin-left: 1rem;
   }
   .advantages h3 {
     font-size: 2rem;
-    padding-top: 5rem;
     line-height: 1;
   }
   .advantages p {
@@ -306,6 +323,17 @@ h2 { font-size: 50px; font-weight: 700; }
   }
   p {
     font-size: 18px;
+  }
+  #advantages-group div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .advantages h3 {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .advantages p {
+    font-size: 0.8rem;
   }
 }
 </style>

@@ -783,12 +783,21 @@ h2 {
   p {
     font-size: 20px;
   }
+  .full-width-line {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+  }
   #development::before{
     height: 60rem;
   }
 
   .text-services {
     font-size: 1.5rem;
+  }
+
+  .life-cycle-cards{
+    margin-left: 3%;
+    margin-right: 3%;
   }
 
   .life-cycle-title{
@@ -805,9 +814,15 @@ h2 {
     font-size: 2rem;
   }
   
- .life-cycle p {
-  font-size: 1rem;
- }
+  .life-cycle p {
+    font-size: 1rem;
+  }
+
+  .languages{
+    margin-left: 3%;
+    margin-right: 3%;
+    width: unset;
+  }
 
   .tech-stack h2 {
     font-size: 1rem;
