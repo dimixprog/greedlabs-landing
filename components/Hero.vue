@@ -107,6 +107,7 @@
 /* Десктопы (min-width: 1025px) */
 @media (min-width: 1025px) {
   .hero {
+    overflow: hidden;
     flex-direction: row;
     justify-content: space-between;
   }
