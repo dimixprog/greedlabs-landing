@@ -1,20 +1,21 @@
 {
   "free_consult": "Бесплатная консультация",
   "nav": {
-    "marketMaking": "Market making",
+    "marketMaking": "Маркет-мейкинг",
     "dexServices": "Услуги DEX",
-    "antiSnipe": "Anti-snipe protection",
+    "antiSnipe": "Защита от снайпинга",
     "volumeManagement": "Управление объемом",
-    "priceControl": "Контроль цен",
+    "priceControl": "Контроль цены",
     "tokenLaunch": "Запуск токена",
     "cexServices": "Услуги CEX",
     "liquidityManagement": "Управление ликвидностью",
-    "cexListing": "Листинг на CEXs",
+    "cexListing": "Листинг на CEX",
     "orderOptimization": "Оптимизация ордеров",
     "development": "Разработка",
     "consulting": "Консалтинг",
-    "contactUs": "Свяжитесь с нами",
-    "freeConsultation": "Запросить консультацию"
+    "blog": "Блог",
+    "contactUs": "Связаться с нами",
+    "freeConsultation": "Запросить бесплатную консультацию"
   },
   "index": {
     "start_way": "Выведите ваш Web3-проект на рынок \nс профессионалами маркет-мейкинга.",
