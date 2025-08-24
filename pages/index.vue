@@ -13,7 +13,53 @@
           <ConsultButton />
         </div>
 
-        <div class="hero-media-container col-span-3 m-auto">
+        <div v-if="isSafari == null"></div>
+
+        <div v-else-if="isSafari" class="hero-media-container col-span-3 m-auto">
+        <svg width="505" height="627" viewBox="0 0 505 627" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="53.5328" y1="385.391" x2="53.5328" y2="315.453" stroke="white" stroke-width="5.59056"/>
+        <line x1="53.5328" y1="608.027" x2="53.5328" y2="538.09" stroke="white" stroke-width="5.59056"/>
+        <rect x="19.0273" y="378.398" width="72.269" height="167.85" fill="white"/>
+        <line x1="152.3" y1="326.49" x2="152.3" y2="272.589" stroke="white" stroke-width="5.59056"/>
+        <line x1="152.3" y1="498.078" x2="152.3" y2="444.177" stroke="white" stroke-width="5.59056"/>
+        <rect x="117.795" y="321.104" width="72.269" height="129.362" fill="white"/>
+        <line x1="349.834" y1="242.758" x2="349.834" y2="181.284" stroke="white" stroke-width="5.59056"/>
+        <line x1="349.834" y1="438.449" x2="349.834" y2="376.975" stroke="white" stroke-width="5.59056"/>
+        <rect x="315.328" y="236.615" width="72.269" height="147.537" fill="white"/>
+        <line x1="448.599" y1="101.561" x2="448.599" y2="19.15" stroke="white" stroke-width="5.59056"/>
+        <line x1="448.599" y1="363.902" x2="448.599" y2="281.492" stroke="white" stroke-width="5.59056"/>
+        <rect x="414.094" y="93.3301" width="72.269" height="197.785" fill="white"/>
+        <line x1="251.064" y1="398.65" x2="251.064" y2="363.904" stroke="white" stroke-width="5.59056"/>
+        <line x1="251.064" y1="509.26" x2="251.064" y2="474.514" stroke="white" stroke-width="5.59056"/>
+        <rect x="216.559" y="395.182" width="72.269" height="83.3909" fill="white"/>
+        <g filter="url(#filter0_f_0_1)">
+        <line x1="53.5328" y1="385.391" x2="53.5328" y2="315.453" stroke="white" stroke-width="5.59056"/>
+        <line x1="53.5328" y1="608.027" x2="53.5328" y2="538.09" stroke="white" stroke-width="5.59056"/>
+        <rect x="19.0273" y="378.398" width="72.269" height="167.85" fill="white"/>
+        <line x1="152.3" y1="326.49" x2="152.3" y2="272.589" stroke="white" stroke-width="5.59056"/>
+        <line x1="152.3" y1="498.078" x2="152.3" y2="444.177" stroke="white" stroke-width="5.59056"/>
+        <rect x="117.795" y="321.104" width="72.269" height="129.362" fill="white"/>
+        <line x1="349.834" y1="242.758" x2="349.834" y2="181.284" stroke="white" stroke-width="5.59056"/>
+        <line x1="349.834" y1="438.449" x2="349.834" y2="376.975" stroke="white" stroke-width="5.59056"/>
+        <rect x="315.328" y="236.615" width="72.269" height="147.537" fill="white"/>
+        <line x1="448.599" y1="101.561" x2="448.599" y2="19.15" stroke="white" stroke-width="5.59056"/>
+        <line x1="448.599" y1="363.902" x2="448.599" y2="281.492" stroke="white" stroke-width="5.59056"/>
+        <rect x="414.094" y="93.3301" width="72.269" height="197.785" fill="white"/>
+        <line x1="251.064" y1="398.65" x2="251.064" y2="363.904" stroke="white" stroke-width="5.59056"/>
+        <line x1="251.064" y1="509.26" x2="251.064" y2="474.514" stroke="white" stroke-width="5.59056"/>
+        <rect x="216.559" y="395.182" width="72.269" height="83.3909" fill="white"/>
+        </g>
+        <defs>
+        <filter id="filter0_f_0_1" x="0.392139" y="0.515186" width="504.606" height="626.147" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feGaussianBlur stdDeviation="9.3176" result="effect1_foregroundBlur_0_1"/>
+        </filter>
+        </defs>
+        </svg>
+        </div>
+
+        <div v-else class="hero-media-container col-span-3 m-auto">
           <video src="~/public/index_hero_1.webm" autoplay muted loop playsinline preload="auto"></video>
         </div>
       </Hero>
@@ -190,7 +236,13 @@ import { ref, onMounted, nextTick } from 'vue'
 
 const statBlock = ref(null)
 
+const { $device } = useNuxtApp();
+const isSafari = ref(null); 
+
 onMounted(() => {
+  
+  isSafari.value = $device.isSafari;
+  
   nextTick(() => {
     // Находим все <p> внутри statBlock с классом stat-item — только они будут анимироваться
     const animatedPs = statBlock.value.querySelectorAll('.stat-item')

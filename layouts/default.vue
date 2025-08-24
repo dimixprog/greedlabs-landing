@@ -23,6 +23,10 @@ import Footer from '~/components/Footer.vue'
 </template>
 
 <style>
+video {
+  filter: brightness(1.085);  /* Для Safari и Firefox */
+  -webkit-filter: brightness(108.5%);  /* WebKit-specific для старых версий */
+}
 .card {
   border: 1px solid rgba(255, 255, 255, 0.1);
   /* color: white; */
