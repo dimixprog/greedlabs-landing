@@ -291,6 +291,9 @@ h2 { font-size: 50px; font-weight: 700; }
   #consulting::before{
     height: 60rem;
   }
+  .text-services{
+    font-size: 150%;
+  }
   .card-wrapper {
     height: unset;
   }

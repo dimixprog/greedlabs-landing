@@ -764,6 +764,11 @@ onMounted(() => {
     padding-bottom: 0;
   }
 
+  #clients{
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
   #clients b {
     font-size: 3.5rem;
   }

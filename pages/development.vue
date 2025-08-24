@@ -76,8 +76,8 @@
       <p>{{ $t("dev.tech_stack_desc") }}</p>
       <div class="flex flex-row tech-stack-cards">
         <div class="languages card w-full">
-          <img class="colorized-text self-center" src="/code_symbol.png" alt="code symbil" width="256">
-          <p class="colorized-text ">{{ $t("dev.lang_and_frameworks") }}</p>
+          <img class="code_symbil colorized-text self-center" src="/code_symbol.png" alt="code symbil" width="256">
+          <p class="code_title colorized-text ">{{ $t("dev.lang_and_frameworks") }}</p>
           <div class="grid grid-cols-3 gap-8 items-center place-items-center">
             <img src="/logos/python.svg" alt="python logo" width="64" height="64">
             <img src="/logos/go.svg" alt="go logo" width="179" height="64">
@@ -88,8 +88,8 @@
           </div>
         </div>
         <div class="languages card w-full">
-          <img class="colorized-text self-center" src="/bridge_symbol.png" alt="code symbil" width="128">
-          <p class="colorized-text ">{{ $t("dev.blockhain") }}</p>
+          <img class="code_symbil colorized-text self-center" src="/bridge_symbol.png" alt="code symbil" width="128">
+          <p class="code_title colorized-text ">{{ $t("dev.blockhain") }}</p>
           <div class="grid grid-cols-3 gap-8 items-center place-items-center">
             <img src="/logos/etherium.svg" alt="etherium logo" width="44" height="64">
             <img src="/logos/solana.svg" alt="solana logo" width="84" height="64">
@@ -824,12 +824,39 @@ h2 {
     width: unset;
   }
 
+  .code_symbil{
+    width: 30%;
+  }
+
+  .code_title{
+    font-size: 1.3rem !important;
+  }
+
   .tech-stack h2 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 
   .tech-stack p {
-    font-size: 0.8em;
+    font-size: 1rem;
+  }
+
+  .why-we h2{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 3%;
+  }
+
+  .why-we-cards{
+    margin-left: 3%;
+    gap: 3rem;
+  }
+
+  .why-we-cards h3{
+    font-size: 1.5rem;
+  }
+
+  .why-we-cards p{
+    font-size: 1rem;
   }
 
   #statBlock{
@@ -842,8 +869,22 @@ h2 {
     font-size: 5rem;
   }
 
+  #stat{
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 40px;
+  }
+
+  #stat h2{
+    font-size: 1.5rem;
+  }
+
+  #stat b {
+    font-size: 3.5rem;
+  }
+
   #stat p {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 }
 
@@ -856,6 +897,20 @@ h2 {
   }
   p {
     font-size: 14px;
+  }
+  .life-cycle h3{
+    font-size: 1.5rem;
+  }
+  .life-cycle p {
+    font-size: 0.8rem;
+  }
+  .cases-block-cards{
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .my-swiper[data-v-5205731b] {
+    max-width: 300px;
+    height: 200px;
   }
 }
 </style>
@@ -884,5 +939,23 @@ h2 {
 
   .my-swiper .swiper-button-next::after{
     color: #2e677e;
+  }
+
+  @media (max-width: 640px) {
+    .my-swiper .swiper-button-next::after, .my-swiper .swiper-button-prev::after {
+      font-size: 2rem;
+    }
+    .swiper-button-prev, .swiper-button-next {
+      padding: 6%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .my-swiper .swiper-button-next::after, .my-swiper .swiper-button-prev::after {
+      font-size: 1.5rem;
+    }
+    .swiper-button-prev, .swiper-button-next {
+      padding: 7%;
+    }
   }
 </style>

@@ -26,6 +26,13 @@ import Footer from '~/components/Footer.vue'
 video {
   filter: brightness(1.085);  /* Для Safari и Firefox */
   -webkit-filter: brightness(108.5%);  /* WebKit-specific для старых версий */
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+video:focus {
+  outline: none;
 }
 .card {
   border: 1px solid rgba(255, 255, 255, 0.1);
