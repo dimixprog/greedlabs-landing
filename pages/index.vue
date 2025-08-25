@@ -550,6 +550,9 @@ onMounted(() => {
   #start_way::before {
     height: 60rem;
   }
+  #market_making.hero{
+    overflow: visible;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1471px) {
@@ -563,6 +566,10 @@ onMounted(() => {
 
   #team .experience {
     font-size: 12px;
+  }
+
+  #market_making.hero{
+    overflow: visible;
   }
 }
 
@@ -619,6 +626,10 @@ onMounted(() => {
     max-width: 200px;
     padding-top: 5rem;
     margin-left: 0;
+  }
+
+  #market-making{
+    overflow: visible;
   }
 
   #development .hero-text-container{

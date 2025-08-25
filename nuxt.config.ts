@@ -56,7 +56,7 @@ export default defineNuxtConfig({
   },
   vite: {
     server: {
-      allowedHosts: ['covetously-articulate-damselfly.cloudpub.ru'] // Разрешаем доступ с этого домена
+      allowedHosts: ['covetously-articulate-damselfly.cloudpub.ru', 'huskily-victorious-gecko.cloudpub.ru'] // Разрешаем доступ с этого домена
     }
   }
 })
