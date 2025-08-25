@@ -29,12 +29,15 @@
 .consult-section {
   position: relative;
   background: #191b1f;
-  padding: 100px 0 140px;
+  padding: var(--spacing-3xl) 0 var(--spacing-4xl);
   overflow: hidden;
   min-height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Extend background to cover footer border radius */
+  margin-bottom: -75px;
+  padding-bottom: calc(var(--spacing-4xl) + 75px);
 }
 
 .consult-bg-svg {
@@ -77,7 +80,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--spacing-md);
 }
 
 .card-img {
@@ -122,7 +125,7 @@
   font-size: 3rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 24px;
+  margin: 0 0 var(--spacing-lg);
   letter-spacing: 0.6px;
   text-align: center;
 }
@@ -130,7 +133,7 @@
 .consult-section p {
   font-size: 1.8rem;
   color: #ffffff;
-  margin: 0 0 48px;
+  margin: 0 0 var(--spacing-2xl);
   line-height: 1.5;
   font-weight: 600;
   text-align: center;
@@ -140,8 +143,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 70px 90px;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-3xl) var(--spacing-4xl);
 }
 
 .consult-form-box form::before {
@@ -150,13 +153,13 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.4;
-  padding: 70px 90px;
+  padding: var(--spacing-3xl) var(--spacing-4xl);
   border-radius: 30px;
 }
 
 .consult-form-box input {
   height: 80px;
-  padding: 0 35px;
+  padding: 0 var(--spacing-xl);
   border-radius: 25px;
   border: 1px solid #1586f4;
   background: #1b1b1b;
@@ -200,13 +203,15 @@
   .consult-section {
     /*padding: 70px 0 110px;*/
     min-height: 680px;
+    margin-bottom: -75px;
+    padding-bottom: calc(var(--spacing-4xl) + 75px);
   }
   .consult-bg-svg {
     bottom: -100px;
     width: 60rem;
   }
   .card-img {
-    top: 30px;
+    top: var(--spacing-lg);
   }
   .consult-section h2 {
     font-size: 30px;
@@ -225,6 +230,8 @@
   .consult-section {
     /*padding: 50px 0 90px;*/
     min-height: 560px;
+    margin-bottom: -75px;
+    padding-bottom: calc(var(--spacing-3xl) + 75px);
   }
   .consult-bg-svg {
     bottom: -80px;
@@ -233,7 +240,7 @@
   .card-img {
     width: 20rem;
     height: 25rem;
-    top: 20px;
+    top: var(--spacing-md);
   }
   .card-img.left {
     left: -100px;
@@ -246,10 +253,10 @@
   }
   .consult-section p {
     font-size: 16px;
-    margin-bottom: 36px;
+    margin-bottom: var(--spacing-xl);
   }
   .consult-form-box form {
-    padding: 30px 40px;
+    padding: var(--spacing-lg) var(--spacing-xl);
   }
   .consult-form-box input,
   .submit-btn {
@@ -260,8 +267,10 @@
 
 @media (max-width: 480px) {
   .consult-section {
-    padding: 30px 0 70px;
+    padding: var(--spacing-lg) 0 var(--spacing-3xl);
     min-height: 480px;
+    margin-bottom: 0;
+    padding-bottom: var(--spacing-xs);
   }
   .consult-bg-svg {
     bottom: -200px;
@@ -271,7 +280,7 @@
     display: none;
   }
   .consult-form-box {
-    padding: 10px 10px;
+    padding: var(--spacing-xs) var(--spacing-xs);
     max-width: 100%;
     border-radius: 25px;
   }
@@ -283,7 +292,7 @@
   }
   .consult-section p {
     font-size: 14px;
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-lg);
   }
   .consult-form-box input,
   .submit-btn {

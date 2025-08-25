@@ -52,7 +52,7 @@ defineProps({
   height: 100%;
   border-radius: 30px;
   box-sizing: border-box;
-  padding: 30px;
+  padding: var(--spacing-lg);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -109,7 +109,7 @@ defineProps({
 
   .card-face {
     min-height: 250px;
-    padding: 15px;
+    padding: var(--spacing-sm);
   }
 
   .card-face h3 {

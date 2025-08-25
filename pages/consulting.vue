@@ -27,11 +27,11 @@ useSeoMeta({
     </div>
 
     <h2 class="text-services  margin-container">{{ $t("consulting.our_services") }}</h2>
-    <div id="our-services" class="grid grid-cols-5 gap-8 mb-8 margin-container">
+    <div id="our-services" class="grid grid-cols-5 gap-8 pb-2xl margin-container">
       <Card class="col-span-3" :title="$t('consulting.tech_consulting')" title_wrap/>
       <Card class="col-span-2" :title="$t('consulting.support')" />
     </div>
-    <div id="our-services" class="grid grid-cols-5 gap-8 mb-8 margin-container">
+    <div id="our-services" class="grid grid-cols-5 gap-8 pb-2xl margin-container">
       <Card class="col-span-2" :title="$t('consulting.vc_support')" title_wrap/>
       <Card class="col-span-3" :title="$t('consulting.tokenomics_development')" title_wrap/>
     </div>
@@ -77,7 +77,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
 
 .hero-wrapper {
-  padding-top: 6%;
+  padding-top: var(--spacing-2xl);
   background-image: url("/hero_background.webp");
 
   background-color: rgba(17, 17, 17, 1.0);
@@ -114,8 +114,8 @@ h2 { font-size: 50px; font-weight: 700; }
   color: #ffffff;
   text-align: center;
   z-index: 3;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
 }
 .card-wrapper {
     height: 450px;
@@ -123,32 +123,32 @@ h2 { font-size: 50px; font-weight: 700; }
 
 .full-width-line{
   width: 100%;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-top: var(--spacing-4xl);
+  margin-bottom: var(--spacing-4xl);
 }
 
 #advantages-block-title{
-  margin-top: 8rem;
-  margin-bottom: 5rem;
+  margin-top: var(--spacing-4xl);
+  margin-bottom: var(--spacing-2xl);
   line-height: 1;
 }
 
 #advantages-group div{
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .advantages{
   /*padding-left: 13rem;
   padding-top: 8rem;*/
-  margin-left: 10rem;
+  margin-left: var(--spacing-3xl);
 }
 
 .advantages h3{
   color: #fff;
   font-weight: 700;
   font-size: 3rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: var(--spacing-md);
 }
 
 .advantages p{
@@ -168,8 +168,8 @@ h2 { font-size: 50px; font-weight: 700; }
     height: 60rem;
   }
   #advantages-group div {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
   }
 }
 
@@ -190,7 +190,7 @@ h2 { font-size: 50px; font-weight: 700; }
     margin-bottom: 2rem;
   }
   .advantages {
-    margin-left: 3rem;
+    margin-left: var(--spacing-xl);
   }
   .advantages h3 {
     font-size: 2rem;
@@ -217,7 +217,7 @@ h2 { font-size: 50px; font-weight: 700; }
     height: 40rem;
   }
   .advantages-group {
-    margin-left: 5rem;
+    margin-left: var(--spacing-2xl);
   }
 }
 
@@ -244,12 +244,12 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   #advantages-group div {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
   }
 
   .advantages {
-    margin-left: 2rem;
+    margin-left: var(--spacing-lg);
   }
 
 
@@ -269,7 +269,7 @@ h2 { font-size: 50px; font-weight: 700; }
     margin-bottom: 0;
   }
   #our-services .card-wrapper{
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
   }
   .advantages h3 {
     font-size: 1.8rem;
@@ -310,18 +310,18 @@ h2 { font-size: 50px; font-weight: 700; }
     height: unset;
   }
   #advantages-block-title{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
     margin-left: 3%;
   }
   #advantages-group div {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
     margin-left: 3%;
     margin-right: 3%;
   }
   .advantages{
-    margin-left: 1rem;
+    margin-left: var(--spacing-sm);
   }
   .advantages h3 {
     font-size: 2rem;
@@ -340,8 +340,8 @@ h2 { font-size: 50px; font-weight: 700; }
     font-size: 18px;
   }
   #advantages-group div {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
   }
   .advantages h3 {
     font-size: 1rem;

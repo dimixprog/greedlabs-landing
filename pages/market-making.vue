@@ -21,7 +21,7 @@
       <Fly3Cubes class="col-span-3 m-auto"/>
     </Hero>
     <div class="anchor"><span id="volume-management"></span></div>
-    <div  id="volume" class="big-card mb-8 margin-container">
+    <div  id="volume" class="big-card pb-2xl margin-container">
       <h3 class="colorized-text">{{ $t("market_making.volume_control") }}</h3>
       <p>{{ $t("market_making.volume_control_desc") }}</p>
       <div class="grid grid-cols-2 gap-8 w-full">
@@ -39,7 +39,7 @@
     </div>
     <div class="anchor"><span id="price-control"></span></div>
     <div class="anchor"><span id="anti-snipe"></span></div>
-    <div class="grid grid-cols-2 gap-8 mb-8 margin-container">
+    <div class="grid grid-cols-2 gap-8 pb-2xl margin-container">
       <FlipCard
         :front-title="$t('market_making.anti_snape')"
         :back-text="$t('market_making.anti_snape_desc')"
@@ -64,7 +64,7 @@
         </video>
       </div>
     </Hero>
-    <div  id="prof-support" class="mb-8">
+    <div  id="prof-support" class="pb-2xl">
       <h2>{{ $t("market_making.prof_support") }}</h2>
       <div class="flex justify-between items-center">
         <div class="w-full">
@@ -127,7 +127,7 @@
 h2 { font-size: 50px; font-weight: 700; }
 
 .hero-wrapper {
-  padding-top: 6%;
+  padding-top: var(--spacing-2xl);
   background-image: url("/hero_background.webp");
 
   background-color: rgba(17, 17, 17, 1.0);
@@ -151,8 +151,8 @@ h2 { font-size: 50px; font-weight: 700; }
   border-width: 5px;
 }
 
-.life-cyclic-h3 { color: #fff; font-weight: 700; font-size: 3rem; padding-bottom: 1.5rem; }
-.life-cyclic-p { font-size: 2rem; line-height: 1; font-weight: 500; padding-bottom: 12rem; }
+.life-cyclic-h3 { color: #fff; font-weight: 700; font-size: 3rem; padding-bottom: var(--spacing-md); }
+.life-cyclic-p { font-size: 2rem; line-height: 1; font-weight: 500; padding-bottom: var(--spacing-5xl); }
 .text-services { vertical-align: middle; color: #ffffff; font-size: 300%; font-family: 'Montserrat', Arial, sans-serif; line-height: 1.1; font-weight: 700; background-position: center center; border-color: transparent; border-style: solid; color: #ffffff; text-align: center; z-index: 3; padding-top: 3%; padding-bottom: 3%; }
 /* Дополнительные стили для соответствия отступам из образца */
 /*.services-container p { font-size: 1.5rem; line-height: 1; font-weight: 500; padding-bottom: 3rem; text-align: center; max-width: 60%; margin: 0 auto; }*/
@@ -162,14 +162,14 @@ h2 { font-size: 50px; font-weight: 700; }
 }
 
 #dex div:first-child{
-  padding-top: 10rem;
+  padding-top: var(--spacing-3xl);
 }
 /* Стили для большой карточки УПРАВЛЕНИЕ ОБЪЕМОМ (как front flip-card, без +) */
 .big-card { 
   background-color: #222222; 
   border-radius: 30px; 
   box-sizing: border-box; 
-  padding: 30px; 
+  padding: var(--spacing-lg); 
   display: flex; 
   flex-direction: column; 
   border: 1px solid rgba(255, 255, 255, 0.1); 
@@ -190,7 +190,7 @@ h2 { font-size: 50px; font-weight: 700; }
 .big-card h3 { 
   font-size: 2rem; 
   font-weight: 700; 
-  margin-bottom: 1rem; 
+  margin-bottom: var(--spacing-sm); 
 }
 .big-card p { 
   vertical-align: middle; 
@@ -212,7 +212,7 @@ h2 { font-size: 50px; font-weight: 700; }
 }
 
 .flip-card .image-block {
-  padding-top: 5rem;
+  padding-top: var(--spacing-2xl);
 }
 
 #prof-support{
@@ -227,8 +227,8 @@ h2 { font-size: 50px; font-weight: 700; }
 
 #prof-support h2{
   line-height: 1.1;
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .marquee{
@@ -237,7 +237,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
 .marquee img {
   width: 7rem;
-  margin-right: 10rem;
+  margin-right: var(--spacing-3xl);
 }
 
 .marquee img.jupiter{
@@ -257,7 +257,7 @@ h2 { font-size: 50px; font-weight: 700; }
   margin-bottom: 0.5rem;
   user-select: none;
   font-weight: 700;
-  margin-top: 2rem;
+  margin-top: var(--spacing-lg);
 }
 
 @media (min-width: 2241px) {
@@ -302,16 +302,16 @@ h2 { font-size: 50px; font-weight: 700; }
 
   #market_making div:first-child, #dex div:first-child {
     order: 1;
-    margin-top: 15rem;
+    margin-top: var(--spacing-4xl);
   }
 
   #market_making div.hero-text-container {
-    padding-top: 15rem;
+    padding-top: var(--spacing-4xl);
   }
 
   #market-making .hero-media-container img {
     max-width: 200px;
-    padding-top: 5rem;
+    padding-top: var(--spacing-2xl);
     margin-left: 0;
   }
 
@@ -320,7 +320,7 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   .big-card {
-    padding: 20px;
+    padding: var(--spacing-md);
   }
 
   .big-card h3 {
@@ -364,7 +364,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .life-cyclic-p {
     font-size: 1.5rem;
-    padding-bottom: 8rem;
+    padding-bottom: var(--spacing-4xl);
   }
 
   .grid-cols-4 {
@@ -386,20 +386,20 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   .hero {
-    padding: 20px;
+    padding: var(--spacing-md);
   }
 
   #market_making div.hero-text-container {
-    padding-top: 10rem;
+    padding-top: var(--spacing-3xl);
   }
 
   #market-making .hero-media-container img {
     max-width: 150px;
-    padding-top: 3rem;
+    padding-top: var(--spacing-xl);
   }
 
   .big-card {
-    padding: 15px;
+    padding: var(--spacing-sm);
   }
 
   .big-card h3 {
@@ -429,7 +429,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .life-cyclic-p {
     font-size: 1.2rem;
-    padding-bottom: 6rem;
+    padding-bottom: var(--spacing-3xl);
   }
 
   .grid-cols-4 {
@@ -444,7 +444,7 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   #market_making div:first-child, #dex div:first-child {
-      margin-top: 10rem;
+      margin-top: var(--spacing-3xl);
   }
 
   .hero-media-container video {
@@ -454,7 +454,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
   #market-making .hero-media-container img {
     max-width: 150px;
-    padding-top: 2rem;
+    padding-top: var(--spacing-lg);
     margin-left: 0;
   }
 
@@ -466,7 +466,7 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   .big-card {
-    padding: 10px;
+    padding: var(--spacing-xs);
   }
 
   .big-card h3 {
@@ -491,11 +491,11 @@ h2 { font-size: 50px; font-weight: 700; }
   }
 
   .flip-card .image-block {
-    padding-top: 2rem;
+    padding-top: var(--spacing-lg);
   }
 
   #prof-support {
-    padding: 15px;
+    padding: var(--spacing-sm);
     border-radius: 2rem;
   }
 
@@ -505,12 +505,12 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .life-cyclic-p {
     font-size: 1rem;
-    padding-bottom: 4rem;
+    padding-bottom: var(--spacing-2xl);
   }
 
   .marquee img {
     width: 4rem;
-    margin-right: 6rem;
+    margin-right: var(--spacing-3xl);
   }
 
   .marquee img.jupiter{
@@ -530,24 +530,24 @@ h2 { font-size: 50px; font-weight: 700; }
     font-size: 14px;
   }
   .hero {
-    padding: 10px;
+    padding: var(--spacing-xs);
   }
 
   #market_making div:first-child, #dex div:first-child {
-    margin-top: 3rem;
+    margin-top: var(--spacing-xl);
   }
 
   #market_making div.hero-text-container {
-    padding-top: 5rem;
+    padding-top: var(--spacing-2xl);
   }
 
   #market-making .hero-media-container img {
     max-width: 120px;
-    padding-top: 1rem;
+    padding-top: var(--spacing-sm);
   }
 
   .big-card {
-    padding: 8px;
+    padding: var(--spacing-xs);
     margin-left: 6%;
     margin-right: 6%;
   }
@@ -570,7 +570,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .marquee img {
     width: 3rem;
-    margin-right: 5rem;
+    margin-right: var(--spacing-2xl);
   }
 
   .marquee img.jupiter{
@@ -600,7 +600,7 @@ h2 { font-size: 50px; font-weight: 700; }
 
   .life-cyclic-p {
     font-size: 0.9rem;
-    padding-bottom: 2rem;
+    padding-bottom: var(--spacing-lg);
   }
 }
 </style>

@@ -341,14 +341,14 @@ onUnmounted(() => {
   width: 12rem;
   height: auto;
   display: block;
-  padding-top: 0.5rem;
+  padding-top: var(--spacing-xs);
 }
 
 .header-nav {
   display: flex;
   align-items: center;
   gap: 4rem;
-  margin-left: 3rem;
+  margin-left: var(--spacing-xl);
   flex: 1;
   min-width: 0;
   position: relative;
@@ -374,7 +374,7 @@ onUnmounted(() => {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-xs);
   transition: color 0.2s ease;
   cursor: pointer;
 }
@@ -412,7 +412,7 @@ onUnmounted(() => {
 
 .dropdown-content {
   position: relative;
-  padding: 2rem;
+  padding: var(--spacing-lg);
   z-index: 1;
 }
 
@@ -455,7 +455,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   margin-left: auto;
-  margin-right: 2rem;
+  margin-right: var(--spacing-lg);
 }
 
 .lang-background {
@@ -463,7 +463,7 @@ onUnmounted(() => {
   height: 1.7rem;
   background-color: #151515;
   border-radius: 100px;
-  margin-right: 1rem;
+  margin-right: var(--spacing-sm);
   cursor: pointer;
 }
 
@@ -501,7 +501,7 @@ onUnmounted(() => {
 }
 
 #ru-link{
-  padding-right: 1rem;
+  padding-right: var(--spacing-sm);
 }
 
 .contact-dropdown {
@@ -517,7 +517,7 @@ onUnmounted(() => {
   font-weight: 500;
   color: white;
   text-decoration: none;
-  padding: 1.6rem 1.3rem;
+  padding: var(--spacing-md) var(--spacing-sm);
   border: 1px solid white;
   border-radius: 25px;
   transition: all 0.2s ease;
@@ -606,7 +606,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 var(--spacing-md);
 }
 
 .mobile-header-background {
@@ -645,7 +645,7 @@ onUnmounted(() => {
 .hamburger-lines {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--spacing-xs);
   z-index: 1;
 }
 
@@ -689,7 +689,7 @@ onUnmounted(() => {
 }
 
 .mobile-menu-container {
-  padding: clamp(40px, 15vh, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);
+  padding: clamp(40px, 15vh, 80px) clamp(var(--spacing-xs), 5vw, var(--spacing-md)) clamp(var(--spacing-xs), 5vw, var(--spacing-md));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -746,7 +746,7 @@ onUnmounted(() => {
   font-weight: 400;
   color: white;
   text-decoration: none;
-  padding: clamp(3px, 1vw, 5px) clamp(8px, 3vw, 15px);
+  padding: clamp(3px, 1vw, var(--spacing-xs)) clamp(var(--spacing-xs), 3vw, var(--spacing-sm));
   z-index: 1;
 }
 
@@ -779,7 +779,7 @@ onUnmounted(() => {
   font-family: 'Montserrat', Arial, sans-serif;
   color: white;
   text-decoration: none;
-  padding: clamp(4px, 1.5vw, 8px) 0;
+  padding: clamp(4px, 1.5vw, var(--spacing-xs)) 0;
   transition: color 0.2s ease;
   line-height: 1.55;
 }

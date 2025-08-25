@@ -13,7 +13,7 @@
     </Hero>
     </div>
 
-    <div class="services-container margin-container">
+    <div class="services-container margin-container py-3xl">
       <h2 class="text-services">{{ $t("dev.our_services") }}</h2>
 
       <!-- Первая строка: 2 карточки -->
@@ -306,7 +306,7 @@ h2 {
 }
 
 .hero-wrapper {
-  padding-top: 6%;
+  padding-top: var(--spacing-2xl);
   background-image: url("/hero_background.webp");
 
   background-color: rgba(17, 17, 17, 1.0);
@@ -348,7 +348,7 @@ h2 {
   color: #fff;
   font-weight: 700;
   font-size: 3rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: var(--spacing-md);
   text-align: center;
 }
 
@@ -356,20 +356,20 @@ h2 {
   font-size: 1.5rem;
   line-height: 1;
   font-weight: 500;
-  padding-bottom: 3rem;
+  padding-bottom: var(--spacing-xl);
   text-align: center;
   max-width: 60%;
   margin: 0 auto;
 }
 
 .languages{
-  padding-bottom: 3rem;
+  padding-bottom: var(--spacing-xl);
 }
 
 .languages .self-center{
   margin: 0 auto;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .languages p{
@@ -379,14 +379,14 @@ h2 {
 
 .full-width-line{
   width: 100%;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-top: var(--spacing-4xl);
+  margin-bottom: var(--spacing-4xl);
 }
 
 .why-we h3{
   font-size: 2.7rem;
   font-weight: 700;
-  padding-bottom: 1.5rem;
+  padding-bottom: var(--spacing-md);
 }
 
 .why-we p{
@@ -410,8 +410,8 @@ h2 {
   border-style: solid;
   line-height: 1.1;
   text-align: center;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
 }
 
 #stat p {
@@ -439,13 +439,13 @@ h2 {
 
 
 #statBlock{
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
 }
 
 .stat_container{
   border: 1px solid #ffffff;
-  padding: 2rem;
+  padding: var(--spacing-lg);
   border-radius: 7rem;
 }
 
@@ -463,7 +463,7 @@ h2 {
 }
 
 #cases{
-  margin-top: 5rem;
+  margin-top: var(--spacing-2xl);
 }
 
 #cases .cases-title{
@@ -474,7 +474,7 @@ h2 {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 500;
-  margin-bottom: 5rem;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .project {
@@ -505,7 +505,7 @@ h2 {
 }
 
 .my-swiper .swiper-slide{
-  padding: 1rem;
+  padding: var(--spacing-sm);
   background-color: #292929;
   border-radius: 2rem;
 }
@@ -534,13 +534,13 @@ h2 {
   color: #ffffff;
   text-align: center;
   z-index: 3;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
 }
 
 .life-cycle-title{
-  margin-top: 6rem;
-  margin-bottom: 6rem;
+  margin-top: var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
 }
 
 @media (min-width: 780px) {
@@ -639,7 +639,7 @@ h2 {
   }
   .why-we h3{
     font-size: 2rem;
-    padding-bottom: 1rem;
+    padding-bottom: var(--spacing-sm);
   }
 
   .why-we p{
@@ -794,8 +794,8 @@ h2 {
     font-size: 20px;
   }
   .full-width-line {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin-top: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
   }
   #development::before{
     height: 60rem;
@@ -811,13 +811,13 @@ h2 {
   }
 
   .life-cycle-title{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
     margin-left: 3%;
   }
 
   .life-cycle h3:first-child{
-    padding-top: 5rem;
+    padding-top: var(--spacing-2xl);
   }
 
   .life-cycle h3{
@@ -851,14 +851,14 @@ h2 {
   }
 
   .why-we h2{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
     margin-left: 3%;
   }
 
   .why-we-cards{
     margin-left: 3%;
-    gap: 3rem;
+    gap: var(--spacing-xl);
   }
 
   .why-we-cards h3{
@@ -927,7 +927,7 @@ h2 {
 <style>
   .swiper-button-prev, .swiper-button-next{
     background-color: #363636;
-    padding: 4%;
+    padding: var(--spacing-sm);
     border-radius: 50%;
   }
 
@@ -936,7 +936,7 @@ h2 {
   }
 
   .my-swiper .swiper-button-prev{
-    margin-left: 2%;
+    margin-left: var(--spacing-xs);
   }
 
   .my-swiper .swiper-button-prev::after{
@@ -944,7 +944,7 @@ h2 {
   }
 
   .my-swiper .swiper-button-next{
-    margin-right: 2%;
+    margin-right: var(--spacing-xs);
   }
 
   .my-swiper .swiper-button-next::after{
@@ -956,7 +956,7 @@ h2 {
       font-size: 2rem;
     }
     .swiper-button-prev, .swiper-button-next {
-      padding: 6%;
+      padding: var(--spacing-md);
     }
   }
 
@@ -965,7 +965,7 @@ h2 {
       font-size: 1.5rem;
     }
     .swiper-button-prev, .swiper-button-next {
-      padding: 7%;
+      padding: var(--spacing-lg);
     }
   }
 </style>

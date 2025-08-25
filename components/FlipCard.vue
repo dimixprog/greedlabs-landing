@@ -87,7 +87,7 @@ defineProps({
   height: 100%;
   border-radius: 30px;
   box-sizing: border-box;
-  padding: 30px;
+  padding: var(--spacing-lg);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -130,8 +130,8 @@ defineProps({
 /* Независимый оверлей для значка (поверх карточки, не flips) */
 .icon-overlay {
   position: absolute;
-  top: 20px; /* Adjust position as needed, e.g., from video */
-  right: 20px;
+  top: var(--spacing-md); /* Adjust position as needed, e.g., from video */
+  right: var(--spacing-md);
   z-index: 10; /* Above card */
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }

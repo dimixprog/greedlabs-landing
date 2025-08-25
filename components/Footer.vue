@@ -38,7 +38,8 @@ footer {
   height: 280px;
   width: 100%;
   padding: 0px;
-  padding-top: 10px;
+  padding-top: var(--spacing-xs);
+  z-index: 10;
 }
 .footer-container {
   position: absolute;
@@ -49,43 +50,44 @@ footer {
   height: 280px;
   border-radius: 75px;
   margin: auto;
-  padding: 20px;
+  padding: var(--spacing-md);
+  z-index: 11;
 }
 #logo-and-social{
-  padding: 1rem 5rem;
+  padding: var(--spacing-sm) var(--spacing-2xl);
 }
 
 #logo-and-social .logo{
-  padding-top: 1rem;
+  padding-top: var(--spacing-sm);
 }
 
 .footer-social{
-  margin-right: 2rem;
+  margin-right: var(--spacing-lg);
 }
 
 .footer-social img{
   width: 2.5rem;
-  margin: 0.8rem;
+  margin: var(--spacing-sm);
 }
 
 #email{
-  padding-left: 5rem;
+  padding-left: var(--spacing-2xl);
   font-size: 1.5rem;
   font-weight: 500;
-  padding-top: 1rem;
+  padding-top: var(--spacing-sm);
 }
 
 #copyright{
-  padding-left: 5rem;
+  padding-left: var(--spacing-2xl);
   font-size: 1rem;
   font-weight: 500;
-  padding-top: 1.5rem;
+  padding-top: var(--spacing-md);
 }
 
 /* Mobile devices (max-width: 560px) */
 @media (max-width: 560px) {
   #logo-and-social{
-    padding: 1.5rem 0;
+    padding: var(--spacing-md) 0;
     justify-content: center;
   }
   .footer-social {
@@ -103,11 +105,12 @@ footer {
   footer{
     border-radius: 0;
     height: auto;
+    margin-top: 0;
   }
   .footer-container {
     top: 3px;
     border-radius: 0;
-    padding: 0.5rem;
+    padding: var(--spacing-xs);
     height: auto;
   }
   #logo-and-social {
@@ -120,14 +123,14 @@ footer {
   }
   .footer-social img {
     width: 1.5rem;
-    margin: 0.5rem;
+    margin: var(--spacing-xs);
   }
   #email {
     font-size: 1rem;
   }
   #copyright {
     font-size: 0.5rem;
-    padding-top: 0.5rem;
+    padding-top: var(--spacing-xs);
   }
 }
 </style>

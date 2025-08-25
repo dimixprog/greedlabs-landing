@@ -19,7 +19,7 @@
       </Hero>
     </div>
 
-    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center pt-[120px] margin-container">
+    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center py-3xl margin-container">
       <div class="hero-text-container col-span-4">
         <h2 class="colorized-text">{{ $t("index.market_making") }}</h2>
         <p>
@@ -108,8 +108,8 @@
 
     <div id="team" class="margin-container">
       <h2>{{ $t("index.team") }}</h2>
-      <div class="grid grid-cols-2 gap-16 mx-8 justify-between mb-[120px] mx-auto">
-        <div class="photo_card pl-4" id="Dmitry-Vasilev-card">
+      <div class="grid grid-cols-2 gap-16 mx-8 justify-between pb-3xl mx-auto">
+        <div class="photo_card pl-lg" id="Dmitry-Vasilev-card">
           <h3 class="mt-[50%]">{{ $t("index.dmitry") }}</h3>
           <p class="role">{{ $t("index.dmitry_role") }}</p>
           <p class="experience">{{ $t("index.dmitry_experience") }}</p>
@@ -132,7 +132,7 @@
           </div>
         </div>
 
-        <div class="photo_card pl-4" id="Georgy-Kozyrev-card">
+        <div class="photo_card pl-lg" id="Georgy-Kozyrev-card">
           <h3 class="mt-[50%]">{{ $t("index.georgy") }}</h3>
           <p class="role">{{ $t("index.georgy_role") }}</p>
           <p class="experience">{{ $t("index.georgy_experience") }}</p>
@@ -167,7 +167,7 @@
       </div>
     </div>
 
-    <div id="clients" class="stat_container p-4 flex flex-col gap-4 fadeup_block margin-container">
+    <div id="clients" class="stat_container py-lg px-md flex flex-col gap-4 fadeup_block margin-container">
       <div class="self-center">
         <h2>{{ $t("index.clients") }}</h2>
       </div>
@@ -243,7 +243,7 @@ onMounted(() => {
 
 <style scoped>
 .hero-wrapper {
-  padding-top: 6%;
+  padding-top: var(--spacing-2xl);
   background-image: url("/hero_background.webp");
 
   background-color: rgba(17, 17, 17, 1.0);
@@ -323,12 +323,12 @@ onMounted(() => {
 #market-making .hero-media-container img {
   width: 400px; /* Fixed max */
   height: auto;
-  padding-top: 150px; /* Fixed max */
-  margin-left: 80px; /* Fixed max */
+  padding-top: var(--spacing-4xl);
+  margin-left: var(--spacing-2xl);
 }
 
 #development .hero-text-container{
-  padding-left: 8rem;
+  padding-left: var(--spacing-4xl);
 }
 
 #about_us {
@@ -354,7 +354,7 @@ onMounted(() => {
   margin: 0 auto;
   text-align: center;
   padding: 0 20%;
-  padding-bottom: 3rem;
+  padding-bottom: var(--spacing-xl);
 }
 
 #about_us .gif {
@@ -377,7 +377,7 @@ onMounted(() => {
   line-height: 1.2;
   font-weight: 700;
   padding-top: 0px;
-  padding-bottom: 40px;
+  padding-bottom: var(--spacing-lg);
   font-family: 'Montserrat';
   letter-spacing: 0px;
 }
@@ -397,8 +397,8 @@ onMounted(() => {
   line-height: 1;
   color: #ffffff;
   font-weight: 500;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-lg);
   font-family: 'Montserrat';
 }
 
@@ -414,16 +414,16 @@ onMounted(() => {
 }
 
 #team .social {
-  padding-top: 1rem;
+  padding-top: var(--spacing-sm);
 }
 
 #team .social a {
   float: left;
-  padding-right: 1rem;
+  padding-right: var(--spacing-sm);
 }
 
 #clients{
-  padding-top: 8rem;
+  padding-top: var(--spacing-4xl);
 }
 
 #clients h2 {
@@ -463,13 +463,13 @@ onMounted(() => {
 }
 
 #statBlock{
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
 }
 
 .stat_container{
   border: 1px solid #ffffff;
-  padding: 2rem;
+  padding: var(--spacing-lg);
   border-radius: 7rem;
 }
 
@@ -490,7 +490,7 @@ onMounted(() => {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 20px 40px;
+  padding: var(--spacing-md) var(--spacing-lg);
   width: 100%;
   /*height: 600px; Fixed max */
   border-radius: 30px;
@@ -576,12 +576,12 @@ onMounted(() => {
   #start_way div:last-child, #market_making div:last-child, #consulting div:last-child { order: -1; }
 
   #market_making div.hero-text-container {
-    padding-top: 15rem;
+    padding-top: var(--spacing-4xl);
   }
 
   #market-making .hero-media-container img {
     max-width: 200px;
-    padding-top: 5rem;
+    padding-top: var(--spacing-2xl);
     margin-left: 0;
   }
 
@@ -599,7 +599,7 @@ onMounted(() => {
 
   .photo_card {
     height: auto;
-    padding: 15px 20px;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
   #team .grid-cols-2 {
@@ -607,7 +607,7 @@ onMounted(() => {
   }
 
   #clients {
-    padding: 20px;
+    padding: var(--spacing-md);
     min-height: auto;
     border-radius: 40px;
   }
@@ -683,21 +683,21 @@ onMounted(() => {
   }
 
   #market_making div.hero-text-container[data-v-02281a80] {
-    padding-top: 6rem;
+    padding-top: var(--spacing-2xl);
   }
 
   #market-making .hero-media-container img {
     max-width: 150px;
-    padding-top: 2rem;
+    padding-top: var(--spacing-lg);
     margin-left: 0;
   }
 
   #development div.hero-text-container[data-v-02281a80] {
-    padding-top: 2rem;
+    padding-top: var(--spacing-lg);
   }
 
   .photo_card {
-    padding: 10px 15px;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 
   #team{
@@ -760,7 +760,7 @@ onMounted(() => {
     font-size: 14px;
   }
   .photo_card[data-v-02281a80] {
-    padding: 20px 25px;
+    padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 15px;
   }
   #team h3 {
@@ -769,8 +769,8 @@ onMounted(() => {
 
   #team .role {
     font-size: 0.5rem;
-    padding-top: 0.4rem;
-    padding-bottom: 0.5rem;
+    padding-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
   }
 
   #team .experience {
@@ -795,6 +795,6 @@ onMounted(() => {
 
   #about_us{
     margin-top: 10%;
-    margin-bottom: 120px;
+    margin-bottom: var(--spacing-3xl);
   }
 </style>
