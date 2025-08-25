@@ -54,7 +54,13 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/device'
+  ],
 
   googleFonts: {
     families: {
@@ -77,5 +83,9 @@ export default defineNuxtConfig({
     langDir: 'locales/',
     strategy: 'no_prefix', // или 'prefix_except_default' для /ru/ и /
   },
-
+  vite: {
+    server: {
+      allowedHosts: ['covetously-articulate-damselfly.cloudpub.ru', 'huskily-victorious-gecko.cloudpub.ru'] // Разрешаем доступ с этого домена
+    }
+  }
 })

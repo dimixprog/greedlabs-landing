@@ -8,7 +8,13 @@
         <p>{{ $t("market_making.market_making_desc") }}</p>
         <ConsultButton />
       </div>
-      <CandlesCube class="col-span-3 m-auto"/>
+
+      <div v-if="isSafari == null"></div>
+      <div v-else-if="!isSafari" class="hero-media-container col-span-3 m-auto">
+        <img src="../public/market-candles.png" alt="">
+      </div>
+
+      <CandlesCube v-else :class="[{ 'safari-video-candles-index': isSafari}]"  class="col-span-3 m-auto"/>
     </Hero>
     </div>
     <div class="anchor"><span id="dex-services"></span></div>
@@ -59,7 +65,7 @@
         <ConsultButton />
       </div>
       <div class="col-span-3 m-auto">
-        <video style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
+        <video :class="[{ '.safari-video-start-tokens-market-making': isSafari}]" style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
           <source src="https://dl.dropboxusercontent.com/scl/fi/oslgex5k4x3u2if34l5uc/Plant.mp4?rlkey=d5o1jerjn26j0dsjbieisyjk6&amp;st=bk7tr4n6&amp;dl=0" type="video/mp4">
         </video>
       </div>
@@ -608,10 +614,17 @@ h2 { font-size: 50px; font-weight: 700; }
 
 
 <script setup>
-// Импорт необходимых модулей и компонентов (аналогично образцу)
+import { ref, onMounted } from 'vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import Fly3Cubes from '~/components/Fly3Cubes.vue';
+import Fly3Cubes from '~/components/Fly3Cubes.vue'
+
+const { $device } = useNuxtApp();
+const isSafari = ref(null); 
+
+onMounted(() => {
+  isSafari.value = $device.isSafari;
+})
 
 // SEO Meta
 useSeoMeta({
