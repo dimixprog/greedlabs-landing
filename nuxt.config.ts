@@ -6,6 +6,41 @@ export default defineNuxtConfig({
         {
           src: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs',
           type: 'module'
+        },
+         {
+           src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_PUBLIC_GTAG_ID}`,
+           async: true
+         },
+         {
+           innerHTML: `
+             window.dataLayer = window.dataLayer || [];
+             function gtag(){dataLayer.push(arguments);}
+             gtag('js', new Date());
+             gtag('config', '${process.env.NUXT_PUBLIC_GTAG_ID}');
+           `,
+           type: 'text/javascript'
+         },
+         {
+           innerHTML: `
+             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+             m[i].l=1*new Date();
+             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+             ym(${process.env.NUXT_PUBLIC_YM_ID}, "init", {
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+             });
+           `,
+           type: 'text/javascript'
+         }
+      ],
+      noscript: [
+        {
+          innerHTML: '<div><img src="https://mc.yandex.ru/watch/12345678" style="position:absolute; left:-9999px;" alt="" /></div>'
         }
       ]
     }
@@ -40,15 +75,5 @@ export default defineNuxtConfig({
     langDir: 'locales/',
     strategy: 'no_prefix', // или 'prefix_except_default' для /ru/ и /
   },
-  // yandexMetrika: {
-  //   id: process.env.YANDEX_METRICA_ID, // Loads '98956194'
-  //   webvisor: true,
-  //   clickmap: true,
-  //   trackLinks: true,
-  //   accurateTrackBounce: true,
-  //   debug: process.env.NODE_ENV !== 'production',
-  // },
-  // googleAnalytics: {
-  //   id: process.env.GOOGLE_ANALYTICS_ID, // Use your GA ID
-  // },
+
 })

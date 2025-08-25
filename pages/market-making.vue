@@ -613,4 +613,14 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import Fly3Cubes from '~/components/Fly3Cubes.vue';
 
+// SEO Meta
+useSeoMeta({
+  title: 'Market Making Services - GREED Labs',
+  description: 'Professional cryptocurrency market making services providing liquidity, price stability, and trading volume optimization for digital assets and DeFi protocols.',
+  ogTitle: 'Market Making Services - GREED Labs',
+  ogDescription: 'Professional cryptocurrency market making services providing liquidity, price stability, and trading volume optimization for digital assets.',
+  ogImage: '/greed_logo.svg',
+  twitterCard: 'summary_large_image'
+})
+
 </script>

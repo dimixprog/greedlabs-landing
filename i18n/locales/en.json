@@ -143,9 +143,14 @@
   },
   "get_consult": {
     "get_consult": "GET A FREE CONSULTATION",
-    "get_consult_desc": "Get a free consultation on our products and services!"
+    "get_consult_desc": "Get a free consultation on our products and services!",
+    "name_placeholder": "Name",
+    "contact_placeholder": "Contact (Telegram, E-mail, Phone)"
   },
   "footer": {
     "copyright": "©2025 GREED LABS. All rights reserved."
+  },
+  "partnerships": {
+    "title": "Our Partners"
   }
 }

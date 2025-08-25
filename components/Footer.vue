@@ -35,7 +35,7 @@ footer {
   background: linear-gradient(135deg, #33fcff, #1488f4);
   border-radius: 75px;
   overflow: visible;
-  height: 435px;
+  height: 280px;
   width: 100%;
   padding: 0px;
   padding-top: 10px;
@@ -46,17 +46,17 @@ footer {
   left: 0px;
   right: 0;
   background-color: #1b1b1b;
-  height: 435px;
+  height: 280px;
   border-radius: 75px;
   margin: auto;
-  padding: 30px;
+  padding: 20px;
 }
 #logo-and-social{
-  padding: 1.5rem 5rem;
+  padding: 1rem 5rem;
 }
 
 #logo-and-social .logo{
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 }
 
 .footer-social{
@@ -64,21 +64,22 @@ footer {
 }
 
 .footer-social img{
-  width: 3rem;
-  margin: 1rem;
+  width: 2.5rem;
+  margin: 0.8rem;
 }
 
 #email{
   padding-left: 5rem;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 500;
+  padding-top: 1rem;
 }
 
 #copyright{
   padding-left: 5rem;
   font-size: 1rem;
   font-weight: 500;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 
 /* Mobile devices (max-width: 560px) */

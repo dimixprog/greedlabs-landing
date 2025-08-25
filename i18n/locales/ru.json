@@ -144,9 +144,14 @@
   },
   "get_consult": {
     "get_consult": "ПОЛУЧИТЬ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ",
-    "get_consult_desc": "Получите бесплатную консультацию по нашим продуктам и услугам!"
+    "get_consult_desc": "Получите бесплатную консультацию по нашим продуктам и услугам!",
+    "name_placeholder": "Имя",
+    "contact_placeholder": "Связь (Telegram, E-mail, Телефон)"
   },
   "footer": {
     "copyright": "©2025 GREED LABS. Все права защищены."
+  },
+  "partnerships": {
+    "title": "Наши партнеры"
   }
 }

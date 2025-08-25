@@ -216,6 +216,16 @@ import 'swiper/css/navigation'
 
 import { ref, onMounted, nextTick } from 'vue'
 
+// SEO Meta
+useSeoMeta({
+  title: 'Blockchain Development Services - GREED Labs',
+  description: 'Professional blockchain development services including DeFi protocols, smart contracts, dApps, and custom blockchain solutions. Expert developers at GREED Labs.',
+  ogTitle: 'Blockchain Development Services - GREED Labs',
+  ogDescription: 'Professional blockchain development services including DeFi protocols, smart contracts, dApps, and custom blockchain solutions.',
+  ogImage: '/greed_logo.svg',
+  twitterCard: 'summary_large_image'
+})
+
 const statBlock = ref(null)
 
 onMounted(() => {

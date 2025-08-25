@@ -16,8 +16,8 @@
       <img class="card-img right" src="/0c34ea9a-7833-4628-8.webp" alt="" />
       <div class="consult-form-box">
         <form>
-          <input type="text" placeholder="Имя" />
-          <input type="text" placeholder="Связь (Telegram, E-mail, Телефон)" />
+          <input type="text" :placeholder="$t('get_consult.name_placeholder')" />
+          <input type="text" :placeholder="$t('get_consult.contact_placeholder')" />
           <ConsultButton class="submit-btn"/>
         </form>
       </div>

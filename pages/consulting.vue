@@ -1,4 +1,16 @@
-<!-- pages/index.vue -->
+<!-- pages/consulting.vue -->
+<script setup>
+// SEO Meta
+useSeoMeta({
+  title: 'Blockchain Consulting Services - GREED Labs',
+  description: 'Expert blockchain consulting services including technical audits, tokenomics development, VC support, and comprehensive crypto project guidance from GREED Labs.',
+  ogTitle: 'Blockchain Consulting Services - GREED Labs',
+  ogDescription: 'Expert blockchain consulting services including technical audits, tokenomics development, VC support, and comprehensive crypto project guidance.',
+  ogImage: '/greed_logo.svg',
+  twitterCard: 'summary_large_image'
+})
+</script>
+
 <template>
   <div>
     <div class="hero-wrapper">

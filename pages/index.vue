@@ -85,7 +85,13 @@
       </ClientOnly>
     </Hero>
 
-    <div class="flex itams-center margin-container">
+    <div class="flex items-center margin-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
+    </div>
+
+    <Partnerships />
+
+    <div class="flex items-center margin-container">
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
     </div>
 
@@ -102,7 +108,7 @@
 
     <div id="team" class="margin-container">
       <h2>{{ $t("index.team") }}</h2>
-      <div class="grid grid-cols-2 gap-16 mx-8 flex-row justify-between mb-[120px] mx-auto">
+      <div class="grid grid-cols-2 gap-16 mx-8 justify-between mb-[120px] mx-auto">
         <div class="photo_card pl-4" id="Dmitry-Vasilev-card">
           <h3 class="mt-[50%]">{{ $t("index.dmitry") }}</h3>
           <p class="role">{{ $t("index.dmitry_role") }}</p>
@@ -187,6 +193,16 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+
+// SEO Meta
+useSeoMeta({
+  title: 'GREED Labs - Blockchain Development & Market Making Solutions',
+  description: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services. Transform your ideas into reality with GREED Labs.',
+  ogTitle: 'GREED Labs - Blockchain Development & Market Making Solutions',
+  ogDescription: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services.',
+  ogImage: '/greed_logo.svg',
+  twitterCard: 'summary_large_image'
+})
 
 const statBlock = ref(null)
 
@@ -636,7 +652,7 @@ onMounted(() => {
   }
 
   #about_us .inside_image {
-
+    width: 12vw;
   }
 
   #about_us {
