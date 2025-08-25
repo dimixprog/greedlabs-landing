@@ -1,5 +1,5 @@
 <template>
-  <div class="partnerships-section margin-container">
+  <div id="partnerships" class="partnerships-section margin-container">
     <h2 class="colorized-text text-center mb-12">{{ $t('partnerships.title') }}</h2>
     
     <div class="partnerships-grid">
@@ -57,6 +57,12 @@ const partners = [
 </script>
 
 <style scoped>
+#partnerships h2 {
+  font-size: 50px; /* Fixed max */
+  font-weight: 700;
+  text-align: center;
+}
+
 .partnerships-section {
   padding: 80px 0;
 }
