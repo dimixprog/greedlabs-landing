@@ -23,6 +23,24 @@ import Footer from '~/components/Footer.vue'
 </template>
 
 <style>
+.safari-video-candles-index{
+  filter: brightness(1.085);  /* Для Safari и Firefox */
+  -webkit-filter: brightness(70.5%);  /* WebKit-specific для старых версий */
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.safari-video-consulting-index-iphone{
+  filter: brightness(1.085);  /* Для Safari и Firefox */
+  -webkit-filter: brightness(168.5%);  /* WebKit-specific для старых версий */
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
 /* CSS Variables for Standardized Spacing */
 :root {
   /* Base spacing scale (8px base) */
@@ -106,6 +124,7 @@ import Footer from '~/components/Footer.vue'
 .px-2xl { padding-left: var(--spacing-2xl); padding-right: var(--spacing-2xl); }
 .px-3xl { padding-left: var(--spacing-3xl); padding-right: var(--spacing-3xl); }
 .px-4xl { padding-left: var(--spacing-4xl); padding-right: var(--spacing-4xl); }
+
 
 /* Padding Y (vertical) */
 .py-xs { padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); }
