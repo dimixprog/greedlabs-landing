@@ -13,7 +13,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Устанавливаем зависимости
-RUN npm ci
+RUN npm install
 
 # Копируем приложение
 COPY . .
@@ -32,7 +32,7 @@ WORKDIR /app
 
 # Устанавливаем только продакшн-зависимости
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # Копируем результат сборки из билдер-стадии
 COPY --from=builder /app/.output ./.output

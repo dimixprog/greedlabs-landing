@@ -11,7 +11,7 @@
 
       <div v-if="isSafari == null"></div>
       <div v-else-if="!isSafari" class="hero-media-container col-span-3 m-auto">
-        <img src="../public/market-candles.png" alt="">
+        <img src="/market-candles copy.png" alt="">
       </div>
 
       <CandlesCube v-else :class="[{ 'safari-video-candles-index': isSafari}]"  class="col-span-3 m-auto"/>
