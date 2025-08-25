@@ -23,9 +23,40 @@ import Footer from '~/components/Footer.vue'
 </template>
 
 <style>
-video {
+.safari-video-candles-index{
   filter: brightness(1.085);  /* Для Safari и Firefox */
-  -webkit-filter: brightness(108.5%);  /* WebKit-specific для старых версий */
+  -webkit-filter: brightness(70.5%);  /* WebKit-specific для старых версий */
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.safari-video-consulting-index-iphone{
+  filter: brightness(1.085);  /* Для Safari и Firefox */
+  -webkit-filter: brightness(168.5%);  /* WebKit-specific для старых версий */
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.safari-video-consulting-index-mac{
+  filter: brightness(1.085);  /* Для Safari и Firefox */
+  -webkit-filter: brightness(190.5%);  /* WebKit-specific для старых версий */
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.safari-video-start-tokens-market-making{
+  -webkit-filter: brightness(98.5%);
+}
+
+.safari-video {
+  filter: brightness(1.085);  /* Для Safari и Firefox */
+  -webkit-filter: brightness(111.5%);  /* WebKit-specific для старых версий */
   outline: none;
   border: none;
   box-shadow: none;

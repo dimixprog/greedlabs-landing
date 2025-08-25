@@ -10,11 +10,11 @@
       </div>
 
       <div v-if="isSafari == null"></div>
-      <div v-else-if="isSafari" class="hero-media-container col-span-3 m-auto">
+      <div v-else-if="!isSafari" class="hero-media-container col-span-3 m-auto">
         <img src="../public/market-candles.png" alt="">
       </div>
 
-      <CandlesCube v-else class="col-span-3 m-auto"/>
+      <CandlesCube v-else :class="[{ 'safari-video-candles-index': isSafari}]"  class="col-span-3 m-auto"/>
     </Hero>
     </div>
     <div class="anchor"><span id="dex-services"></span></div>
@@ -65,7 +65,7 @@
         <ConsultButton />
       </div>
       <div class="col-span-3 m-auto">
-        <video style="object-fit: cover; -webkit-filter: brightness(98.5%); width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
+        <video :class="[{ '.safari-video-start-tokens-market-making': isSafari}]" style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
           <source src="https://dl.dropboxusercontent.com/scl/fi/oslgex5k4x3u2if34l5uc/Plant.mp4?rlkey=d5o1jerjn26j0dsjbieisyjk6&amp;st=bk7tr4n6&amp;dl=0" type="video/mp4">
         </video>
       </div>

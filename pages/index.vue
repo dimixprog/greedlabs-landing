@@ -15,7 +15,7 @@
 
         <div v-if="isSafari == null"></div>
 
-        <div v-else-if="isSafari" class="hero-media-container col-span-3 m-auto">
+        <div v-else-if="!isSafari" class="hero-media-container col-span-3 m-auto">
         <svg width="505" height="627" viewBox="0 0 505 627" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="53.5328" y1="385.391" x2="53.5328" y2="315.453" stroke="white" stroke-width="5.59056"/>
         <line x1="53.5328" y1="608.027" x2="53.5328" y2="538.09" stroke="white" stroke-width="5.59056"/>
@@ -59,7 +59,7 @@
         </svg>
         </div>
 
-        <div v-else class="hero-media-container col-span-3 m-auto">
+        <div v-else  :class="[{ 'safari-video-candles-index': isSafari}]" class="hero-media-container col-span-3 m-auto">
           <video src="~/public/index_hero_1.webm" autoplay muted loop playsinline preload="auto"></video>
         </div>
       </Hero>
@@ -84,7 +84,7 @@
         </a>
       </div>
       <ClientOnly>
-        <CandlesCube class="col-span-3 m-auto"/>
+        <CandlesCube :class="[{ 'safari-video': isSafari}]" class="col-span-3 m-auto"/>
       </ClientOnly>
     </Hero>
 
@@ -127,7 +127,7 @@
       </div>
       <div class="col-span-1"></div>
       <ClientOnly>
-        <OrbitTrail class="col-span-3  m-auto"/>
+        <OrbitTrail :class="[{ 'safari-video-consulting-index-iphone': isIphone}, {'safari-video-consulting-index-mac': isMac}]" class="col-span-3  m-auto"/>
       </ClientOnly>
     </Hero>
 
@@ -238,10 +238,17 @@ const statBlock = ref(null)
 
 const { $device } = useNuxtApp();
 const isSafari = ref(null); 
+const isIphone = ref(null);
+const isMac = ref(null);
 
 onMounted(() => {
   
   isSafari.value = $device.isSafari;
+  isIphone.value = $device.isIos;
+  isMac.value = $device.isMacOS;
+
+  console.log(isIphone)
+  console.log(isMac)
   
   nextTick(() => {
     // Находим все <p> внутри statBlock с классом stat-item — только они будут анимироваться
