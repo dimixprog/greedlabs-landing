@@ -26,7 +26,7 @@ const partners = [
   {
     name: 'AlphaMind',
     logo: '/partners/ALPHAMIND_logo.svg',
-    url: 'https://alphamind.co' // Placeholder URL
+    url: 'https://x.com/Alphamind_labs/status/1963209237951111601' // Placeholder URL
   },
   {
     name: 'Astrena',
