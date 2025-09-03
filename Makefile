@@ -10,8 +10,8 @@ run:
 	docker run -d --name $(CONTAINER_NAME) -p 3000:3000 $(DOCKER_IMAGE)
 
 stop:
-	docker stop $(CONTAINER_NAME)
-	docker rm $(CONTAINER_NAME)
+	docker stop $(CONTAINER_NAME) || true
+	docker rm $(CONTAINER_NAME) || true
 
 clean:
 	docker rmi $(DOCKER_IMAGE)
