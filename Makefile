@@ -1,19 +1,29 @@
-DOCKER_IMAGE := greed-landing:latest
-CONTAINER_NAME := greed-website
+SERVICE_NAME := greedlabs-web
 
-.PHONY: build run stop clean
+.PHONY: build run stop clean up down
 
 build:
-	docker build -t $(DOCKER_IMAGE) .
+	docker-compose build
 
 run:
-	docker run -d --name $(CONTAINER_NAME) -p 3000:3000 $(DOCKER_IMAGE)
+	docker-compose up -d
+
+up:
+	docker-compose up -d
+
+down:
+	docker-compose down
 
 stop:
-	docker stop $(CONTAINER_NAME) || true
-	docker rm $(CONTAINER_NAME) || true
+	docker-compose stop
 
 clean:
-	docker rmi $(DOCKER_IMAGE)
+	docker-compose down --rmi all --volumes --remove-orphans
 
-rebuild: stop clean build run
+rebuild: down build up
+
+logs:
+	docker-compose logs -f $(SERVICE_NAME)
+
+restart:
+	docker-compose restart $(SERVICE_NAME)
