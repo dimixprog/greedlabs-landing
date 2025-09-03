@@ -242,9 +242,9 @@ import { ref, onMounted, nextTick } from 'vue'
 
 // SEO Meta
 useSeoMeta({
-  title: 'GREED Labs - Blockchain Development & Market Making Solutions',
+  title: 'GREED Labs | Crypto Market Making solutions',
   description: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services. Transform your ideas into reality with GREED Labs.',
-  ogTitle: 'GREED Labs - Blockchain Development & Market Making Solutions',
+  ogTitle: 'GREED Labs | Crypto Market Making solutions',
   ogDescription: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services.',
   ogImage: '/greed_logo.svg',
   twitterCard: 'summary_large_image'
