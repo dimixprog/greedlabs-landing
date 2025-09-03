@@ -79,9 +79,9 @@
             </a>
           </div>
           <div class="contact-section">
-            <button class="consultation-btn" @click="scrollToConsultation">
+            <a href="https://t.me/greedlabs_bot" class="consultation-btn" target="_blank">
               {{ $t('nav.freeConsultation') }}
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -156,9 +156,9 @@
           <img class="contact-icon" src="~/public/logos/x.svg" alt="x logo"> X.com
         </a>
       </div>
-      <button class="mobile-consultation-btn" @click="scrollToConsultation">
+      <a href="https://t.me/greedlabs_bot" class="mobile-consultation-btn" target="_blank">
         {{ $t('nav.freeConsultation') }}
-      </button>
+      </a>
     </div>
   </div>
 </template>
@@ -248,14 +248,7 @@ const changeLanguage = (current) => {
   switchLanguage(newLang)
 }
 
-const scrollToConsultation = () => {
-  const element = document.querySelector('#contact')
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-  closeMobileMenu()
-  closeAllMenus()
-}
+
 
 const handleClickOutside = (event) => {
   if (isTouch.value && !event.target.closest('.nav-item, .contact-dropdown, .dropdown-menu, .contact-dropdown-menu')) {
@@ -576,7 +569,7 @@ onUnmounted(() => {
   background: linear-gradient(45deg, #1586f4, #0066cc);
   color: white;
   border: none;
-  padding: 1vw 0;
+  padding: 1vw 2vw;
   border-radius: 2rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
@@ -584,6 +577,9 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1vw;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .consultation-btn:hover {
@@ -845,6 +841,9 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: clamp(10px, 4vh, 20px);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .mobile-consultation-btn:hover {
