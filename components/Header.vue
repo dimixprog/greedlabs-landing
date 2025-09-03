@@ -73,7 +73,7 @@
               <img class="contact-icon" src="~/public/logos/linkedin.svg" alt="linkedin logo">
               LinkedIn
             </a>
-            <a href="https://x.com/greedlabs" class="contact-link" target="_blank">
+            <a href="https://x.com/greed_labs" class="contact-link" target="_blank">
               <img class="contact-icon" src="~/public/logos/x.svg" alt="x logo">
               X.com
             </a>
@@ -152,7 +152,7 @@
         <a href="https://linkedin.com/company/greedlabs" class="mobile-contact-link">
           <img class="contact-icon" src="~/public/logos/linkedin.svg" alt="linkedin logo"> LinkedIn
         </a>
-        <a href="https://x.com/greedlabs" class="mobile-contact-link">
+        <a href="https://x.com/greed_labs" class="mobile-contact-link">
           <img class="contact-icon" src="~/public/logos/x.svg" alt="x logo"> X.com
         </a>
       </div>
