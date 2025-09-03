@@ -9,17 +9,15 @@
     <div class="consult-white-glow">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="5946 5541 550 333"> <path fill="white" stroke="none" fill-opacity="1" stroke-width="1" stroke-opacity="1" font-size-adjust="none" id="tSvg13a28f020ba" title="Path 1" d="M 6494.999847412109 5774.819877929687 C 6494.999847412109 5733.114877929687 6368.25234741211 5541.9998779296875 6211.904847412109 5541.9998779296875 C 6055.55484741211 5541.9998779296875 5946.999847412109 5733.114877929687 5946.999847412109 5774.819877929687 C 5946.999847412109 5816.524877929687 6055.55484741211 5872.9998779296875 6211.904847412109 5872.9998779296875C 6368.25234741211 5872.9998779296875 6494.999847412109 5816.524877929687 6494.999847412109 5774.819877929687Z"></path> <defs></defs> </svg>
     </div>
-    <h2>{{ $t("get_consult.get_consult") }}</h2>
-    <p>{{ $t("get_consult.get_consult_desc") }}</p>
     <div class="consult-cards">
       <img class="card-img left" src="/abce99a6-f01f-4ab1-b.webp" alt="" />
       <img class="card-img right" src="/0c34ea9a-7833-4628-8.webp" alt="" />
       <div class="consult-form-box">
-        <form>
-          <input type="text" :placeholder="$t('get_consult.name_placeholder')" />
-          <input type="text" :placeholder="$t('get_consult.contact_placeholder')" />
+        <div class="consult-content">
+          <p class="consult-line">GET A FREE CONSULTATION</p>
+          <p class="consult-line">Get a free consultation on our products and services!</p>
           <ConsultButton class="submit-btn"/>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -29,9 +27,9 @@
 .consult-section {
   position: relative;
   background: #191b1f;
-  padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+  padding: var(--spacing-xl) 0 var(--spacing-4xl);
   overflow: hidden;
-  min-height: 800px;
+  min-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,12 +137,33 @@
   text-align: center;
 }
 
-.consult-form-box form {
+.consult-content {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-3xl) var(--spacing-4xl);
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-4xl);
+}
+
+.consult-line {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.consult-line:first-child {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+.consult-line:last-of-type {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
 }
 
 .consult-form-box form::before {
@@ -219,7 +238,12 @@
   .consult-section p {
     font-size: 18px;
   }
-  .consult-form-box input,
+  .consult-line:first-child {
+    font-size: 2rem;
+  }
+  .consult-line:last-of-type {
+    font-size: 1.2rem;
+  }
   .submit-btn {
     height: 70px;
     font-size: 18px;
@@ -255,10 +279,15 @@
     font-size: 16px;
     margin-bottom: var(--spacing-xl);
   }
-  .consult-form-box form {
+  .consult-content {
     padding: var(--spacing-lg) var(--spacing-xl);
   }
-  .consult-form-box input,
+  .consult-line:first-child {
+    font-size: 1.8rem;
+  }
+  .consult-line:last-of-type {
+    font-size: 1.1rem;
+  }
   .submit-btn {
     height: 60px;
     font-size: 12px;
@@ -284,7 +313,7 @@
     max-width: 100%;
     border-radius: 25px;
   }
-  .consult-form-box form {
+  .consult-content {
     padding: 0;
   }
   .consult-section h2 {
@@ -294,7 +323,7 @@
     font-size: 14px;
     margin-bottom: var(--spacing-lg);
   }
-  .consult-form-box input,
+  .consult-line,
   .submit-btn {
     height: 55px;
     font-size: 0.8rem;
