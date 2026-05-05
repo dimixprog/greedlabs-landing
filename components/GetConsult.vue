@@ -14,8 +14,8 @@
       <img class="card-img right" src="/0c34ea9a-7833-4628-8.webp" alt="" />
       <div class="consult-form-box">
         <div class="consult-content">
-          <p class="consult-line">GET A FREE CONSULTATION</p>
-          <p class="consult-line">Get a free consultation on our products and services!</p>
+          <p class="consult-line">{{ $t('get_consult.get_consult') }}</p>
+          <p class="consult-line">{{ $t('get_consult.get_consult_desc') }}</p>
           <ConsultButton class="submit-btn"/>
         </div>
       </div>

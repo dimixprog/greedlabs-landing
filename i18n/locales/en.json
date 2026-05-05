@@ -27,7 +27,7 @@
     "consulting": "CONSULTING",
     "consulting_desc": "Strategic consulting that unlocks real traction.\nWhether you’re launching or scaling, our team brings deep market insight, strategic frameworks, and a powerful partner network to drive measurable growth.",
     "about_us": "ABOUT US",
-    "about_us_desc": "A multidisciplinary team at the forefront of crypto innovation.\nWith decades of combined experience in trading, engineering, and DeFi strategy, we architect next-gen fintech systems for tomorrow’s market leaders.",
+    "about_us_desc": "A multidisciplinary team at the forefront of crypto innovation.\nWith deep experience in trading, engineering, and DeFi strategy, we architect next-gen fintech systems for tomorrow’s market leaders.",
     "team": "TEAM",
     "dmitry": "Dmitry Vasilyev",
     "dmitry_role": "Co-founder, CEO",
@@ -60,8 +60,8 @@
     "prof_support_2_desc": "Liquidity and volatility under control in the first minutes of trading.",
     "prof_support_3_title": "Launch with a real plan",
     "prof_support_3_desc": "Structured go-to-market backed by data and experience.",
-    "prof_support_4_title": "Eliminate chance from success",
-    "prof_support_4_desc": "Confident and predictable execution beats improvisation.",
+    "prof_support_4_title": "Remove guesswork from your launch",
+    "prof_support_4_desc": "Confident, predictable execution built on data — not improvisation.",
     "work_with": "WE WORK WITH",
     "cex": "CEX SERVICES",
     "cex_desc": "Premium CEX coverage for scalable liquidity.\nTap into institutional-grade routing, deep liquidity pools, and advanced risk-managed trading across centralized platforms.",
@@ -87,7 +87,7 @@
     "web3_back": "We automate routine operations, simplify project management, or develop robots for your trading strategy.",
     "dapp": "DAPP",
     "dapp_front": "Custom decentralized apps: DEXs, launchpads, GameFi, NFT, and staking platforms.",
-    "dapp_back": "We employ only the best engineers with years of experience in web3. The best team, best practices, and high quality.",
+    "dapp_back": "Our DApp engineers bring production-grade experience across DEXs, launchpads, and GameFi — built for scale from day one.",
     "web_apps": "WEB APPS",
     "web_apps_front": "Web platforms with API/Telegram integration, internal tools, analytics and CMS features.",
     "web_apps_back": "The new standard for apps, which we've been working with since its inception. We develop solutions from simple apps to large-scale marketplaces.",
@@ -97,7 +97,7 @@
     "development_cycle": "Development",
     "development_cycle_desc": "At this stage, your idea comes to life, and you can\nobserve it in weekly reports.\nWe not only write code but also prepare servers, databases, and\nthe entire system for real-world use.",
     "testing": "Testing",
-    "testing_desc": "The last, but not least, stage where we\ncheck how ready your project is for release.\nWe conduct a series of tests to confirm quality\nand reliability.",
+    "testing_desc": "The final stage before launch.\nWe run a full test suite to confirm quality and reliability —\nso you ship with confidence.",
     "tech_stack": "TECH STACK",
     "tech_stack_desc": "Our team has an extensive stack and experience. We're not limited in languages and frameworks, allowing us to use the most optimal set of tools for each project.",
     "lang_and_frameworks": "Languages and Frameworks",
@@ -114,7 +114,7 @@
     "clients_users_title": "Lines of Code",
     "achievements": "OUR ACHIEVEMENTS",
     "cases": "OUR CASES",
-    "cases_desc": "Projects that have gone through GREED Labs",
+    "cases_desc": "A sample of what we've built",
     "cases_nft": "NFT Market",
     "cases_nft_desc": "NFT projects in different networks\nand on various marketplaces.",
     "cases_gamefi": "GameFi",
@@ -129,7 +129,7 @@
     "consulting_desc": "From tokenomics to go-to-market – expert guidance at every stage of your project lifecycle.\nTrusted by founders building in DeFi, GameFi, and infrastructure.",
     "our_services": "OUR SERVICES",
     "tech_consulting": "TECHNICAL\nCONSULTING",
-    "support": "ADVISORY",
+    "support": "ADVISORY\nSUPPORT",
     "vc_support": "VC\nSUPPORT",
     "tokenomics_development": "TOKENOMICS\nDEVELOPMENT",
     "tech_audit": "TECHNICAL\nAUDIT",
@@ -143,12 +143,12 @@
   },
   "get_consult": {
     "get_consult": "GET A FREE CONSULTATION",
-    "get_consult_desc": "Get a free consultation on our products and services!",
+    "get_consult_desc": "Tell us about your project and we'll respond within 24 hours.",
     "name_placeholder": "Name",
     "contact_placeholder": "Contact (Telegram, E-mail, Phone)"
   },
   "footer": {
-    "copyright": "©2025 GREED LABS. All rights reserved."
+    "copyright": "©2026 GREED LABS. All rights reserved."
   },
   "partnerships": {
     "title": "Our Partners"
