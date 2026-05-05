@@ -7,6 +7,60 @@ export default defineNuxtConfig({
           src: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs',
           type: 'module'
         },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'GREED Labs',
+            url: 'https://greedlabs.org',
+            logo: 'https://greedlabs.org/greed_logo.svg',
+            email: 'hello@greedlabs.org',
+            sameAs: [
+              'https://t.me/greedlabs',
+              'https://x.com/GREED_Labs',
+              'https://www.linkedin.com/company/greedlabs'
+            ],
+            description: 'Institutional-grade crypto market making, blockchain development, and Web3 consulting. Trusted by token projects at every stage — from launch to scale.',
+            founder: [
+              { '@type': 'Person', name: 'Dmitry Vasilyev', jobTitle: 'Co-founder, CEO' },
+              { '@type': 'Person', name: 'George Kozyrev', jobTitle: 'Co-founder, CTO' }
+            ],
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: 'Web3 Services',
+              itemListElement: [
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Crypto Market Making',
+                    description: 'Algorithmic liquidity provision across CEX and DEX platforms including anti-snipe protection, volume management, and price control.',
+                    url: 'https://greedlabs.org/market-making'
+                  }
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Blockchain Development',
+                    description: 'Full-stack Web3 development: smart contracts, DApps, DEXs, launchpads, GameFi, NFT platforms, and trading bots.',
+                    url: 'https://greedlabs.org/development'
+                  }
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Web3 Consulting',
+                    description: 'Strategic and technical advisory: tokenomics development, technical audits, VC support, and go-to-market strategy.',
+                    url: 'https://greedlabs.org/consulting'
+                  }
+                }
+              ]
+            }
+          })
+        },
         ...(process.env.NODE_ENV !== 'development' ? [
           {
             src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_PUBLIC_GTAG_ID}`,
@@ -42,7 +96,7 @@ export default defineNuxtConfig({
       ],
       noscript: [
         {
-          innerHTML: '<div><img src="https://mc.yandex.ru/watch/12345678" style="position:absolute; left:-9999px;" alt="" /></div>'
+          innerHTML: `<div><img src="https://mc.yandex.ru/watch/${process.env.NUXT_PUBLIC_YM_ID}" style="position:absolute; left:-9999px;" alt="" /></div>`
         }
       ]
     }

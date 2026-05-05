@@ -246,7 +246,7 @@ useSeoMeta({
   description: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services. Transform your ideas into reality with GREED Labs.',
   ogTitle: 'GREED Labs | Crypto Market Making solutions',
   ogDescription: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services.',
-  ogImage: '/greed_logo.svg',
+  ogImage: '/dark-theme-wide-w:background.png',
   twitterCard: 'summary_large_image'
 })
 
@@ -263,9 +263,6 @@ onMounted(() => {
   isIphone.value = $device.isIos;
   isMac.value = $device.isMacOS;
 
-  console.log(isIphone)
-  console.log(isMac)
-  
   nextTick(() => {
     // Находим все <p> внутри statBlock с классом stat-item — только они будут анимироваться
     const animatedPs = statBlock.value.querySelectorAll('.stat-item')

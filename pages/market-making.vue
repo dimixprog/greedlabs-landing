@@ -65,7 +65,7 @@
         <ConsultButton />
       </div>
       <div class="col-span-3 m-auto">
-        <video :class="[{ '.safari-video-start-tokens-market-making': isSafari}]" style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
+        <video :class="{ 'safari-video-start-tokens-market-making': isSafari }" style="object-fit: cover; width: 100%; height: 100%;" preload="auto" playsinline="" autoplay="" loop="" muted="">
           <source src="https://dl.dropboxusercontent.com/scl/fi/oslgex5k4x3u2if34l5uc/Plant.mp4?rlkey=d5o1jerjn26j0dsjbieisyjk6&amp;st=bk7tr4n6&amp;dl=0" type="video/mp4">
         </video>
       </div>
@@ -632,7 +632,7 @@ useSeoMeta({
   description: 'Professional cryptocurrency market making services providing liquidity, price stability, and trading volume optimization for digital assets and DeFi protocols.',
   ogTitle: 'Market Making Services - GREED Labs',
   ogDescription: 'Professional cryptocurrency market making services providing liquidity, price stability, and trading volume optimization for digital assets.',
-  ogImage: '/greed_logo.svg',
+  ogImage: '/dark-theme-wide-w:background.png',
   twitterCard: 'summary_large_image'
 })
 

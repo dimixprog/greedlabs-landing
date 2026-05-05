@@ -6,7 +6,7 @@ useSeoMeta({
   description: 'Expert blockchain consulting services including technical audits, tokenomics development, VC support, and comprehensive crypto project guidance from GREED Labs.',
   ogTitle: 'Blockchain Consulting Services - GREED Labs',
   ogDescription: 'Expert blockchain consulting services including technical audits, tokenomics development, VC support, and comprehensive crypto project guidance.',
-  ogImage: '/greed_logo.svg',
+  ogImage: '/dark-theme-wide-w:background.png',
   twitterCard: 'summary_large_image'
 })
 </script>

@@ -302,7 +302,6 @@ onMounted(() => {
         isVisible = true;
         startScrollY = window.scrollY; // Фиксируем стартовую позицию
         onScroll(); // Применяем сразу
-        console.log('Элемент вошёл в viewport! Старт эффектов.');
       }
       // Опционально: если вышел из viewport, можно сбросить isVisible = false;
     });

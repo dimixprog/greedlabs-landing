@@ -1,0 +1,41 @@
+# GREED Labs
+
+> Institutional-grade crypto market making, blockchain development, and Web3 consulting. Trusted by token projects at every stage — from launch to scale.
+
+GREED Labs is a multidisciplinary Web3 company founded by Dmitry Vasilyev (Co-founder, CEO) and George Kozyrev (Co-founder, CTO). The team brings decades of combined experience in algorithmic trading, blockchain engineering, and DeFi strategy.
+
+Contact: hello@greedlabs.org
+Telegram: https://t.me/greedlabs
+LinkedIn: https://www.linkedin.com/company/greedlabs
+X (Twitter): https://x.com/GREED_Labs
+
+## Services
+
+### Market Making
+Algorithmic liquidity provision across CEX and DEX platforms. Services include:
+- DEX services: token launches, anti-snipe protection, volume management, price control
+- CEX services: liquidity management, CEX listing support, order optimization
+- Continuous order book support with proprietary execution systems
+
+### Blockchain Development
+Full-stack Web3 product development from MVP to production. Services include:
+- Smart contract development (EVM, Solana, and other chains)
+- DApps: DEXs, launchpads, GameFi, NFT platforms, staking
+- Web apps with API and Telegram integrations
+- Web3 utilities: trading bots, price trackers, admin panels, automation scripts
+- Frontend & backend development
+
+### Consulting
+Strategic and technical advisory for crypto projects. Services include:
+- Technical consulting and architecture review
+- Technical audit
+- Tokenomics development
+- VC support and fundraising guidance
+- Go-to-market strategy
+
+## Pages
+
+- [Home](https://greedlabs.org/): Overview of all services, team, and client results
+- [Market Making](https://greedlabs.org/market-making): Full breakdown of DEX and CEX market making services
+- [Development](https://greedlabs.org/development): Blockchain and Web3 development services, tech stack, case studies
+- [Consulting](https://greedlabs.org/consulting): Advisory, tokenomics, VC support, and technical audit services

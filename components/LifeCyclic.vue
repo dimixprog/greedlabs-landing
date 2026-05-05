@@ -193,9 +193,6 @@ const calculateOffsets = async () => {
   const isTablet = width <= 1024 && width > 641
   const isMobile = width <= 640
 
-  console.log(isMobile.value)
-  console.log(isTablet.value)
-
   if (isMobile) {
     offsets.value = [0, 0, 0, 0]
   } else if (isTablet) {

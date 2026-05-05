@@ -212,8 +212,6 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css/navigation'
-//import Vue3Autocounter from 'vue3-autocounter'
-
 import { ref, onMounted, nextTick } from 'vue'
 
 // SEO Meta
@@ -222,7 +220,7 @@ useSeoMeta({
   description: 'Professional blockchain development services including DeFi protocols, smart contracts, dApps, and custom blockchain solutions. Expert developers at GREED Labs.',
   ogTitle: 'Blockchain Development Services - GREED Labs',
   ogDescription: 'Professional blockchain development services including DeFi protocols, smart contracts, dApps, and custom blockchain solutions.',
-  ogImage: '/greed_logo.svg',
+  ogImage: '/dark-theme-wide-w:background.png',
   twitterCard: 'summary_large_image'
 })
 
