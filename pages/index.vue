@@ -1,284 +1,477 @@
-<!-- pages/index.vue -->
+<!-- pages/index.vue — unified market making landing page -->
 <template>
   <div>
+    <!-- ═══════════════════════════════════════════
+         1. HERO
+    ═══════════════════════════════════════════ -->
     <div class="hero-wrapper">
       <Hero id="start_way" class="grid grid-cols-7 justify-between items-center margin-container">
         <div class="col-span-4">
+          <div class="hero-eyebrow">{{ $t("index.start_way_eyebrow") }}</div>
           <h2 class="colorized-text">
             {{ $t("index.start_way") }}
           </h2>
           <p>
             {{ $t("index.start_way_desc") }}
           </p>
-          <ConsultButton />
+          <div class="cta-group">
+            <ConsultButton />
+            <a href="https://t.me/greedlabs_bot" target="_blank" rel="noopener" class="pilot-btn">
+              {{ $t("index.free_trial_badge") }}
+            </a>
+          </div>
         </div>
 
-        <div v-if="isSafari == null"></div>
-
-        <div v-else-if="!isSafari" class="hero-media-container col-span-3 m-auto">
-        <svg width="505" height="627" viewBox="0 0 505 627" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="53.5328" y1="385.391" x2="53.5328" y2="315.453" stroke="white" stroke-width="5.59056"/>
-        <line x1="53.5328" y1="608.027" x2="53.5328" y2="538.09" stroke="white" stroke-width="5.59056"/>
-        <rect x="19.0273" y="378.398" width="72.269" height="167.85" fill="white"/>
-        <line x1="152.3" y1="326.49" x2="152.3" y2="272.589" stroke="white" stroke-width="5.59056"/>
-        <line x1="152.3" y1="498.078" x2="152.3" y2="444.177" stroke="white" stroke-width="5.59056"/>
-        <rect x="117.795" y="321.104" width="72.269" height="129.362" fill="white"/>
-        <line x1="349.834" y1="242.758" x2="349.834" y2="181.284" stroke="white" stroke-width="5.59056"/>
-        <line x1="349.834" y1="438.449" x2="349.834" y2="376.975" stroke="white" stroke-width="5.59056"/>
-        <rect x="315.328" y="236.615" width="72.269" height="147.537" fill="white"/>
-        <line x1="448.599" y1="101.561" x2="448.599" y2="19.15" stroke="white" stroke-width="5.59056"/>
-        <line x1="448.599" y1="363.902" x2="448.599" y2="281.492" stroke="white" stroke-width="5.59056"/>
-        <rect x="414.094" y="93.3301" width="72.269" height="197.785" fill="white"/>
-        <line x1="251.064" y1="398.65" x2="251.064" y2="363.904" stroke="white" stroke-width="5.59056"/>
-        <line x1="251.064" y1="509.26" x2="251.064" y2="474.514" stroke="white" stroke-width="5.59056"/>
-        <rect x="216.559" y="395.182" width="72.269" height="83.3909" fill="white"/>
-        <g filter="url(#filter0_f_0_1)">
-        <line x1="53.5328" y1="385.391" x2="53.5328" y2="315.453" stroke="white" stroke-width="5.59056"/>
-        <line x1="53.5328" y1="608.027" x2="53.5328" y2="538.09" stroke="white" stroke-width="5.59056"/>
-        <rect x="19.0273" y="378.398" width="72.269" height="167.85" fill="white"/>
-        <line x1="152.3" y1="326.49" x2="152.3" y2="272.589" stroke="white" stroke-width="5.59056"/>
-        <line x1="152.3" y1="498.078" x2="152.3" y2="444.177" stroke="white" stroke-width="5.59056"/>
-        <rect x="117.795" y="321.104" width="72.269" height="129.362" fill="white"/>
-        <line x1="349.834" y1="242.758" x2="349.834" y2="181.284" stroke="white" stroke-width="5.59056"/>
-        <line x1="349.834" y1="438.449" x2="349.834" y2="376.975" stroke="white" stroke-width="5.59056"/>
-        <rect x="315.328" y="236.615" width="72.269" height="147.537" fill="white"/>
-        <line x1="448.599" y1="101.561" x2="448.599" y2="19.15" stroke="white" stroke-width="5.59056"/>
-        <line x1="448.599" y1="363.902" x2="448.599" y2="281.492" stroke="white" stroke-width="5.59056"/>
-        <rect x="414.094" y="93.3301" width="72.269" height="197.785" fill="white"/>
-        <line x1="251.064" y1="398.65" x2="251.064" y2="363.904" stroke="white" stroke-width="5.59056"/>
-        <line x1="251.064" y1="509.26" x2="251.064" y2="474.514" stroke="white" stroke-width="5.59056"/>
-        <rect x="216.559" y="395.182" width="72.269" height="83.3909" fill="white"/>
-        </g>
-        <defs>
-        <filter id="filter0_f_0_1" x="0.392139" y="0.515186" width="504.606" height="626.147" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-        <feGaussianBlur stdDeviation="9.3176" result="effect1_foregroundBlur_0_1"/>
-        </filter>
-        </defs>
-        </svg>
-        </div>
-
-        <div v-else  :class="[{ 'safari-video-candles-index': isSafari}]" class="hero-media-container col-span-3 m-auto">
-          <video src="~/public/index_hero_1.webm" autoplay muted loop playsinline preload="auto"></video>
-        </div>
+        <ClientOnly>
+          <div class="hero-media-container col-span-3 m-auto">
+            <HeroLiveChart />
+          </div>
+        </ClientOnly>
       </Hero>
+
+      <div class="work-with-text">{{ $t("market_making.work_with") }}</div>
+      <Vue3Marquee class="marquee" :duration="40" :gradient="true" :gradient-color="[17, 17, 17]" gradientLength="6%">
+        <a class="marquee-item" href="https://raydium.io" target="_blank" rel="noopener noreferrer"><img src="/logos/raydium.png" alt="Raydium"/></a>
+        <a class="marquee-item" href="https://orca.so" target="_blank" rel="noopener noreferrer"><img src="/logos/orca.svg" alt="Orca"/></a>
+        <a class="marquee-item" href="https://jup.ag" target="_blank" rel="noopener noreferrer"><img src="/logos/jupiter.svg" alt="Jupiter"/></a>
+        <a class="marquee-item" href="https://meteora.ag" target="_blank" rel="noopener noreferrer"><img src="/logos/meteora.svg" alt="Meteora"/></a>
+        <a class="marquee-item" href="https://uniswap.org" target="_blank" rel="noopener noreferrer"><img src="/logos/uniswap.png" alt="Uniswap"/></a>
+        <a class="marquee-item" href="https://pancakeswap.finance" target="_blank" rel="noopener noreferrer"><img src="/logos/pancakeswap.png" alt="PancakeSwap"/></a>
+        <a class="marquee-item" href="https://ston.fi" target="_blank" rel="noopener noreferrer"><img src="/logos/stonfi.svg" alt="StonFi"/></a>
+        <a class="marquee-item" href="https://dedust.io" target="_blank" rel="noopener noreferrer"><img src="/logos/dedust.png" alt="DeDust"/></a>
+        <a class="marquee-item" href="https://phemex.com" target="_blank" rel="noopener noreferrer"><img src="/logos/phemex.png" alt="Phemex"/></a>
+        <a class="marquee-item" href="https://mexc.com" target="_blank" rel="noopener noreferrer"><img src="/logos/mexc.svg" alt="MEXC"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://x.com/Alphamind_labs" target="_blank" rel="noopener noreferrer"><img src="/partners/alphamind.svg" alt="AlphaMind"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://astrena.ai" target="_blank" rel="noopener noreferrer"><img src="/partners/astrena.svg" alt="Astrena"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://cwarelabs.com" target="_blank" rel="noopener noreferrer"><img src="/partners/cware.svg" alt="CWare"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://x.com/Drft_Party" target="_blank" rel="noopener noreferrer"><img src="/partners/drft.png" alt="DRFT"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://gagarin.world" target="_blank" rel="noopener noreferrer"><img src="/partners/gagarin.svg" alt="Gagarin"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://kucoin.com" target="_blank" rel="noopener noreferrer"><img src="/partners/kucoin.svg" alt="KuCoin"/></a>
+        <!-- duplicate set for seamless infinite loop -->
+        <a class="marquee-item" href="https://raydium.io" target="_blank" rel="noopener noreferrer"><img src="/logos/raydium.png" alt="Raydium"/></a>
+        <a class="marquee-item" href="https://orca.so" target="_blank" rel="noopener noreferrer"><img src="/logos/orca.svg" alt="Orca"/></a>
+        <a class="marquee-item" href="https://jup.ag" target="_blank" rel="noopener noreferrer"><img src="/logos/jupiter.svg" alt="Jupiter"/></a>
+        <a class="marquee-item" href="https://meteora.ag" target="_blank" rel="noopener noreferrer"><img src="/logos/meteora.svg" alt="Meteora"/></a>
+        <a class="marquee-item" href="https://uniswap.org" target="_blank" rel="noopener noreferrer"><img src="/logos/uniswap.png" alt="Uniswap"/></a>
+        <a class="marquee-item" href="https://pancakeswap.finance" target="_blank" rel="noopener noreferrer"><img src="/logos/pancakeswap.png" alt="PancakeSwap"/></a>
+        <a class="marquee-item" href="https://ston.fi" target="_blank" rel="noopener noreferrer"><img src="/logos/stonfi.svg" alt="StonFi"/></a>
+        <a class="marquee-item" href="https://dedust.io" target="_blank" rel="noopener noreferrer"><img src="/logos/dedust.png" alt="DeDust"/></a>
+        <a class="marquee-item" href="https://phemex.com" target="_blank" rel="noopener noreferrer"><img src="/logos/phemex.png" alt="Phemex"/></a>
+        <a class="marquee-item" href="https://mexc.com" target="_blank" rel="noopener noreferrer"><img src="/logos/mexc.svg" alt="MEXC"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://x.com/Alphamind_labs" target="_blank" rel="noopener noreferrer"><img src="/partners/alphamind.svg" alt="AlphaMind"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://astrena.ai" target="_blank" rel="noopener noreferrer"><img src="/partners/astrena.svg" alt="Astrena"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://cwarelabs.com" target="_blank" rel="noopener noreferrer"><img src="/partners/cware.svg" alt="CWare"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://x.com/Drft_Party" target="_blank" rel="noopener noreferrer"><img src="/partners/drft.png" alt="DRFT"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://gagarin.world" target="_blank" rel="noopener noreferrer"><img src="/partners/gagarin.svg" alt="Gagarin"/></a>
+        <a class="marquee-item marquee-item--partner" href="https://kucoin.com" target="_blank" rel="noopener noreferrer"><img src="/partners/kucoin.svg" alt="KuCoin"/></a>
+      </Vue3Marquee>
     </div>
 
-    <Hero id="market_making" class="grid grid-cols-7 justify-between items-center py-3xl margin-container">
-      <div class="hero-text-container col-span-4">
-        <h2 class="colorized-text">{{ $t("index.market_making") }}</h2>
-        <p>
-          {{ $t("index.market_making_desc") }}
-        </p>
-        <a href="/market-making" class="text-jump-link">
-          <span class="text">{{
-            $t("index.more")
-          }}
-          </span>
-          <span class="svg-arrow-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="6120 5099 24 24" class="arrow-svg">
-              <path fill="#1586f4" d="M 6133.4697 5104.4697 C 6133.7626 5104.1768 6134.2374 5104.1768 6134.5303 5104.4697C 6136.5303 5106.4697 6138.5303 5108.4697 6140.5303 5110.4697C 6140.8232 5110.7626 6140.8232 5111.2374 6140.5303 5111.5303C 6138.5303 5113.5303 6136.5303 5115.5303 6134.5303 5117.5303C 6134.2374 5117.8232 6133.7626 5117.8232 6133.4697 5117.5303C 6133.1768 5117.2374 6133.1768 5116.7626 6133.4697 5116.4697C 6135.0429 5114.8965 6136.6161 5113.3232 6138.1893 5111.75C 6133.4595 5111.75 6128.7297 5111.75 6124 5111.75C 6123.5858 5111.75 6123.25 5111.4142 6123.25 5111C 6123.25 5110.5858 6123.5858 5110.25 6124 5110.25C 6128.7297 5110.25 6133.4595 5110.25 6138.1893 5110.25C 6136.6161 5108.6768 6135.0429 5107.1035 6133.4697 5105.5303"></path>
-            </svg>
-          </span>
-        </a>
-      </div>
-      <ClientOnly>
-        <CandlesCube :class="[{ 'safari-video': isSafari}]" class="col-span-3 m-auto"/>
-      </ClientOnly>
-    </Hero>
-
-    <Hero id="development" class="grid grid-cols-7 justify-between items-center margin-container">
-      <Cubes3D class="col-span-3 m-auto"/>
-      <div class="hero-text-container col-span-4">
-        <h2 class="colorized-text">{{ $t("index.development") }}</h2>
-        <p>
-          {{ $t("index.development_desc") }}
-        </p>
-        <a href="/development" class="text-jump-link">
-          <span class="text">{{
-            $t("index.more")
-          }}
-          </span>
-          <span class="svg-arrow-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="6120 5099 24 24" class="arrow-svg">
-              <path fill="#1586f4" d="M 6133.4697 5104.4697 C 6133.7626 5104.1768 6134.2374 5104.1768 6134.5303 5104.4697C 6136.5303 5106.4697 6138.5303 5108.4697 6140.5303 5110.4697C 6140.8232 5110.7626 6140.8232 5111.2374 6140.5303 5111.5303C 6138.5303 5113.5303 6136.5303 5115.5303 6134.5303 5117.5303C 6134.2374 5117.8232 6133.7626 5117.8232 6133.4697 5117.5303C 6133.1768 5117.2374 6133.1768 5116.7626 6133.4697 5116.4697C 6135.0429 5114.8965 6136.6161 5113.3232 6138.1893 5111.75C 6133.4595 5111.75 6128.7297 5111.75 6124 5111.75C 6123.5858 5111.75 6123.25 5111.4142 6123.25 5111C 6123.25 5110.5858 6123.5858 5110.25 6124 5110.25C 6128.7297 5110.25 6133.4595 5110.25 6138.1893 5110.25C 6136.6161 5108.6768 6135.0429 5107.1035 6133.4697 5105.5303"></path>
-            </svg>
-          </span>
-        </a>
-      </div>
-    </Hero>
-
-    <Hero id="consulting" class="grid grid-cols-7 justify-between items-center margin-container">
-      <div class="col-span-3">
-        <h2 class="colorized-text">{{ $t("index.consulting") }}</h2>
-        <p>{{ $t("index.consulting_desc") }}</p>
-        <a href="/consulting" class="text-jump-link">
-          <span class="text">{{
-            $t("index.more")
-          }}
-          </span>
-          <span class="svg-arrow-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="6120 5099 24 24" class="arrow-svg">
-              <path fill="#1586f4" d="M 6133.4697 5104.4697 C 6133.7626 5104.1768 6134.2374 5104.1768 6134.5303 5104.4697C 6136.5303 5106.4697 6138.5303 5108.4697 6140.5303 5110.4697C 6140.8232 5110.7626 6140.8232 5111.2374 6140.5303 5111.5303C 6138.5303 5113.5303 6136.5303 5115.5303 6134.5303 5117.5303C 6134.2374 5117.8232 6133.7626 5117.8232 6133.4697 5117.5303C 6133.1768 5117.2374 6133.1768 5116.7626 6133.4697 5116.4697C 6135.0429 5114.8965 6136.6161 5113.3232 6138.1893 5111.75C 6133.4595 5111.75 6128.7297 5111.75 6124 5111.75C 6123.5858 5111.75 6123.25 5111.4142 6123.25 5111C 6123.25 5110.5858 6123.5858 5110.25 6124 5110.25C 6128.7297 5110.25 6133.4595 5110.25 6138.1893 5110.25C 6136.6161 5108.6768 6135.0429 5107.1035 6133.4697 5105.5303"></path>
-            </svg>
-          </span>
-        </a>
-      </div>
-      <div class="col-span-1"></div>
-      <ClientOnly>
-        <OrbitTrail :class="[{ 'safari-video-consulting-index-iphone': isIphone}, {'safari-video-consulting-index-mac': isMac}]" class="col-span-3  m-auto"/>
-      </ClientOnly>
-    </Hero>
-
-    <div class="flex items-center margin-container">
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
-    </div>
-
-    <Partnerships />
-
-    <div class="flex items-center margin-container">
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3" viewBox="0 0 1060 2" fill="none"><rect width="1060" height="2" fill="url(#paint0_linear_1228_237)"/><defs><linearGradient id="paint0_linear_1228_237" x1="0" y1="1" x2="1060" y2="1" gradientUnits="userSpaceOnUse"><stop stop-color="#D4D4D4" stop-opacity="0"/><stop offset="0.26" stop-color="#6E6E6E" stop-opacity="0.530612"/><stop offset="0.49" stop-color="#D4D4D4"/><stop offset="0.695" stop-color="#636363" stop-opacity="0.539216"/><stop offset="1" stop-color="#474747" stop-opacity="0"/></linearGradient></defs></svg>
-    </div>
-
-    <div id="about_us" class="flex flex-col items-center margin-container">
-      <h2 class="colorized-text">{{ $t("index.about_us") }}</h2>
-      <p>
-        {{ $t("index.about_us_desc") }}
-      </p>
-      <div class="flex items-center justify-center">
-        <img class="gif" src="~/public/MConvertereu_retrof.gif" alt="MConvertereu">
-        <img class="inside_image" src="~/public/logo_opacity.webp" alt="MConvertereu">
-      </div>
-    </div>
-
-    <div id="team" class="margin-container">
-      <h2>{{ $t("index.team") }}</h2>
-      <div class="grid grid-cols-2 gap-16 mx-8 justify-between pb-3xl mx-auto">
-        <div class="photo_card pl-lg" id="Dmitry-Vasilev-card">
-          <h3 class="mt-[50%]">{{ $t("index.dmitry") }}</h3>
-          <p class="role">{{ $t("index.dmitry_role") }}</p>
-          <p class="experience">{{ $t("index.dmitry_experience") }}</p>
-          <div class="social">
-            <a href="https://x.com/VasDm_GreedLabs" target="_blank" rel="noopener">
-              <svg class="t-persons-social-links__svg" role="presentation" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 48 48">
-                <g clip-path="url(#clip0_3697_102)">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0
-                  37.2548 10.7452 48 24 48ZM33.3482 14L25.9027 22.4686H25.9023L34 34H28.0445L22.5915 26.2348L15.7644 34H14L21.8082 25.1193L14 14H19.9555L25.119
-                  21.3532L31.5838 14H33.3482ZM22.695 24.1101L23.4861 25.2173V25.2177L28.8746 32.7594H31.5847L24.9813 23.5172L24.1902 22.4099L19.1103
-                  15.2997H16.4002L22.695 24.1101Z" fill="#1586f4"></path>
-                </g>
-                <defs>
-                  <clipPath id="clip0_3697_102">
-                    <rect width="48" height="48" fill="white"></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="photo_card pl-lg" id="Georgy-Kozyrev-card">
-          <h3 class="mt-[50%]">{{ $t("index.georgy") }}</h3>
-          <p class="role">{{ $t("index.georgy_role") }}</p>
-          <p class="experience">{{ $t("index.georgy_experience") }}</p>
-          <div class="social">
-            <a href="https://x.com/realweb3dev" target="_blank" rel="noopener">
-              <svg class="t-persons-social-links__svg" role="presentation" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-              viewBox="0 0 48 48"><g clip-path="url(#clip0_3697_102)">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452
-                 0 24C0 37.2548 10.7452 48 24 48ZM33.3482 14L25.9027 22.4686H25.9023L34 34H28.0445L22.5915 26.2348L15.7644 34H14L21.8082 25.1193L14
-                 14H19.9555L25.119 21.3532L31.5838 14H33.3482ZM22.695 24.1101L23.4861 25.2173V25.2177L28.8746 32.7594H31.5847L24.9813 23.5172L24.1902
-                 22.4099L19.1103 15.2997H16.4002L22.695 24.1101Z" fill="#1586f4"></path>
-                </g>
-                <defs>
-                  <clipPath id="clip0_3697_102">
-                    <rect width="48" height="48" fill="white"></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/in/gkozyrev" target="_blank" rel="noopener">
-              <svg role="presentation" class="t-persons-social-links__svg" width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.6142 0 50-22.3858 50-50S77.6142 0 50 0 0 22.3858 0 50s22.3858
-                50 50 50Zm23-31.0002V52.363c0-8.9114-4.7586-13.0586-11.1079-13.0586-5.1234 0-7.4123 2.8199-8.6942 4.7942v-4.1124h-9.6468c.1297
-                2.7235 0 29.0136 0 29.0136h9.6484v-16.203c0-.8675.0657-1.731.3203-2.3513.6981-1.7351 2.284-3.5286 4.9491-3.5286 3.4905 0 4.8859
-                2.6611 4.8859 6.5602v15.5227H73ZM53.1979 44.0986v.094h-.0632c.0069-.0111.0148-.0228.0229-.0346.0137-.0198.0281-.0401.0403-.0594ZM28
-                31.0123C28 28.1648 30.1583 26 33.4591 26c3.3016 0 5.3302 2.1648 5.3934 5.0123 0 2.7851-2.0918 5.0156-5.4567 5.0156h-.064c-3.2351
-                0-5.3318-2.2305-5.3318-5.0156Zm10.2177 37.9875h-9.6445V39.9862h9.6445v29.0136Z" fill="#1586f4"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <!-- ═══════════════════════════════════════════
+         2. STATS / SOCIAL PROOF
+    ═══════════════════════════════════════════ -->
     <div id="clients" class="stat_container py-lg px-md flex flex-col gap-4 fadeup_block margin-container">
       <div class="self-center">
         <h2>{{ $t("index.clients") }}</h2>
       </div>
-        <div id="statBlock" ref="statBlock" class="grid grid-cols-3 justify-around">
-          <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='+'/></b>
-            <p class="stat-item">{{ $t("index.clients_dex_title") }}</p>
-          </div>
+      <div id="statBlock" ref="statBlock" class="grid grid-cols-4 justify-around">
+        <div class="flex flex-col items-center">
+          <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' suffix='+'/></b>
+          <p class="stat-item">{{ $t("index.clients_dex_title") }}</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <b><CounterCard :startAmount='0' :endAmount='100' :duration='1' suffix='+'/></b>
+          <p class="stat-item">{{ $t("index.clients_project_title") }}</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <b><CounterCard :startAmount='0' :endAmount='40' :duration='1' suffix='+'/></b>
+          <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <b><CounterCard :startAmount='0' :endAmount='50' :duration='1' prefix='$' suffix='B+'/></b>
+          <p class="stat-item">{{ $t("index.clients_volume_title") }}</p>
+        </div>
+      </div>
+    </div>
 
-          <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='70' :duration='1' suffix='+'/></b>
-            <p class="stat-item">{{ $t("index.clients_project_title") }}</p>
-          </div>
+    <!-- ═══════════════════════════════════════════
+         3. SERVICES OVERVIEW
+    ═══════════════════════════════════════════ -->
+    <div id="services" class="margin-container">
+      <div class="section-eyebrow">{{ $t("services.eyebrow") }}</div>
+      <h2 class="section-title">{{ $t("services.title") }}</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>{{ $t("services.dex_title") }}</h3>
+          <p>{{ $t("services.dex_desc") }}</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◉</div>
+          <h3>{{ $t("services.cex_title") }}</h3>
+          <p>{{ $t("services.cex_desc") }}</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◎</div>
+          <h3>{{ $t("services.launch_title") }}</h3>
+          <p>{{ $t("services.launch_desc") }}</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◐</div>
+          <h3>{{ $t("services.volume_title") }}</h3>
+          <p>{{ $t("services.volume_desc") }}</p>
+        </div>
+      </div>
+    </div>
 
-          <div class="flex flex-col items-center">
-            <b><CounterCard :startAmount='0' :endAmount='30' :duration='1' suffix='+'/></b>
-            <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
+    <!-- ═══════════════════════════════════════════
+         4. WHAT YOUR CHART LOOKS LIKE WITH US
+    ═══════════════════════════════════════════ -->
+    <div id="candle-section" class="big-card margin-container">
+      <div class="candle-layout">
+        <div class="candle-text">
+          <div class="section-eyebrow">PERFORMANCE</div>
+          <h3 class="colorized-text">{{ $t("market_making.candle_section_title") }}</h3>
+          <p class="ob-section-desc">{{ $t("market_making.candle_section_desc") }}</p>
+          <div class="candle-stats">
+            <div class="candle-stat">
+              <span class="candle-stat-val">×4+</span>
+              <span class="candle-stat-key">Volume</span>
+            </div>
+            <div class="candle-stat">
+              <span class="candle-stat-val">↓60%</span>
+              <span class="candle-stat-key">Volatility</span>
+            </div>
+            <div class="candle-stat">
+              <span class="candle-stat-val">↑</span>
+              <span class="candle-stat-key">Trend holds</span>
+            </div>
           </div>
         </div>
+        <div class="candle-chart-wrap">
+          <CandleChart />
+        </div>
+      </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════
+         5. HOW IT WORKS
+    ═══════════════════════════════════════════ -->
+    <div id="how-it-works" class="margin-container">
+      <div class="section-eyebrow">{{ $t("how_it_works.eyebrow") }}</div>
+      <h2 class="section-title">{{ $t("how_it_works.title") }}</h2>
+      <div class="hiw-grid">
+        <div class="hiw-step">
+          <div class="hiw-num">{{ $t("how_it_works.step1_num") }}</div>
+          <h3>{{ $t("how_it_works.step1_title") }}</h3>
+          <p>{{ $t("how_it_works.step1_desc") }}</p>
+        </div>
+        <div class="hiw-connector"></div>
+        <div class="hiw-step">
+          <div class="hiw-num">{{ $t("how_it_works.step2_num") }}</div>
+          <h3>{{ $t("how_it_works.step2_title") }}</h3>
+          <p>{{ $t("how_it_works.step2_desc") }}</p>
+        </div>
+        <div class="hiw-connector"></div>
+        <div class="hiw-step">
+          <div class="hiw-num">{{ $t("how_it_works.step3_num") }}</div>
+          <h3>{{ $t("how_it_works.step3_title") }}</h3>
+          <p>{{ $t("how_it_works.step3_desc") }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         5. DEX SERVICES
+    ═══════════════════════════════════════════ -->
+    <div class="anchor"><span id="dex-services"></span></div>
+    <div id="dex" class="launch-wrapper margin-container">
+      <div class="dex-header">
+        <div class="dex-text">
+          <div class="launch-eyebrow">{{ $t("market_making.dex_eyebrow") }}</div>
+          <h2 class="colorized-text">{{ $t("market_making.dex") }}</h2>
+          <p class="launch-lead">{{ $t("market_making.dex_lead") }}</p>
+          <p class="launch-desc">{{ $t("market_making.dex_desc") }}</p>
+          <ConsultButton />
+        </div>
+        <Fly3Cubes class="dex-cubes" />
+      </div>
+
+      <div class="dex-coverage">
+        <div class="dex-coverage-col">
+          <div class="dex-coverage-label">{{ $t("market_making.dex_chains_label") }}</div>
+          <div class="dex-tags">
+            <span class="dex-tag dex-tag-chain">Solana</span>
+            <span class="dex-tag dex-tag-chain">TON</span>
+            <span class="dex-tag dex-tag-chain">Ethereum</span>
+            <span class="dex-tag dex-tag-chain">BSC</span>
+            <span class="dex-tag dex-tag-chain">Base</span>
+            <span class="dex-tag dex-tag-chain">SUI</span>
+            <span class="dex-tag dex-tag-chain">AVAX</span>
+            <span class="dex-tag dex-tag-chain dex-tag-more">+ 10 other chains</span>
+          </div>
+        </div>
+        <div class="dex-coverage-divider"></div>
+        <div class="dex-coverage-col">
+          <div class="dex-coverage-label">{{ $t("market_making.dex_dexes_label") }}</div>
+          <div class="dex-tags">
+            <span class="dex-tag">Raydium</span>
+            <span class="dex-tag">Orca</span>
+            <span class="dex-tag">Meteora</span>
+            <span class="dex-tag">Pump.fun</span>
+            <span class="dex-tag">PumpSwap</span>
+            <span class="dex-tag">Uniswap</span>
+            <span class="dex-tag">PancakeSwap</span>
+            <span class="dex-tag">Trader Joe</span>
+            <span class="dex-tag">StonFi</span>
+            <span class="dex-tag">DeDust</span>
+            <span class="dex-tag">Aerodrome</span>
+            <span class="dex-tag">Velodrome</span>
+            <span class="dex-tag dex-tag-more">+ 20 other DEXes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         7. BUBBLEMAPS BEFORE / AFTER
+    ═══════════════════════════════════════════ -->
+    <div id="bubblemap-section" class="big-card pb-2xl margin-container">
+      <h3 class="colorized-text">{{ $t("market_making.bubblemap_section_title") }}</h3>
+      <p class="ob-section-desc">{{ $t("market_making.bubblemap_section_desc") }}</p>
+      <BubbleMapCompare />
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         8. TOKEN LAUNCH
+    ═══════════════════════════════════════════ -->
+    <div class="anchor"><span id="token-launch"></span></div>
+    <div class="launch-wrapper margin-container">
+      <Hero id="start_tokens" class="grid grid-cols-7 justify-between items-center">
+        <div class="col-span-4">
+          <div class="launch-eyebrow">{{ $t("market_making.start_tokens_eyebrow") }}</div>
+          <h2 class="colorized-text">{{ $t("market_making.start_tokens") }}</h2>
+          <p class="launch-lead">{{ $t("market_making.start_tokens_lead") }}</p>
+          <p class="launch-desc">{{ $t("market_making.start_tokens_desc") }}</p>
+          <ConsultButton />
+        </div>
+        <div class="col-span-3 flex items-center justify-center">
+          <TokenSniper />
+        </div>
+      </Hero>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         9. CEX SERVICES
+    ═══════════════════════════════════════════ -->
+    <div class="launch-wrapper margin-container">
+      <div class="anchor"><span id="cex-services"></span></div>
+      <Hero id="cex" class="grid grid-cols-7 justify-between items-center">
+        <div class="col-span-4">
+          <div class="launch-eyebrow">{{ $t("market_making.cex_eyebrow") }}</div>
+          <h2 class="colorized-text">{{ $t("market_making.cex") }}</h2>
+          <p class="launch-lead">{{ $t("market_making.cex_lead") }}</p>
+          <p class="launch-desc">{{ $t("market_making.cex_desc") }}</p>
+          <ConsultButton />
+        </div>
+        <div class="col-span-3 flex items-center justify-center">
+          <OrderBookWidget />
+        </div>
+      </Hero>
+      <div class="anchor"><span id="liquidity-management"></span></div>
+      <div class="anchor"><span id="cex-listing"></span></div>
+      <div class="anchor"><span id="order-optimization"></span></div>
+      <div class="cex-feat-grid">
+        <div class="cex-feat-card">
+          <div class="cex-feat-stat">{{ $t('market_making.cex_listing_stat') }}</div>
+          <div class="cex-feat-divider"></div>
+          <h3 class="cex-feat-title">{{ $t('market_making.cex_listing') }}</h3>
+          <p class="cex-feat-desc">{{ $t('market_making.cex_listing_desc') }}</p>
+        </div>
+        <div class="cex-feat-card">
+          <div class="cex-feat-stat">{{ $t('market_making.optimization_orders_stat') }}</div>
+          <div class="cex-feat-divider"></div>
+          <h3 class="cex-feat-title">{{ $t('market_making.optimization_orders') }}</h3>
+          <p class="cex-feat-desc">{{ $t('market_making.optimization_orders_desc') }}</p>
+        </div>
+        <div class="cex-feat-card">
+          <div class="cex-feat-stat">{{ $t('market_making.liquidity_manage_stat') }}</div>
+          <div class="cex-feat-divider"></div>
+          <h3 class="cex-feat-title">{{ $t('market_making.liquidity_manage') }}</h3>
+          <p class="cex-feat-desc">{{ $t('market_making.liquidity_manage_desc') }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         10. ORDERBOOK BEFORE / AFTER
+    ═══════════════════════════════════════════ -->
+    <div id="orderbook-comparison" class="big-card pb-2xl margin-container">
+      <h3 class="colorized-text">{{ $t("market_making.orderbook_section_title") }}</h3>
+      <p class="ob-section-desc">{{ $t("market_making.orderbook_section_desc") }}</p>
+      <div class="ob-grid">
+        <!-- BEFORE -->
+        <div class="ob-card">
+          <div class="ob-card-label ob-label-before">{{ $t("market_making.orderbook_before_title") }}</div>
+          <svg class="depth-chart" viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <polygon points="0,30 110,30 130,150 0,150" fill="rgba(52,251,255,0.12)"/>
+            <polyline points="0,30 110,30 130,150" fill="none" stroke="#34FBFF" stroke-width="2"/>
+            <polygon points="170,150 190,30 300,30 300,150" fill="rgba(255,80,80,0.12)"/>
+            <polyline points="170,150 190,30 300,30" fill="none" stroke="#FF5050" stroke-width="2"/>
+            <rect x="130" y="130" width="40" height="20" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <line x1="130" y1="150" x2="170" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+          </svg>
+          <div class="ob-meta">
+            <span class="ob-spread ob-spread-wide">{{ $t("market_making.spread_before") }}</span>
+            <span class="ob-depth ob-depth-shallow">{{ $t("market_making.depth_before") }}</span>
+          </div>
+        </div>
+        <!-- AFTER -->
+        <div class="ob-card ob-card-after">
+          <div class="ob-card-label ob-label-after">{{ $t("market_making.orderbook_after_title") }}</div>
+          <svg class="depth-chart" viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <polygon points="0,5 138,5 148,150 0,150" fill="rgba(52,251,255,0.18)"/>
+            <polyline points="0,5 138,5 148,150" fill="none" stroke="#34FBFF" stroke-width="2.5"/>
+            <polygon points="152,150 162,5 300,5 300,150" fill="rgba(255,80,80,0.18)"/>
+            <polyline points="152,150 162,5 300,5" fill="none" stroke="#FF5050" stroke-width="2.5"/>
+            <line x1="148" y1="150" x2="152" y2="150" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+          </svg>
+          <div class="ob-meta">
+            <span class="ob-spread ob-spread-tight">{{ $t("market_making.spread_after") }}</span>
+            <span class="ob-depth ob-depth-deep">{{ $t("market_making.depth_after") }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         11. VOLUME MANAGEMENT
+    ═══════════════════════════════════════════ -->
+    <div class="anchor"><span id="volume-management"></span></div>
+    <div id="volume" class="big-card pb-2xl margin-container">
+      <h3 class="colorized-text">{{ $t("market_making.volume_control") }}</h3>
+      <p class="ob-section-desc">{{ $t("market_making.volume_control_desc") }}</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div>
+            <strong>Two-Sided Quoting</strong>
+            <span>We continuously place bids and asks so real buyers and sellers always have a counterparty — no gaps, no dead order books.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div>
+            <strong>Slippage Reduction</strong>
+            <span>Deep resting liquidity at multiple price levels absorbs market orders without moving the price — critical for larger trades and institutional participants.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div>
+            <strong>On-Chain Monitoring</strong>
+            <span>We track external liquidity flows, wallet concentration, and trade patterns in real time to detect and respond to abnormal market conditions.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         12. PROFESSIONAL SUPPORT
+    ═══════════════════════════════════════════ -->
+    <div id="prof-support" class="pb-2xl margin-container">
+      <h2>{{ $t("market_making.prof_support") }}</h2>
+      <div class="prof-support-grid">
+        <div class="prof-card">
+          <div class="prof-card-num">01</div>
+          <strong>{{ $t("market_making.prof_support_1_title") }}</strong>
+          <p>{{ $t("market_making.prof_support_1_desc") }}</p>
+        </div>
+        <div class="prof-card">
+          <div class="prof-card-num">02</div>
+          <strong>{{ $t("market_making.prof_support_2_title") }}</strong>
+          <p>{{ $t("market_making.prof_support_2_desc") }}</p>
+        </div>
+        <div class="prof-card">
+          <div class="prof-card-num">03</div>
+          <strong>{{ $t("market_making.prof_support_3_title") }}</strong>
+          <p>{{ $t("market_making.prof_support_3_desc") }}</p>
+        </div>
+        <div class="prof-card">
+          <div class="prof-card-num">04</div>
+          <strong>{{ $t("market_making.prof_support_4_title") }}</strong>
+          <p>{{ $t("market_making.prof_support_4_desc") }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         13. FAQ
+    ═══════════════════════════════════════════ -->
+    <div id="faq" class="margin-container">
+      <div class="section-eyebrow">{{ $t("faq.eyebrow") }}</div>
+      <h2 class="section-title">{{ $t("faq.title") }}</h2>
+      <div class="faq-list">
+        <div
+          v-for="i in 7"
+          :key="i"
+          class="faq-item"
+          :class="{ open: faqOpen === i }"
+          @click="faqOpen = faqOpen === i ? null : i"
+        >
+          <div class="faq-question">
+            <span>{{ $t(`faq.q${i}`) }}</span>
+            <div class="faq-chevron">{{ faqOpen === i ? '−' : '+' }}</div>
+          </div>
+          <div class="faq-answer">
+            <p>{{ $t(`faq.a${i}`) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GetConsult is rendered by default.vue layout -->
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, nextTick } from 'vue'
+import Fly3Cubes from '~/components/Fly3Cubes.vue'
+import CandleChart from '~/components/CandleChart.vue'
+import BubbleMapCompare from '~/components/BubbleMapCompare.vue'
+import TokenSniper from '~/components/TokenSniper.vue'
+import OrderBookWidget from '~/components/OrderBookWidget.vue'
+import ChainNetwork from '~/components/ChainNetwork.vue'
 
 // SEO Meta
 useSeoMeta({
-  title: 'GREED Labs | Crypto Market Making solutions',
-  description: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services. Transform your ideas into reality with GREED Labs.',
-  ogTitle: 'GREED Labs | Crypto Market Making solutions',
-  ogDescription: 'Leading blockchain development company specializing in DeFi protocols, market making, and crypto consulting services.',
-  ogImage: '/dark-theme-wide-w:background.png',
+  title: 'GREED Labs | Crypto Market Making & Liquidity Solutions',
+  description: 'Institutional-grade crypto market making across 50+ CEX and every major DEX. Tight spreads, deep liquidity, and algorithmic execution on Solana, EVM, TON, and beyond.',
+  ogTitle: 'GREED Labs | Crypto Market Making & Liquidity Solutions',
+  ogDescription: 'Cross-venue market making across 50+ CEX and every major DEX. Tight spreads, deep liquidity, and algorithmic execution on Solana, EVM, TON, and beyond.',
+  ogImage: '/og-image.png',
   twitterCard: 'summary_large_image'
 })
 
 const statBlock = ref(null)
-
-const { $device } = useNuxtApp();
-const isSafari = ref(null); 
-const isIphone = ref(null);
-const isMac = ref(null);
+const { $device } = useNuxtApp()
+const isSafari = ref(null)
+const faqOpen = ref(null)
 
 onMounted(() => {
-  
-  isSafari.value = $device.isSafari;
-  isIphone.value = $device.isIos;
-  isMac.value = $device.isMacOS;
+  isSafari.value = $device.isSafari
 
   nextTick(() => {
-    // Находим все <p> внутри statBlock с классом stat-item — только они будут анимироваться
     const animatedPs = statBlock.value.querySelectorAll('.stat-item')
-
-    // Скрываем их изначально
     animatedPs.forEach(el => {
       el.classList.remove('fadeInUp')
       el.style.opacity = '0'
       el.style.transform = 'translateY(70px)'
     })
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            //показываем
             animatedPs.forEach((el, idx) => {
               setTimeout(() => {
                 el.classList.add('fadeInUp')
@@ -290,578 +483,971 @@ onMounted(() => {
       },
       { threshold: 0.8 }
     )
-
-    if (statBlock.value)
-      observer.observe(statBlock.value)
+    if (statBlock.value) observer.observe(statBlock.value)
   })
 })
 </script>
 
 <style scoped>
-.hero-wrapper {
-  padding-top: var(--spacing-2xl);
-  background-image: url("/hero_background.webp");
+/* ── Section gaps ──────────────────────────────────── */
+/* Every major block gets breathing room below it */
+.hero-wrapper,
+#clients,
+#services,
+.big-card,
+#prof-support,
+.launch-wrapper,
+.services-container-unused,
+#how-it-works,
+#faq {
+  margin-bottom: var(--spacing-xl);
+}
 
+/* ── Token Launch wrapper ──────────────────────────── */
+.launch-wrapper {
+  background: linear-gradient(135deg, rgba(52,251,255,0.04) 0%, rgba(21,134,244,0.04) 100%);
+  border: 1px solid rgba(52, 251, 255, 0.14);
+  border-radius: 24px;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+/* top accent line */
+.launch-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #34FBFF 0%, #1586F4 100%);
+  border-radius: 24px 24px 0 0;
+}
+/* ensure headings inside launch-wrapper match hero h2 sizing */
+.launch-wrapper h2 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+}
+@media (max-width: 768px) {
+  .launch-wrapper h2 { font-size: 32px; }
+}
+@media (max-width: 640px) {
+  .launch-wrapper h2 { font-size: 28px; }
+}
+
+.launch-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: rgba(52, 251, 255, 0.7);
+  margin-bottom: var(--spacing-sm);
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.launch-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.45;
+  margin-bottom: var(--spacing-sm);
+}
+.launch-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.55;
+  margin-bottom: var(--spacing-lg);
+}
+@media (max-width: 640px) {
+  .launch-wrapper {
+    padding: var(--spacing-lg) var(--spacing-md);
+    border-radius: 16px;
+  }
+  .launch-lead { font-size: 1rem; }
+  .launch-desc { font-size: 0.9rem; }
+}
+
+/* ── CEX Feature Cards ─────────────────────────────── */
+.cex-feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  width: 100%;
+  margin-top: var(--spacing-lg);
+}
+.cex-feat-card {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.cex-feat-card:hover {
+  border-color: rgba(52, 251, 255, 0.3);
+  box-shadow: 0 0 24px rgba(52, 251, 255, 0.07);
+}
+.cex-feat-stat {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #34FBFF 0%, #1586F4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
+.cex-feat-divider {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #34FBFF, #1586F4);
+  border-radius: 2px;
+  margin: 2px 0;
+}
+.cex-feat-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+.cex-feat-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .cex-feat-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  .cex-feat-stat { font-size: 2.5rem; }
+}
+@media (max-width: 640px) {
+  .cex-feat-card { padding: var(--spacing-md); }
+  .cex-feat-stat { font-size: 2rem; }
+  .cex-feat-title { font-size: 1.1rem; }
+  .cex-feat-desc { font-size: 0.85rem; }
+}
+
+/* Tighter on mobile */
+@media (max-width: 640px) {
+  .hero-wrapper,
+  #clients,
+  #services,
+  .big-card,
+  #prof-support,
+  .launch-wrapper,
+  .services-container-unused,
+  #how-it-works,
+  #faq {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero-wrapper {
+  padding-top: 220px;
+  padding-bottom: var(--spacing-3xl);
+  background-image: url("/hero-background.webp");
   background-color: rgba(17, 17, 17, 1.0);
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
   border-image: linear-gradient(to right, rgba(52, 251, 255, 1) 0%, rgba(21, 134, 244, 1) 100%) 1;
-    border-style: solid;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-width: 5px;
+  border-style: solid;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-width: 5px;
 }
-.hero-wrapper .hero{
+.hero-wrapper .hero {
   padding-top: 0;
+  margin-top: 0;
+  margin-bottom: var(--spacing-xl);
 }
-#start_way::before{
+@media (max-width: 640px) {
+  .hero-wrapper {
+    padding-top: 90px;
+  }
+  .hero-wrapper .hero {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+  }
+}
+#start_way::before {
   height: 60rem;
   border-width: 5px;
 }
 
-.hero-media-container {
-  position: relative;
-}
-
-.hero-media-container video {
-  width: 576px; /* Fixed max from original clamp */
-  height: auto;
-}
-
-.hero a {
-  color: #1586f4;
-  font-size: 1.7rem; /* Fixed max */
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  background: rgba(21, 134, 244, 0.12);
+  border: 1px solid rgba(21, 134, 244, 0.35);
+  border-radius: 100px;
+  color: #1586F4;
+  font-size: 11px;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 600;
-  border-width: 0px;
-  border-radius: 15px;
-  background-position: center center;
-  border-color: transparent;
-  border-style: solid;
-  transition: background-color 0s ease-in-out, color 0s ease-in-out, border-color 0s ease-in-out;
-}
-
-.text-jump-link {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.svg-arrow-wrapper {
-  margin-left: 8px;
-  display: flex;
-  align-items: center;
-}
-
-.arrow-svg {
-  transition: none;
-  width: 40px;
-  height: 40px;
-}
-
-.text-jump-link:hover .arrow-svg,
-.text-jump-link:focus .arrow-svg {
-  animation: jumpRightSVG 0.6s ease-out forwards;
-}
-
-@keyframes jumpRightSVG {
-  from { transform: translateX(0); }
-  to   { transform: translateX(12px); }
-}
-
-#development div.hero-media-container {
-  overflow: hidden;
-}
-
-#market-making .hero-media-container img {
-  width: 400px; /* Fixed max */
-  height: auto;
-  padding-top: var(--spacing-4xl);
-  margin-left: var(--spacing-2xl);
-}
-
-#development .hero-text-container{
-  padding-left: var(--spacing-4xl);
-}
-
-#about_us {
-  position: relative;
-}
-
-#about_us h2 {
-  font-size: 50px; /* Fixed max */
   font-weight: 700;
-  text-align: center;
-}
-
-#about_us p {
-  vertical-align: middle;
-  color: #ffffff;
-  font-size: 30px; /* Fixed max */
-  font-family: 'Montserrat', Arial, sans-serif;
-  line-height: 1.2;
-  font-weight: 500;
-  background-position: center center;
-  border-color: transparent;
-  border-style: solid;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0 20%;
-  padding-bottom: var(--spacing-xl);
-}
-
-#about_us .gif {
-  border-radius: 20px;
-  width: 100vw;
-  height: auto;
-}
-
-#about_us .inside_image {
-  position: absolute;
-  width: auto;
-  height: auto;
-  margin-bottom: 1.5rem;
-  margin-left: 1rem;
-}
-
-#team h2 {
-  font-size: 56px; /* Fixed max */
-  text-align: center;
-  line-height: 1.2;
-  font-weight: 700;
-  padding-top: 0px;
-  padding-bottom: var(--spacing-lg);
-  font-family: 'Montserrat';
-  letter-spacing: 0px;
-}
-
-#team h3 {
-  font-size: 32px; /* Fixed max */
-  line-height: 1;
-  color: #ffffff;
-  font-weight: 700;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-family: 'Montserrat';
-}
-
-#team .role {
-  font-size: 20px; /* Fixed max */
-  line-height: 1;
-  color: #ffffff;
-  font-weight: 500;
-  padding-top: var(--spacing-sm);
-  padding-bottom: var(--spacing-lg);
-  font-family: 'Montserrat';
-}
-
-#team .experience {
-  font-size: 18px; /* Fixed max */
-  line-height: 1;
-  color: #ffffff;
-  font-weight: 400;
-  padding-top: 0px;
-  padding-bottom: 0px; /* Fixed negative to 0 */
-  font-family: 'Montserrat';
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-#team .social {
-  padding-top: var(--spacing-sm);
+.hero-media-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-#team .social a {
-  float: left;
-  padding-right: var(--spacing-sm);
+.cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 4px;
 }
 
-#clients{
-  padding-top: var(--spacing-4xl);
+.pilot-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 28px;
+  border: 1.5px solid rgba(52, 251, 255, 0.35);
+  border-radius: 12px;
+  color: rgba(52, 251, 255, 0.85);
+  font-size: 15px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.pilot-btn:hover {
+  background: rgba(52, 251, 255, 0.06);
+  border-color: #34FBFF;
+  color: #34FBFF;
 }
 
-#clients h2 {
-  vertical-align: middle;
-  color: #ffffff;
-  font-size: 3.3rem;
+/* ── Section headers ────────────────────────────────── */
+.section-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #1586F4;
+  font-size: 11px;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
-  background-position: center center;
-  border-color: transparent;
-  border-style: solid;
-  line-height: 1.1;
-  text-align: center;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
-#clients p {
-  vertical-align: middle;
+/* ── Stats / Clients ────────────────────────────────── */
+#clients { padding-top: var(--spacing-lg); }
+#clients h2 {
   color: #ffffff;
-  font-size: 3rem;
+  font-size: 2rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+#clients p {
+  color: rgba(180, 190, 210, 0.85);
+  font-size: 1rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
-  background-position: center center;
-  border-color: transparent;
-  border-style: solid;
   text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
 }
-
 #clients b {
-  vertical-align: middle;
-  color: #ffffff;
-  font-size: 12rem;
+  font-size: 5rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
-  background-position: center center;
-  border-color: transparent;
-  border-style: solid;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #34FBFF 0%, #1586f4 60%, #34FBFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(52, 251, 255, 0.25));
 }
-
-#statBlock{
-  padding-top: var(--spacing-4xl);
-  padding-bottom: var(--spacing-4xl);
+#statBlock {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
 }
-
-.stat_container{
-  border: 1px solid #ffffff;
+#statBlock > div:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+.stat_container {
+  position: relative;
   padding: var(--spacing-lg);
   border-radius: 7rem;
+  background:
+    linear-gradient(rgba(12, 12, 14, 0.85), rgba(12, 12, 14, 0.85)) padding-box,
+    linear-gradient(135deg, rgba(52, 251, 255, 0.55) 0%, rgba(21, 134, 244, 0.35) 50%, rgba(52, 251, 255, 0.12) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 0 80px rgba(21, 134, 244, 0.07),
+    0 0 160px rgba(52, 251, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
-
 .stat-item {
   opacity: 0;
   transform: translateY(70px);
-  transition: opacity 1s cubic-bezier(0.4,0,0.2,1), transform 1s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .fadeInUp {
   opacity: 1 !important;
   transform: translateY(0) !important;
-  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1),
-              transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.photo_card {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: var(--spacing-md) var(--spacing-lg);
-  width: 100%;
-  /*height: 600px; Fixed max */
+/* ── Services grid ──────────────────────────────────── */
+#services {
+  padding-top: 0;
+  padding-bottom: var(--spacing-lg);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.service-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.service-card:hover {
+  border-color: rgba(52, 251, 255, 0.25);
+  box-shadow: 0 0 24px rgba(52, 251, 255, 0.06);
+}
+.service-icon {
+  font-size: 1.5rem;
+  color: #34FBFF;
+  line-height: 1;
+}
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+.service-card p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Shared card styles ─────────────────────────────── */
+.big-card {
+  background-color: #222222;
   border-radius: 30px;
+  box-sizing: border-box;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.big-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+.big-card p {
+  color: #777777;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  border-color: transparent;
+  border-style: solid;
+  margin-bottom: 1rem;
+}
+.ob-section-desc {
+  color: #777 !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  margin-bottom: var(--spacing-lg) !important;
 }
 
-#Dmitry-Vasilev-card {
-  background-image: url("/dima.png");
+/* ── Feature list (Volume Management) ──────────────── */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: var(--spacing-md);
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34FBFF;
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(52, 251, 255, 0.5);
+}
+.feature-item strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.feature-item span {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.5;
 }
 
-#Georgy-Kozyrev-card {
-  background-image: url("/georgy.png");
+/* ── Candle chart two-column ────────────────────────── */
+.candle-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--spacing-xl);
+  align-items: center;
 }
-
-@media (min-width: 2241px) {
-  #start_way::before {
-    height: 70rem;
-  }
+.candle-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
-
-@media (min-width: 1472px) and (max-width: 2240px) {
-  #start_way::before {
-    height: 60rem;
-  }
-  #market_making.hero{
-    overflow: visible;
-  }
+.candle-text .ob-section-desc {
+  margin-bottom: 0 !important;
 }
-
-@media (min-width: 1024px) and (max-width: 1471px) {
-  #team h3 {
-    font-size: 18px;
-  }
-
-  #team .role {
-    font-size: 15px;
-  }
-
-  #team .experience {
-    font-size: 12px;
-  }
-
-  #market_making.hero{
-    overflow: visible;
-  }
+.candle-chart-wrap {
+  width: 100%;
 }
-
-@media (min-width: 1212px) and (max-width: 1471px) {
-  #start_way::before {
-    height: 50rem;
-  }
-  .photo_card {
-      height: 30rem;
-  }
-  #clients b {
-    font-size: 80px;
-  }
-
-  #clients p {
-    font-size: 24px;
-  }
+.candle-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-sm);
 }
-
-@media (min-width: 1025px) and (max-width: 1211px) {
-  #start_way::before {
-    height: 40rem;
-  }
-  #clients b {
-    font-size: 80px;
-  }
-
-  #clients p {
-    font-size: 24px;
-  }
+.candle-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 16px;
+  min-width: 80px;
 }
-
-/* Tablets and smaller desktops (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .hero-media-container video {
-    max-width: 100%;
-    width: 100%;
-  }
-  .hero{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .hero div{
-    grid-column: span 2 / span 2;
-  }
-
-  #start_way div:first-child, #market_making div:first-child, #consulting div:first-child { order: 1; }
-  #start_way div:last-child, #market_making div:last-child, #consulting div:last-child { order: -1; }
-
-  #market_making div.hero-text-container {
-    padding-top: var(--spacing-4xl);
-  }
-
-  #market-making .hero-media-container img {
-    max-width: 200px;
-    padding-top: var(--spacing-2xl);
-    margin-left: 0;
-  }
-
-  #market-making{
-    overflow: visible;
-  }
-
-  #development .hero-text-container{
-    padding-left: unset;
-  }
-
-  #about_us .inside_image {
-    width: 15vw;
-  }
-
-  #about_us p {
-    padding: 0 5%;
-  }
-
-  .photo_card {
-    height: auto;
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-
-  #team .grid-cols-2 {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  #clients {
-    padding: var(--spacing-md);
-    min-height: auto;
-    border-radius: 40px;
-  }
-
-  #clients b {
-    font-size: 80px;
-  }
-
-  #clients p {
-    font-size: 24px;
-  }
-
-  #clients h2 {
-    font-size: 32px;
-  }
-
-  #team h2 {
-    font-size: 32px;
-    margin-bottom: 1.5rem;
+.candle-stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: linear-gradient(135deg, #34FBFF 0%, #1586F4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.candle-stat-key {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .candle-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 }
 
-/* Планшеты (769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  #start_way::before {
-    height: 56rem;
-  }
+/* ── Orderbook comparison ───────────────────────────── */
+#orderbook-comparison {
+  margin-top: var(--spacing-2xl);
+}
+.ob-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: var(--spacing-md);
+}
+.ob-card {
+  background: #1b1b1b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.ob-card-after {
+  border-color: rgba(52, 251, 255, 0.25);
+  box-shadow: 0 0 24px rgba(52, 251, 255, 0.06);
+}
+.ob-card-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+.ob-label-before { color: #888; }
+.ob-label-after  { color: #34FBFF; }
+.depth-chart {
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.ob-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ob-spread, .ob-depth {
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.ob-spread-wide   { background: rgba(255, 80, 80, 0.15);  color: #FF8080; }
+.ob-spread-tight  { background: rgba(52, 251, 255, 0.12); color: #34FBFF; }
+.ob-depth-shallow { background: rgba(255, 255, 255, 0.06); color: #888; }
+.ob-depth-deep    { background: rgba(52, 251, 255, 0.12); color: #34FBFF; }
+
+/* ── DEX section ───────────────────────────────────── */
+#dex { overflow: hidden; }
+
+.dex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+.dex-text {
+  flex: 1 1 0%;
+  min-width: 0;
 }
 
-
-/* Mobile devices (max-width: 640px) */
+.dex-cubes {
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+}
+@media (max-width: 768px) {
+  .dex-cubes { display: none; }
+}
 @media (max-width: 640px) {
-  h2 {
-    font-size: 24px;
-  }
-  p {
-    font-size: 16px;
-  }
+  .dex-header { display: block; }
+}
+.dex-coverage {
+  display: flex;
+  gap: var(--spacing-2xl);
+  align-items: flex-start;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+.dex-coverage-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.dex-coverage-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+.dex-coverage-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+.dex-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dex-tag {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+}
+.dex-tag-chain {
+  background: rgba(21, 134, 244, 0.1);
+  border-color: rgba(21, 134, 244, 0.3);
+  color: #6bb8ff;
+}
+.dex-tag-more {
+  background: rgba(255, 255, 255, 0.02);
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.35);
+  font-style: italic;
+}
+.dex-tag-more {
+  opacity: 0.55;
+  font-style: italic;
+}
 
-  #start_way::before{
-    height: 45rem;
-  }
+/* ── Anchors ────────────────────────────────────────── */
+.anchor { position: relative; }
+.anchor #dex-services,
+.anchor #volume-management,
+.anchor #token-launch, .anchor #cex-services,
+.anchor #liquidity-management, .anchor #cex-listing,
+.anchor #order-optimization {
+  position: absolute;
+  top: -160px;
+}
 
-  #about_us .inside_image {
-    width: 12vw;
-  }
+#how-it-works {
+  scroll-margin-top: 160px;
+}
 
-  #about_us {
-    margin-bottom: 3rem;
-  }
+/* ── Prof support ───────────────────────────────────── */
+#prof-support {
+  background-color: #222222;
+  border: 0;
+  border-radius: 5rem;
+  padding-right: var(--spacing-2xl);
+  padding-left: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+}
+#prof-support h2 {
+  line-height: 1.1;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+.prof-support-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: var(--spacing-lg);
+}
+.prof-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.prof-card-num {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: rgba(52, 251, 255, 0.25);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.prof-card strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.prof-card p {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
 
-  #about_us h2 {
-    font-size: 1.3rem;
-  }
+/* ── Marquee ────────────────────────────────────────── */
+.marquee { max-width: inherit; }
+.marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  flex-shrink: 0;
+}
+.marquee-item img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.3s ease;
+}
+.marquee-item--partner img { height: 2rem; }
+.marquee-item:hover img { filter: grayscale(0) opacity(1); }
+.work-with-text {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: var(--spacing-lg);
+  user-select: none;
+  font-weight: 700;
+  margin-top: var(--spacing-2xl);
+}
 
-  #about_us p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
+/* ── How It Works ───────────────────────────────────── */
+#how-it-works {
+  padding-top: 0;
+  padding-bottom: var(--spacing-lg);
+}
+.hiw-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: start;
+  gap: 1rem;
+}
+.hiw-step {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.hiw-num {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: rgba(52, 251, 255, 0.2);
+  line-height: 1;
+}
+.hiw-step h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+}
+.hiw-step p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.55;
+  margin: 0;
+}
+.hiw-connector {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, #34FBFF, #1586F4);
+  align-self: center;
+  opacity: 0.4;
+}
 
-  .hero-media-container video {
-    max-width: 100%;
-    width: 100%;
-  }
+/* ── FAQ ────────────────────────────────────────────── */
+#faq {
+  padding-top: 0;
+  padding-bottom: var(--spacing-lg);
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-item:hover { background: rgba(255, 255, 255, 0.02); }
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+}
+.faq-question span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+}
+.faq-chevron {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #34FBFF;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 1.5rem;
+  text-align: center;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 0 1.5rem 1.25rem;
+}
+.faq-answer p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
 
-  .hero a {
-    font-size: 0.8rem;
-  }
 
-  .arrow-svg[data-v-02281a80] {
-    width: 20px;
-    height: 20px;
-  }
+/* ── h2 global ──────────────────────────────────────── */
+h2 { font-size: 50px; font-weight: 700; }
 
-  #market_making div.hero-text-container[data-v-02281a80] {
-    padding-top: var(--spacing-2xl);
-  }
+/* ═══════════════════════════════════════════════════════
+   BREAKPOINTS
+═══════════════════════════════════════════════════════ */
+@media (min-width: 2241px) {
+  #start_way::before { height: 70rem; }
+}
+@media (min-width: 1472px) and (max-width: 2240px) {
+  #start_way::before { height: 60rem; }
+}
+@media (min-width: 1212px) and (max-width: 1471px) {
+  #start_way::before { height: 50rem; }
+  #clients b { font-size: 56px; }
+}
+@media (min-width: 1025px) and (max-width: 1211px) {
+  #start_way::before { height: 40rem; }
+  #clients b { font-size: 56px; }
+}
 
-  #market-making .hero-media-container img {
-    max-width: 150px;
-    padding-top: var(--spacing-lg);
-    margin-left: 0;
-  }
+@media (max-width: 1024px) {
+  .hero-media-container { justify-content: center; max-width: 480px; margin: 0 auto; }
+  .hero { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero div { grid-column: span 2 / span 2; }
+  #start_way div:first-child,
+  #start_tokens div:first-child, #cex div:first-child { order: 1; }
+  #start_way div:last-child,
+  #start_tokens div:last-child, #cex div:last-child { order: -1; }
+  .ob-grid { grid-template-columns: 1fr; }
+  .grid-cols-2 { grid-template-columns: 1fr; gap: 20px; }
+  .big-card { padding: var(--spacing-md); }
+  .big-card h3 { font-size: 1.8rem; }
+  .big-card p  { font-size: 1.1rem; }
+  .work-with-text { font-size: 1rem; }
+  #prof-support { padding: 20px; border-radius: 3rem; }
+  .prof-support-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .dex-coverage { flex-direction: column; gap: var(--spacing-md); }
+  .dex-coverage-col { flex: 0 0 auto; }
+  .dex-coverage-divider { width: 100%; height: 1px; align-self: auto; }
+  .hiw-grid { grid-template-columns: 1fr; }
+  .hiw-connector { display: none; }
+  #clients { padding: var(--spacing-md); min-height: auto; border-radius: 40px; }
+  #clients b { font-size: 48px; }
+  #clients p { font-size: 0.7rem; }
+  #clients h2 { font-size: 1.2rem; letter-spacing: 0.02em; }
+}
 
-  #development div.hero-text-container[data-v-02281a80] {
-    padding-top: var(--spacing-lg);
-  }
+@media (min-width: 769px) and (max-width: 1024px) {
+  #start_way::before { height: 56rem; }
+}
 
-  .photo_card {
-    padding: var(--spacing-xs) var(--spacing-sm);
-  }
+@media (max-width: 768px) {
+  h2 { font-size: 32px; }
+  .section-title { font-size: 1.8rem; }
+  .big-card { padding: var(--spacing-md); }
+  .big-card h3 { font-size: 1.6rem; }
+  .big-card p  { font-size: 1rem; }
+  .work-with-text { font-size: 0.9rem; }
+  #prof-support { padding: 20px; border-radius: 3rem; }
+}
 
-  #team{
-    margin-left: 6%;
-    margin-right: 6%;
-  }
+@media (max-width: 640px) {
+  h2 { font-size: 24px; }
+  p  { font-size: 16px; }
+  #start_way::before { height: 45rem; }
+  .hero-media-container { max-width: 100%; }
+  .pilot-btn { padding: 12px 20px; font-size: 13px; border-radius: 10px; }
+  .hero-eyebrow { font-size: 10px; }
+  .big-card { padding: var(--spacing-md); }
+  .big-card h3 { font-size: 1.4rem; }
+  .big-card p  { font-size: 0.9rem; }
+  .marquee-item { padding: 0 18px; }
+  .marquee-item img { height: 2rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .prof-support-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 1.5rem; }
 
-  #team h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
+  #statBlock { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-top: 0; padding-bottom: 0; }
 
-  #team h3 {
-    font-size: 1.5rem;
-  }
+  /* Remove double-stacked spacing */
+  #orderbook-comparison { margin-top: 0; }
 
-  #team .role {
-    font-size: 1.125rem;
-  }
-
-  #team .experience {
-    font-size: 1rem;
-  }
-
-  #statBlock{
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  #clients{
-    margin-left: 3%;
-    margin-right: 3%;
-  }
-
-  #clients b {
-    font-size: 3.5rem;
-  }
-
-  #clients p {
-    font-size: 1rem;
-  }
-
-  #clients h2 {
-    font-size: 2rem;
-  }
+  #clients b  { font-size: 2.4rem; }
+  #clients p  { font-size: 0.75rem; }
+  #clients h2 { font-size: 1.3rem; }
 }
 
 @media (max-width: 520px) {
-  #statBlock{
-    flex-direction: column;
-  }
+  #statBlock { grid-template-columns: repeat(2, minmax(0, 1fr)); flex-direction: column; }
+  #clients b { font-size: 2rem; }
+  #clients p { font-size: 0.75rem; letter-spacing: 0.03em; }
 }
 
 @media (max-width: 480px) {
-  h2 {
-    font-size: 20px;
-  }
-  p {
-    font-size: 14px;
-  }
-  .photo_card[data-v-02281a80] {
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: 15px;
-  }
-  #team h3 {
-    font-size: 1rem;
-  }
-
-  #team .role {
-    font-size: 0.5rem;
-    padding-top: var(--spacing-xs);
-    padding-bottom: var(--spacing-xs);
-  }
-
-  #team .experience {
-    font-size: 0.6rem;
-  }
-
-  #team .social a svg {
-    width: 1rem;
-    height: 1rem;
-  }
-  #clients h2[data-v-02281a80] {
-    font-size: 1rem;
-  }
-
+  h2 { font-size: 20px; }
+  p  { font-size: 14px; }
+  .big-card { padding: var(--spacing-md); }
+  .big-card h3 { font-size: 1.2rem; }
+  .big-card p  { font-size: 0.8rem; }
+  .marquee-item { padding: 0 14px; }
+  .marquee-item img { height: 1.75rem; }
 }
-</style>
-
-<style>
-  #consulting{
-    margin-bottom: 2%;
-  }
-
-  #about_us{
-    margin-top: 10%;
-    margin-bottom: var(--spacing-3xl);
-  }
 </style>
