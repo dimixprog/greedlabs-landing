@@ -25,32 +25,32 @@
 const partners = [
   {
     name: 'AlphaMind',
-    logo: '/partners/ALPHAMIND_logo.svg',
+    logo: '/partners/alphamind.svg',
     url: 'https://x.com/Alphamind_labs/status/1963209237951111601' // Placeholder URL
   },
   {
     name: 'Astrena',
-    logo: '/partners/ASTRENA_logo.svg',
+    logo: '/partners/astrena.svg',
     url: 'https://astrena.ai' // Placeholder URL
   },
   {
     name: 'CWare',
-    logo: '/partners/CWARE_logo.svg',
+    logo: '/partners/cware.svg',
     url: 'https://cwarelabs.com' // Placeholder URL
   },
   {
     name: 'DRFT',
-    logo: '/partners/DRFT_logo.png',
+    logo: '/partners/drft.png',
     url: 'https://x.com/Drft_Party/status/1955616321879605293' // Placeholder URL
   },
   {
     name: 'Gagarin',
-    logo: '/partners/GAGARIN_logo.svg',
+    logo: '/partners/gagarin.svg',
     url: 'https://x.com/GAGARIN_World/status/1948388692206174235' // Placeholder URL
   },
   {
     name: 'KuCoin',
-    logo: '/partners/KUCOIN_logo.svg',
+    logo: '/partners/kucoin.svg',
     url: 'https://kucoin.com' // Placeholder URL
   }
 ]
@@ -100,12 +100,12 @@ const partners = [
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: brightness(0.9) contrast(1.1);
+  filter: grayscale(1) opacity(0.5);
   transition: filter 0.3s ease;
 }
 
 .partner-logo-container:hover .partner-logo {
-  filter: brightness(1) contrast(1.2);
+  filter: grayscale(0) opacity(1);
 }
 
 /* Mobile responsiveness */

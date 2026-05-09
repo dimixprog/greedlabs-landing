@@ -1,7 +1,7 @@
 <template>
     <div class="hero-media-container">
-        <video class="charts_flow" src="~/public/index_hero_2.webm" autoplay muted loop playsinline preload="auto"></video>
-        <img class="cube_with_logo" src="~/public/logo_cube.png" alt="logo cube">
+        <video class="charts_flow" src="~/public/index-hero-2.webm" autoplay muted loop playsinline preload="auto"></video>
+        <img class="cube_with_logo" src="~/public/logo-cube.png" alt="logo cube">
     </div>
 </template>
 

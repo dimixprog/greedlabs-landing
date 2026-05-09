@@ -1,6 +1,6 @@
 <template>
 <div class="floating-bars-wrapper">
-  <img src="/consulting_circle.svg" class="circle-bg" alt="Кольцо" />
+  <img src="/consulting-circle.svg" class="circle-bg" alt="Кольцо" />
   <div class="black-cube"></div>
   <div class="floating-bar bar1"></div>
   <div class="floating-bar bar2"></div>

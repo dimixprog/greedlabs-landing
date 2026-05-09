@@ -1,5 +1,5 @@
 <template>
-  <video class="orbitTrail" src="/orbitTrail.webm" autoplay muted loop playsinline preload="auto"></video>
+  <video class="orbitTrail" src="/orbit-trail.webm" autoplay muted loop playsinline preload="auto"></video>
 </template>
 
 <style>

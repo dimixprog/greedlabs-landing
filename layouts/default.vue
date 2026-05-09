@@ -3,6 +3,12 @@
 <script setup>
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
+
+const head = useLocaleHead({ addSeoAttributes: true })
+useHead(() => ({
+  link: head.value.link,
+  meta: head.value.meta
+}))
 </script>
 
 <template>
@@ -14,7 +20,7 @@ import Footer from '~/components/Footer.vue'
     <main>
       <slot />
 
-      <GetConsult />
+      <GetConsult class="margin-container" />
     </main>
 
     <Footer />
@@ -190,8 +196,8 @@ body {
 
 @media (max-width: 640px) {
   .margin-container {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 14px;
+    margin-right: 14px;
   }
 }
 

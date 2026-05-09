@@ -6,14 +6,14 @@
 
 <style>
 .hero{
-    margin-bottom: 15%;
-    margin-top: 5%;
+    margin-bottom: var(--spacing-2xl);
+    margin-top: var(--spacing-lg);
 }
 
 .hero h2 {
     font-size: 50px;
     font-weight: 700;
-    margin-bottom: 2%;
+    margin-bottom: var(--spacing-sm);
     line-height: 1;
 }
 .hero p {
@@ -26,23 +26,7 @@
     background-position: center center;
     border-color: transparent;
     border-style: solid;
-    padding-bottom: 5%;
-}
-.hero button{
-    color: #ffffff;
-    font-size: 18px;
-    font-family: 'Montserrat', Arial, sans-serif;
-    line-height: 1.55;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    border-radius: 30px 30px 30px 30px;
-    background-position: center center;
-    border-color: #ffffff;
-    border-style: solid;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 1);
-    height: 80px;
-    padding: 0 50px;
+    padding-bottom: var(--spacing-lg);
 }
 
 /* Мобильные устройства (max-width: 768px) */
@@ -50,8 +34,8 @@
   .hero {
     flex-direction: column;
     /*align-items: center;*/
-    margin-bottom: 10%;
-    padding: 0 10px;
+    margin-bottom: var(--spacing-xl);
+    padding: 0;
   }
   .hero h2 {
     font-size: 32px;
@@ -60,12 +44,7 @@
   .hero p {
     font-size: 18px;
     /*text-align: center;*/
-    padding-bottom: 3%;
-  }
-  .hero button {
-    font-size: 16px;
-    height: 60px;
-    padding: 0 30px;
+    padding-bottom: var(--spacing-sm);
   }
 }
 
@@ -73,14 +52,8 @@
 @media (max-width: 640px) {
   .hero {
     overflow: hidden;
-    margin-left: 3% !important;
-    margin-right: 3% !important;
-  }
-  .hero button {
-    font-size: 12px;
-    border-radius: 20px 20px 20px 20px;
-    height: 50px;
-    padding: 0 20px;
+    margin-bottom: var(--spacing-lg);
+    margin-top: 0;
   }
 }
 </style>
@@ -96,11 +69,6 @@
   }
   .hero div p {
     font-size: 24px;
-  }
-  .hero div button {
-    font-size: 16px;
-    height: 70px;
-    padding: 0 40px;
   }
 }
 
@@ -118,11 +86,6 @@
   }
   .hero p {
     font-size: 24rem;
-  }
-  .hero button {
-    font-size: 16rem;
-    height: 70px;
-    padding: 0 4rem;
   }
 }
 </style>

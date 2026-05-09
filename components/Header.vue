@@ -3,54 +3,16 @@
     <div class="header-background"></div>
     <div class="header-logo">
       <a href="/">
-        <img src="/greed_logo.svg" alt="GREED Labs" />
+        <img src="/greed-logo.svg" alt="GREED Labs" />
       </a>
     </div>
     <nav class="header-nav">
-      <div class="nav-item market-making" 
-           @mouseenter="openMarketMenu"
-           @mouseleave="keepMenuOpen"
-           @click="toggleMarketMenu">
-        <a href="market-making" class="nav-link" @click="handleLinkClick">
-          {{ $t('nav.marketMaking') }}
-          <svg class="dropdown-arrow" :class="{ 'rotated': isMarketMenuOpen }" xmlns="http://www.w3.org/2000/svg" viewBox="5786.73681640625 4997 11.5263671875 8.75"> 
-            <path fill="#ffffff" fill-opacity="1" stroke="" stroke-opacity="0" stroke-width="1" id="tSvg47a8afa93b" 
-              d="M 5792.5 4998L 5797.263139720814 5004.75L 5787.736860279186 5004.75Z" title="Polygon 1">
-            </path>
-          </svg>
-        </a>
-        <div v-if="isMarketMenuOpen" class="dropdown-menu" @mouseenter="keepMenuOpen" @mouseleave="closeMarketMenu">
-          <div class="dropdown-background"></div>
-          <div class="dropdown-content">
-            <div class="dropdown-section">
-              <a href="market-making#dex-services" class="dropdown-link main">{{ $t('nav.dexServices') }}</a>
-              <a href="market-making#anti-snipe" class="dropdown-link sub">{{ $t('nav.antiSnipe') }}</a>
-              <a href="market-making#volume-management" class="dropdown-link sub">{{ $t('nav.volumeManagement') }}</a>
-              <a href="market-making#price-control" class="dropdown-link sub">{{ $t('nav.priceControl') }}</a>
-            </div>
-            <div class="dropdown-section">
-              <a href="market-making#token-launch" class="dropdown-link main">{{ $t('nav.tokenLaunch') }}</a>
-            </div>
-            <div class="dropdown-section">
-              <a href="market-making#cex-services" class="dropdown-link main">{{ $t('nav.cexServices') }}</a>
-              <a href="market-making#liquidity-management" class="dropdown-link sub">{{ $t('nav.liquidityManagement') }}</a>
-              <a href="market-making#cex-listing" class="dropdown-link sub">{{ $t('nav.cexListing') }}</a>
-              <a href="market-making#order-optimization" class="dropdown-link sub">{{ $t('nav.orderOptimization') }}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="development" class="nav-link">{{ $t('nav.development') }}</a>
-      <a href="consulting" class="nav-link">{{ $t('nav.consulting') }}</a>
+      <a href="/#dex-services" class="nav-link">{{ $t('nav.dexServices') }}</a>
+      <a href="/#token-launch" class="nav-link">{{ $t('nav.tokenLaunch') }}</a>
+      <a href="/#cex-services" class="nav-link">{{ $t('nav.cexServices') }}</a>
+      <a href="/#how-it-works" class="nav-link">{{ $t('nav.howItWorks') }}</a>
     </nav>
-    <div class="language-switcher">
-      <a href="#" id="ru-link" class="lang-link first-lang" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
-      <div class="lang-background" @click.prevent="changeLanguage(currentLang)">
-        <div class="lang-indicator" :class="{ 'eng': currentLang === 'en' }" @click.prevent="changeLanguage(currentLang)"></div>
-      </div>
-      <a href="#" id="eng-link" class="lang-link second-lang" :class="{ 'active': currentLang === 'en' }" @click.prevent="switchLanguage('en')">ENG</a>
-    </div>
-    <div class="contact-dropdown" 
+    <div class="contact-dropdown"
          @mouseenter="openContactMenu" 
          @mouseleave="keepMenuOpen"
          @click="toggleContactMenu">
@@ -92,7 +54,7 @@
       <div class="mobile-header-background"></div>
       <div class="mobile-logo">
         <a href="/">
-          <img src="/greed_logo.svg" alt="GREED Labs" />
+          <img src="/greed-logo.svg" alt="GREED Labs" />
         </a>
       </div>
       <div class="hamburger-container" @click="toggleMobileMenu">
@@ -108,38 +70,18 @@
   <div v-if="isMobileMenuOpen" class="mobile-menu-overlay">
     <div class="mobile-menu-background"></div>
     <div class="mobile-menu-container">
-      <div class="mobile-menu-header">
-        <div class="language-switcher">
-          <a href="#" id="ru-link" class="lang-link first-lang" :class="{ 'active': currentLang === 'ru' }" @click.prevent="switchLanguage('ru')">RU</a>
-          <div class="lang-background" @click.prevent="changeLanguage(currentLang)">
-            <div class="lang-indicator" :class="{ 'eng': currentLang === 'en' }" @click.prevent="changeLanguage(currentLang)"></div>
-          </div>
-          <a href="#" id="eng-link" class="lang-link second-lang" :class="{ 'active': currentLang === 'en' }" @click.prevent="switchLanguage('en')">ENG</a>
-        </div>
-      </div>
       <nav class="mobile-nav">
         <div class="mobile-nav-section">
-          <a href="market-making" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.marketMaking') }}</a>
+          <a href="/#dex-services" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.dexServices') }}</a>
         </div>
         <div class="mobile-nav-section">
-          <a href="market-making#dex-services" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.dexServices') }}</a>
-          <a href="market-making#anti-snipe" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.antiSnipe') }}</a>
-          <a href="market-making#volume-management" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.volumeManagement') }}</a>
-          <a href="market-making#price-control" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.priceControl') }}</a>
+          <a href="/#token-launch" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.tokenLaunch') }}</a>
         </div>
         <div class="mobile-nav-section">
-          <a href="market-making#token-launch" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.tokenLaunch') }}</a>
+          <a href="/#cex-services" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.cexServices') }}</a>
         </div>
         <div class="mobile-nav-section">
-          <a href="market-making#cex-services" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.cexServices') }}</a>
-          <a href="market-making#liquidity-management" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.liquidityManagement') }}</a>
-          <a href="market-making#cex-listing" class="mobile-nav-link sub" @click="closeMobileMenu">{{ $t('nav.cexListing') }}</a>
-        </div>
-        <div class="mobile-nav-section">
-          <a href="development" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.development') }}</a>
-        </div>
-        <div class="mobile-nav-section">
-          <a href="consulting" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.consulting') }}</a>
+          <a href="/#how-it-works" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.howItWorks') }}</a>
         </div>
       </nav>
       <div class="mobile-contacts">
@@ -166,12 +108,8 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 
-const i18n = useI18n()
-
 const isMobileMenuOpen = ref(false)
-const isMarketMenuOpen = ref(false)
 const isContactMenuOpen = ref(false)
-const currentLang = ref(i18n.locale.value || 'ru')
 const isTouch = ref(false)
 
 const toggleMobileMenu = () => {
@@ -182,38 +120,9 @@ const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
 }
 
-const openMarketMenu = () => {
-  if (!isTouch.value) {
-    isMarketMenuOpen.value = true
-    isContactMenuOpen.value = false
-  }
-}
-
-const closeMarketMenu = () => {
-  if (!isTouch.value) {
-    isMarketMenuOpen.value = false
-  }
-}
-
-const handleLinkClick = (event) => {
-  if (isTouch.value && !isMarketMenuOpen.value) {
-    toggleMarketMenu(event)
-    event.preventDefault()
-  }
-}
-
-const toggleMarketMenu = (event) => {
-  if (isTouch.value) {
-    event.stopPropagation()
-    isMarketMenuOpen.value = !isMarketMenuOpen.value
-    isContactMenuOpen.value = false
-  }
-}
-
 const openContactMenu = () => {
   if (!isTouch.value) {
     isContactMenuOpen.value = true
-    isMarketMenuOpen.value = false
   }
 }
 
@@ -227,38 +136,20 @@ const toggleContactMenu = (event) => {
   if (isTouch.value) {
     event.stopPropagation()
     isContactMenuOpen.value = !isContactMenuOpen.value
-    isMarketMenuOpen.value = false
   }
 }
 
 const keepMenuOpen = () => {}
 
 const closeAllMenus = () => {
-  isMarketMenuOpen.value = false
   isContactMenuOpen.value = false
 }
-
-const switchLanguage = async (lang) => {
-  await i18n.setLocale(lang)
-  currentLang.value = lang
-}
-
-const changeLanguage = (current) => {
-  const newLang = current === 'ru' ? 'en' : 'ru'
-  switchLanguage(newLang)
-}
-
-
 
 const handleClickOutside = (event) => {
   if (isTouch.value && !event.target.closest('.nav-item, .contact-dropdown, .dropdown-menu, .contact-dropdown-menu')) {
     closeAllMenus()
   }
 }
-
-watch(() => i18n.locale.value, (newLang) => {
-  currentLang.value = newLang
-})
 
 watch(isMobileMenuOpen, (newValue) => {
   if (process.client) {
@@ -284,7 +175,6 @@ onMounted(() => {
         isMobileMenuOpen.value = false
       }
     })
-    currentLang.value = i18n.locale.value
     if (isTouch.value) {
       document.addEventListener('click', handleClickOutside)
     }
@@ -315,7 +205,7 @@ onUnmounted(() => {
   z-index: 999999;
   display: flex;
   align-items: center;
-  padding: 0 1.5vw;
+  padding: 0 3vw;
   box-sizing: border-box;
   border-radius: 30px;
 }
@@ -341,7 +231,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 4rem;
-  margin-left: var(--spacing-xl);
+  margin-left: var(--spacing-2xl);
   flex: 1;
   min-width: 0;
   position: relative;
@@ -441,60 +331,6 @@ onUnmounted(() => {
 
 .dropdown-link:hover {
   color: #1586f4;
-}
-
-.language-switcher {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: var(--spacing-lg);
-}
-
-.lang-background {
-  width: 3.5rem;
-  height: 1.7rem;
-  background-color: #151515;
-  border-radius: 100px;
-  margin-right: var(--spacing-sm);
-  cursor: pointer;
-}
-
-.lang-indicator {
-  margin-left: 0.3rem;
-  margin-top: 0.2rem;
-  width: 1.3rem;
-  height: 1.3rem;
-  background-color: #1586f4;
-  border-radius: 100px;
-  transition: transform 0.3s ease;
-}
-
-.lang-indicator.eng {
-  transform: translateX(1.6rem);
-}
-
-.lang-link {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: white;
-  text-decoration: none;
-  padding: 0;
-  z-index: 1;
-  transition: color 0.2s ease;
-}
-
-.lang-link.active {
-  color: #1586f4;
-}
-
-.lang-link:hover {
-  color: #1586f4;
-}
-
-#ru-link{
-  padding-right: var(--spacing-sm);
 }
 
 .contact-dropdown {
@@ -706,50 +542,6 @@ onUnmounted(() => {
   height: auto;
 }
 
-.mobile-language-switcher {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: clamp(5px, 2vw, 10px);
-}
-
-.mobile-lang-background {
-  position: absolute;
-  width: clamp(40px, 15vw, 60px);
-  height: clamp(15px, 6vw, 25px);
-  background-color: #151515;
-  border-radius: 100px;
-}
-
-.mobile-lang-indicator {
-  position: absolute;
-  left: clamp(3px, 1vw, 5px);
-  top: clamp(3px, 1vw, 5px);
-  width: clamp(10px, 4vw, 15px);
-  height: clamp(10px, 4vw, 15px);
-  background-color: #1586f4;
-  border-radius: 100px;
-  transition: transform 0.3s ease;
-}
-
-.mobile-lang-indicator.eng {
-  transform: translateX(clamp(20px, 8vw, 30px));
-}
-
-.mobile-lang-link {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(11px, 4vw, 14px);
-  font-weight: 400;
-  color: white;
-  text-decoration: none;
-  padding: clamp(3px, 1vw, var(--spacing-xs)) clamp(var(--spacing-xs), 3vw, var(--spacing-sm));
-  z-index: 1;
-}
-
-.mobile-lang-link.active {
-  color: #1586f4;
-}
-
 .mobile-menu-icon {
   display: flex;
   justify-content: center;
@@ -877,23 +669,8 @@ onUnmounted(() => {
   .nav-link {
     font-size: 1rem;
   }
-  .lang-link{
-    font-size: 1rem;
-  }
   .contact-button{
     font-size: 1rem;
-  }
-  .lang-background {
-    width: 2.4rem;
-    height: 1.2rem;
-    margin-right: 1rem;
-  }
-  .lang-indicator {
-    width: 0.8rem;
-    height: 0.8rem;
-  }
-  .lang-indicator.eng {
-    transform: translateX(1rem);
   }
 }
 

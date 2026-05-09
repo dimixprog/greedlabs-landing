@@ -14,47 +14,47 @@ export default defineNuxtConfig({
             '@type': 'Organization',
             name: 'GREED Labs',
             url: 'https://greedlabs.org',
-            logo: 'https://greedlabs.org/greed_logo.svg',
+            logo: 'https://greedlabs.org/greed-logo.svg',
             email: 'hello@greedlabs.org',
             sameAs: [
               'https://t.me/greedlabs',
               'https://x.com/GREED_Labs',
               'https://www.linkedin.com/company/greedlabs'
             ],
-            description: 'Institutional-grade crypto market making, blockchain development, and Web3 consulting. Trusted by token projects at every stage — from launch to scale.',
+            description: 'Institutional-grade crypto market making. Cross-venue liquidity, tight spreads, and algorithmic execution trusted by token projects at every stage — from launch to scale.',
             founder: [
               { '@type': 'Person', name: 'Dmitry Vasilyev', jobTitle: 'Co-founder, CEO' },
               { '@type': 'Person', name: 'George Kozyrev', jobTitle: 'Co-founder, CTO' }
             ],
             hasOfferCatalog: {
               '@type': 'OfferCatalog',
-              name: 'Web3 Services',
+              name: 'Market Making Services',
               itemListElement: [
                 {
                   '@type': 'Offer',
                   itemOffered: {
                     '@type': 'Service',
-                    name: 'Crypto Market Making',
-                    description: 'Algorithmic liquidity provision across CEX and DEX platforms including anti-snipe protection, volume management, and price control.',
-                    url: 'https://greedlabs.org/market-making'
+                    name: 'DEX Market Making',
+                    description: 'Full on-chain coverage across Solana, EVM, and TON. Tight spread management, slippage protection, volume strategy, and Bubblemaps optimization.',
+                    url: 'https://greedlabs.org/#dex-services'
                   }
                 },
                 {
                   '@type': 'Offer',
                   itemOffered: {
                     '@type': 'Service',
-                    name: 'Blockchain Development',
-                    description: 'Full-stack Web3 development: smart contracts, DApps, DEXs, launchpads, GameFi, NFT platforms, and trading bots.',
-                    url: 'https://greedlabs.org/development'
+                    name: 'CEX Market Making',
+                    description: 'Institutional-grade routing, deep liquidity pools, and advanced risk-managed trading across centralized platforms.',
+                    url: 'https://greedlabs.org/#cex-services'
                   }
                 },
                 {
                   '@type': 'Offer',
                   itemOffered: {
                     '@type': 'Service',
-                    name: 'Web3 Consulting',
-                    description: 'Strategic and technical advisory: tokenomics development, technical audits, VC support, and go-to-market strategy.',
-                    url: 'https://greedlabs.org/consulting'
+                    name: 'Token Launch Support',
+                    description: 'Full-stack launch support from contract to market: architecture, deployment, listings, market bootstrapping, and long-term growth.',
+                    url: 'https://greedlabs.org/#token-launch'
                   }
                 }
               ]
@@ -135,7 +135,7 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     lazy: true,
     langDir: 'locales/',
-    strategy: 'no_prefix', // или 'prefix_except_default' для /ru/ и /
+    strategy: 'prefix_except_default',
   },
   vite: {
     server: {

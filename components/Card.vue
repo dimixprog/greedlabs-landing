@@ -95,8 +95,6 @@ defineProps({
 
 @media (max-width: 640px) {
   .card-wrapper {
-    margin-left: 6%;
-    margin-right: 6%;
     width: auto;
     height: 250px;
     min-height: 250px;

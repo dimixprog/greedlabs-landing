@@ -342,7 +342,7 @@ onBeforeUnmount(() => {
   height: 50vw;
   max-height: 1200px;
   transform: translate(-50%, var(--bg-translate, -70%)) rotate(var(--bg-rotate, -60deg)) scale(var(--bg-scale, 1));
-  background-image: url('/thing.png');
+  background-image: url('/scroll-spinning-bg.png');
   background-size: contain;
   background-position: center;
   /* opacity: 0.2; */ /* Если нужно */

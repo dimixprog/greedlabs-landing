@@ -1,16 +1,16 @@
 <template>
     <div class="hero-media-container">
       <div class="main-cube">
-        <img src="~/public/3d_cubes.png" alt="3d cubes">
+        <img src="~/public/3d-cubes.png" alt="3d cubes">
       </div>
       
 
-      <img class="bcube-1 cube" src="~/public/mini_black_cube.png">
-      <img class="bcube-2 cube" src="~/public/mini_black_cube.png">
+      <img class="bcube-1 cube" src="~/public/mini-black-cube.png">
+      <img class="bcube-2 cube" src="~/public/mini-black-cube.png">
 
-      <img class="cube-1 cube" src="~/public/mini_blue_cube.png">
-      <img class="cube-2" src="~/public/mini_blue_cube.png">
-      <img class="cube-3 cube" src="~/public/mini_blue_cube.png">
+      <img class="cube-1 cube" src="~/public/mini-blue-cube.png">
+      <img class="cube-2" src="~/public/mini-blue-cube.png">
+      <img class="cube-3 cube" src="~/public/mini-blue-cube.png">
     </div>
 </template>
 
