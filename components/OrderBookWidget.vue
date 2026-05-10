@@ -1,5 +1,5 @@
 <!-- components/OrderBookWidget.vue -->
-<!-- Static order book visualization for the CEX services hero -->
+<!-- Animated order book visualization for the CEX services hero -->
 <template>
   <div class="ob-wrap">
     <div class="ob-header">
@@ -12,16 +12,16 @@
       <div class="ob-row" v-for="row in asks" :key="row.price">
         <div class="ob-depth ask-depth" :style="{ width: row.depth + '%' }"></div>
         <span class="ob-price ask-price">{{ row.price }}</span>
-        <span class="ob-amount">{{ row.amount }}</span>
+        <span class="ob-amount" :class="{ flash: row.changed }">{{ row.amount }}</span>
         <span class="ob-total">{{ row.total }}</span>
       </div>
     </div>
 
     <!-- Spread -->
     <div class="ob-spread">
-      <span class="ob-spread-pct">0.18%</span>
+      <span class="ob-spread-pct">{{ spread }}%</span>
       <span class="ob-spread-label">SPREAD</span>
-      <span class="ob-spread-mid">1.0420</span>
+      <span class="ob-spread-mid">{{ midPrice }}</span>
     </div>
 
     <!-- Bids (buy side) -->
@@ -29,7 +29,7 @@
       <div class="ob-row" v-for="row in bids" :key="row.price">
         <div class="ob-depth bid-depth" :style="{ width: row.depth + '%' }"></div>
         <span class="ob-price bid-price">{{ row.price }}</span>
-        <span class="ob-amount">{{ row.amount }}</span>
+        <span class="ob-amount" :class="{ flash: row.changed }">{{ row.amount }}</span>
         <span class="ob-total">{{ row.total }}</span>
       </div>
     </div>
@@ -37,25 +37,79 @@
     <!-- Footer badge -->
     <div class="ob-footer">
       <span class="ob-badge">50+ venues · simultaneous</span>
+      <span class="ob-live-dot"></span>
     </div>
   </div>
 </template>
 
 <script setup>
-const asks = [
-  { price: '1.0516', amount: '12,400', total: '13,040', depth: 38 },
-  { price: '1.0498', amount: '28,700', total: '30,130', depth: 55 },
-  { price: '1.0476', amount: '19,200', total: '20,115', depth: 44 },
-  { price: '1.0461', amount: '41,500', total: '43,413', depth: 72 },
-  { price: '1.0442', amount: '9,800',  total: '10,233', depth: 28 },
+import { ref, onMounted, onUnmounted } from 'vue'
+
+function fmtPrice(p) { return p.toFixed(4) }
+function fmtAmt(n)   { return n.toLocaleString('en-US', { maximumFractionDigits: 0 }) }
+function jitter(val, pct) { return val + val * pct * (Math.random() * 2 - 1) }
+
+// Numeric source-of-truth (never re-ordered, prices stay fixed)
+const askNums = [
+  { price: 1.0516, amount: 12400, depth: 38 },
+  { price: 1.0498, amount: 28700, depth: 55 },
+  { price: 1.0476, amount: 19200, depth: 44 },
+  { price: 1.0461, amount: 41500, depth: 72 },
+  { price: 1.0442, amount: 9800,  depth: 28 },
 ]
-const bids = [
-  { price: '1.0420', amount: '34,100', total: '35,533', depth: 64 },
-  { price: '1.0403', amount: '22,600', total: '23,511', depth: 48 },
-  { price: '1.0387', amount: '51,200', total: '53,181', depth: 88 },
-  { price: '1.0369', amount: '15,700', total: '16,279', depth: 36 },
-  { price: '1.0350', amount: '8,300',  total: '8,591',  depth: 22 },
+const bidNums = [
+  { price: 1.0420, amount: 34100, depth: 64 },
+  { price: 1.0403, amount: 22600, depth: 48 },
+  { price: 1.0387, amount: 51200, depth: 88 },
+  { price: 1.0369, amount: 15700, depth: 36 },
+  { price: 1.0350, amount: 8300,  depth: 22 },
 ]
+
+function makeRow(n) {
+  return { price: fmtPrice(n.price), amount: fmtAmt(n.amount), total: fmtAmt(n.price * n.amount), depth: n.depth, changed: false }
+}
+
+const asks = ref(askNums.map(makeRow))
+const bids = ref(bidNums.map(makeRow))
+const spread   = ref('0.18')
+const midPrice = ref(fmtPrice(1.0420))
+
+let timer
+
+function tick() {
+  const ai = Math.floor(Math.random() * askNums.length)
+  const bi = Math.floor(Math.random() * bidNums.length)
+
+  // Mutate numeric state, then patch only the changed fields in-place
+  const a = askNums[ai]
+  a.amount = Math.max(1000, Math.round(jitter(a.amount, 0.08)))
+  a.depth  = Math.min(95, Math.max(10, Math.round(jitter(a.depth, 0.1))))
+  const ar = asks.value[ai]
+  ar.amount  = fmtAmt(a.amount)
+  ar.total   = fmtAmt(a.price * a.amount)
+  ar.depth   = a.depth
+  ar.changed = true
+  setTimeout(() => { ar.changed = false }, 400)
+
+  const b = bidNums[bi]
+  b.amount = Math.max(1000, Math.round(jitter(b.amount, 0.08)))
+  b.depth  = Math.min(95, Math.max(10, Math.round(jitter(b.depth, 0.1))))
+  const br = bids.value[bi]
+  br.amount  = fmtAmt(b.amount)
+  br.total   = fmtAmt(b.price * b.amount)
+  br.depth   = b.depth
+  br.changed = true
+  setTimeout(() => { br.changed = false }, 400)
+
+  if (Math.random() < 0.3) {
+    const mid = parseFloat(midPrice.value) + (Math.random() - 0.5) * 0.0004
+    midPrice.value = fmtPrice(Math.max(1.03, Math.min(1.06, mid)))
+    spread.value = ((0.0015 + Math.random() * 0.001) / parseFloat(midPrice.value) * 100).toFixed(2)
+  }
+}
+
+onMounted(() => { timer = setInterval(tick, 900) })
+onUnmounted(() => { clearInterval(timer) })
 </script>
 
 <style scoped>
@@ -106,6 +160,7 @@ const bids = [
   font-size: 0.68rem;
   line-height: 1.4;
   overflow: hidden;
+  transition: background 0.25s;
 }
 
 /* Depth bar behind row */
@@ -116,6 +171,7 @@ const bids = [
   pointer-events: none;
   opacity: 0.12;
   border-radius: 2px 0 0 2px;
+  transition: width 0.6s ease;
 }
 .ask-depth { background: #ff5555; }
 .bid-depth { background: #34FBFF; }
@@ -130,6 +186,12 @@ const bids = [
   color: rgba(255, 255, 255, 0.45);
   position: relative;
   z-index: 1;
+  transition: color 0.25s;
+}
+
+/* Flash highlight when a row updates */
+.ob-amount.flash {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Spread bar */
@@ -146,6 +208,7 @@ const bids = [
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 600;
+  transition: color 0.3s;
 }
 .ob-spread-label {
   font-size: 0.55rem;
@@ -155,12 +218,15 @@ const bids = [
 .ob-spread-mid {
   font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.45);
+  transition: color 0.3s;
 }
 
 /* Footer */
 .ob-footer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 8px;
   padding: 10px 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -169,6 +235,19 @@ const bids = [
   letter-spacing: 0.1em;
   color: rgba(52, 251, 255, 0.5);
   font-family: 'Courier New', monospace;
+}
+
+/* Live dot */
+.ob-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34FBFF;
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.7); }
 }
 
 /* Responsive */

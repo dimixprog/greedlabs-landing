@@ -67,42 +67,59 @@
       </div>
     </div>
   </header>
-  <div v-if="isMobileMenuOpen" class="mobile-menu-overlay">
-    <div class="mobile-menu-background"></div>
-    <div class="mobile-menu-container">
-      <nav class="mobile-nav">
-        <div class="mobile-nav-section">
-          <a href="/#dex-services" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.dexServices') }}</a>
+  <Transition name="menu-fade">
+    <div v-if="isMobileMenuOpen" class="mobile-menu-overlay">
+      <div class="mobile-menu-background"></div>
+      <div class="mobile-menu-container">
+        <div class="mobile-menu-top"></div>
+        <nav class="mobile-nav">
+          <a href="/#dex-services" class="mobile-nav-link" @click="closeMobileMenu">
+            <span class="nav-index">01</span>
+            <span class="nav-text">{{ $t('nav.dexServices') }}</span>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="/#token-launch" class="mobile-nav-link" @click="closeMobileMenu">
+            <span class="nav-index">02</span>
+            <span class="nav-text">{{ $t('nav.tokenLaunch') }}</span>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="/#cex-services" class="mobile-nav-link" @click="closeMobileMenu">
+            <span class="nav-index">03</span>
+            <span class="nav-text">{{ $t('nav.cexServices') }}</span>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="/#how-it-works" class="mobile-nav-link" @click="closeMobileMenu">
+            <span class="nav-index">04</span>
+            <span class="nav-text">{{ $t('nav.howItWorks') }}</span>
+            <span class="nav-arrow">→</span>
+          </a>
+        </nav>
+        <div class="mobile-menu-footer">
+          <div class="mobile-contacts">
+            <a href="mailto:hello@greedlabs.org" class="mobile-contact-link">
+              <img class="contact-icon" src="~/public/logos/mail.svg" alt="mail logo">
+              <span>hello@greedlabs.org</span>
+            </a>
+            <a href="https://t.me/greedlabs" class="mobile-contact-link" target="_blank">
+              <img class="contact-icon" src="~/public/logos/telegram.svg" alt="telegram logo">
+              <span>Telegram</span>
+            </a>
+            <a href="https://linkedin.com/company/greedlabs" class="mobile-contact-link" target="_blank">
+              <img class="contact-icon" src="~/public/logos/linkedin.svg" alt="linkedin logo">
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://x.com/greed_labs" class="mobile-contact-link" target="_blank">
+              <img class="contact-icon" src="~/public/logos/x.svg" alt="x logo">
+              <span>X.com</span>
+            </a>
+          </div>
+          <a href="https://t.me/greedlabs_bot" class="mobile-consultation-btn" target="_blank">
+            {{ $t('nav.freeConsultation') }}
+          </a>
         </div>
-        <div class="mobile-nav-section">
-          <a href="/#token-launch" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.tokenLaunch') }}</a>
-        </div>
-        <div class="mobile-nav-section">
-          <a href="/#cex-services" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.cexServices') }}</a>
-        </div>
-        <div class="mobile-nav-section">
-          <a href="/#how-it-works" class="mobile-nav-link main" @click="closeMobileMenu">{{ $t('nav.howItWorks') }}</a>
-        </div>
-      </nav>
-      <div class="mobile-contacts">
-        <a href="mailto:hello@greedlabs.org" class="mobile-contact-link">
-          <img class="contact-icon" src="~/public/logos/mail.svg" alt="mail logo"> hello@greedlabs.org
-        </a>
-        <a href="https://t.me/greedlabs" class="mobile-contact-link">
-          <img class="contact-icon" src="~/public/logos/telegram.svg" alt="telegram logo"> Telegram
-        </a>
-        <a href="https://linkedin.com/company/greedlabs" class="mobile-contact-link">
-          <img class="contact-icon" src="~/public/logos/linkedin.svg" alt="linkedin logo"> LinkedIn
-        </a>
-        <a href="https://x.com/greed_labs" class="mobile-contact-link">
-          <img class="contact-icon" src="~/public/logos/x.svg" alt="x logo"> X.com
-        </a>
       </div>
-      <a href="https://t.me/greedlabs_bot" class="mobile-consultation-btn" target="_blank">
-        {{ $t('nav.freeConsultation') }}
-      </a>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup>
@@ -213,10 +230,12 @@ onUnmounted(() => {
 .header-background {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(50px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 30px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
 
@@ -343,12 +362,13 @@ onUnmounted(() => {
 .contact-button {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: white;
   text-decoration: none;
-  padding: var(--spacing-md) var(--spacing-sm);
-  border: 1px solid white;
-  border-radius: 25px;
+  padding: 0.7rem 1.4rem;
+  background: #1586f4;
+  border: none;
+  border-radius: 16px;
   transition: all 0.2s ease;
   white-space: nowrap;
   display: flex;
@@ -356,21 +376,28 @@ onUnmounted(() => {
 }
 
 .contact-button:hover {
-  background-color: #1586f4;
-  border-color: white;
+  background: #1a90ff;
 }
 
 .contact-dropdown-menu {
   position: absolute;
-  top: 100%;
-  width: 17vw;
-  margin-top: 0;
+  top: calc(100% + 8px);
+  width: clamp(240px, 22vw, 320px);
   z-index: -2;
   right: -1.5vw;
 }
 
+.dropdown-background {
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
 .contact-section {
-  margin-bottom: clamp(8px, 1.5vw, 15px);
+  margin-bottom: clamp(8px, 1.5vw, 14px);
 }
 
 .contact-section:last-child {
@@ -380,12 +407,12 @@ onUnmounted(() => {
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 14px;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.1vw;
-  color: white;
+  font-size: clamp(13px, 1vw, 16px);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  padding: 0.3vw 0;
+  padding: 8px 0;
   transition: color 0.2s ease;
   font-weight: 600;
 }
@@ -396,30 +423,32 @@ onUnmounted(() => {
 
 .contact-icon {
   flex-shrink: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .consultation-btn {
   width: 100%;
-  background: linear-gradient(45deg, #1586f4, #0066cc);
+  background: #1586f4;
   color: white;
   border: none;
-  padding: 1vw 2vw;
-  border-radius: 2rem;
+  padding: 14px 20px;
+  border-radius: 14px;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 500;
-  font-size: 0.9vw;
+  font-weight: 600;
+  font-size: clamp(12px, 0.9vw, 15px);
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1vw;
+  transition: all 0.2s ease;
+  margin-top: 8px;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   text-align: center;
+  box-shadow: 0 4px 20px rgba(21, 134, 244, 0.3);
 }
 
 .consultation-btn:hover {
-  background: linear-gradient(45deg, #141a45, #141a45);
+  background: #1a90ff;
+  box-shadow: 0 6px 28px rgba(21, 134, 244, 0.45);
 }
 
 .mobile-header {
@@ -462,8 +491,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(30px, 10vw, 39px);
-  height: clamp(30px, 10vw, 39px);
+  width: clamp(38px, 13vw, 48px);
+  height: clamp(38px, 13vw, 48px);
   cursor: pointer;
 }
 
@@ -477,20 +506,20 @@ onUnmounted(() => {
 .hamburger-lines {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 9px;
   z-index: 1;
 }
 
 .hamburger-line {
-  width: clamp(20px, 8vw, 30px);
-  height: 4px;
+  width: clamp(22px, 9.5vw, 36px);
+  height: 6px;
   background-color: white;
   border-radius: 100px;
   transition: all 0.3s ease;
 }
 
 .hamburger-line.active:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(10.6px, 10.6px);
 }
 
 .hamburger-line.active:nth-child(2) {
@@ -498,7 +527,7 @@ onUnmounted(() => {
 }
 
 .hamburger-line.active:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(10.6px, -10.6px);
 }
 
 .mobile-menu-overlay {
@@ -506,140 +535,190 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  /*height: 100%;*/
+  height: 100dvh;
   z-index: 999998;
-  overflow-y: scroll;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #0d1117 0%, #111827 50%, #0a0f1e 100%);
+}
+
+.mobile-menu-overlay::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(21, 134, 244, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .mobile-menu-background {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(43, 43, 43, 0.95);
-  backdrop-filter: blur(20px);
-  z-index: -1;
-  height: 150%;
+  display: none;
 }
 
 .mobile-menu-container {
-  padding: clamp(40px, 15vh, 80px) clamp(var(--spacing-xs), 5vw, var(--spacing-md)) clamp(var(--spacing-xs), 5vw, var(--spacing-md));
-  min-height: 100vh;
+  padding: 0 28px 32px;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
 }
 
-.mobile-menu-header {
+.mobile-menu-top {
+  height: 85px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: clamp(20px, 8vh, 40px);
-}
-
-.mobile-menu-logo img {
-  display: block;
-  width: clamp(60px, 25vw, 99px);
-  height: auto;
-}
-
-.mobile-menu-icon {
-  display: flex;
-  justify-content: center;
-  margin-bottom: clamp(20px, 8vh, 40px);
-}
-
-.mobile-menu-icon svg {
-  width: clamp(40px, 15vw, 60px);
-  height: clamp(40px, 15vw, 60px);
 }
 
 .mobile-nav {
   flex: 1;
-  margin-bottom: clamp(15px, 6vh, 30px);
-}
-
-.mobile-nav-section {
-  margin-bottom: clamp(10px, 4vh, 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 0;
 }
 
 .mobile-nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   font-family: 'Montserrat', Arial, sans-serif;
-  color: white;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  padding: clamp(4px, 1.5vw, var(--spacing-xs)) 0;
-  transition: color 0.2s ease;
-  line-height: 1.55;
+  padding: 18px 20px;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.mobile-nav-link.main {
-  font-size: clamp(14px, 5vw, 18px);
-  font-weight: 600;
-  margin-bottom: clamp(5px, 2vw, 10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: clamp(5px, 2vw, 10px);
+.mobile-nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.mobile-nav-link.sub {
-  font-size: clamp(12px, 4.5vw, 16px);
-  font-weight: 400;
-  color: #d2d2d2;
-  padding-left: clamp(10px, 4vw, 20px);
-  margin-bottom: clamp(3px, 1vw, 5px);
+.mobile-nav-link:hover::before,
+.mobile-nav-link:active::before {
+  opacity: 1;
 }
 
 .mobile-nav-link:hover {
+  color: white;
+}
+
+.mobile-nav-link:hover .nav-arrow {
   color: #1586f4;
+  transform: translateX(4px);
+}
+
+.nav-index {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1586f4;
+  letter-spacing: 0.05em;
+  min-width: 22px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.nav-text {
+  font-size: clamp(20px, 5.5vw, 26px);
+  font-weight: 600;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.nav-arrow {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+  font-weight: 400;
+}
+
+.mobile-menu-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .mobile-contacts {
-  margin-bottom: clamp(15px, 6vh, 30px);
-}
-
-.mobile-contacts a{
-  display: flex;
-  align-items: center;
-}
-
-.mobile-contacts img {
-  float: left;
-  margin-right: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .mobile-contact-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(12px, 4.5vw, 16px);
-  color: white;
+  font-size: clamp(12px, 3.5vw, 14px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  padding: clamp(5px, 2vw, 10px) 0;
-  transition: color 0.2s ease;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  transition: all 0.2s ease;
 }
 
-.mobile-contact-link:hover {
-  color: #1586f4;
+.mobile-contact-link:hover,
+.mobile-contact-link:active {
+  color: white;
+  background: rgba(21, 134, 244, 0.12);
+  border-color: rgba(21, 134, 244, 0.3);
+}
+
+.mobile-contact-link .contact-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .mobile-consultation-btn {
+  display: block;
   width: 100%;
-  background: linear-gradient(45deg, #1586f4, #0066cc);
+  background: linear-gradient(90deg, #1586f4, #0066cc);
   color: white;
-  border: none;
-  padding: clamp(10px, 4vw, 20px) clamp(12px, 4.5vw, 24px);
-  border-radius: 15px;
+  padding: 18px 24px;
+  border-radius: 14px;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 600;
-  font-size: clamp(14px, 5vw, 18px);
+  font-size: clamp(14px, 4vw, 17px);
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: clamp(10px, 4vh, 20px);
   text-decoration: none;
-  display: inline-block;
   text-align: center;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 24px rgba(21, 134, 244, 0.25);
 }
 
 .mobile-consultation-btn:hover {
-  background: linear-gradient(45deg, #0066cc, #004499);
+  background: linear-gradient(90deg, #1a90ff, #0077ee);
+  box-shadow: 0 6px 32px rgba(21, 134, 244, 0.4);
+  transform: translateY(-1px);
+}
+
+.menu-fade-enter-active,
+.menu-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.menu-fade-enter-from,
+.menu-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 @media (max-width: 2600px) {
   .dropdown-menu {

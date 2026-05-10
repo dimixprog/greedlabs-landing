@@ -306,7 +306,7 @@
     <!-- ═══════════════════════════════════════════
          10. ORDERBOOK BEFORE / AFTER
     ═══════════════════════════════════════════ -->
-    <div id="orderbook-comparison" class="big-card pb-2xl margin-container">
+    <div id="orderbook-comparison" ref="obSection" class="big-card pb-2xl margin-container">
       <h3 class="colorized-text">{{ $t("market_making.orderbook_section_title") }}</h3>
       <p class="ob-section-desc">{{ $t("market_making.orderbook_section_desc") }}</p>
       <div class="ob-grid">
@@ -314,12 +314,12 @@
         <div class="ob-card">
           <div class="ob-card-label ob-label-before">{{ $t("market_making.orderbook_before_title") }}</div>
           <svg class="depth-chart" viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <polygon points="0,30 110,30 130,150 0,150" fill="rgba(52,251,255,0.12)"/>
-            <polyline points="0,30 110,30 130,150" fill="none" stroke="#34FBFF" stroke-width="2"/>
-            <polygon points="170,150 190,30 300,30 300,150" fill="rgba(255,80,80,0.12)"/>
-            <polyline points="170,150 190,30 300,30" fill="none" stroke="#FF5050" stroke-width="2"/>
-            <rect x="130" y="130" width="40" height="20" fill="rgba(255,255,255,0.04)" rx="2"/>
-            <line x1="130" y1="150" x2="170" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+            <polygon class="fill-buy" points="0,30 110,30 130,150 0,150" fill="rgba(52,251,255,0.12)"/>
+            <polyline class="line-buy" points="0,30 110,30 130,150" fill="none" stroke="#34FBFF" stroke-width="2" pathLength="1"/>
+            <polygon class="fill-sell" points="170,150 190,30 300,30 300,150" fill="rgba(255,80,80,0.12)"/>
+            <polyline class="line-sell" points="170,150 190,30 300,30" fill="none" stroke="#FF5050" stroke-width="2" pathLength="1"/>
+            <rect class="mid-gap" x="130" y="130" width="40" height="20" fill="rgba(255,255,255,0.04)" rx="2"/>
+            <line class="mid-gap" x1="130" y1="150" x2="170" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
           </svg>
           <div class="ob-meta">
             <span class="ob-spread ob-spread-wide">{{ $t("market_making.spread_before") }}</span>
@@ -330,11 +330,11 @@
         <div class="ob-card ob-card-after">
           <div class="ob-card-label ob-label-after">{{ $t("market_making.orderbook_after_title") }}</div>
           <svg class="depth-chart" viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <polygon points="0,5 138,5 148,150 0,150" fill="rgba(52,251,255,0.18)"/>
-            <polyline points="0,5 138,5 148,150" fill="none" stroke="#34FBFF" stroke-width="2.5"/>
-            <polygon points="152,150 162,5 300,5 300,150" fill="rgba(255,80,80,0.18)"/>
-            <polyline points="152,150 162,5 300,5" fill="none" stroke="#FF5050" stroke-width="2.5"/>
-            <line x1="148" y1="150" x2="152" y2="150" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <polygon class="fill-buy" points="0,5 138,5 148,150 0,150" fill="rgba(52,251,255,0.18)"/>
+            <polyline class="line-buy" points="0,5 138,5 148,150" fill="none" stroke="#34FBFF" stroke-width="2.5" pathLength="1"/>
+            <polygon class="fill-sell" points="152,150 162,5 300,5 300,150" fill="rgba(255,80,80,0.18)"/>
+            <polyline class="line-sell" points="152,150 162,5 300,5" fill="none" stroke="#FF5050" stroke-width="2.5" pathLength="1"/>
+            <line class="mid-line" x1="148" y1="150" x2="152" y2="150" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
           </svg>
           <div class="ob-meta">
             <span class="ob-spread ob-spread-tight">{{ $t("market_making.spread_after") }}</span>
@@ -445,15 +445,16 @@ import ChainNetwork from '~/components/ChainNetwork.vue'
 
 // SEO Meta
 useSeoMeta({
-  title: 'GREED Labs | Crypto Market Making & Liquidity Solutions',
-  description: 'Institutional-grade crypto market making across 50+ CEX and every major DEX. Tight spreads, deep liquidity, and algorithmic execution on Solana, EVM, TON, and beyond.',
-  ogTitle: 'GREED Labs | Crypto Market Making & Liquidity Solutions',
-  ogDescription: 'Cross-venue market making across 50+ CEX and every major DEX. Tight spreads, deep liquidity, and algorithmic execution on Solana, EVM, TON, and beyond.',
+  title: 'GREED Labs — Crypto Market Making for Token Projects',
+  description: 'Institutional market making across 50+ CEX and 30+ DEX on 17 chains. Deep liquidity, tight spreads, and algorithmic execution for token projects at every stage.',
+  ogTitle: 'GREED Labs — Crypto Market Making for Token Projects',
+  ogDescription: 'Institutional market making across 50+ CEX and 30+ DEX on 17 chains. Deep liquidity, tight spreads, and algorithmic execution for token projects at every stage.',
   ogImage: '/og-image.png',
   twitterCard: 'summary_large_image'
 })
 
 const statBlock = ref(null)
+const obSection = ref(null)
 const { $device } = useNuxtApp()
 const isSafari = ref(null)
 const faqOpen = ref(null)
@@ -484,6 +485,21 @@ onMounted(() => {
       { threshold: 0.8 }
     )
     if (statBlock.value) observer.observe(statBlock.value)
+
+    if (obSection.value) {
+      const obObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              obSection.value.classList.add('ob-animated')
+              obObserver.unobserve(obSection.value)
+            }
+          })
+        },
+        { threshold: 0.3 }
+      )
+      obObserver.observe(obSection.value)
+    }
   })
 })
 </script>
@@ -1052,6 +1068,54 @@ onMounted(() => {
 .ob-spread-tight  { background: rgba(52, 251, 255, 0.12); color: #34FBFF; }
 .ob-depth-shallow { background: rgba(255, 255, 255, 0.06); color: #888; }
 .ob-depth-deep    { background: rgba(52, 251, 255, 0.12); color: #34FBFF; }
+
+/* ── Orderbook chart animation ─────────────────────── */
+.depth-chart .line-buy,
+.depth-chart .line-sell {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.depth-chart .fill-buy,
+.depth-chart .fill-sell,
+.depth-chart .mid-gap,
+.depth-chart .mid-line {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.ob-card-label {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ob-meta {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+/* BEFORE card reveal */
+.ob-animated .ob-card:not(.ob-card-after) .ob-card-label       { opacity: 1; transition-delay: 0s; }
+.ob-animated .ob-card:not(.ob-card-after) .line-buy             { stroke-dashoffset: 0; transition-delay: 0.1s; }
+.ob-animated .ob-card:not(.ob-card-after) .fill-buy             { opacity: 1; transition-delay: 0.25s; }
+.ob-animated .ob-card:not(.ob-card-after) .line-sell            { stroke-dashoffset: 0; transition-delay: 0.35s; }
+.ob-animated .ob-card:not(.ob-card-after) .fill-sell            { opacity: 1; transition-delay: 0.5s; }
+.ob-animated .ob-card:not(.ob-card-after) .mid-gap              { opacity: 1; transition-delay: 0.55s; }
+.ob-animated .ob-card:not(.ob-card-after) .ob-meta              { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+/* AFTER card reveal (staggered) */
+.ob-animated .ob-card-after .ob-card-label                      { opacity: 1; transition-delay: 0.65s; }
+.ob-animated .ob-card-after .line-buy                           { stroke-dashoffset: 0; transition-delay: 0.75s; }
+.ob-animated .ob-card-after .fill-buy                           { opacity: 1; transition-delay: 0.9s; }
+.ob-animated .ob-card-after .line-sell                          { stroke-dashoffset: 0; transition-delay: 1.0s; }
+.ob-animated .ob-card-after .fill-sell                          { opacity: 1; transition-delay: 1.15s; }
+.ob-animated .ob-card-after .mid-line                           { opacity: 1; transition-delay: 1.2s; }
+.ob-animated .ob-card-after .ob-meta                            { opacity: 1; transform: translateY(0); transition-delay: 1.25s; }
+@keyframes ob-after-glow {
+  0%   { box-shadow: 0 0 24px rgba(52, 251, 255, 0.06); }
+  50%  { box-shadow: 0 0 48px rgba(52, 251, 255, 0.22), 0 0 80px rgba(52, 251, 255, 0.08); }
+  100% { box-shadow: 0 0 24px rgba(52, 251, 255, 0.10); }
+}
+.ob-animated .ob-card-after {
+  animation: ob-after-glow 1.4s ease 1.0s both;
+}
 
 /* ── DEX section ───────────────────────────────────── */
 #dex { overflow: hidden; }

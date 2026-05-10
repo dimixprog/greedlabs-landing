@@ -1,7 +1,7 @@
 <!-- components/TokenSniper.vue -->
 <!-- Supply acquisition gauge: shows 80%+ supply secured at block 0 -->
 <template>
-  <div class="acquisition-wrap">
+  <div ref="root" class="acquisition-wrap">
 
     <!-- Gauge SVG -->
     <svg class="gauge-svg" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
@@ -10,8 +10,12 @@
           <stop offset="0%"   stop-color="#34FBFF"/>
           <stop offset="100%" stop-color="#1586F4"/>
         </linearGradient>
-        <filter id="glow">
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glowPulse" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
@@ -28,31 +32,29 @@
         transform="rotate(-225 110 110)"
       />
 
-      <!-- Fill arc (~80% of 270° = ~302) -->
+      <!-- Fill arc — JS-driven sweep -->
       <circle
         class="gauge-fill"
+        :class="{ 'gauge-fill--pulse': done }"
         cx="110" cy="110" r="80"
         fill="none"
         stroke="url(#gaugeGrad)"
         stroke-width="10"
         stroke-linecap="round"
-        stroke-dasharray="302 503"
+        :stroke-dasharray="`${fillDash} 503`"
         transform="rotate(-225 110 110)"
-        filter="url(#glow)"
+        :filter="done ? 'url(#glowPulse)' : 'url(#glow)'"
       />
 
       <!-- Tick marks at 25%, 50%, 75% -->
       <g class="gauge-ticks" stroke="rgba(255,255,255,0.15)" stroke-width="1.5">
-        <!-- 25% -->
         <line x1="110" y1="26" x2="110" y2="18" transform="rotate(-157.5 110 110)"/>
-        <!-- 50% -->
         <line x1="110" y1="26" x2="110" y2="18" transform="rotate(-90 110 110)"/>
-        <!-- 75% -->
         <line x1="110" y1="26" x2="110" y2="18" transform="rotate(-22.5 110 110)"/>
       </g>
 
       <!-- Centre text: stat -->
-      <text x="110" y="105" text-anchor="middle" class="gauge-main-num" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="38" fill="url(#gaugeGrad)">80%+</text>
+      <text x="110" y="105" text-anchor="middle" class="gauge-main-num" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="38" fill="url(#gaugeGrad)">{{ displayNum }}%+</text>
       <text x="110" y="128" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="500" font-size="11" letter-spacing="2" fill="rgba(255,255,255,0.45)">SUPPLY ACQUIRED</text>
 
       <!-- Left label: 0% -->
@@ -62,7 +64,7 @@
     </svg>
 
     <!-- Stats row below gauge -->
-    <div class="acq-stats">
+    <div class="acq-stats" :class="{ 'acq-stats--visible': statsVisible }">
       <div class="acq-stat">
         <span class="acq-stat-val">0</span>
         <span class="acq-stat-key">BLOCK</span>
@@ -82,6 +84,69 @@
   </div>
 </template>
 
+<script setup>
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+
+const TARGET_FILL = 302
+const TARGET_NUM  = 80
+const DURATION    = 1600
+const START_DELAY = 200
+
+const fillDash     = ref(0)
+const displayNum   = ref(0)
+const done         = ref(false)
+const statsVisible = ref(false)
+const root         = ref(null)
+
+let observer = null
+let animated = false
+
+function easeOut(t) {
+  return 1 - Math.pow(1 - t, 3)
+}
+
+function runAnimation() {
+  if (animated) return
+  animated = true
+
+  setTimeout(() => {
+    const start = performance.now()
+
+    function tick(now) {
+      const elapsed = now - start
+      const t       = Math.min(elapsed / DURATION, 1)
+      const eased   = easeOut(t)
+
+      fillDash.value   = Math.round(TARGET_FILL * eased)
+      displayNum.value = Math.round(TARGET_NUM  * eased)
+
+      if (t < 1) {
+        requestAnimationFrame(tick)
+      } else {
+        fillDash.value    = TARGET_FILL
+        displayNum.value  = TARGET_NUM
+        done.value        = true
+        statsVisible.value = true
+      }
+    }
+
+    requestAnimationFrame(tick)
+  }, START_DELAY)
+}
+
+onMounted(() => {
+  nextTick(() => {
+    observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) runAnimation() },
+      { threshold: 0.3 }
+    )
+    if (root.value) observer.observe(root.value)
+  })
+})
+
+onUnmounted(() => observer?.disconnect())
+</script>
+
 <style scoped>
 .acquisition-wrap {
   width: 100%;
@@ -99,6 +164,16 @@
   overflow: visible;
 }
 
+/* Pulsing glow on the fill arc once sweep completes */
+@keyframes gauge-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.65; }
+}
+
+.gauge-fill--pulse {
+  animation: gauge-pulse 2.4s ease-in-out infinite;
+}
+
 /* Stats row */
 .acq-stats {
   display: flex;
@@ -111,6 +186,15 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 10px;
   padding: 12px 0;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.acq-stats--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .acq-stat {

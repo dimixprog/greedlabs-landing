@@ -9,6 +9,8 @@ useHead(() => ({
   link: head.value.link,
   meta: head.value.meta
 }))
+
+useScrollReveal()
 </script>
 
 <template>
@@ -157,12 +159,12 @@ video:focus {
   outline: none;
 }
 .card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  /* color: white; */
-  background-color: #222222;
+  background: linear-gradient(135deg, rgba(40, 40, 40, 1), rgba(24, 24, 24, 1));
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: var(--card-padding);
   margin: var(--spacing-sm);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 html {
   padding: 0px;
@@ -173,11 +175,25 @@ html {
   margin: 0 auto;
 }
 body {
-    background-color: #1b1b1b;
+    background-color: #111111;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -5%, rgba(21, 134, 244, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 105%, rgba(52, 251, 255, 0.08) 0%, transparent 50%);
+    background-attachment: fixed;
     color: white;
     font-family: 'Montserrat',Arial,sans-serif;
     padding: 0px;
     margin: 0px;
+}
+
+.fadeup_block {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fadeup_block.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 /* h1, h2, h3, h4, h5, h6 {
     text-align: center;
@@ -227,6 +243,32 @@ body {
   main{
     zoom:1.2;
   }
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 99999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
 }
 </style>
 
