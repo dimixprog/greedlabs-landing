@@ -29,7 +29,9 @@
 <style scoped>
 .consult-section {
   position: relative;
-  background: #191b1f;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(21, 134, 244, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, transparent 0%, rgba(25, 27, 31, 0.85) 18%, rgba(25, 27, 31, 0.95) 100%);
   padding: var(--spacing-xl) 0 var(--spacing-4xl);
   overflow: hidden;
   min-height: 600px;

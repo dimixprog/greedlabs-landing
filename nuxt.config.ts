@@ -109,6 +109,11 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
+
+  runtimeConfig: {
+    tgVerified: ''
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/i18n',

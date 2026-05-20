@@ -14,6 +14,7 @@
     "development": "Development",
     "consulting": "Consulting",
     "howItWorks": "How It Works",
+    "verifyTeam": "Verify Team",
     "contactUs": "Contact Us",
     "freeConsultation": "Request a free consultation"
   },
@@ -228,5 +229,24 @@
   },
   "partnerships": {
     "title": "Our Partners"
+  },
+  "verify": {
+    "eyebrow": "TRUST & SAFETY",
+    "title": "Verify Our Team",
+    "tagline": "Got a DM from us? Paste the Telegram username to confirm it’s really our team.",
+    "placeholder": "username",
+    "button": "Verify",
+    "result": {
+      "ok_title": "Verified — real team member.",
+      "ok_desc": "Safe to continue. We never ask for funds, keys, or contract approvals.",
+      "fail_title": "Not on our team.",
+      "fail_desc": "This account is not a GREED Labs representative.",
+      "invalid_title": "Invalid username.",
+      "invalid_desc": "Telegram usernames are 5–32 chars: letters, digits, underscore.",
+      "rate_title": "Too many checks.",
+      "rate_desc": "Please wait a minute and try again.",
+      "error_title": "Something went wrong.",
+      "error_desc": "Couldn’t reach verification. Try again in a moment."
+    }
   }
 }

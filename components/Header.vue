@@ -11,6 +11,7 @@
       <a href="/#token-launch" class="nav-link">{{ $t('nav.tokenLaunch') }}</a>
       <a href="/#cex-services" class="nav-link">{{ $t('nav.cexServices') }}</a>
       <a href="/#how-it-works" class="nav-link">{{ $t('nav.howItWorks') }}</a>
+      <a href="/#verify-team" class="nav-link">{{ $t('nav.verifyTeam') }}</a>
     </nav>
     <div class="contact-dropdown"
          @mouseenter="openContactMenu" 
@@ -91,6 +92,11 @@
           <a href="/#how-it-works" class="mobile-nav-link" @click="closeMobileMenu">
             <span class="nav-index">04</span>
             <span class="nav-text">{{ $t('nav.howItWorks') }}</span>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="/#verify-team" class="mobile-nav-link" @click="closeMobileMenu">
+            <span class="nav-index">05</span>
+            <span class="nav-text">{{ $t('nav.verifyTeam') }}</span>
             <span class="nav-arrow">→</span>
           </a>
         </nav>

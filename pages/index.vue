@@ -430,6 +430,11 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════
+         14. VERIFY OUR TEAM
+    ═══════════════════════════════════════════ -->
+    <VerifyTg />
+
     <!-- GetConsult is rendered by default.vue layout -->
   </div>
 </template>
@@ -515,7 +520,8 @@ onMounted(() => {
 .launch-wrapper,
 .services-container-unused,
 #how-it-works,
-#faq {
+#faq,
+#verify-team {
   margin-bottom: var(--spacing-xl);
 }
 

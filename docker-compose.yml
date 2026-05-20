@@ -9,6 +9,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3004:3000'
+    environment:
+      NUXT_TG_VERIFIED: ${NUXT_TG_VERIFIED}
     networks:
       - https
 
