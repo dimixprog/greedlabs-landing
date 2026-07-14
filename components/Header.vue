@@ -7,11 +7,12 @@
       </a>
     </div>
     <nav class="header-nav">
-      <a href="/#dex-services" class="nav-link">{{ $t('nav.dexServices') }}</a>
-      <a href="/#token-launch" class="nav-link">{{ $t('nav.tokenLaunch') }}</a>
-      <a href="/#cex-services" class="nav-link">{{ $t('nav.cexServices') }}</a>
+      <NuxtLink to="/dex-market-making" class="nav-link">{{ $t('nav.dexServices') }}</NuxtLink>
+      <NuxtLink to="/token-launch" class="nav-link">{{ $t('nav.tokenLaunch') }}</NuxtLink>
+      <NuxtLink to="/cex-market-making" class="nav-link">{{ $t('nav.cexServices') }}</NuxtLink>
       <a href="/#how-it-works" class="nav-link">{{ $t('nav.howItWorks') }}</a>
       <a href="/#verify-team" class="nav-link">{{ $t('nav.verifyTeam') }}</a>
+      <a href="/blog" class="nav-link">{{ $t('nav.blog') }}</a>
     </nav>
     <div class="contact-dropdown"
          @mouseenter="openContactMenu" 
@@ -74,21 +75,21 @@
       <div class="mobile-menu-container">
         <div class="mobile-menu-top"></div>
         <nav class="mobile-nav">
-          <a href="/#dex-services" class="mobile-nav-link" @click="closeMobileMenu">
+          <NuxtLink to="/dex-market-making" class="mobile-nav-link" @click="closeMobileMenu">
             <span class="nav-index">01</span>
             <span class="nav-text">{{ $t('nav.dexServices') }}</span>
             <span class="nav-arrow">→</span>
-          </a>
-          <a href="/#token-launch" class="mobile-nav-link" @click="closeMobileMenu">
+          </NuxtLink>
+          <NuxtLink to="/token-launch" class="mobile-nav-link" @click="closeMobileMenu">
             <span class="nav-index">02</span>
             <span class="nav-text">{{ $t('nav.tokenLaunch') }}</span>
             <span class="nav-arrow">→</span>
-          </a>
-          <a href="/#cex-services" class="mobile-nav-link" @click="closeMobileMenu">
+          </NuxtLink>
+          <NuxtLink to="/cex-market-making" class="mobile-nav-link" @click="closeMobileMenu">
             <span class="nav-index">03</span>
             <span class="nav-text">{{ $t('nav.cexServices') }}</span>
             <span class="nav-arrow">→</span>
-          </a>
+          </NuxtLink>
           <a href="/#how-it-works" class="mobile-nav-link" @click="closeMobileMenu">
             <span class="nav-index">04</span>
             <span class="nav-text">{{ $t('nav.howItWorks') }}</span>
@@ -97,6 +98,11 @@
           <a href="/#verify-team" class="mobile-nav-link" @click="closeMobileMenu">
             <span class="nav-index">05</span>
             <span class="nav-text">{{ $t('nav.verifyTeam') }}</span>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="/blog" class="mobile-nav-link" @click="closeMobileMenu">
+            <span class="nav-index">06</span>
+            <span class="nav-text">{{ $t('nav.blog') }}</span>
             <span class="nav-arrow">→</span>
           </a>
         </nav>
@@ -255,8 +261,8 @@ onUnmounted(() => {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 4rem;
-  margin-left: var(--spacing-2xl);
+  gap: clamp(0.85rem, 1.6vw, 2.25rem);
+  margin-left: clamp(1rem, 2vw, 2.5rem);
   flex: 1;
   min-width: 0;
   position: relative;
@@ -276,13 +282,15 @@ onUnmounted(() => {
 
 .nav-link {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
   font-weight: 400;
   color: white;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color 0.2s ease;
   cursor: pointer;
 }
@@ -363,6 +371,8 @@ onUnmounted(() => {
   height: 100%;
   align-items: center;
   display: flex;
+  flex-shrink: 0;
+  margin-left: clamp(1rem, 2vw, 2rem);
 }
 
 .contact-button {
@@ -772,7 +782,7 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1250px) {
   .desktop-header {
     display: none;
   }
