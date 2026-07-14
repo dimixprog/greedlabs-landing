@@ -10,6 +10,7 @@
     margin-top: var(--spacing-lg);
 }
 
+.hero h1,
 .hero h2 {
     font-size: 50px;
     font-weight: 700;
@@ -37,6 +38,7 @@
     margin-bottom: var(--spacing-xl);
     padding: 0;
   }
+  .hero h1,
   .hero h2 {
     font-size: 32px;
     /*text-align: center;*/
@@ -64,6 +66,7 @@
 
 /* Планшеты (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .hero div h1,
   .hero div h2 {
     font-size: 40px;
   }

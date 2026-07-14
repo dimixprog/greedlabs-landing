@@ -8,9 +8,9 @@
       <Hero id="start_way" class="grid grid-cols-7 justify-between items-center margin-container">
         <div class="col-span-4">
           <div class="hero-eyebrow">{{ $t("index.start_way_eyebrow") }}</div>
-          <h2 class="colorized-text">
+          <h1 class="colorized-text">
             {{ $t("index.start_way") }}
-          </h2>
+          </h1>
           <p>
             {{ $t("index.start_way_desc") }}
           </p>
@@ -454,8 +454,45 @@ useSeoMeta({
   description: 'Institutional market making across 50+ CEX and 30+ DEX on 17 chains. Deep liquidity, tight spreads, and algorithmic execution for token projects at every stage.',
   ogTitle: 'GREED Labs — Crypto Market Making for Token Projects',
   ogDescription: 'Institutional market making across 50+ CEX and 30+ DEX on 17 chains. Deep liquidity, tight spreads, and algorithmic execution for token projects at every stage.',
-  ogImage: '/og-image.png',
-  twitterCard: 'summary_large_image'
+  ogUrl: 'https://greedlabs.org/',
+  ogType: 'website',
+  ogImage: 'https://greedlabs.org/og-image.png',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@GREED_Labs',
+  twitterImage: 'https://greedlabs.org/og-image.png'
+})
+
+// FAQ + Breadcrumb structured data (GEO / rich results)
+const { t } = useI18n()
+useHead({
+  link: [{ rel: 'canonical', href: 'https://greedlabs.org/' }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: Array.from({ length: 7 }, (_, idx) => {
+          const n = idx + 1
+          return {
+            '@type': 'Question',
+            name: t(`faq.q${n}`),
+            acceptedAnswer: { '@type': 'Answer', text: t(`faq.a${n}`) }
+          }
+        })
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://greedlabs.org/' }
+        ]
+      })
+    }
+  ]
 })
 
 const statBlock = ref(null)
