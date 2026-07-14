@@ -14,9 +14,10 @@
           <p class="footer-nav-title">{{ $t('footer.quick_links') }}</p>
           <nav>
             <a href="/">{{ $t('nav.marketMaking') }}</a>
-            <a href="/#dex-services">{{ $t('nav.dexServices') }}</a>
-            <a href="/#cex-services">{{ $t('nav.cexServices') }}</a>
-            <a href="/#token-launch">{{ $t('nav.tokenLaunch') }}</a>
+            <NuxtLink to="/dex-market-making">{{ $t('nav.dexServices') }}</NuxtLink>
+            <NuxtLink to="/cex-market-making">{{ $t('nav.cexServices') }}</NuxtLink>
+            <NuxtLink to="/token-launch">{{ $t('nav.tokenLaunch') }}</NuxtLink>
+            <NuxtLink to="/faq">{{ $t('nav.faq') }}</NuxtLink>
           </nav>
         </div>
 

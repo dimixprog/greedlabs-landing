@@ -1,6 +1,9 @@
 {
   "free_consult": "Free Consultation",
   "nav": {
+    "blog": "Blog",
+    "faq": "FAQ",
+    "tokenLaunchPage": "Token Launch",
     "marketMaking": "Market Making",
     "dexServices": "DEX Services",
     "antiSnipe": "Anti-Snipe Protection",
@@ -103,6 +106,24 @@
     "liquidity_manage": "Risk Management",
     "liquidity_manage_stat": "Δ≈0",
     "liquidity_manage_desc": "Automated cross-venue hedging keeps directional exposure delta-neutral. No blown positions — just clean, stable market making around the clock."
+  },
+  "token_launch_page": {
+    "breadcrumb": "Token Launch",
+    "h1": "Token Launch Support",
+    "intro": "Launching a token is the highest-risk moment of its entire lifecycle — thin liquidity, sniper bots, and volatile first candles decide whether your market survives day one. GREED Labs provides full-stack launch support: contract architecture, deployment, exchange listings, and liquidity bootstrapping from block 0, so your token opens into a deep, stable, defensible market.",
+    "why_title": "Why professional support matters at launch"
+  },
+  "dex_page": {
+    "breadcrumb": "DEX Market Making",
+    "h1": "DEX Market Making",
+    "intro": "On-chain markets are unforgiving: thin pools, MEV bots, and concentrated supply can break a token's price in minutes. GREED Labs provides institutional DEX market making with native integrations across 17 chains and 30+ decentralized exchanges — continuous two-sided quoting, tight spreads, slippage protection, and real-time monitoring of external flows and wallet concentration.",
+    "coverage_title": "Coverage across every major on-chain venue"
+  },
+  "cex_page": {
+    "breadcrumb": "CEX Market Making",
+    "h1": "CEX Market Making",
+    "intro": "Centralized exchanges demand deep, stable order books and disciplined risk management. GREED Labs runs institutional-grade CEX market making across 50+ venues simultaneously — deep liquidity, institutional-level spreads, and automated cross-venue hedging that keeps directional exposure delta-neutral around the clock.",
+    "features_title": "What our CEX market making delivers"
   },
   "dev": {
     "dev": "DEVELOPMENT",
@@ -212,6 +233,9 @@
   "faq": {
     "eyebrow": "FAQ",
     "title": "Common Questions",
+    "lead": "Everything token teams ask us before starting — from how market making actually works to which exchanges and chains we cover, onboarding time, our free pilot, and what your weekly reporting looks like. Still have a question? Get in touch with our team.",
+    "breadcrumbHome": "Home",
+    "breadcrumbFaq": "FAQ",
     "q1": "What exactly does a market maker do?",
     "a1": "A market maker continuously places buy and sell orders to keep your token liquid. This tightens the spread, reduces price impact for traders, and creates the appearance — and reality — of a healthy, active market.",
     "q2": "Which exchanges and chains do you support?",
