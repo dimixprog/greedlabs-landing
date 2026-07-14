@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Crypto market making — order book depth and tight spread">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34fbff"/>
+      <stop offset="1" stop-color="#1586f4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0c0c0c"/>
+    </linearGradient>
+    <linearGradient id="bidFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34fbff" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#34fbff" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="askFade" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#1586f4" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="2" y="2" width="1196" height="626" rx="24" fill="none" stroke="url(#brand)" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <line x1="120" y1="120" x2="120" y2="510"/>
+    <line x1="120" y1="510" x2="1080" y2="510"/>
+    <line x1="120" y1="415" x2="1080" y2="415"/>
+    <line x1="120" y1="320" x2="1080" y2="320"/>
+    <line x1="120" y1="225" x2="1080" y2="225"/>
+  </g>
+
+  <!-- bid depth (left, cyan) -->
+  <g>
+    <rect x="140" y="470" width="120" height="40" fill="url(#bidFade)"/>
+    <rect x="200" y="430" width="120" height="80" fill="url(#bidFade)"/>
+    <rect x="260" y="390" width="120" height="120" fill="url(#bidFade)"/>
+    <rect x="320" y="350" width="120" height="160" fill="url(#bidFade)"/>
+    <rect x="380" y="300" width="120" height="210" fill="url(#bidFade)"/>
+    <rect x="440" y="250" width="120" height="260" fill="url(#bidFade)"/>
+  </g>
+
+  <!-- ask depth (right, blue) -->
+  <g>
+    <rect x="640" y="250" width="120" height="260" fill="url(#askFade)"/>
+    <rect x="700" y="300" width="120" height="210" fill="url(#askFade)"/>
+    <rect x="760" y="350" width="120" height="160" fill="url(#askFade)"/>
+    <rect x="820" y="390" width="120" height="120" fill="url(#askFade)"/>
+    <rect x="880" y="430" width="120" height="80" fill="url(#askFade)"/>
+    <rect x="940" y="470" width="120" height="40" fill="url(#askFade)"/>
+  </g>
+
+  <!-- spread marker -->
+  <line x1="600" y1="180" x2="600" y2="520" stroke="url(#brand)" stroke-width="3" stroke-dasharray="6 8"/>
+  <circle cx="600" cy="250" r="8" fill="#34fbff"/>
+  <rect x="540" y="150" width="120" height="34" rx="17" fill="#111111" stroke="url(#brand)" stroke-width="1.5"/>
+  <text x="600" y="173" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="600" fill="#ffffff">SPREAD</text>
+
+  <!-- wordmark -->
+  <text x="120" y="590" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">GREED <tspan fill="#34fbff">LABS</tspan></text>
+  <text x="1080" y="590" text-anchor="end" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="500" fill="#ffffff" fill-opacity="0.5">Crypto Market Making</text>
+</svg>

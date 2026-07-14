@@ -1,8 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
+    // Client-side page navigation (NuxtLink) is now used across the header,
+    // footer, and breadcrumbs. The previous { mode: 'out-in' } transition
+    // deadlocked with Nuxt's Suspense-wrapped async pages — the leave
+    // transition never completed, so the incoming page never mounted (route
+    // and <title> changed but page content did not). Disabled to guarantee
+    // correct navigation. Re-enable a simultaneous (non-out-in) transition
+    // later if a cross-fade is desired.
+    pageTransition: false,
     head: {
+      htmlAttrs: { lang: 'en' },
       script: [
         {
           src: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs',
@@ -62,6 +70,16 @@ export default defineNuxtConfig({
             }
           })
         },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'GREED Labs',
+            url: 'https://greedlabs.org',
+            publisher: { '@type': 'Organization', name: 'GREED Labs' }
+          })
+        },
         ...(process.env.NODE_ENV !== 'development' ? [
           {
             src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_PUBLIC_GTAG_ID}`,
@@ -119,8 +137,18 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    '@nuxt/content'
   ],
+
+  content: {
+    highlight: {
+      theme: 'github-dark'
+    },
+    markdown: {
+      anchorLinks: false
+    }
+  },
 
   googleFonts: {
     families: {
