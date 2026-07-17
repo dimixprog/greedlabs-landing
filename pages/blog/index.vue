@@ -77,10 +77,12 @@ useHead({
 }
 .post-list {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--spacing-lg);
 }
 .post-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: var(--spacing-lg);
   border: 1px solid rgba(52, 251, 255, 0.14);
   border-radius: 16px;
@@ -94,12 +96,13 @@ useHead({
 .post-thumb {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: var(--spacing-md);
 }
 .post-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: var(--spacing-xs);
   color: #ffffff;
@@ -110,6 +113,7 @@ useHead({
   line-height: 1.5;
 }
 .post-date {
+  margin-top: auto;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -117,6 +121,6 @@ useHead({
   color: rgba(255, 255, 255, 0.6);
 }
 @media (max-width: 640px) {
-  .post-title { font-size: 20px; }
+  .post-list { grid-template-columns: 1fr; }
 }
 </style>

@@ -1001,9 +1001,11 @@ onMounted(() => {
 /* ── Candle chart two-column ────────────────────────── */
 .candle-layout {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: var(--spacing-xl);
   align-items: center;
+  max-width: 1120px;      /* stop the chart ballooning on wide screens */
+  margin-inline: auto;
 }
 .candle-text {
   display: flex;
@@ -1015,6 +1017,8 @@ onMounted(() => {
 }
 .candle-chart-wrap {
   width: 100%;
+  max-width: 660px;
+  margin-inline: auto;
 }
 .candle-stats {
   display: flex;
