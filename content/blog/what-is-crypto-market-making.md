@@ -4,7 +4,7 @@ description: "Crypto market making is the practice of continuously quoting buy a
 date: 2021-01-01
 updated: 2021-01-01
 author: "GREED Labs"
-image: "/blog/covers/market-making.svg"
+image: "/blog/covers/what-is-crypto-market-making.svg"
 tags:
   - market-making
   - liquidity

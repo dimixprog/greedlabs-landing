@@ -31,11 +31,6 @@
         <p>{{ item.answer }}</p>
       </div>
     </section>
-
-    <div class="post-cta">
-      <p>Ready to give your token a real market?</p>
-      <ConsultButton />
-    </div>
   </article>
 </template>
 
@@ -241,19 +236,6 @@ useHead({
   margin-bottom: var(--spacing-xs);
 }
 .faq-entry p { color: rgba(255, 255, 255, 0.75); line-height: 1.6; }
-.post-cta {
-  margin-top: var(--spacing-2xl);
-  padding: var(--spacing-xl);
-  border: 1px solid rgba(52, 251, 255, 0.14);
-  border-radius: 16px;
-  text-align: center;
-}
-.post-cta p {
-  font-size: 20px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: var(--spacing-md);
-}
 @media (max-width: 640px) {
   .post-title { font-size: 30px; }
 }

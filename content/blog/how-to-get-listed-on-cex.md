@@ -4,7 +4,7 @@ description: "Getting listed on a centralized exchange requires meeting liquidit
 date: 2021-10-11
 updated: 2021-10-11
 author: "GREED Labs"
-image: "/blog/covers/token-launch.svg"
+image: "/blog/covers/how-to-get-listed-on-cex.svg"
 tags:
   - token-launch
   - listings

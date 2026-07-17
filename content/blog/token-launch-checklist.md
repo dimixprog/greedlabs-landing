@@ -4,7 +4,7 @@ description: "A complete token launch checklist covering smart contract, liquidi
 date: 2021-09-01
 updated: 2021-09-01
 author: "GREED Labs"
-image: "/blog/covers/token-launch.svg"
+image: "/blog/covers/token-launch-checklist.svg"
 tags:
   - token-launch
   - guide

@@ -4,7 +4,7 @@ description: "Slippage is the difference between the expected price of a trade a
 date: 2021-03-23
 updated: 2021-03-23
 author: "GREED Labs"
-image: "/blog/covers/liquidity.svg"
+image: "/blog/covers/slippage-explained.svg"
 tags:
   - liquidity
   - fundamentals

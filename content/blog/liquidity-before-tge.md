@@ -4,7 +4,7 @@ description: "The liquidity a token needs at launch depends on target venues, ex
 date: 2021-07-22
 updated: 2021-07-22
 author: "GREED Labs"
-image: "/blog/covers/liquidity.svg"
+image: "/blog/covers/liquidity-before-tge.svg"
 tags:
   - token-launch
   - liquidity

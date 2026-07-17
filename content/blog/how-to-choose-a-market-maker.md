@@ -4,7 +4,7 @@ description: "Choosing a crypto market maker comes down to venue coverage, trans
 date: 2021-12-31
 updated: 2021-12-31
 author: "GREED Labs"
-image: "/blog/covers/market-making.svg"
+image: "/blog/covers/how-to-choose-a-market-maker.svg"
 tags:
   - market-making
   - guide

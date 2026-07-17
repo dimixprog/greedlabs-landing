@@ -4,7 +4,7 @@ description: "Crypto market making is typically priced through a monthly retaine
 date: 2021-11-21
 updated: 2021-11-21
 author: "GREED Labs"
-image: "/blog/covers/market-making.svg"
+image: "/blog/covers/crypto-market-maker-cost.svg"
 tags:
   - market-making
   - pricing

@@ -4,7 +4,7 @@ description: "Wash trading fabricates fake volume by trading with yourself; legi
 date: 2021-05-02
 updated: 2021-05-02
 author: "GREED Labs"
-image: "/blog/covers/liquidity.svg"
+image: "/blog/covers/wash-trading-vs-legitimate-volume.svg"
 tags:
   - market-making
   - compliance

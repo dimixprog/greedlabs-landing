@@ -4,7 +4,7 @@ description: "A market maker provides liquidity by placing limit orders that res
 date: 2021-02-10
 updated: 2021-02-10
 author: "GREED Labs"
-image: "/blog/covers/market-making.svg"
+image: "/blog/covers/market-maker-vs-market-taker.svg"
 tags:
   - market-making
   - fundamentals

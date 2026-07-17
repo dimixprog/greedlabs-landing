@@ -4,7 +4,7 @@ description: "Bubblemaps visualizes how a token's supply is distributed across w
 date: 2021-06-12
 updated: 2021-06-12
 author: "GREED Labs"
-image: "/blog/covers/liquidity.svg"
+image: "/blog/covers/what-is-bubblemaps.svg"
 tags:
   - fundamentals
   - token-health
