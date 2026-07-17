@@ -49,3 +49,5 @@ This is where GREED Labs focuses. Our role is to build genuine market health —
 ## Related reading
 - [Token launch checklist](/blog/token-launch-checklist)
 - [What crypto market making is](/blog/what-is-crypto-market-making)
+
+**Related reading:** [Token Holder Distribution](/blog/token-holder-distribution) · [Crypto Market Making Glossary](/blog/market-making-glossary)

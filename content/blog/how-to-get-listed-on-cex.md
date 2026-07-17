@@ -46,3 +46,5 @@ Weakness in any one of these can stall an application, and top-tier exchanges we
 The best preparation is to have your materials ready before you apply. Work through a structured [token launch checklist](/blog/token-launch-checklist) so your legal documents, audit, tokenomics, and community proof are assembled in advance rather than scrambled together mid-review.
 
 Line up your market maker early. Because a market making agreement is a prerequisite for most serious listings, choosing a partner up front removes the step most likely to delay your go-live and gives the exchange confidence that liquidity will be there on day one. Come in prepared, and a process that can otherwise drag on for months tends to move in weeks.
+
+**Related reading:** [What a CEX Requires to List](/blog/cex-listing-requirements) · [Tier-1 vs. Tier-2 Listings](/blog/tier-1-vs-tier-2-exchange-listings) · [Crypto Market Making Glossary](/blog/market-making-glossary)

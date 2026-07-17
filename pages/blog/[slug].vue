@@ -47,6 +47,12 @@ if (!doc.value) {
 
 const url = `https://greedlabs.org${route.path}`
 
+// Social/OG previews need a raster image — SVG covers don't render on
+// Twitter/Telegram/LinkedIn. Each .svg cover has a matching .png sibling.
+const ogImage = doc.value?.image
+  ? `https://greedlabs.org${doc.value.image.replace(/\.svg$/, '.png')}`
+  : 'https://greedlabs.org/og-image.png'
+
 function formatDate(d) {
   return new Date(d).toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric'
@@ -60,12 +66,12 @@ useSeoMeta({
   ogDescription: doc.value.description,
   ogUrl: url,
   ogType: 'article',
-  ogImage: `https://greedlabs.org${doc.value.image || '/og-image.png'}`,
+  ogImage,
   articlePublishedTime: doc.value.date,
   articleModifiedTime: doc.value.updated || doc.value.date,
   twitterCard: 'summary_large_image',
   twitterSite: '@GREED_Labs',
-  twitterImage: `https://greedlabs.org${doc.value.image || '/og-image.png'}`,
+  twitterImage: ogImage,
   robots: doc.value.draft ? 'noindex, nofollow' : 'index, follow'
 })
 
@@ -75,7 +81,7 @@ const jsonLd = [
     '@type': 'Article',
     headline: doc.value.title,
     description: doc.value.description,
-    image: `https://greedlabs.org${doc.value.image || '/og-image.png'}`,
+    image: ogImage,
     datePublished: doc.value.date,
     dateModified: doc.value.updated || doc.value.date,
     author: { '@type': 'Organization', name: doc.value.author || 'GREED Labs' },

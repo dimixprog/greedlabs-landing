@@ -53,3 +53,5 @@ The difference between the best bid and best ask is the **spread**. A market mak
 - Do they provide **transparent weekly reporting** (spread, volume, depth)?
 - Is their volume **organic and compliant**, not wash trading?
 - Can they support your **token launch / TGE** timeline?
+
+**Related reading:** [CEX vs. DEX Market Making](/blog/cex-vs-dex-market-making) · [What Is Order Book Depth?](/blog/what-is-order-book-depth) · [Crypto Market Making Glossary](/blog/market-making-glossary)

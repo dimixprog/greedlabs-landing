@@ -49,3 +49,5 @@ The launch is the start, not the finish. This phase turns a live token into a he
 ## Related reading
 - [How to get listed on a CEX](/blog/how-to-get-listed-on-cex)
 - [How much liquidity you need before TGE](/blog/liquidity-before-tge)
+
+**Related reading:** [CEX or DEX First](/blog/cex-vs-dex-first-launch) · [Setting Your Token's Opening Price](/blog/how-to-set-token-opening-price) · [Crypto Market Making Glossary](/blog/market-making-glossary)

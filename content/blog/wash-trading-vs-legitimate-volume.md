@@ -56,3 +56,5 @@ Exchanges and chain-analytics providers do not take volume at face value. Self-m
 The safest path is to work with a market maker that builds real depth and reports transparently, rather than one that quietly manufactures fake prints to hit a volume target. Ask how they generate volume, whether they provide clear reporting on spread, depth, and activity, and whether their approach is calibrated to your token's natural trading.
 
 If you are evaluating providers, our guide on [how to choose a market maker](/blog/how-to-choose-a-market-maker) walks through the questions that separate genuine liquidity partners from the rest. Real depth is an asset. Fake volume is a liability waiting to be flagged.
+
+**Related reading:** [How to Detect Fake Volume](/blog/how-to-detect-fake-volume) · [Volume-to-Liquidity Ratio](/blog/volume-to-liquidity-ratio) · [Crypto Market Making Glossary](/blog/market-making-glossary)

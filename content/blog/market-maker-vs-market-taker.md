@@ -53,3 +53,5 @@ Retail traders and speculators are overwhelmingly takers. They hit the best avai
 That is why projects engage a dedicated market maker. A professional maker keeps live bids and asks on the book around the clock, absorbing buy and sell pressure and keeping spreads tight regardless of which way the crowd is leaning. The takers get a market they can actually trade in; the maker earns the favorable fee treatment for supplying the depth that makes it possible.
 
 See our guide on [what crypto market making is](/blog/what-is-crypto-market-making) for the bigger picture on how dedicated liquidity provision works and why token projects rely on it.
+
+**Related reading:** [What Is the Bid-Ask Spread?](/blog/what-is-the-bid-ask-spread) · [Crypto Market Making Glossary](/blog/market-making-glossary)

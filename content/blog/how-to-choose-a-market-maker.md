@@ -48,3 +48,5 @@ faq:
 - What are the exact term, exit conditions, and any exclusivity or lock-up clauses in the agreement?
 
 ## Ready to talk?
+
+**Related reading:** [Red Flags in a Market Maker Contract](/blog/market-maker-contract-red-flags) · [Reading a KPI Report](/blog/how-to-read-a-market-maker-kpi-report) · [Crypto Market Making Glossary](/blog/market-making-glossary)

@@ -49,3 +49,5 @@ Slippage tolerance deserves a note of its own. There is no universal "correct" n
 Slippage is ultimately a liquidity problem, and liquidity is what a market maker provides. A [crypto market maker](/blog/what-is-crypto-market-making) continuously quotes buy and sell orders around the current price, keeping the book deep and the spread tight. Deeper depth plus a tighter spread means less price impact per trade — which is the same thing as less slippage.
 
 The workarounds above help any individual trader, but they only manage the symptom. For a token project, the durable answer is structural: a healthy order book where traders can enter and exit near the quoted price. That is exactly the market a professional market maker is built to sustain.
+
+**Related reading:** [What Is Order Book Depth?](/blog/what-is-order-book-depth) · [MEV & Sandwich Attacks](/blog/mev-and-sandwich-attacks) · [Crypto Market Making Glossary](/blog/market-making-glossary)

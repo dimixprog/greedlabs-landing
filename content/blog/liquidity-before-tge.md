@@ -57,3 +57,5 @@ Sizing launch liquidity is where treasury planning meets execution. The treasury
 ## Related reading
 - [Token launch checklist](/blog/token-launch-checklist)
 - [Slippage explained](/blog/slippage-explained)
+
+**Related reading:** [How to Set Up a Liquidity Pool](/blog/how-to-set-up-a-liquidity-pool) · [Why Your Token's Chart Looks Flat](/blog/why-token-chart-looks-flat) · [Crypto Market Making Glossary](/blog/market-making-glossary)

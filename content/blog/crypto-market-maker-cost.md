@@ -61,3 +61,5 @@ Any ballpark you're quoted should be treated as a rough range, not a fixed rate.
 ## How GREED Labs prices
 
 GREED Labs prices by scope, not by black box. We map your venues, depth targets, chains, and reporting needs to a clear structure — whether that's a retainer, a loan-and-option arrangement, or a performance framework — and we itemize what you're paying for so you can hold the results against the invoice. No hidden fees, no wash trading dressed up as volume, and no lock-ups designed to trap you. If you want a number, tell us your scope and we'll show you how we got there.
+
+**Related reading:** [Loan vs. Retainer](/blog/loan-vs-retainer-market-maker) · [Market Maker Call Options](/blog/market-maker-call-options) · [Crypto Market Making Glossary](/blog/market-making-glossary)
