@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Reading a Market Maker&apos;s KPI Report">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34fbff"/>
+      <stop offset="1" stop-color="#1586f4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#34fbff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1586f4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="900" cy="290" rx="360" ry="300" fill="url(#glow)"/>
+  <rect x="2" y="2" width="1196" height="626" rx="24" fill="none" stroke="url(#brand)" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.035">
+    <line x1="90" y1="470" x2="1110" y2="470"/>
+    <line x1="90" y1="110" x2="90" y2="470"/>
+  </g>
+
+  <rect x="90" y="360" width="148" height="40" rx="20" fill="#111111" stroke="url(#brand)" stroke-width="1.5"/>
+  <text x="164" y="386" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" fill="#34fbff">REPORTING</text>
+  <text x="90" y="169" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">Reading a Market</text>
+  <text x="90" y="231" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">Maker&apos;s KPI Report</text>
+
+  <g transform="translate(700,110)">
+    <rect x="36" y="58" width="152" height="116" rx="12" fill="#ffffff" fill-opacity="0.04" stroke="url(#brand)" stroke-opacity="0.3" stroke-width="1.5"/><rect x="52" y="76" width="66" height="9" rx="4" fill="#ffffff" fill-opacity="0.2"/><text x="52" y="124" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="800" fill="#34fbff">0.2%</text><path d="M52 152 L86 144 L116 150 L148 136 L172 142" fill="none" stroke="#1586f4" stroke-width="2.5" stroke-linecap="round"/><rect x="212" y="58" width="152" height="116" rx="12" fill="#ffffff" fill-opacity="0.04" stroke="url(#brand)" stroke-opacity="0.3" stroke-width="1.5"/><rect x="228" y="76" width="66" height="9" rx="4" fill="#ffffff" fill-opacity="0.2"/><text x="228" y="124" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="800" fill="#34fbff">1.2M</text><path d="M228 152 L262 144 L292 150 L324 136 L348 142" fill="none" stroke="#1586f4" stroke-width="2.5" stroke-linecap="round"/><rect x="36" y="190" width="152" height="116" rx="12" fill="#ffffff" fill-opacity="0.04" stroke="url(#brand)" stroke-opacity="0.3" stroke-width="1.5"/><rect x="52" y="208" width="66" height="9" rx="4" fill="#ffffff" fill-opacity="0.2"/><text x="52" y="256" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="800" fill="#34fbff">99%</text><path d="M52 284 L86 276 L116 282 L148 268 L172 274" fill="none" stroke="#1586f4" stroke-width="2.5" stroke-linecap="round"/><rect x="212" y="190" width="152" height="116" rx="12" fill="#ffffff" fill-opacity="0.04" stroke="url(#brand)" stroke-opacity="0.3" stroke-width="1.5"/><rect x="228" y="208" width="66" height="9" rx="4" fill="#ffffff" fill-opacity="0.2"/><text x="228" y="256" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="800" fill="#34fbff">4.8x</text><path d="M228 284 L262 276 L292 282 L324 268 L348 274" fill="none" stroke="#1586f4" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <text x="90" y="585" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">GREED <tspan fill="#34fbff">LABS</tspan></text>
+  <text x="1110" y="585" text-anchor="end" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="500" fill="#ffffff" fill-opacity="0.5">greedlabs.org</text>
+</svg>
