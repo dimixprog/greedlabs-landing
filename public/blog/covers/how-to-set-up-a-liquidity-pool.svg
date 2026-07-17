@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="How to Set Up a Liquidity Pool">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34fbff"/>
+      <stop offset="1" stop-color="#1586f4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#34fbff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1586f4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="900" cy="290" rx="360" ry="300" fill="url(#glow)"/>
+  <rect x="2" y="2" width="1196" height="626" rx="24" fill="none" stroke="url(#brand)" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.035">
+    <line x1="90" y1="470" x2="1110" y2="470"/>
+    <line x1="90" y1="110" x2="90" y2="470"/>
+  </g>
+
+  <rect x="90" y="360" width="148" height="40" rx="20" fill="#111111" stroke="url(#brand)" stroke-width="1.5"/>
+  <text x="164" y="386" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" fill="#34fbff">DEX SETUP</text>
+  <text x="90" y="169" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">How to Set Up a</text>
+  <text x="90" y="231" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">Liquidity Pool</text>
+
+  <g transform="translate(700,110)">
+    <circle cx="132" cy="100" r="42" fill="url(#fade)" stroke="url(#brand)" stroke-width="2"/><text x="132" y="112" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="800" fill="#34fbff">A</text><circle cx="268" cy="100" r="42" fill="url(#fade)" stroke="url(#brand)" stroke-width="2"/><text x="268" y="112" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="800" fill="#34fbff">B</text><text x="200" y="112" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="800" fill="#ffffff" fill-opacity="0.55">+</text><ellipse cx="200" cy="300" rx="130" ry="22" fill="url(#fade)" opacity="0.4" stroke="url(#brand)" stroke-opacity="0.4" stroke-width="1.5"/><ellipse cx="200" cy="276" rx="108" ry="22" fill="url(#fade)" opacity="0.55" stroke="url(#brand)" stroke-opacity="0.4" stroke-width="1.5"/><ellipse cx="200" cy="252" rx="86" ry="22" fill="url(#fade)" opacity="0.7" stroke="url(#brand)" stroke-opacity="0.4" stroke-width="1.5"/><ellipse cx="200" cy="228" rx="64" ry="22" fill="url(#fade)" opacity="0.85" stroke="url(#brand)" stroke-opacity="0.4" stroke-width="1.5"/>
+  </g>
+
+  <text x="90" y="585" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">GREED <tspan fill="#34fbff">LABS</tspan></text>
+  <text x="1110" y="585" text-anchor="end" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="500" fill="#ffffff" fill-opacity="0.5">greedlabs.org</text>
+</svg>

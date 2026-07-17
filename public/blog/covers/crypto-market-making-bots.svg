@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Crypto Market Making Bots">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34fbff"/>
+      <stop offset="1" stop-color="#1586f4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#34fbff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1586f4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="900" cy="290" rx="360" ry="300" fill="url(#glow)"/>
+  <rect x="2" y="2" width="1196" height="626" rx="24" fill="none" stroke="url(#brand)" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.035">
+    <line x1="90" y1="470" x2="1110" y2="470"/>
+    <line x1="90" y1="110" x2="90" y2="470"/>
+  </g>
+
+  <rect x="90" y="360" width="160" height="40" rx="20" fill="#111111" stroke="url(#brand)" stroke-width="1.5"/>
+  <text x="170" y="386" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" fill="#34fbff">AUTOMATION</text>
+  <text x="90" y="169" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">Crypto Market Making</text>
+  <text x="90" y="231" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">Bots</text>
+
+  <g transform="translate(700,110)">
+    <line x1="42" y1="128" x2="42" y2="262" stroke="#34fbff" stroke-width="2"/><rect x="30" y="150" width="24" height="90" rx="3" fill="url(#fade)" stroke="#34fbff" stroke-opacity="0.6" stroke-width="1.5"/><line x1="90" y1="88" x2="90" y2="262" stroke="#1586f4" stroke-width="2"/><rect x="78" y="110" width="24" height="130" rx="3" fill="url(#fade)" stroke="#1586f4" stroke-opacity="0.6" stroke-width="1.5"/><line x1="138" y1="168" x2="138" y2="282" stroke="#34fbff" stroke-width="2"/><rect x="126" y="190" width="24" height="70" rx="3" fill="url(#fade)" stroke="#34fbff" stroke-opacity="0.6" stroke-width="1.5"/><line x1="186" y1="68" x2="186" y2="232" stroke="#1586f4" stroke-width="2"/><rect x="174" y="90" width="24" height="120" rx="3" fill="url(#fade)" stroke="#1586f4" stroke-opacity="0.6" stroke-width="1.5"/><line x1="305" y1="86" x2="305" y2="62" stroke="url(#brand)" stroke-width="3"/><circle cx="305" cy="56" r="7" fill="#34fbff"/><rect x="250" y="86" width="112" height="94" rx="18" fill="url(#fade)" stroke="url(#brand)" stroke-width="2"/><circle cx="282" cy="132" r="12" fill="#34fbff"/><circle cx="330" cy="132" r="12" fill="#34fbff"/><rect x="278" y="156" width="56" height="8" rx="4" fill="#ffffff" fill-opacity="0.4"/>
+  </g>
+
+  <text x="90" y="585" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">GREED <tspan fill="#34fbff">LABS</tspan></text>
+  <text x="1110" y="585" text-anchor="end" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="500" fill="#ffffff" fill-opacity="0.5">greedlabs.org</text>
+</svg>
