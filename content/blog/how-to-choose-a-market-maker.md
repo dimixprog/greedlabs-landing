@@ -5,6 +5,10 @@ date: 2021-12-31
 updated: 2021-12-31
 author: "GREED Labs"
 image: "/blog/covers/how-to-choose-a-market-maker.svg"
+takeaways:
+  - "Prioritize committed spread, depth, and uptime with transparent reporting."
+  - "Avoid anyone promising guaranteed volume or a guaranteed price."
+  - "Match their venue and chain coverage to your launch plan."
 tags:
   - market-making
   - guide

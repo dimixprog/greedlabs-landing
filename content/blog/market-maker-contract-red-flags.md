@@ -5,6 +5,10 @@ date: 2026-02-17
 updated: 2026-02-17
 author: "GREED Labs"
 image: "/blog/covers/market-maker-contract-red-flags.svg"
+takeaways:
+  - "Guaranteed volume or price is the clearest red flag — real market making can't promise either."
+  - "Watch for oversized loans with deep in-the-money options and no exit clause."
+  - "Insist on committed KPIs and transparent reporting."
 tags:
   - market-making
   - guide

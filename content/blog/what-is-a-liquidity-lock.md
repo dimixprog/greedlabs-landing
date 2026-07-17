@@ -5,6 +5,10 @@ date: 2024-08-20
 updated: 2024-08-20
 author: "GREED Labs"
 image: "/blog/covers/what-is-a-liquidity-lock.svg"
+takeaways:
+  - "A lock time-locks LP tokens so the team can't pull the pool — the main rug defense."
+  - "It proves liquidity can't be drained for the lock's duration."
+  - "It does not guarantee depth, price stability, or fair supply."
 tags:
   - liquidity
   - compliance

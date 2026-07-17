@@ -5,6 +5,10 @@ date: 2024-02-20
 updated: 2024-02-20
 author: "GREED Labs"
 image: "/blog/covers/how-to-set-token-opening-price.svg"
+takeaways:
+  - "The ratio of assets in your initial liquidity sets the opening price."
+  - "Too high dumps from the open; too low invites instant arbitrage."
+  - "Anchor it to a defensible valuation and back it with depth."
 tags:
   - token-launch
   - liquidity

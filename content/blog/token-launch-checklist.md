@@ -5,6 +5,10 @@ date: 2021-09-01
 updated: 2021-09-01
 author: "GREED Labs"
 image: "/blog/covers/token-launch-checklist.svg"
+takeaways:
+  - "A launch needs liquidity, market making, listings, and healthy tokenomics aligned before TGE."
+  - "Sequence DEX and CEX venues rather than launching everywhere unprepared."
+  - "The opening price and initial depth set the tone for everything after."
 tags:
   - token-launch
   - guide

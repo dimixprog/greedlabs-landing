@@ -5,6 +5,10 @@ date: 2025-09-16
 updated: 2025-09-16
 author: "GREED Labs"
 image: "/blog/covers/cex-listing-requirements.svg"
+takeaways:
+  - "Exchanges expect KYB, credible tokenomics, an audit, and a market making commitment."
+  - "They screen for genuine community and volume, not inflated numbers."
+  - "Requirements and fees rise with exchange tier."
 tags:
   - listings
   - token-launch

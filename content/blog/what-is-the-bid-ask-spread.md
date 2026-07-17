@@ -5,6 +5,10 @@ date: 2022-02-15
 updated: 2022-02-15
 author: "GREED Labs"
 image: "/blog/covers/what-is-the-bid-ask-spread.svg"
+takeaways:
+  - "The spread is the gap between the best bid and the best ask."
+  - "It's both a trading cost and a signal of liquidity."
+  - "Market makers set the effective spread by continuously quoting both sides."
 tags:
   - fundamentals
   - market-making

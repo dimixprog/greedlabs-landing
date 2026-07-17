@@ -5,6 +5,10 @@ date: 2021-03-23
 updated: 2021-03-23
 author: "GREED Labs"
 image: "/blog/covers/slippage-explained.svg"
+takeaways:
+  - "Slippage is the gap between a trade's expected price and its actual execution price."
+  - "It comes mainly from thin liquidity and volatility, and grows with order size."
+  - "Deeper order books and tighter spreads are the direct fix."
 tags:
   - liquidity
   - fundamentals

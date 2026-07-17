@@ -5,6 +5,10 @@ date: 2026-07-15
 updated: 2026-07-15
 author: "GREED Labs"
 image: "/blog/covers/tge-to-tier-1-playbook.svg"
+takeaways:
+  - "An illustrative 90-day sequence: DEX liquidity, market stabilization, track record, then tier-1."
+  - "Every step rests on a real, well-made market — fake volume can't pass a tier-1 review."
+  - "Timelines vary; this is a representative example, not a guarantee."
 tags:
   - market-making
   - token-launch

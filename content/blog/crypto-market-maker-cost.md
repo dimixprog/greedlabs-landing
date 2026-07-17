@@ -5,6 +5,10 @@ date: 2021-11-21
 updated: 2021-11-21
 author: "GREED Labs"
 image: "/blog/covers/crypto-market-maker-cost.svg"
+takeaways:
+  - "Market makers are paid via a monthly retainer, a token loan plus options, or a hybrid."
+  - "Retainers are predictable cash; loan-plus-option deals cost little upfront but scale with price."
+  - "Budget the market making commitment alongside any listing fees."
 tags:
   - market-making
   - pricing

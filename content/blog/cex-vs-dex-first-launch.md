@@ -5,6 +5,10 @@ date: 2025-01-21
 updated: 2025-01-21
 author: "GREED Labs"
 image: "/blog/covers/cex-vs-dex-first-launch.svg"
+takeaways:
+  - "Most tokens launch on a DEX first — no approval and instant trading."
+  - "CEX listings add reach later but require approval and a market making commitment."
+  - "A healthy DEX market strengthens a future CEX application."
 tags:
   - token-launch
   - market-making

@@ -5,6 +5,10 @@ date: 2026-05-19
 updated: 2026-05-19
 author: "GREED Labs"
 image: "/blog/covers/cex-vs-dex-market-making.svg"
+takeaways:
+  - "CEX market making quotes an order book; DEX market making manages an AMM pool."
+  - "CEX risk is inventory; DEX risk is impermanent loss."
+  - "Most tokens need both, kept consistent across venues."
 tags:
   - market-making
   - fundamentals

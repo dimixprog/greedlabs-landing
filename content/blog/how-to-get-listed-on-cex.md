@@ -5,6 +5,10 @@ date: 2021-10-11
 updated: 2021-10-11
 author: "GREED Labs"
 image: "/blog/covers/how-to-get-listed-on-cex.svg"
+takeaways:
+  - "CEX listings require documentation, an audit, and usually a market making commitment."
+  - "Real volume and depth strengthen an application; fake volume gets flagged."
+  - "Larger (tier-1) exchanges demand more on every front."
 tags:
   - token-launch
   - listings

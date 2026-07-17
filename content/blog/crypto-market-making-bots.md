@@ -5,6 +5,10 @@ date: 2022-11-22
 updated: 2022-11-22
 author: "GREED Labs"
 image: "/blog/covers/crypto-market-making-bots.svg"
+takeaways:
+  - "A bot places and updates two-sided quotes from rules and live market data."
+  - "The hard part is strategy, inventory, and risk management — not the script."
+  - "Bots sold on 'guaranteed volume' are wash-trading tools, not market making."
 tags:
   - market-making
   - fundamentals

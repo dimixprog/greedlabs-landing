@@ -5,6 +5,10 @@ date: 2023-08-22
 updated: 2023-08-22
 author: "GREED Labs"
 image: "/blog/covers/mev-and-sandwich-attacks.svg"
+takeaways:
+  - "MEV is value extracted by reordering or inserting transactions in a block."
+  - "A sandwich front-runs and back-runs a swap, skimming value via slippage."
+  - "Deeper liquidity and slippage limits are the main defenses."
 tags:
   - fundamentals
   - liquidity

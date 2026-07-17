@@ -25,7 +25,15 @@ export default defineEventHandler(async (event) => {
     priority: '0.8'
   }))
 
-  const urls = [...staticUrls, ...postUrls]
+  // Tag/topic hub pages
+  const tags = [...new Set(posts.flatMap(p => (p.tags as string[]) || []))].sort()
+  const tagUrls = tags.map(tag => ({
+    loc: `${SITE}/blog/tag/${tag}`,
+    changefreq: 'weekly',
+    priority: '0.6'
+  }))
+
+  const urls = [...staticUrls, ...postUrls, ...tagUrls]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

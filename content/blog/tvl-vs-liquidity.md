@@ -5,6 +5,10 @@ date: 2023-01-24
 updated: 2023-01-24
 author: "GREED Labs"
 image: "/blog/covers/tvl-vs-liquidity.svg"
+takeaways:
+  - "TVL measures value deposited; liquidity measures how easily a token trades."
+  - "High TVL can coexist with poor tradability for your token."
+  - "Optimize for real, well-managed depth in the pairs people actually trade."
 tags:
   - fundamentals
   - liquidity

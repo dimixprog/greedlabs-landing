@@ -5,6 +5,10 @@ date: 2021-01-01
 updated: 2021-01-01
 author: "GREED Labs"
 image: "/blog/covers/what-is-crypto-market-making.svg"
+takeaways:
+  - "Market makers continuously quote both bids and asks to keep a token liquid and its spread tight."
+  - "They exist to cut price impact, attract traders, and meet exchange listing requirements."
+  - "Judge one on venue coverage, transparent reporting, and organic (non-wash) volume."
 tags:
   - market-making
   - liquidity

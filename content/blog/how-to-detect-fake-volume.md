@@ -5,6 +5,10 @@ date: 2024-11-19
 updated: 2024-11-19
 author: "GREED Labs"
 image: "/blog/covers/how-to-detect-fake-volume.svg"
+takeaways:
+  - "Compare reported volume to visible depth — a huge mismatch signals wash trading."
+  - "Uniform trade sizes/timing and reported-vs-adjusted gaps are further tells."
+  - "Confirm with on-chain and wallet-cluster checks, not the ratio alone."
 tags:
   - market-making
   - compliance

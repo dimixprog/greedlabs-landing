@@ -5,6 +5,10 @@ date: 2022-04-19
 updated: 2022-04-19
 author: "GREED Labs"
 image: "/blog/covers/what-is-order-book-depth.svg"
+takeaways:
+  - "Depth is how much order size rests near the current price."
+  - "Spread is the cost of a tiny trade; depth is how much you can trade without moving price."
+  - "Thin depth causes slippage and invites sandwich attacks."
 tags:
   - fundamentals
   - liquidity

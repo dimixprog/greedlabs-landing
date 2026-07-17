@@ -5,6 +5,10 @@ date: 2022-06-21
 updated: 2026-07-10
 author: "GREED Labs"
 image: "/blog/covers/market-making-glossary.svg"
+takeaways:
+  - "Covers 30+ terms across order books, liquidity, venues, and deal structures."
+  - "The four that matter most in practice: spread, depth, uptime, and the KPI report."
+  - "Each term links to a deeper guide where one exists."
 tags:
   - market-making
   - fundamentals

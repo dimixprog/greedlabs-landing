@@ -5,6 +5,10 @@ date: 2023-03-28
 updated: 2023-03-28
 author: "GREED Labs"
 image: "/blog/covers/token-holder-distribution.svg"
+takeaways:
+  - "Healthy distribution spreads supply across many independent wallets."
+  - "Concentration risks dumps, illiquidity, and manipulation."
+  - "Check it with on-chain explorers and Bubblemaps."
 tags:
   - token-health
   - fundamentals

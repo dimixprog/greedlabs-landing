@@ -5,6 +5,10 @@ date: 2025-03-25
 updated: 2025-03-25
 author: "GREED Labs"
 image: "/blog/covers/why-token-chart-looks-flat.svg"
+takeaways:
+  - "A flat chart is usually a liquidity problem, not a demand problem."
+  - "Common causes: no market maker, wide spreads, thin depth, uptime gaps, fragmentation, concentration."
+  - "Fixing market structure lets latent demand act."
 tags:
   - liquidity
   - market-making

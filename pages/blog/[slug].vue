@@ -20,6 +20,13 @@
       height="630"
     >
 
+    <div v-if="doc.takeaways && doc.takeaways.length" class="post-takeaways">
+      <h2>Key takeaways</h2>
+      <ul>
+        <li v-for="(t, i) in doc.takeaways" :key="i">{{ t }}</li>
+      </ul>
+    </div>
+
     <div class="post-body">
       <ContentRenderer :value="doc" />
     </div>
@@ -29,6 +36,20 @@
       <div v-for="(item, i) in doc.faq" :key="i" class="faq-entry">
         <h3>{{ item.question }}</h3>
         <p>{{ item.answer }}</p>
+      </div>
+    </section>
+
+    <div v-if="doc.tags && doc.tags.length" class="post-tags">
+      <NuxtLink v-for="tag in doc.tags" :key="tag" :to="`/blog/tag/${tag}`" class="post-tag">#{{ tag }}</NuxtLink>
+    </div>
+
+    <section v-if="related && related.length" class="post-related">
+      <h2>Related articles</h2>
+      <div class="related-grid">
+        <NuxtLink v-for="post in related" :key="post._path" :to="post._path" class="related-card">
+          <img v-if="post.image" :src="post.image" :alt="post.title" class="related-thumb" loading="lazy">
+          <span class="related-title">{{ post.title }}</span>
+        </NuxtLink>
       </div>
     </section>
   </article>
@@ -45,7 +66,36 @@ if (!doc.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found', fatal: true })
 }
 
+// Related articles — same tag(s), most overlap first, top 3.
+const { data: related } = await useAsyncData(`related-${route.path}`, async () => {
+  const tags = doc.value.tags || []
+  if (!tags.length) return []
+  const all = await queryContent('/blog')
+    .where({ draft: { $ne: true }, _path: { $ne: route.path } })
+    .only(['title', 'image', '_path', 'tags', 'date'])
+    .find()
+  return all
+    .map(p => ({ p, score: (p.tags || []).filter(t => tags.includes(t)).length }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score || String(b.p.date || '').localeCompare(String(a.p.date || '')))
+    .slice(0, 3)
+    .map(x => x.p)
+})
+
 const url = `https://greedlabs.org${route.path}`
+
+// Publisher/author entity with social profiles for E-E-A-T signals.
+const ORG = {
+  '@type': 'Organization',
+  name: 'GREED Labs',
+  url: 'https://greedlabs.org',
+  logo: { '@type': 'ImageObject', url: 'https://greedlabs.org/greed-logo.svg' },
+  sameAs: [
+    'https://t.me/greedlabs',
+    'https://x.com/GREED_Labs',
+    'https://www.linkedin.com/company/greedlabs'
+  ]
+}
 
 // Social/OG previews need a raster image — SVG covers don't render on
 // Twitter/Telegram/LinkedIn. Each .svg cover has a matching .png sibling.
@@ -84,12 +134,8 @@ const jsonLd = [
     image: ogImage,
     datePublished: doc.value.date,
     dateModified: doc.value.updated || doc.value.date,
-    author: { '@type': 'Organization', name: doc.value.author || 'GREED Labs' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'GREED Labs',
-      logo: { '@type': 'ImageObject', url: 'https://greedlabs.org/greed-logo.svg' }
-    },
+    author: ORG,
+    publisher: ORG,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url }
   },
   {
@@ -116,7 +162,10 @@ if (doc.value.faq && doc.value.faq.length) {
 }
 
 useHead({
-  link: [{ rel: 'canonical', href: url }],
+  link: [
+    { rel: 'canonical', href: url },
+    { rel: 'alternate', type: 'application/rss+xml', title: 'GREED Labs Blog', href: 'https://greedlabs.org/blog/feed.xml' }
+  ],
   script: jsonLd.map(schema => ({
     type: 'application/ld+json',
     innerHTML: JSON.stringify(schema)
@@ -242,7 +291,84 @@ useHead({
   margin-bottom: var(--spacing-xs);
 }
 .faq-entry p { color: rgba(255, 255, 255, 0.75); line-height: 1.6; }
+
+/* Key takeaways box */
+.post-takeaways {
+  background: linear-gradient(135deg, rgba(52,251,255,0.06) 0%, rgba(21,134,244,0.06) 100%);
+  border: 1px solid rgba(52, 251, 255, 0.18);
+  border-radius: 16px;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+.post-takeaways h2 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #34fbff;
+  margin-bottom: var(--spacing-sm);
+}
+.post-takeaways ul { margin: 0 0 0 1.1em; list-style: disc; }
+.post-takeaways li {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Tag chips */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xl);
+}
+.post-tag {
+  font-size: 13px;
+  color: rgba(52, 251, 255, 0.85);
+  border: 1px solid rgba(52, 251, 255, 0.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.post-tag:hover { border-color: rgba(52, 251, 255, 0.6); color: #34fbff; }
+
+/* Related articles */
+.post-related {
+  margin-top: var(--spacing-2xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-xl);
+}
+.post-related h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-lg);
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+.related-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(52, 251, 255, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.related-card:hover { border-color: rgba(52, 251, 255, 0.4); transform: translateY(-2px); }
+.related-thumb { display: block; width: 100%; height: auto; }
+.related-title {
+  padding: var(--spacing-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.35;
+}
 @media (max-width: 640px) {
   .post-title { font-size: 30px; }
+  .related-grid { grid-template-columns: 1fr; }
 }
 </style>

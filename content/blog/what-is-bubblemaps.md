@@ -5,6 +5,10 @@ date: 2021-06-12
 updated: 2021-06-12
 author: "GREED Labs"
 image: "/blog/covers/what-is-bubblemaps.svg"
+takeaways:
+  - "Bubblemaps visualizes how a token's supply is spread across wallets and how they connect."
+  - "Connected clusters holding large shares signal concentration and dump risk."
+  - "Use it to check holder health before and after launch."
 tags:
   - fundamentals
   - token-health

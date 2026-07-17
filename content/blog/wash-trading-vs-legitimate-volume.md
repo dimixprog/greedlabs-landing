@@ -5,6 +5,10 @@ date: 2021-05-02
 updated: 2021-05-02
 author: "GREED Labs"
 image: "/blog/covers/wash-trading-vs-legitimate-volume.svg"
+takeaways:
+  - "Wash trading fabricates volume by trading with yourself; no real risk changes hands."
+  - "Exchanges and analytics platforms detect and penalize it."
+  - "Legitimate market making builds real depth and organic-looking volume instead."
 tags:
   - market-making
   - compliance

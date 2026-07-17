@@ -5,6 +5,10 @@ date: 2023-12-19
 updated: 2023-12-19
 author: "GREED Labs"
 image: "/blog/covers/tier-1-vs-tier-2-exchange-listings.svg"
+takeaways:
+  - "Tier-1 offers reach but demands high fees, strict rules, and strong MM commitments."
+  - "Tier-2 is accessible with less reach and lower requirements."
+  - "A common path is tier-2 first, then tier-1 once ready."
 tags:
   - listings
   - token-launch

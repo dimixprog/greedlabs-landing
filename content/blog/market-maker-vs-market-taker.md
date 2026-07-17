@@ -5,6 +5,10 @@ date: 2021-02-10
 updated: 2021-02-10
 author: "GREED Labs"
 image: "/blog/covers/market-maker-vs-market-taker.svg"
+takeaways:
+  - "A maker posts resting limit orders and adds liquidity; a taker fills them and removes it."
+  - "Makers usually pay lower fees because they provide the liquidity others trade against."
+  - "A healthy market needs both, but tokens rely on makers to keep spreads tight."
 tags:
   - market-making
   - fundamentals

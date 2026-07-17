@@ -5,6 +5,10 @@ date: 2022-09-13
 updated: 2022-09-13
 author: "GREED Labs"
 image: "/blog/covers/designated-market-maker-vs-prop-firm.svg"
+takeaways:
+  - "A designated market maker provides committed, accountable liquidity to an agreed standard."
+  - "A prop firm trades its own capital with no obligation to support your market."
+  - "For your token, you want a DMM relationship with clear KPIs."
 tags:
   - market-making
   - fundamentals

@@ -5,6 +5,10 @@ date: 2025-06-17
 updated: 2025-06-17
 author: "GREED Labs"
 image: "/blog/covers/market-maker-call-options.svg"
+takeaways:
+  - "Call options give the market maker the right to buy loaned tokens at a preset strike."
+  - "Fair strikes are laddered above the current price, with capped size and clear expiry."
+  - "Deep in-the-money or open-ended grants hand over too much upside."
 tags:
   - market-making
   - pricing

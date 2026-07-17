@@ -5,6 +5,10 @@ date: 2024-05-14
 updated: 2024-05-14
 author: "GREED Labs"
 image: "/blog/covers/how-to-set-up-a-liquidity-pool.svg"
+takeaways:
+  - "Choose the pair and venue, set the opening price, then size the depth."
+  - "On v3 AMMs you also set a price range that needs active management."
+  - "Thin or unmanaged pools cause slippage and MEV at launch."
 tags:
   - liquidity
   - token-launch

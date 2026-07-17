@@ -5,6 +5,10 @@ date: 2023-10-24
 updated: 2023-10-24
 author: "GREED Labs"
 image: "/blog/covers/how-to-read-a-market-maker-kpi-report.svg"
+takeaways:
+  - "A good report shows spread, depth, uptime, and volume against targets over time."
+  - "Volume-only reports that hide depth and uptime are a warning."
+  - "Expect a regular cadence, commonly weekly."
 tags:
   - market-making
   - guide

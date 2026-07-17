@@ -5,6 +5,10 @@ date: 2025-11-18
 updated: 2025-11-18
 author: "GREED Labs"
 image: "/blog/covers/loan-vs-retainer-market-maker.svg"
+takeaways:
+  - "A retainer is fixed cash; a token loan pays the market maker via call options."
+  - "Retainers suit cash-rich teams; loan deals suit token-rich, early-stage ones."
+  - "Hybrid deals balance predictable cost with lower cash outlay."
 tags:
   - market-making
   - pricing

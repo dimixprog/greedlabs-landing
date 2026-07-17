@@ -5,6 +5,10 @@ date: 2023-06-13
 updated: 2023-06-13
 author: "GREED Labs"
 image: "/blog/covers/volume-to-liquidity-ratio.svg"
+takeaways:
+  - "The ratio compares trading volume to the depth supporting it."
+  - "There's no magic number — read it against the token's history and peers."
+  - "A very high ratio is a prompt to investigate, not proof of wash trading."
 tags:
   - fundamentals
   - liquidity

@@ -5,6 +5,10 @@ date: 2021-07-22
 updated: 2021-07-22
 author: "GREED Labs"
 image: "/blog/covers/liquidity-before-tge.svg"
+takeaways:
+  - "Launch liquidity should be sized to expected volume and acceptable price impact."
+  - "Too little liquidity means violent price swings and scared-off buyers at launch."
+  - "A market maker sizes and maintains this against your TGE plan."
 tags:
   - token-launch
   - liquidity
