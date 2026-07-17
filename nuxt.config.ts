@@ -1,4 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// Analytics IDs are public by nature (always visible in page source).
+// Hardcoded fallbacks are required because .env is excluded from the Docker
+// build context (.dockerignore), so process.env is empty at build time there.
+const GTAG_ID = process.env.NUXT_PUBLIC_GTAG_ID || 'G-EC3ETG1XR1'
+const YM_ID = process.env.NUXT_PUBLIC_YM_ID || '98956194'
+
 export default defineNuxtConfig({
   app: {
     // Client-side page navigation (NuxtLink) is now used across the header,
@@ -82,7 +89,7 @@ export default defineNuxtConfig({
         },
         ...(process.env.NODE_ENV !== 'development' ? [
           {
-            src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_PUBLIC_GTAG_ID}`,
+            src: `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`,
             async: true
           },
           {
@@ -90,7 +97,7 @@ export default defineNuxtConfig({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NUXT_PUBLIC_GTAG_ID}');
+              gtag('config', '${GTAG_ID}');
             `,
             type: 'text/javascript'
           },
@@ -102,7 +109,7 @@ export default defineNuxtConfig({
               k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
               (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-              ym(${process.env.NUXT_PUBLIC_YM_ID}, "init", {
+              ym(${YM_ID}, "init", {
                    clickmap:true,
                    trackLinks:true,
                    accurateTrackBounce:true,
@@ -115,7 +122,7 @@ export default defineNuxtConfig({
       ],
       noscript: [
         {
-          innerHTML: `<div><img src="https://mc.yandex.ru/watch/${process.env.NUXT_PUBLIC_YM_ID}" style="position:absolute; left:-9999px;" alt="" /></div>`
+          innerHTML: `<div><img src="https://mc.yandex.ru/watch/${YM_ID}" style="position:absolute; left:-9999px;" alt="" /></div>`
         }
       ]
     }
