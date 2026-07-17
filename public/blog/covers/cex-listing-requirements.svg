@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="What a CEX Requires to List">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34fbff"/>
+      <stop offset="1" stop-color="#1586f4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#34fbff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1586f4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#1586f4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="900" cy="290" rx="360" ry="300" fill="url(#glow)"/>
+  <rect x="2" y="2" width="1196" height="626" rx="24" fill="none" stroke="url(#brand)" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.035">
+    <line x1="90" y1="470" x2="1110" y2="470"/>
+    <line x1="90" y1="110" x2="90" y2="470"/>
+  </g>
+
+  <rect x="90" y="360" width="136" height="40" rx="20" fill="#111111" stroke="url(#brand)" stroke-width="1.5"/>
+  <text x="158" y="386" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" fill="#34fbff">LISTINGS</text>
+  <text x="90" y="169" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">What a CEX Requires</text>
+  <text x="90" y="231" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">to List</text>
+
+  <g transform="translate(700,110)">
+    <rect x="66" y="42" width="212" height="276" rx="16" fill="#ffffff" fill-opacity="0.03" stroke="url(#brand)" stroke-opacity="0.3" stroke-width="1.5"/><rect x="136" y="30" width="72" height="28" rx="10" fill="url(#brand)" opacity="0.6"/><circle cx="102" cy="84" r="14" fill="url(#brand)"/><path d="M94 84 l6 7 l12 -14" stroke="#0b0b0b" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="78" width="132" height="12" rx="6" fill="#ffffff" fill-opacity="0.15"/><circle cx="102" cy="128" r="14" fill="url(#brand)"/><path d="M94 128 l6 7 l12 -14" stroke="#0b0b0b" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="122" width="108" height="12" rx="6" fill="#ffffff" fill-opacity="0.15"/><circle cx="102" cy="172" r="14" fill="url(#brand)"/><path d="M94 172 l6 7 l12 -14" stroke="#0b0b0b" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="166" width="132" height="12" rx="6" fill="#ffffff" fill-opacity="0.15"/><circle cx="102" cy="216" r="14" fill="url(#brand)"/><path d="M94 216 l6 7 l12 -14" stroke="#0b0b0b" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="210" width="108" height="12" rx="6" fill="#ffffff" fill-opacity="0.15"/><circle cx="102" cy="260" r="14" fill="url(#brand)"/><path d="M94 260 l6 7 l12 -14" stroke="#0b0b0b" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="254" width="132" height="12" rx="6" fill="#ffffff" fill-opacity="0.15"/><circle cx="300" cy="256" r="46" fill="#0b0b0b" stroke="#34fbff" stroke-width="4" stroke-dasharray="4 5"/><path d="M280 256 l14 16 l26 -32" stroke="#34fbff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="90" y="585" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">GREED <tspan fill="#34fbff">LABS</tspan></text>
+  <text x="1110" y="585" text-anchor="end" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="500" fill="#ffffff" fill-opacity="0.5">greedlabs.org</text>
+</svg>
