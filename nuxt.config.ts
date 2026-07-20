@@ -18,6 +18,15 @@ export default defineNuxtConfig({
     pageTransition: false,
     head: {
       htmlAttrs: { lang: 'en' },
+      link: [
+        // Square, Google-compliant favicons. New filenames intentionally bypass
+        // any stale Cloudflare cache entry for the old /favicon.ico.
+        { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/favicon-48x48.png' },
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicon-192x192.png' },
+        { rel: 'apple-touch-icon', sizes: '192x192', href: '/favicon-192x192.png' },
+        { rel: 'shortcut icon', href: '/favicon-96x96.png' }
+      ],
       script: [
         {
           src: 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs',
