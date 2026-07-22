@@ -23,9 +23,7 @@
         </div>
 
         <ClientOnly>
-          <div class="hero-media-container col-span-3 m-auto">
-            <HeroLiveChart />
-          </div>
+          <FearGreedGauge class="hero-gauge-bg" />
         </ClientOnly>
       </Hero>
 
@@ -757,12 +755,22 @@ onMounted(() => {
   text-transform: uppercase;
 }
 
-.hero-media-container {
+/* Fear & Greed gauge as hero background layer */
+#start_way {
   position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  overflow: visible;
+}
+#start_way > div:first-child {
+  position: relative;
+  z-index: 1;
+}
+.hero-gauge-bg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(36vw, 560px);
+  z-index: 0;
 }
 
 .cta-group {
@@ -1479,7 +1487,13 @@ h2 { font-size: 50px; font-weight: 700; }
 }
 
 @media (max-width: 1024px) {
-  .hero-media-container { justify-content: center; max-width: 480px; margin: 0 auto; }
+  .hero-gauge-bg {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto var(--spacing-md);
+  }
   .hero { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero div { grid-column: span 2 / span 2; }
   #start_way div:first-child,
@@ -1524,7 +1538,7 @@ h2 { font-size: 50px; font-weight: 700; }
   h2 { font-size: 24px; }
   p  { font-size: 16px; }
   #start_way::before { height: 45rem; }
-  .hero-media-container { max-width: 100%; }
+  .hero-gauge-bg { max-width: 340px; }
   .pilot-btn { padding: 12px 20px; font-size: 13px; border-radius: 10px; }
   .hero-eyebrow { font-size: 10px; }
   .big-card { padding: var(--spacing-md); }

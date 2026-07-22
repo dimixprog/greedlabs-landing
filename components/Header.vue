@@ -507,43 +507,63 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(38px, 13vw, 48px);
-  height: clamp(38px, 13vw, 48px);
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger-background {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 11px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.hamburger-container:active .hamburger-background {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: scale(0.94);
 }
 
 .hamburger-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
+  position: relative;
+  width: 18px;
+  height: 12px;
   z-index: 1;
 }
 
 .hamburger-line {
-  width: clamp(22px, 9.5vw, 36px);
-  height: 6px;
-  background-color: white;
-  border-radius: 100px;
-  transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+  transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease,
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.hamburger-line:nth-child(1) { top: 0; }
+.hamburger-line:nth-child(2) { top: 5px; width: 72%; }
+.hamburger-line:nth-child(3) { top: 10px; }
+
 .hamburger-line.active:nth-child(1) {
-  transform: rotate(45deg) translate(10.6px, 10.6px);
+  top: 5px;
+  transform: rotate(45deg);
 }
 
 .hamburger-line.active:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0.4);
 }
 
 .hamburger-line.active:nth-child(3) {
-  transform: rotate(-45deg) translate(10.6px, -10.6px);
+  top: 5px;
+  transform: rotate(-45deg);
 }
 
 .mobile-menu-overlay {
