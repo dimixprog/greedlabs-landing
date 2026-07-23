@@ -86,7 +86,7 @@
           <p class="stat-item">{{ $t("index.clients_users_title") }}</p>
         </div>
         <div class="flex flex-col items-center">
-          <b><CounterCard :startAmount='0' :endAmount='12' :duration='1' prefix='$' suffix='B+'/></b>
+          <b><CounterCard :startAmount='0' :endAmount='600' :duration='1' prefix='$' suffix='M+'/></b>
           <p class="stat-item">{{ $t("index.clients_volume_title") }}</p>
         </div>
       </div>
